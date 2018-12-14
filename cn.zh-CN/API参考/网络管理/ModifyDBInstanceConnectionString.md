@@ -2,7 +2,7 @@
 
 ## 描述 { .section}
 
-该接口用于修改连接串和端口。
+该接口用于修改实例的内外网连接地址和端口。
 
 ## 请求参数 { .section}
 
@@ -11,8 +11,8 @@
 |<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
 |Action|String|是|系统规定参数，取值为ModifyDBInstanceConnectionString。|
 |DBInstanceId|String|是|实例名。|
-|CurrentConnectionString|String|是|实例当前的某个连接串。|
-|ConnectionStringPrefix|String|是|目标连接串。|
+|CurrentConnectionString|String|是|实例当前的某个连接地址。|
+|ConnectionStringPrefix|String|是|目标连接地址。|
 |Port|String|否|目标端口。|
 
 ## 返回参数 { .section}
