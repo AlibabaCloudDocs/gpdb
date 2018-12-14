@@ -19,7 +19,7 @@
 
 |名称|类型|描述|
 |--|--|--|
-|<公共返回参数\>|无|详见[公共返回参数](ZH-CN_TP_16898_V1.dita#reference_zpm_4wl_q2b/section_apd_1rv_3bb)。|
+|<公共返回参数\>|无|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
 |DBInstanceId|String|实例名。|
 |Engine|String|数据库类型。|
 |StartTime|String|查询开始时间，格式：`YYYY-MM-DDTHH:mmZ`，如2018-05-30T03:29Z。|
