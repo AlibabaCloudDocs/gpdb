@@ -23,7 +23,7 @@
 
 |名称|类型|描述|
 |--|--|--|
-|<公共返回参数\>|-|详见[公共返回参数](ZH-CN_TP_16898_V1.dita#reference_zpm_4wl_q2b/section_apd_1rv_3bb)。|
+|<公共返回参数\>|-|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
 
 ## 请求示例 { .section}
 
