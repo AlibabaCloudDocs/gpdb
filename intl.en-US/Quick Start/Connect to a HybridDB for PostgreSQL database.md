@@ -28,7 +28,7 @@ HybridDB for PostgreSQL supports PostgreSQL 8.2 version, and you must use the ma
 
 3.  Enter the **Properties** as shown in the following figure:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16845/153812706012878_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16845/154520991012878_en-US.png)
 
 4.  Click **OK** to connect to the HybridDB for PostgreSQL database.
 
@@ -87,13 +87,13 @@ Enter the preceding directory, and use psql to connect to HybridDB for PostgreSQ
     -   Connection strings
 
         ```
-        psql "host=yourgpdbaddress.gpdb.rds.aliyuncs.com port=3568 dbname=postgres user=gpdbaccount password=gpdbpassword"
+        psql "host=yourgpdbaddress.gpdb.rds.aliyuncs.com port=3432 dbname=postgres user=gpdbaccount password=gpdbpassword"
         ```
 
     -   Specify parameters
 
         ```
-        psql  -h yourgpdbaddress.gpdb.rds.aliyuncs.com -p 3568 -d postgres -U gpdbaccount
+        psql  -h yourgpdbaddress.gpdb.rds.aliyuncs.com -p 3432 -d postgres -U gpdbaccount
         ```
 
         Parameter descriptions are as follows:
@@ -140,7 +140,7 @@ public class gp_conn {
     public static void main(String[] args) {  
         try {  
             Class.forName("org.postgresql.Driver");  
-            Connection db = DriverManager.getConnection("jdbc:postgresql://mygpdbpub.gpdb.rds.aliyuncs.com:3568/postgres","mygpdb","mygpdb");  
+            Connection db = DriverManager.getConnection("jdbc:postgresql://mygpdbpub.gpdb.rds.aliyuncs.com:3432/postgres","mygpdb","mygpdb");  
             Statement st = db.createStatement();  
             ResultSet rs = st.executeQuery("select * from gp_segment_configuration;");  
             while (rs.next()) {  
@@ -205,7 +205,7 @@ Users can also use Python to connect to HybridDB for PostgreSQL instance’s dat
     ```
      import psycopg2
      sql = 'select * from gp_segment_configuration;'
-     conn = psycopg2.connect(database='gpdb', user='mygpdb', password='mygpdb', host='mygpdbpub.gpdb.rds.aliyuncs.com', port=3568)
+     conn = psycopg2.connect(database='gpdb', user='mygpdb', password='mygpdb', host='mygpdbpub.gpdb.rds.aliyuncs.com', port=3432)
      conn.autocommit = True
      cursor = conn.cursor()
      cursor.execute(sql)
