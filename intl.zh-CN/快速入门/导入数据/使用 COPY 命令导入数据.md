@@ -40,8 +40,8 @@
 
 **说明：** 
 
--   云数据库 HybridDB for PostgreSQL 还支持用户使用 JDBC 执行 COPY 语句，JDBC 中封装了 CopyIn 方法，详细用法请参见文档“[Interface CopyIn](https://jdbc.postgresql.org/documentation/publicapi/org/postgresql/copy/CopyIn.html)”。
+-   云数据库 HybridDB for PostgreSQL 还支持用户使用 JDBC 执行 COPY 语句，JDBC 中封装了 CopyIn 方法，详细用法请参见文档[Interface CopyIn](https://jdbc.postgresql.org/documentation/publicapi/org/postgresql/copy/CopyIn.html)。
 
--   COPY 命令使用方法请参见文档“[COPY](http://gpdb.docs.pivotal.io/4380/ref_guide/sql_commands/COPY.html)”。
+-   COPY 命令使用方法请参见文档[COPY](http://gpdb.docs.pivotal.io/4380/ref_guide/sql_commands/COPY.html)。
 
 
