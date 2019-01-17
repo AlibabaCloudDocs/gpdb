@@ -14,7 +14,7 @@
 |<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
 |Action|String|是|系统规定参数，取值：ModifySecurityIps。|
 |DBInstanceId|String|是|实例名。|
-|SecurityIps|String|是|IP白名单分组下的IP列表，最多1000个，以逗号隔开，格式如下：-   0.0.0.0/0；
+|SecurityIPList|String|是|IP白名单分组下的IP列表，最多1000个，以逗号隔开，格式如下：-   0.0.0.0/0；
 -   10.23.12.24（IP）；
 -   10.23.12.24/24（CIDR模式，无类域间路由，/24表示地址中前缀的长度，范围为\[1,32\]）。
 
@@ -35,7 +35,7 @@
 ```
 https://gpdb.aliyuncs.com/?Action=ModifySecurityIps
 &DBInstanceId=gp-xxxxxxx
-&SecurityIps=192.168.0.1
+&SecurityIPList=192.168.0.1
 &<公共请求参数>
 ```
 
