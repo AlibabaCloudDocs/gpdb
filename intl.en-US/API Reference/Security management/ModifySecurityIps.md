@@ -14,7 +14,7 @@ You can call this operation to modify the whitelist. The whitelist includes the 
 |<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifySecurityIps.|
 |DBInstanceId|String|Yes|The instance name.|
-|SecurityIps|String| Yes|You can add up to 1000 IP addresses under a whitelist. Multiple IP addresses are separated by commas. The format is as follows:-   0.0.0.0/0
+|SecurityIPList|String| Yes|You can add up to 1000 IP addresses under a whitelist. Multiple IP addresses are separated by commas. The format is as follows:-   0.0.0.0/0
 -   10.23.12.24 \(IP\)
 -   10.23.12.24/24 represents the IPv4 address 10.23.12.24. Its subnet mask is 255.255.255.0. /24 represents the length of a routing prefix. The length ranges from 1 to 32. The IP address is expressed as a Classless Inter-Domain Routing \(CIDR\) notation.
 
@@ -35,7 +35,7 @@ You can call this operation to modify the whitelist. The whitelist includes the 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifySecurityIps
 &DBInstanceId=gp-xxxxxxx
-&SecurityIps=127.0.0.1
+&SecurityIPList=192.168.0.1
 &<Common request parameters>
 ```
 
