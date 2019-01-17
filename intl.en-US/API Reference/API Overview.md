@@ -17,12 +17,12 @@
 |API|Description|
 |---|-----------|
 |DeleteDatabase|Deletes a database.|
-|DescribeAccounts|Returns the account information for a database.|
-|ModifyAccountDescription|Modifies the description of the database.|
 
 |API|Description|
 |---|-----------|
 |CreateAccount|Creates an account.|
+|DescribeAccounts|Returns the account information for a database.|
+|ModifyAccountDescription|Modifies the description of the database.|
 |ResetAccountPassword|Resets the password for an account.|
 
 |API|Description|
