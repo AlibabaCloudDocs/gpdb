@@ -12,6 +12,8 @@ You can call this operation to create an instance of HybridDB for PostgreSQL.
 |Action|String|Yes|The operation that you want to perform. Set the value to CreateDBInstance.|
 |RegionId|String|Yes|The ID of a region, such as cn-hangzhou. For more information about available regions, see DescribeRegions.|
 |ZoneId|String|Yes|The ID of a zone, such as cn-hangzhou-d. For more information about available zones, see DescribeRegions.|
+|Engine|String|Yes|The Engine of the database, and the value is gpdb.|
+|EngineVersion|String|Yes|The version of engine, and the value is 4.3.|
 |PayType|String|No|The billing methods:-   Postpaid: Pay-As-You-Go. The default value is Postpaid.
 -   Prepaid: Subscription.
 
@@ -37,7 +39,8 @@ You can call this operation to create an instance of HybridDB for PostgreSQL.
 
 ```
 https://gpdb.aliyuncs.com/?Action=CreateDBInstance
-&Engine=gpdb
+&Engine=gpdb 
+&EngineVersion=4.3
 &amp;RegionId=cn-hangzhou
 &ZoneId=cn-hangzhou-b
 &PayType=Postpaid
