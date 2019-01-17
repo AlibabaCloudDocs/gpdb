@@ -17,12 +17,12 @@
 |API|描述|
 |---|--|
 |DeleteDatabase|删除数据库|
-|DescribeAccounts|查询数据库账户信息|
-|ModifyAccountDescription|修改数据库名的备注名|
 
 |API|描述|
 |---|--|
 |CreateAccount|创建账户|
+|DescribeAccounts|查询数据库账户信息|
+|ModifyAccountDescription|修改数据库名的备注名|
 |ResetAccountPassword|重置账户密码|
 
 |API|描述|
