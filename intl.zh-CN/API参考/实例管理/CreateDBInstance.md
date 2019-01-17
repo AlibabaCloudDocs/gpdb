@@ -12,6 +12,8 @@
 |Action|String|是|CreateDBInstance|
 |RegionId|String|是|地域ID，如cn-hangzhou，可选的地域详见DescribeRegions接口。|
 |ZoneId|String|是|可用区ID，如cn-hangzhou-d，可选的可用区详见DescribeRegions接口。|
+|Engine|String|是|引擎，取值为gpdb。|
+|EngineVersion|String|是|引擎版本，取值为4.3。|
 |PayType|String|否|付费类型：-   Postpaid：按量付费，为默认值。
 -   Prepaid：包年包月。
 
@@ -38,6 +40,7 @@
 ```
 https://gpdb.aliyuncs.com/?Action=CreateDBInstance
 &Engine=gpdb
+&EngineVersion=4.3
 &RegionId=cn-hangzhou
 &ZoneId=cn-hangzhou-b
 &PayType=Postpaid
