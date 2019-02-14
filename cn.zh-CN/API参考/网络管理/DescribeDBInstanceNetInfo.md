@@ -16,10 +16,10 @@
 
 |名称|类型|描述|
 |--|--|--|
-|<公共返回参数\>| |详见[公共返回参数](ZH-CN_TP_16898_V1.dita#reference_zpm_4wl_q2b/section_apd_1rv_3bb)。|
+|<公共返回参数\>| |详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
 |DBInstanceNetInfos|List<DBInstanceNetInfo\>|实例的连接信息。|
 |InstanceNetworkType|String| -   Classic：经典网络。
--   VPC：VPC网络
+-   VPC：VPC网络。
 
  |
 
@@ -27,7 +27,7 @@
 |--|--|--|
 |ConnectionString|String|DNS连接串。|
 |IPAddress|String|IP地址。|
-|IPType|String| -   经典网络类型的实例IPType为：Inner、Public；
+|IPType|String| -   经典网络类型的实例IPType为：Inner、Public。
 -   VPC类型的实例IPType为：Private、Public。
 
  |
