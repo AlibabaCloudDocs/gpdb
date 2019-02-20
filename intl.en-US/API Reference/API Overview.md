@@ -32,10 +32,8 @@
 
 |API|Description|
 |---|-----------|
-|[DescribeSQLCollectorPolicy](reseller.en-US/API Reference/Log management/DescribeSQLCollectorPolicy.md#)|Checks the SQL collection status.|
 |[DescribeSQLLogFiles](reseller.en-US/API Reference/Log management/DescribeSQLLogFiles.md#)|Returns a list of SQL audit files.|
 |[DescribeSQLLogRecords](reseller.en-US/API Reference/Log management/DescribeSQLLogRecords.md#)|Returns a SQL audit log for an instance.|
-|[ModifySQLCollectorPolicy](reseller.en-US/API Reference/Log management/ModifySQLCollectorPolicy.md#)|Modifies the SQL collection status for an instance.|
 
 |API|Description|
 |---|-----------|
