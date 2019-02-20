@@ -19,3 +19,9 @@ The instance must be a Pay-As-You-Go type instance.
     **Note:** Released instances cannot be recovered. Make sure if you need the instance before you perform this operation.
 
 
+## Related API {#section_cz5_t45_vgb .section}
+
+|API|Description|
+|---|-----------|
+|[EN-US\_TP\_16919.md\#](reseller.en-US/API Reference/Instance management/DeleteDBInstance.md#)|Release an instance.|
+
