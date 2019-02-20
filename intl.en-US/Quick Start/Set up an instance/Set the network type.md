@@ -33,3 +33,9 @@ The classic network and VPC have the following differences:
     After the network is switched to VPC, the original intranet address changes from a classic network address to a VPC address. ECS on the classic network can no longer access the HybridDB for PostgreSQL instance. The original Internet address remains unchanged.
 
 
+## Related API {#section_kgx_2wt_vgb .section}
+
+|API|Description|
+|---|-----------|
+|[EN-US\_TP\_16947.md\#](reseller.en-US/API Reference/Network management/ModifyDBInstanceNetworkType.md#)|Switches the network connection type for an instance.|
+
