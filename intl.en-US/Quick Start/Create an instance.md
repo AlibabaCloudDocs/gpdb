@@ -26,7 +26,7 @@ You have registered an account and signed up.
 
     -   Engine: the database type. Only supports **Storage Included**.
 
-    -   Instance Class: the instance type. It is the unit of computing resources. Different classes have different storage spaces and computing capabilities. For details, see [Instance types](../../../../reseller.en-US/Product Introduction/Instance types.md#).
+    -   Instance Class: the instance type. It is the unit of computing resources. Different classes have different storage spaces and computing capabilities. For details, see [Instance types](../../../../../reseller.en-US/Product Introduction/Instance types.md#).
 
     -   Instance Groups: the number of purchased instances. The minimum is two. More groups provide higher linear performance.
 
@@ -38,4 +38,10 @@ You have registered an account and signed up.
 
 
 **Note:** The instance initialization takes some time. You can perform subsequent operations only after the instance status becomes Running.
+
+## Related API {#section_my2_bm5_vgb .section}
+
+|API|Description|
+|---|-----------|
+|[EN-US\_TP\_16918.md\#](reseller.en-US/API Reference/Instance management/CreateDBInstance.md#)|Creates a database instance.|
 
