@@ -6,7 +6,7 @@
 |[DeleteDBInstance](reseller.en-US/API Reference/Instance management/DeleteDBInstance.md#)|Deletes a database instance.|
 |[DescribeDBInstanceAttribute](reseller.en-US/API Reference/Instance management/DescribeDBInstanceAttribute.md#)|Lists all attributes of the database instance.|
 |[DescribeDBInstances](reseller.en-US/API Reference/Instance management/DescribeDBInstances.md#)|Returns a list of database instances.|
-|[EN-US\_16923.md\#](EN-US_16923.md#)|Returns a list of available regions and zones.|
+|[DescribeRegions](reseller.en-US/API Reference/Instance management/DescribeRegions.md#)|Returns a list of available regions and zones.|
 |[DescribeResourceUsage](reseller.en-US/API Reference/Instance management/DescribeResourceUsage.md#)|Returns the resource utilization data of the database instance.|
 |[ModifyDBInstanceConnectionMode](reseller.en-US/API Reference/Instance management/ModifyDBInstanceConnectionMode.md#)|Modifies the connection mode of the database instance.|
 |[ModifyDBInstanceDescription](reseller.en-US/API Reference/Instance management/ModifyDBInstanceDescription.md#)|Modifies the description of the database instance.|
