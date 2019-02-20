@@ -23,3 +23,9 @@ In HybridDB for PostgreSQL, you can change the connection address of an instance
     After the page is refreshed, the new connection address is displayed.
 
 
+## Related API {#section_cz5_t45_vgb .section}
+
+|API|Description|
+|---|-----------|
+|[EN-US\_TP\_16946.md\#](reseller.en-US/API Reference/Network management/ModifyDBInstanceConnectionString.md#)|Modifies the connection address and the port for an instance.|
+
