@@ -50,3 +50,10 @@ The whitelist provides an advanced access protection for HybridDB for PostgreSQL
 
 During the subsequent operations, you can click **Modify** under the group name to modify an existing group, or click **Delete**to delete an existing custom group.
 
+## Related API {#section_wvn_lvt_vgb .section}
+
+|API|Description|
+|---|-----------|
+|[EN-US\_TP\_16937.md\#](reseller.en-US/API Reference/Security management/DescribeDBInstanceIPArrayList.md#)|Returns a list of IP addresses that are allowed to access the database instance.|
+|[EN-US\_TP\_16938.md\#](reseller.en-US/API Reference/Security management/ModifySecurityIps.md#)|Modifies the whitelist of IP addresses.|
+
