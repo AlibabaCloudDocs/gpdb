@@ -57,3 +57,12 @@ When using HybridDB for PostgreSQL, if you forget the password of the database a
     The password must consist of 8 to 32 characters and contain at least three types of the following characters: uppercase letters, lowercase letters, numbers, or special characters. A password that is previously used is not allowed.
 
 
+## Related API {#section_uph_3n5_vgb .section}
+
+|API|Description|
+|---|-----------|
+|[EN-US\_TP\_16934.md\#](reseller.en-US/API Reference/Account management/CreateAccount.md#)|Creates an account.|
+|[EN-US\_TP\_16932.md\#](reseller.en-US/API Reference/Account management/DescribeAccounts.md#)|Returns the account information for a database.|
+|[EN-US\_TP\_16933.md\#](reseller.en-US/API Reference/Account management/ModifyAccountDescription.md#)|Modifies the description of the database.|
+|[EN-US\_TP\_16935.md\#](reseller.en-US/API Reference/Account management/ResetAccountPassword.md#)|Resets the password for an account.|
+
