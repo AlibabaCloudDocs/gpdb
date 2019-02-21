@@ -47,7 +47,7 @@ Here is an example to denote the detailed steps of the operation.
 
     The value in the CLIENT\_ADDR of the query result is the IP address of the local client.
 
-    ![](images/38978_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80825/155073358738978_en-US.png)
 
 4.  Remove `0.0.0.0/0` from the whitelist, and add the IP address in the previous step to access the database with a client.
 
