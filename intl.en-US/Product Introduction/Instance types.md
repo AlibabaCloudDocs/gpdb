@@ -30,5 +30,5 @@ The **high-capacity** instances offer the following types:
 
 ## Related information {#section_yhb_bff_xgb .section}
 
-[How to select instance type?](../../../../../reseller.en-US/FAQ/How to select instance type?.md#)
+[How to select an instance type?](../../../../../reseller.en-US/FAQ/How to select an instance type?.md#)
 
