@@ -18,6 +18,8 @@ This document lists the basic features and limits of HybridDB for PostgreSQL.
 
 -   Supports the JSON data type and the HyperLogLog type. \(You can use the `CREATE EXTENSION` command to create them.\)
 
+    **Note:** Only support json data type of JSON, and not support jsonb data type of JSON.
+
 
 ## Limits { .section}
 
@@ -29,7 +31,7 @@ This document lists the basic features and limits of HybridDB for PostgreSQL.
 
     -   The root user has the permission to view and modify the data of all other non-super users, and terminate \(`Kill`\) the connections of other non-super users.
 
--   Not support the PL/R and PL/Java extensions.
+-   Not support the PL/R extensions.
 
 -   Supports creating the PL/Python extensions, but does not support creating functions by using PL/Python.
 
