@@ -167,6 +167,10 @@ ossprotocol:
 
 -   oss\_file\_max\_size: The maximum size of the file written to OSS. When this limit is exceeded, the export switches to another file to continue data writing. The value is 1,024 MB by default and ranges from 8 MB to 4,000 MB.
 
+-   compressiontype: The compression format of the exported files.
+
+    -   If specified to none \(default value\), it indicates that the exported files are not compressed.
+    -   If specified to gzip, it indicates that the exported format is gzip. Only the gzip compression format is supported.
 
 In addition, pay attention to the following items for the export mode:
 
