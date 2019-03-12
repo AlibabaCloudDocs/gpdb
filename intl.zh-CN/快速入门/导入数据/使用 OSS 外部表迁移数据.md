@@ -200,6 +200,12 @@ ossprotocol:
 
 -   num\_parallel\_worker： 设置写入 OSS 的压缩数据的并行压缩线程个数，取值范围为 1 - 8，默认值为3。
 
+-   compressiontype：导出文件的压缩格式。
+
+    -   指定为 none（缺省值），说明导出的文件没经过压缩。
+
+    -   指定为 gzip，则导出的格式为 gzip。目前仅支持 gzip 压缩格式。
+
 
 另外，针对导出模式，有如下注意事项：
 
@@ -223,7 +229,7 @@ ossprotocol:
 -   oss\_speed\_time：设置能容忍的最长时间，默认是 15 秒。
 
 
-上述参数如果使用默认值，则如果连续 15 秒的传输速率小于 1 KB，就会触发超时。详细描述请参见 [OSS SDK 错误处理](https://www.alibabacloud.com/help/zh/doc-detail/32141.html)。
+上述参数如果使用默认值，则如果连续 15 秒的传输速率小于 1 KB，就会触发超时。详细描述请参见 [OSS SDK 错误处理](https://help.aliyun.com/document_detail/32141.html)。
 
 其他参数兼容 Greenplum EXTERNAL TABLE 的原有语法，具体语法解释请参见 [Greenplum 外部表语法官方文档](http://gpdb.docs.pivotal.io/4380/ref_guide/sql_commands/CREATE_EXTERNAL_TABLE.html)。这部分参数主要有：
 
@@ -312,7 +318,7 @@ explain insert into ossexample_exp select * from example;
 
 -   数据导入的性能和 HybridDB for PostgreSQL 集群的资源（CPU、IO、内存、网络等）相关，也和 OSS 相关。为了获取最大的导入性能，建议在创建表时，使用列式存储 + 压缩功能。例如，指定子句“WITH \(APPENDONLY=true, ORIENTATION=column, COMPRESSTYPE=zlib, COMPRESSLEVEL=5, BLOCKSIZE=1048576\)”，详情请参见 [Greenplum Database 表创建语法官方文档](http://gpdb.docs.pivotal.io/4350/ref_guide/sql_commands/CREATE_TABLE.html)。
 
--   为了保证数据导入的性能，ossendpoint Region 需要匹配 HybridDB for PostgreSQL 云上所在 Region，建议 OSS 和 HybridDB for PostgreSQL 在同一个 Region 内以获得最好的性能。
+-   为了保证数据导入的性能，ossendpoint Region 需要匹配 HybridDB for PostgreSQL 云上所在 Region，建议 OSS 和 HybridDB for PostgreSQL 在同一个 Region 内以获得最好的性能。相关信息请参见 [OSS endpoint 信息](https://help.aliyun.com/document_detail/oss/user_guide/oss_concept/endpoint.html?spm=5176.2060224.101.6.7daJEn)。
 
 
 ## TEXT/CSV 格式说明 {#section_usw_pyr_52b .section}
@@ -359,7 +365,7 @@ explain insert into ossexample_exp select * from example;
 -   req\_id：标识该次请求的 UUID。当您无法解决问题时，可以凭 req\_id 来请求 OSS 开发工程师的帮助。
 
 
-详情请参见[OSS API 错误响应](https://www.alibabacloud.com/help/zh/doc-detail/32005.html)，超时相关的错误可以使用 oss\_ext 相关参数处理。
+详情请参见[OSS API 错误响应](https://help.aliyun.com/document_detail/32005.html)，超时相关的错误可以使用 oss\_ext 相关参数处理。
 
 ## 常见问题 {#section_ftw_pyr_52b .section}
 
@@ -367,13 +373,13 @@ explain insert into ossexample_exp select * from example;
 
 ## 参考文档 {#section_msd_qzr_52b .section}
 
--   [OSS endpoint 信息](https://www.alibabacloud.com/help/zh/doc-detail/31834.html)
+-   [OSS endpoint 信息](https://help.aliyun.com/document_detail/31834.html)
 
--   [OSS help 页面](https://www.alibabacloud.com/help/zh/product/31815.htm)
+-   [OSS help 页面](https://help.aliyun.com/product/8314910_oss.html)
 
--   [OSS SDK 错误处理](https://www.alibabacloud.com/help/zh/doc-detail/32141.html)
+-   [OSS SDK 错误处理](https://help.aliyun.com/document_detail/32141.html)
 
--   [OSS API 错误响应](https://www.alibabacloud.com/help/zh/doc-detail/32005.html)
+-   [OSS API 错误响应](https://help.aliyun.com/document_detail/32005.html)
 
 -   [Greenplum Database 外部表语法官方文档](http://gpdb.docs.pivotal.io/4380/ref_guide/sql_commands/CREATE_EXTERNAL_TABLE.html)
 
