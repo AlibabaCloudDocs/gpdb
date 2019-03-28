@@ -14,11 +14,11 @@ A typical migration process is as follows:
 
 The following figure shows the general workflow:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83416/155376511635299_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83416/155376529535299_en-US.png)
 
 ## Preparations on AWS {#section_dvd_jct_jgb .section}
 
-**Prepare information for accessing the S3 service:**
+**Prepare information for accessing the S3 service**
 
 -   Access Key ID and Secret Access Key
 -   The endpoint of the bucket in S3, for example, **s3.ap-southeast-2.amazonaws.com**
@@ -63,7 +63,7 @@ MAXFILESIZE 50 mb
 
 Export all DDL statements from AWS Redshift including, but not limited to, schema, table, function, and view.
 
-## Preparation on Alibaba Cloud {#section_ivd_jct_jgb .section}
+## Preparations on Alibaba Cloud {#section_ivd_jct_jgb .section}
 
 **Prepare information about the Alibaba Cloud RAM user account**
 
@@ -100,9 +100,9 @@ ossimport
 
 ```
 
-## Migrating data files from S3 to OSS using OSSImport {#section_pvd_jct_jgb .section}
+## Migrate data files from S3 to OSS using OSSImport {#section_pvd_jct_jgb .section}
 
-**Configuring OSSImport**
+**Configure OSSImport**
 
 In the following example, OSSImport is used in the standalone deployment mode.
 
