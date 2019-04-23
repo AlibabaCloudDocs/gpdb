@@ -1,6 +1,6 @@
 # SDK下载地址 {#concept_r3x_tym_q2b .concept}
 
-HybridDB for PostgreSQL支持以下类型的SDK：
+AnalyticDB for PostgreSQL支持以下类型的SDK：
 
 -   Java SDK
 -   Python SDK
