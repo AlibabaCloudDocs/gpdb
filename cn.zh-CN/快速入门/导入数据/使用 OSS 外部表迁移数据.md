@@ -1,6 +1,6 @@
 # 使用 OSS 外部表迁移数据 {#concept_ofw_3mr_52b .concept}
 
-云数据库 HybridDB for PostgreSQL 支持通过 OSS 外部表（即 gpossext 功能），将数据并行从 OSS 导入或导出到 OSS，并支持通过 gzip 进行 OSS 外部表文件压缩，大量节省存储空间及成本。
+云数据库 AnalyticDB for PostgreSQL 支持通过 OSS 外部表（即 gpossext 功能），将数据并行从 OSS 导入或导出到 OSS，并支持通过 gzip 进行 OSS 外部表文件压缩，大量节省存储空间及成本。
 
 目前的 gpossext 支持读写text/csv格式的文件或者gzip 压缩格式的 text/csv 文件。
 
@@ -17,7 +17,7 @@
 
 ## 操作说明 {#section_cpw_pyr_52b .section}
 
-通过 HybridDB for PostgreSQL 使用 OSS 外部表，主要涉及以下操作。
+通过 AnalyticDB for PostgreSQL 使用 OSS 外部表，主要涉及以下操作。
 
 -   [创建OSS外部表插件（oss\_ext）](#)
 -   [并行导入数据](#)
@@ -26,7 +26,7 @@
 
 **创建 OSS 外部表插件（oss\_ext）**
 
-使用 OSS 外部表时，需要在 HybridDB for PostgreSQL 中先创建 OSS 外部表插件（每个数据库需要单独创建）。
+使用 OSS 外部表时，需要在 AnalyticDB for PostgreSQL 中先创建 OSS 外部表插件（每个数据库需要单独创建）。
 
 -   创建命令为：`CREATE EXTENSION IF NOT EXISTS oss_ext;`
 -   删除命令为：`DROP EXTENSION IF EXISTS oss_ext;`
@@ -35,9 +35,9 @@
 
 导入数据时，请执行如下步骤：
 
-1.  将数据均匀分散存储在多个 OSS 文件中，文件的数目最好为 HybridDB for PostgreSQL 数据节点数（Segment 个数）的整数倍。
+1.  将数据均匀分散存储在多个 OSS 文件中，文件的数目最好为 AnalyticDB for PostgreSQL 数据节点数（Segment 个数）的整数倍。
 
-2.  在 HybridDB for PostgreSQL 中，创建 READABLE 外部表。
+2.  在 AnalyticDB for PostgreSQL 中，创建 READABLE 外部表。
 
 3.  执行如下操作，并行导入数据。
 
@@ -50,7 +50,7 @@ INSERT INTO <目标表> SELECT * FROM <外部表>
 
 导出数据时，请执行如下步骤：
 
-1.  在 HybridDB for PostgreSQL 中，创建 WRITABLE 外部表。
+1.  在 AnalyticDB for PostgreSQL 中，创建 WRITABLE 外部表。
 
 2.  执行如下操作，并行把数据导出到 OSS 中。
 
@@ -316,9 +316,9 @@ explain insert into ossexample_exp select * from example;
 
 -   创建和使用外部表的语法，除了 location 相关的参数，其余部分和 Greenplum 相同。
 
--   数据导入的性能和 HybridDB for PostgreSQL 集群的资源（CPU、IO、内存、网络等）相关，也和 OSS 相关。为了获取最大的导入性能，建议在创建表时，使用列式存储 + 压缩功能。例如，指定子句“WITH \(APPENDONLY=true, ORIENTATION=column, COMPRESSTYPE=zlib, COMPRESSLEVEL=5, BLOCKSIZE=1048576\)”，详情请参见 [Greenplum Database 表创建语法官方文档](http://gpdb.docs.pivotal.io/4350/ref_guide/sql_commands/CREATE_TABLE.html)。
+-   数据导入的性能和 AnalyticDB for PostgreSQL 集群的资源（CPU、IO、内存、网络等）相关，也和 OSS 相关。为了获取最大的导入性能，建议在创建表时，使用列式存储 + 压缩功能。例如，指定子句“WITH \(APPENDONLY=true, ORIENTATION=column, COMPRESSTYPE=zlib, COMPRESSLEVEL=5, BLOCKSIZE=1048576\)”，详情请参见 [Greenplum Database 表创建语法官方文档](http://gpdb.docs.pivotal.io/4350/ref_guide/sql_commands/CREATE_TABLE.html)。
 
--   为了保证数据导入的性能，ossendpoint Region 需要匹配 HybridDB for PostgreSQL 云上所在 Region，建议 OSS 和 HybridDB for PostgreSQL 在同一个 Region 内以获得最好的性能。相关信息请参见 [OSS endpoint 信息](https://help.aliyun.com/document_detail/oss/user_guide/oss_concept/endpoint.html?spm=5176.2060224.101.6.7daJEn)。
+-   为了保证数据导入的性能，ossendpoint Region 需要匹配 AnalyticDB for PostgreSQL 云上所在 Region，建议 OSS AnalyticDB for PostgreSQL 在同一个 Region 内以获得最好的性能。相关信息请参见 [OSS endpoint 信息](https://help.aliyun.com/document_detail/oss/user_guide/oss_concept/endpoint.html?spm=5176.2060224.101.6.7daJEn)。
 
 
 ## TEXT/CSV 格式说明 {#section_usw_pyr_52b .section}
