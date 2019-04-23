@@ -11,7 +11,7 @@
 
 |名称|类型|是否必须|描述|
 |--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
+|<公共请求参数\>|-|是|参见[公共参数](cn.zh-CN/API参考/公共参数.md#)。|
 |Action|String|是|系统规定参数，取值为ResetAccountPassword。|
 |DBInstanceId|String|是|实例名。|
 |AccountName|String|是|账户名。|
@@ -21,7 +21,7 @@
 
 |名称|类型|描述|
 |--|--|--|
-|<公共返回参数\>| |详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
+|<公共返回参数\>| |详见[公共返回参数](cn.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
 
 ## 请求示例 { .section}
 
