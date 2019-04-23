@@ -8,8 +8,8 @@
 
 ## 操作步骤 {#section_pyc_tzz_qfb .section}
 
-1.  将`0.0.0.0/0`添加到HybridDB for PostgreSQL实例的白名单，具体操作如下：
-    1.  登录[云数据库HybridDB for PostgreSQL管理控制台](https://gpdb.console.aliyun.com)。
+1.  将`0.0.0.0/0`添加到AnalyticDB for PostgreSQL实例的白名单，具体操作如下：
+    1.  登录[云数据库AnalyticDB for PostgreSQL管理控制台](https://gpdb.console.aliyun.com)。
     2.  选择目标实例所在地域。
     3.  单击目标实例的 ID， 进入实例**基本信息**页面。
     4.  在实例菜单栏中，选择**数据安全性**，进入数据安全性页面。
@@ -20,7 +20,7 @@
         **说明：** `0.0.0.0/0` 允许任何IP访问数据库，将会引入较高的安全风险，请尽快删除。
 
     7.  单击**确定**，完成白名单设置。
-2.  使用客户端连接到HybridDB for PostgreSQL实例，参见[连接数据库](../../../../../intl.zh-CN/快速入门/连接数据库.md#)下载安装psql客户端，使用如下连接语句连接数据库：
+2.  使用客户端连接到AnalyticDB for PostgreSQL实例，参见[连接数据库](../../../../cn.zh-CN/快速入门/连接数据库.md#)下载安装psql客户端，使用如下连接语句连接数据库：
 
     ```
     psql -h yourgpdbaddress.gpdb.rds.aliyuncs.com -p 3432 -d postgres -U gpdbaccount
@@ -41,7 +41,7 @@
 
     查询结果的CLIENT\_ADDR字段即为客户端的IP地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80825/155073365938978_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80825/155601186838978_zh-CN.png)
 
-4.  在HybridDB for PostgreSQL控制台中，将白名单`0.0.0.0/0`删除，输入上个步骤查询到的IP地址，即可正常访问数据库。
+4.  在AnalyticDB for PostgreSQL控制台中，将白名单`0.0.0.0/0`删除，输入上个步骤查询到的IP地址，即可正常访问数据库。
 
