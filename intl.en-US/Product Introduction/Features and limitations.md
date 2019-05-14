@@ -1,6 +1,6 @@
 # Features and limitations {#concept_hjq_p1r_52b .concept}
 
-This document lists the basic features and limits of HybridDB for PostgreSQL.
+This document lists the basic features and limits of AnalyticDB for PostgreSQL.
 
 ## Features { .section}
 
@@ -25,7 +25,7 @@ This document lists the basic features and limits of HybridDB for PostgreSQL.
 
 -   For limits of the core functions, see [Summary of Greenplum Features](http://gpdb.docs.pivotal.io/4380/ref_guide/feature_summary.html).
 
--   Permission limits: The initial user of HybridDB for PostgreSQL \(the root user\) has the permission for creating databases \(`CREATEDB`\) and users \(`CREATEROLE`\), but does not have the super user permission \(`SUPERUSER`\). That is,
+-   Permission limits: The initial user of AnalyticDB for PostgreSQL \(the root user\) has the permission for creating databases \(`CREATEDB`\) and users \(`CREATEROLE`\), but does not have the super user permission \(`SUPERUSER`\). That is,
 
     -   The root user cannot perform operations requiring the super user permission. For example, the root user cannot run file functions such as `pg\_ls\_dir`.
 
@@ -39,6 +39,6 @@ This document lists the basic features and limits of HybridDB for PostgreSQL.
 
 -   Not support MapReduce interfaces, gphdfs storage interfaces and local external tables.
 
--   Not support automatic backup and recovery. HybridDB for PostgreSQL keeps two copies of data, and you can back up data by using the pg\_dump tool.
+-   Not support automatic backup and recovery. AnalyticDB for PostgreSQL keeps two copies of data, and you can back up data by using the pg\_dump tool.
 
 
