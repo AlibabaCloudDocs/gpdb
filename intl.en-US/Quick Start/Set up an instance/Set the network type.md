@@ -1,6 +1,6 @@
 # Set the network type {#concept_jw3_fmr_52b .concept}
 
-Alibaba Cloud ApsaraDB supports two network types: classic network and Virtual Private Cloud \(VPC\). By default, HybridDB for PostgreSQL uses the classic network. If you want to use VPC, ensure that the HybridDB for PostgreSQL instance and the VPC are in the same region.
+Alibaba Cloud ApsaraDB supports two network types: classic network and Virtual Private Cloud \(VPC\). By default, AnalyticDB for PostgreSQL uses the classic network. If you want to use VPC, ensure that the AnalyticDB for PostgreSQL instance and the VPC are in the same region.
 
 This document mainly describes the differences between the two network types and how to configure the settings.
 
@@ -15,9 +15,9 @@ The classic network and VPC have the following differences:
 
 ## Procedure { .section}
 
-1.  Create a VPC in the same region with the target HybridDB for PostgreSQL instance. For detailed steps, see [Create a VPC](https://www.alibabacloud.com/help/doc-detail/27710.htm).
+1.  Create a VPC in the same region with the target AnalyticDB for PostgreSQL instance. For detailed steps, see [Create a VPC](https://www.alibabacloud.com/help/doc-detail/27710.htm).
 
-2.  Log on the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+2.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
 3.  Select the region where the target instance is located.
 
 4.  Click the ID of the instance to go to the **Basic Information** page of the instance.
@@ -30,12 +30,12 @@ The classic network and VPC have the following differences:
 
     **Note:** 
 
-    After the network is switched to VPC, the original intranet address changes from a classic network address to a VPC address. ECS on the classic network can no longer access the HybridDB for PostgreSQL instance. The original Internet address remains unchanged.
+    After the network is switched to VPC, the original intranet address changes from a classic network address to a VPC address. ECS on the classic network can no longer access the AnalyticDB for PostgreSQL instance. The original Internet address remains unchanged.
 
 
 ## Related API {#section_kgx_2wt_vgb .section}
 
 |API|Description|
 |---|-----------|
-|[EN-US\_TP\_16947.md\#](reseller.en-US/API Reference/Network management/ModifyDBInstanceNetworkType.md#)|Switches the network connection type for an instance.|
+|[ModifyDBInstanceNetworkType](../../../../intl.en-US/API Reference/Network management/ModifyDBInstanceNetworkType.md#)|Switches the network connection type for an instance.|
 
