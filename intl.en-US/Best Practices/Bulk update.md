@@ -1,20 +1,20 @@
 # Bulk update {#concept_mjz_zq2_v2b .concept}
 
-Update, also called Merge, indicates updating the latest data to HybridDB for PostgreSQL. If the updated data already exists, it replaces the old version. If the updated data does not exist, it is inserted to the database. Such data merge is usually completed offline. For example, you can set to update data on a daily basis to HybridDB for PostgreSQL. Some users may require real-time updates, that is, the latency is at the minute or second level.
+Update, also called Merge, indicates updating the latest data to AnalyticDB for PostgreSQL. If the updated data already exists, it replaces the old version. If the updated data does not exist, it is inserted to the database. Such data merge is usually completed offline. For example, you can set to update data on a daily basis to AnalyticDB for PostgreSQL. Some users may require real-time updates, that is, the latency is at the minute or second level.
 
-This document describes how to merge data in HybridDB for PostgreSQL and explains the principle behind it. In addition, you can learn how to use the bulk operation to update multiple data.
+This document describes how to merge data in AnalyticDB for PostgreSQL and explains the principle behind it. In addition, you can learn how to use the bulk operation to update multiple data.
 
 ## Simple update {#section_c2v_pzz_gfb .section}
 
-Data merge is about modifying the data, that is, running the Update, Delete, Insert, or Copy operations. Take an Update operation for example, updating the record on a single row in a column-store table. The following figure shows the data updating process in HybridDB for PostgreSQL.
+Data merge is about modifying the data, that is, running the Update, Delete, Insert, or Copy operations. Take an Update operation for example, updating the record on a single row in a column-store table. The following figure shows the data updating process in AnalyticDB for PostgreSQL.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16862/15381258659770_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16862/15578250339770_en-US.png)
 
 The procedure is described as follows:
 
 1.  The user sends an Update SQL request to the master node.
 
-2.  The master node initiates distributed transactions, locking the table to be updated \(HybridDB for PostgreSQL does not allow concurrent updates to the same table\), and distributing updating requests to matched slave nodes.
+2.  The master node initiates distributed transactions, locking the table to be updated \(AnalyticDB for PostgreSQL does not allow concurrent updates to the same table\), and distributing updating requests to matched slave nodes.
 
 3.  Slave nodes scan the index to locate the data to update, and update the data. For column-store tables, the updating logic is to delete the old data row and write the new data row at the end of the table. The updated data page in the column-store table is written to the memory cache, and the change in the corresponding table file length \(because data is written to the table end, the length of the corresponding table file is increased\) is written to the log \(xlog file\).
 
@@ -23,7 +23,7 @@ The procedure is described as follows:
 
 The whole process is long and contains lots of operations, such as SQL statement parsing, transactions distributing, locking, connection establishment between the master node and slave nodes, and the synchronization of data and log between slave nodes and the mirror node. These operations all consume CPU or I/O resources and prolong the response of the request.
 
-Therefore, for HybridDB for PostgreSQL, we recommend that you avoid updates to a single data row, and try to update data by using bulk operations as much as possible. That is:
+Therefore, for AnalyticDB for PostgreSQL, we recommend that you avoid updates to a single data row, and try to update data by using bulk operations as much as possible. That is:
 
 -   Put updates in one SQL statement to reduce the overhead for statement parsing, node communications, and data synchronization.
 -   Put updates in one transaction to avoid unnecessary overhead.
@@ -45,7 +45,7 @@ The target table is usually quite big. Suppose that you want to insert 10 millio
 
 **2. Prepare the stage table**
 
-The stage table \(source\_table in this example\) is necessary for bulk update. It is a temporary table created for updating data. To update the data in target\_table, you first insert the new data to source\_table, and then import the new data by using the [Copy command](../../../../reseller.en-US/Quick Start/Import data/Import data by using the Copy command.md#), [OSS external table](../../../../reseller.en-US/Quick Start/Import data/Parallel import from OSS or export to OSS.md#), or other means to target\_table.
+The stage table \(source\_table in this example\) is necessary for bulk update. It is a temporary table created for updating data. To update the data in target\_table, you first insert the new data to source\_table, and then import the new data by using the [Copy command](../../../../intl.en-US/Quick Start/Import data/Migrate data to AnalyticDB for PostgreSQL by using the Copy command.md#), [OSS external table](../../../../intl.en-US/Quick Start/Import data/Parallel import from OSS or export to OSS.md#), or other means to target\_table.
 
 In the following example, some data is directly generated in source\_table.
 
@@ -85,7 +85,7 @@ The update operation’s query plan is as follows:
                                        Index Cond: public.target_table.c1 = source_table.c1
 ```
 
-From the plan, HybridDB for PostgreSQL uses the index. But if you add more data to source\_table, the optimizer may deem that using Nest Loop associated method and index scanning is not as efficient as dropping the index. As a result, it may use Hash associated method and table scanning for the execution. For example,
+From the plan, AnalyticDB for PostgreSQL uses the index. But if you add more data to source\_table, the optimizer may deem that using Nest Loop associated method and index scanning is not as efficient as dropping the index. As a result, it may use Hash associated method and table scanning for the execution. For example,
 
 ```
 postgres=> insert into source_table select generate_series(1, 1000), generate_series(1,1000);
@@ -142,7 +142,7 @@ insert into target_table select * from source_table;
 
 ## Update data in real time by using Values\(\) expressions {#section_gfv_pzz_gfb .section}
 
-To use the stage table, you must maintain its lifecycle. Some users want to update data to HybridDB for PostgreSQL by bulk in real time, that is, to continuously synchronize data or merge data to HybridDB for PostgreSQL.
+To use the stage table, you must maintain its lifecycle. Some users want to update data to AnalyticDB for PostgreSQL by bulk in real time, that is, to continuously synchronize data or merge data to AnalyticDB for PostgreSQL.
 
 If you use the aforementioned method, you must create and delete \(or truncate\) the stage table repeatedly. In fact, you can use Values expressions to achieve an effect similar to stage tables, without the effort to maintain the table. The approach is to first splice the data to update into a Values expression, and then run the update or delete commands by using the following method:
 
