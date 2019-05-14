@@ -4,17 +4,17 @@ You must set up the whitelist before starting an instance. Add IP addresses or I
 
 ## Background { .section}
 
-There are three scenarios for accessing HybridDB for PostgreSQL databases:
+There are three scenarios for accessing AnalyticDB for PostgreSQL databases:
 
 -   Access from the Internet.
--   Access from the intranet. The network types of HybridDB for PostgreSQL and ECS instances must be identical.
--   Access from the intranet and Internet at the same time. The network types of HybridDB for PostgreSQL and ECS instances must be identical.
+-   Access from the intranet. The network types of AnalyticDB for PostgreSQL and ECS instances must be identical.
+-   Access from the intranet and Internet at the same time. The network types of AnalyticDB for PostgreSQL and ECS instances must be identical.
 
-**Note:** To set the network type, see [Set the Network Type](reseller.en-US/Quick Start/Set up an instance/Set the network type.md#).
+**Note:** To set the network type, see [Set the Network Type](intl.en-US/Quick Start/Set up an instance/Set the network type.md#).
 
-**Procedure**
+**Procedure** 
 
-1.  Log on the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
 2.  Select the region where the target instance is located.
 
 3.  Click the ID of the instance to go to the **Basic Information** page of the instance.
@@ -46,7 +46,7 @@ There are three scenarios for accessing HybridDB for PostgreSQL databases:
 
 ## Next { .section}
 
-The whitelist provides an advanced access protection for HybridDB for PostgreSQL. So, we recommend that you maintain the whitelist on a regular basis.
+The whitelist provides an advanced access protection for AnalyticDB for PostgreSQL. So, we recommend that you maintain the whitelist on a regular basis.
 
 During the subsequent operations, you can click **Modify** under the group name to modify an existing group, or click **Delete**to delete an existing custom group.
 
@@ -54,6 +54,6 @@ During the subsequent operations, you can click **Modify** under the group name 
 
 |API|Description|
 |---|-----------|
-|[EN-US\_TP\_16937.md\#](reseller.en-US/API Reference/Security management/DescribeDBInstanceIPArrayList.md#)|Returns a list of IP addresses that are allowed to access the database instance.|
-|[EN-US\_TP\_16938.md\#](reseller.en-US/API Reference/Security management/ModifySecurityIps.md#)|Modifies the whitelist of IP addresses.|
+|[DescribeDBInstanceIPArrayList](../../../../intl.en-US/API Reference/Security management/DescribeDBInstanceIPArrayList.md#)|Returns a list of IP addresses that are allowed to access the database instance.|
+|[ModifySecurityIps](../../../../intl.en-US/API Reference/Security management/ModifySecurityIps.md#)|Modifies the whitelist of IP addresses.|
 
