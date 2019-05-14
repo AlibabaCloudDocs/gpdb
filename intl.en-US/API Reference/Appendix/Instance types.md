@@ -1,6 +1,6 @@
 # Instance types {#concept_d1p_13m_q2b .concept}
 
-Currently, HybridDB for PostgreSQL provides two instance type families.
+Currently, AnalyticDB for PostgreSQL provides two instance type families.
 
 -   High-performance: The type names start with gpdb.group.**segsdx**. This instance type family offers better I/O performance.
 
@@ -9,7 +9,7 @@ Currently, HybridDB for PostgreSQL provides two instance type families.
 
 We recommend that you choose the appropriate instance type based on the storage space and compute capacity as required.
 
-HybridDB for PostgreSQL supports OSS-based external tables and data compression in external storage through gzip. You can store the data that are not involved in real-time computing to external storage to save costs.
+AnalyticDB for PostgreSQL supports OSS-based external tables and data compression in external storage through gzip. You can store the data that are not involved in real-time computing to external storage to save costs.
 
 ## Type specification {#section_mcr_bwm_q2b .section}
 
