@@ -9,11 +9,11 @@
 |DBInstanceClassChanging|The instance specification is being changed.|
 |Transfering|The instance is being migrated.|
 |EngineVersionUpgrading|The engine version is being upgraded.|
-|TransferingToOtherInstance|The data is being transferred to other instances of HybridDB for PostgreSQL.|
+|TransferingToOtherInstance|The data is being transferred to other instances of AnalyticDB for PostgreSQL.|
 |GuardDBInstanceCreating|The disaster recovery instance is being created.|
 |Restoring|The backup is being restored.|
 |Importing|The data is being imported.|
-|ImportingFromOtherInstance|The data is being imported from other instances of HybridDB for PostgreSQL.|
+|ImportingFromOtherInstance|The data is being imported from other instances of AnalyticDB for PostgreSQL.|
 |DBInstanceNetTypeChanging|The network type is being changed.|
 |GuardSwitching|The environment is being switched to the disaster recovery instance.|
 
