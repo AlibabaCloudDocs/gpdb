@@ -8,8 +8,8 @@ Here is an example to denote the detailed steps of the operation.
 
 ## Procedure {#section_pyc_tzz_qfb .section}
 
-1.  Add `0.0.0.0/0` to the whitelist of the HybridDB for PostgreSQL instance.
-    1.  Log on the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+1.  Add `0.0.0.0/0` to the whitelist of the AnalyticDB for PostgreSQL instance.
+    1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
     2.  Select the region where the target instance is located.
 
     3.  Click the ID of the instance to go to the **Basic Information** page of the instance.
@@ -24,7 +24,7 @@ Here is an example to denote the detailed steps of the operation.
 
     7.  Click **OK** to finish the operation.
 
-2.  Connect to the HybridDB for PostgreSQL instance using a local client. See [Connect to a HybridDB for PostgreSQL database](../../../../../reseller.en-US/Quick Start/Connect to a HybridDB for PostgreSQL database.md#) to download and install the psql client. Issue the following statement to connect to the database:
+2.  Connect to the AnalyticDB for PostgreSQL instance using a local client. See [Connect to a HybridDB for PostgreSQL database](../../../../intl.en-US/Quick Start/Connect to a AnalyticDB for PostgreSQL database.md#) to download and install the psql client. Issue the following statement to connect to the database:
 
     ```
     psql -h yourgpdbaddress.gpdb.rds.aliyuncs.com -p 3432 -d postgres -U gpdbaccount
@@ -47,7 +47,7 @@ Here is an example to denote the detailed steps of the operation.
 
     The value in the CLIENT\_ADDR of the query result is the IP address of the local client.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80825/155073358738978_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80825/155781923138978_en-US.png)
 
 4.  Remove `0.0.0.0/0` from the whitelist, and add the IP address in the previous step to access the database with a client.
 
