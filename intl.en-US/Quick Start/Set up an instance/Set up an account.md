@@ -1,12 +1,12 @@
 # Set up an account {#concept_bhh_2mr_52b .concept}
 
-This document describes how to create an account and reset the password for a HybridDB for PostgreSQL instance.
+This document describes how to create an account and reset the password for a AnalyticDB for PostgreSQL instance.
 
 ## Create an account { .section}
 
 **Prerequisites**
 
-Before using a HybridDB for PostgreSQL instance, you must create an account for the database.
+Before using a AnalyticDB for PostgreSQL instance, you must create an account for the database.
 
 **Note:** 
 
@@ -15,7 +15,7 @@ Before using a HybridDB for PostgreSQL instance, you must create an account for 
 
 **Procedure**
 
-1.  Log on the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
 2.  Select the region where the target instance is located.
 
 3.  Click the ID of the instance to go to the **Basic Information** page of the instance.
@@ -35,13 +35,13 @@ Before using a HybridDB for PostgreSQL instance, you must create an account for 
 
 ## Reset account password { .section}
 
-When using HybridDB for PostgreSQL, if you forget the password of the database account, you can reset the password in the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+When using AnalyticDB for PostgreSQL, if you forget the password of the database account, you can reset the password in the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
 
 **Note:** We recommend that you change the password on a regular basis for data security considerations.
 
 **Procedure**
 
-1.  Log on the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
 2.  Select the region where the target instance is located.
 
 3.  Click **Manage** under the **Action** column of the target instance to go to the **Basic Information** page of the instance.
@@ -61,8 +61,8 @@ When using HybridDB for PostgreSQL, if you forget the password of the database a
 
 |API|Description|
 |---|-----------|
-|[EN-US\_TP\_16934.md\#](reseller.en-US/API Reference/Account management/CreateAccount.md#)|Creates an account.|
-|[EN-US\_TP\_16932.md\#](reseller.en-US/API Reference/Account management/DescribeAccounts.md#)|Returns the account information for a database.|
-|[EN-US\_TP\_16933.md\#](reseller.en-US/API Reference/Account management/ModifyAccountDescription.md#)|Modifies the description of the database.|
-|[EN-US\_TP\_16935.md\#](reseller.en-US/API Reference/Account management/ResetAccountPassword.md#)|Resets the password for an account.|
+|[CreateAccount](../../../../intl.en-US/API Reference/Account management/CreateAccount.md#)|Creates an account.|
+|[DescribeAccounts](../../../../intl.en-US/API Reference/Account management/DescribeAccounts.md#)|Returns the account information for a database.|
+|[ModifyAccountDescription](../../../../intl.en-US/API Reference/Account management/ModifyAccountDescription.md#)|Modifies the description of the database.|
+|[ResetAccountPassword](../../../../intl.en-US/API Reference/Account management/ResetAccountPassword.md#)|Resets the password for an account.|
 
