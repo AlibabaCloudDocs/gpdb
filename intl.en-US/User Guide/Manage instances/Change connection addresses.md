@@ -1,6 +1,6 @@
 # Change connection addresses {#concept_bcx_2gf_hfb .concept}
 
-In HybridDB for PostgreSQL, you can change the connection address of an instance. For example, if you switch your service to a different HybridDB for PostgreSQL instance, you do not need to modify the application. You only need to configure the new instance to use the connection address of the old instance.
+In AnalyticDB for PostgreSQL, you can change the connection address of an instance. For example, if you switch your service to a different AnalyticDB for PostgreSQL instance, you do not need to modify the application. You only need to configure the new instance to use the connection address of the old instance.
 
 ## Prerequisites { .section}
 
@@ -9,7 +9,7 @@ In HybridDB for PostgreSQL, you can change the connection address of an instance
 
 ## Procedure { .section}
 
-1.  Log on to the [HybridDB for PostgreSQL console](https://partners-intl.console.aliyun.com/#/gpdb).
+1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com).
 2.  Select the **Region** of the instance.
 3.  Locate the target instance. In the Actions column, click **Manage**.
 4.  In the left-side navigation pane, click **Database Connection**.
@@ -27,5 +27,5 @@ In HybridDB for PostgreSQL, you can change the connection address of an instance
 
 |API|Description|
 |---|-----------|
-|[EN-US\_TP\_16946.md\#](reseller.en-US/API Reference/Network management/ModifyDBInstanceConnectionString.md#)|Modifies the connection address and the port for an instance.|
+|[ModifyDBInstanceConnectionString](../../../../intl.en-US/API Reference/Network management/ModifyDBInstanceConnectionString.md#)|Modifies the connection address and the port for an instance.|
 
