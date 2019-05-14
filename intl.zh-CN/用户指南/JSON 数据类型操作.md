@@ -2,7 +2,7 @@
 
 JSON 类型几乎已成为互联网及物联网（IoT）的基础数据类型，其重要性不言而喻，具体协议请参见 [JSON 官网](http://www.json.org/)。
 
-PostgreSQL 对 JSON 的支持已经比较完善，阿里云深度优化云数据库 HybridDB for PostgreSQL，基于 PostgreSQL 语法进行了 JSON 数据类型的支持。
+PostgreSQL 对 JSON 的支持已经比较完善，阿里云深度优化云数据库 AnalyticDB for PostgreSQL，基于 PostgreSQL 语法进行了 JSON 数据类型的支持。
 
 ## 检查现有版本是否支持 JSON {#section_eyr_pxy_52b .section}
 
@@ -45,7 +45,7 @@ LINE 1: SELECT '""'::json;
 (1 row)
 ```
 
-`::`在 PostgreSQL/Greenplum/HybridDB for PostgreSQL 中代表强制类型转换。在此转换的时候，会调用 JSON 类型的输入函数。因此，类型转换时同样会做 JSON 格式的检查，如下所示：
+`::`在 PostgreSQL/Greenplum/AnalyticDB for PostgreSQL 中代表强制类型转换。在此转换的时候，会调用 JSON 类型的输入函数。因此，类型转换时同样会做 JSON 格式的检查，如下所示：
 
 ```
 => SELECT '{hijson:1024}'::json;

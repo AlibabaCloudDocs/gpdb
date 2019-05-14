@@ -1,12 +1,12 @@
 # Operations of JSON data {#concept_osb_pxy_52b .concept}
 
-The JSON type has become the standard data type of the Internet and the Internet of Things \(IoT\). You can view the specific protocols at the [JSON Official Website](http://www.json.org/). PostgreSQL supports JSON well. HybridDB for PostgreSQL also supports the JSON data type based on the PostgreSQL syntax.
+The JSON type has become the standard data type of the Internet and the Internet of Things \(IoT\). You can view the specific protocols at the [JSON Official Website](http://www.json.org/). PostgreSQL supports JSON well. AnalyticDB for PostgreSQL also supports the JSON data type based on the PostgreSQL syntax.
 
-This document introduces the basic operations and supported objects of the JSON data in HybridDB for PostgreSQL, including [checking compatibility](#check), [converting strings to JSON](#), [internal data types](#datatype), [operators](#operator), and [functions](#function). In addition, some [usage examples](#code) are provided for your reference.
+This document introduces the basic operations and supported objects of the JSON data in AnalyticDB for PostgreSQL, including [checking compatibility](#check), [converting strings to JSON](#), [internal data types](#datatype), [operators](#operator), and [functions](#function). In addition, some [usage examples](#code) are provided for your reference.
 
 ## Check whether the current version supports JSON {#check .section}
 
-Start a HybridDB for PostgreSQL instance, and run the following command to check whether the current version supports JSON or not:
+Start a AnalyticDB for PostgreSQL instance, and run the following command to check whether the current version supports JSON or not:
 
 ```
 => SELECT '""'::json;
@@ -48,7 +48,7 @@ Database operations mainly involve: read and write. Writing JSON data means conv
 (1 row)
 ```
 
-`::` represents force type conversion in PostgreSQL, Greenplum and HybridDB for PostgreSQL. The JSON type input function is called during the conversion process. Therefore, JSON format check is performed during the type conversion as follows:
+`::` represents force type conversion in PostgreSQL, Greenplum and AnalyticDB for PostgreSQL. The JSON type input function is called during the conversion process. Therefore, JSON format check is performed during the type conversion as follows:
 
 ```
 => SELECT '{hijson:1024}'::json;
