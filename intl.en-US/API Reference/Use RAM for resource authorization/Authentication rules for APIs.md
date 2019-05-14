@@ -1,8 +1,8 @@
 # Authentication rules for APIs {#reference_lpq_xyl_q2b .reference}
 
-When you use APIs to access resources as a RAM user, HybridDB for PostgreSQL checks whether the RAM user is granted the required permissions by querying Resource Access Management \(RAM\).
+When you use APIs to access resources as a RAM user, AnalyticDB for PostgreSQL checks whether the RAM user is granted the required permissions by querying Resource Access Management \(RAM\).
 
-When you access cross-account resources by using APIs, HybridDB for PostgreSQL checks whether you are granted the required permissions to access these resources by querying RAM. The permissions to be checked are determined by the resources used by an API and the API operation. For more information about authentication rules for each API, see [Table 1](#table_zcx_cft_jbb).
+When you access cross-account resources by using APIs, AnalyticDB for PostgreSQL checks whether you are granted the required permissions to access these resources by querying RAM. The permissions to be checked are determined by the resources used by an API and the API operation. For more information about authentication rules for each API, see [Table 1](#table_zcx_cft_jbb).
 
 |Action|Authentication rule|
 |------|-------------------|

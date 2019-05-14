@@ -2,7 +2,7 @@
 
 当子用户通过API 进行资源访问时，后台向RAM进行权限检查，以确保调用者拥有相应权限。
 
-当用户通过 OpenAPI 进行跨账户的HybridDB for PostgreSQL资源访问时，HybridDB for PostgreSQL后台向RAM进行权限检查，以确保资源拥有者的确将相关资源的相关权限授予了调用者。每个不同的OpenAPI会根据涉及到的资源以及API的语义来确定需要检查哪些资源的权限。具体每个API的鉴权规则参见[表 1](#table_zcx_cft_jbb)。
+当用户通过 OpenAPI 进行跨账户的 AnalyticDB for PostgreSQL资源访问时， AnalyticDB for PostgreSQL后台向RAM进行权限检查，以确保资源拥有者已经将相关资源的相关权限授予调用者。每个不同的OpenAPI会根据涉及到的资源以及API的语义来确定需要检查哪些资源的权限。具体每个API的鉴权规则参见[表 1](#table_zcx_cft_jbb)。
 
 |Action|鉴权规则|
 |------|----|
