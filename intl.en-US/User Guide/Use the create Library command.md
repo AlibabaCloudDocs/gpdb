@@ -1,6 +1,6 @@
 # Use the create Library command {#concept_prd_qhz_52b .concept}
 
-HybridDB for PostgreSQL introduces the “Create Library/Drop Library” command to allow you to import custom software packages. For PL/Java UDF examples created by using this command, see [PL/Java UDF Usage](reseller.en-US/User Guide/Use PL ∕ Java UDF.md#).
+AnalyticDB for PostgreSQL introduces the “Create Library/Drop Library” command to allow you to import custom software packages. For PL/Java UDF examples created by using this command, see [PL/Java UDF Usage](intl.en-US/User Guide/Use PL ∕ Java UDF.md#).
 
 This document describes the usage of the `Create/Drop Library` command.
 

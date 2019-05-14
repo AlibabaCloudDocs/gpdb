@@ -1,6 +1,6 @@
 # 使用 Create Library 命令 {#concept_prd_qhz_52b .concept}
 
-为支持用户导入自定义软件包，HybridDB for PostgreSQL 引入了 Create Library/Drop Library 命令。使用此命令创建 PL/Java 的 UDF 的示例，请参见 [PL/Java UDF的使用](intl.zh-CN/用户指南/使用 PL∕Java UDF.md#)。
+为支持用户导入自定义软件包，AnalyticDB for PostgreSQL 引入了 Create Library/Drop Library 命令。使用此命令创建 PL/Java 的 UDF 的示例，请参见 [PL/Java UDF的使用](intl.zh-CN/用户指南/使用 PL ∕ Java UDF.md#)。
 
 本文介绍了 Create/Drop Library 命令的使用方法。
 
