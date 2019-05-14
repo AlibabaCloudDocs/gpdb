@@ -1,8 +1,8 @@
 # How to select an instance type? {#concept_unc_jhg_v2b .concept}
 
-When creating or upgrading an instance in HybridDB for PostgreSQL, you must specify the [group type and number of groups](../../../../../reseller.en-US/Product Introduction/Concepts.md#).
+When creating or upgrading an instance in AnalyticDB for PostgreSQL, you must specify the [group type and number of groups](../../../../intl.en-US/Product Introduction/Concepts.md#).
 
-HybridDB for PostgreSQL supports multiple group types. For more information, see [Instance types](../../../../../reseller.en-US/Product Introduction/Instance types.md#). You can also specify multiple groups with the same type. We recommend that you consider the following factors when selecting your group type and quantity:
+AnalyticDB for PostgreSQL supports multiple group types. For more information, see [Instance types](../../../../intl.en-US/Product Introduction/Instance types.md#). You can also specify multiple groups with the same type. We recommend that you consider the following factors when selecting your group type and quantity:
 
 -   The storage space required
 -   The computing capability required
@@ -20,7 +20,7 @@ Note the following when determining the expected storage space:
 
 A group type and group quantity combo matches a specific computing capability. The computing capability is determined by the computing group type, number of CPUs, memory size, and the number of groups.
 
-HybridDB for PostgreSQL has two group types available:
+AnalyticDB for PostgreSQL has two group types available:
 
 -   High-performance group: the group type name starts with gpdb.group.**segsdx**. This type features a better I/O capability that secures higher performance.
 
@@ -29,7 +29,7 @@ HybridDB for PostgreSQL has two group types available:
 
 Three other factors also contribute to linear increase of performance. Take a high-performance type for example. The SQL execution durations in the following use cases are close to each other:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16871/155107698512980_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16871/155781953212980_en-US.png)
 
 In addition, you also need to take the price into account.
 
