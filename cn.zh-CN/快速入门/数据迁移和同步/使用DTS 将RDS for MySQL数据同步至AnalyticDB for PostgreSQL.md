@@ -16,10 +16,12 @@
 ## 支持的同步语法 {#section_czl_s5z_nhb .section}
 
 -   DML操作：INSERT、UPDATE、DELETE。
--   DDL操作：ALTER TABLE、ADD COLUMN、DROP COLUMN、RENAME COLUMN。
+-   DDL操作：ALTER TABLE。目前仅支持ADD COLUMN、DROP COLUMN、MODIFY COLUMN、CHANGE COLUMN。
 
-    **说明：** 不支持CREATE TABLE和DROP TABLE操作。如您需要新增表，则需要通过修改同步对象操作来新增对应表的同步，详情请参考[新增同步对象](https://help.aliyun.com/document_detail/26634.html)。
+    **说明：** 
 
+    -   不支持COMMENT内容的同步。
+    -   不支持CREATE TABLE和DROP TABLE操作。如您需要新增表，则需要通过修改同步对象操作来新增对应表的同步，详情请参考[新增同步对象](https://help.aliyun.com/document_detail/26634.html)。
 
 ## 支持的同步架构 {#section_yy4_q5z_nhb .section}
 
@@ -77,7 +79,7 @@
 3.  定位至已购买的数据同步实例，单击**配置同步链路**。
 4.  配置同步通道的源实例及目标实例信息。
 
-    ![配置数据同步的源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155661471945688_zh-CN.png)
+    ![配置数据同步的源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155832373845688_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |:---|:---|:---|
@@ -106,7 +108,7 @@
 5.  单击页面右下角的**授权白名单并进入下一步**。
 6.  配置同步策略及对象信息。
 
-    ![配置同步策略和对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155661471945690_zh-CN.png)
+    ![配置同步策略和对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155832373845690_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |:---|:---|:---|
@@ -144,12 +146,12 @@
     **说明：** 
 
     -   在数据同步任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动数据同步任务。
-    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155661471945708_zh-CN.png)，查看具体的失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155832373845708_zh-CN.png)，查看具体的失败详情。根据失败原因修复后，重新进行预检查。
 8.  在预检查对话框中显示**预检查通过**后，关闭预检查对话框，该同步作业的同步任务正式开始。
 9.  等待该同步作业的链路初始化完成，直至状态处于**同步中**。
 
     您可以在 数据同步页面，查看数据同步状态。
 
-    ![数据同步状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155661471945691_zh-CN.png)
+    ![数据同步状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/155832373845691_zh-CN.png)
 
 
