@@ -1,6 +1,8 @@
 # 如何从其他数据源同步数据到 AnalyticDB for PostgreSQL？ {#concept_ujs_lgg_v2b .concept}
 
-目前支持的 ETL 工具如下：
+支持的 ETL 工具见下，可以同时参见更详细的同步方案列表[数据迁移和同步方案概览](../../../../cn.zh-CN/快速入门/数据迁移和同步/数据迁移和同步方案概览.md#)：
+
+-   [数据传输服务（DTS）](https://help.aliyun.com/document_detail/26607.html)：阿里云提供的实时数据同步服务，可以将其他数据源（RDS MySQL, ECS自建MySQL，PolarDB 等）实时同步数据到 AnalyticDB for PostgreSQL ，构建实时数据仓库解决方案。
 
 -   [阿里云的数据集成服务\(Data Integration\)](https://www.aliyun.com/product/cdp/) ：阿里云提供的 ETL 工具。在数据集成服务中，将 AnalyticDB for PostgreSQL 配置为一个 PostgreSQL 数据库，即可实现其他数据源（RDS、MaxCompute、TableStore 等）到 AnalyticDB for PostgreSQL 的数据同步。
 
