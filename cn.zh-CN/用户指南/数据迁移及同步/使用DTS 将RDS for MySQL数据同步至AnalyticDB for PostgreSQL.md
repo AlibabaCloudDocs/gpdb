@@ -40,6 +40,8 @@
 
 根据源RDS实例中待迁移数据表的数据结构，在目标AnalyticDB for PostgreSQL实例中创建数据库、Schema及数据表，详情请参考[AnalyticDB for PostgreSQL基础操作](https://help.aliyun.com/document_detail/35427.html)。
 
+**说明：** MySQL的timestamp类型对应AnalyticDB for PostgreSQL的timestamp with time zone类型。
+
 ## 操作步骤二 购买数据同步实例 {#section_icf_frm_4hb .section}
 
 1.  登录[数据传输服务DTS控制台](https://dts.console.aliyun.com/)。
@@ -79,7 +81,7 @@
 3.  定位至已购买的数据同步实例，单击**配置同步链路**。
 4.  配置同步通道的源实例及目标实例信息。
 
-    ![配置数据同步的源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156022240645688_zh-CN.png)
+    ![配置数据同步的源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156134440745688_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |:---|:---|:---|
@@ -108,7 +110,7 @@
 5.  单击页面右下角的**授权白名单并进入下一步**。
 6.  配置同步策略及对象信息。
 
-    ![配置同步策略和对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156022240745690_zh-CN.png)
+    ![配置同步策略和对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156134440745690_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |:---|:---|:---|
@@ -146,12 +148,12 @@
     **说明：** 
 
     -   在数据同步任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动数据同步任务。
-    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156022240745708_zh-CN.png)，查看具体的失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156134440745708_zh-CN.png)，查看具体的失败详情。根据失败原因修复后，重新进行预检查。
 8.  在预检查对话框中显示**预检查通过**后，关闭预检查对话框，该同步作业的同步任务正式开始。
 9.  等待该同步作业的链路初始化完成，直至状态处于**同步中**。
 
     您可以在 数据同步页面，查看数据同步状态。
 
-    ![数据同步状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156022240745691_zh-CN.png)
+    ![数据同步状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156134440845691_zh-CN.png)
 
 
