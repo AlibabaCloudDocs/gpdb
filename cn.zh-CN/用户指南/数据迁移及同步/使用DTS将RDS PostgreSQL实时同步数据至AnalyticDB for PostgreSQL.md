@@ -1,6 +1,6 @@
 # 使用DTS将RDS PostgreSQL实时同步数据至AnalyticDB for PostgreSQL {#concept_845282 .concept}
 
-[数据传输服务](https://dts.console.aliyun.com/#/home/)（Data Transmission Service，简称DTS）支持将RDS for PostgreSQL数据同步至AnalyticDB for PostgreSQL。通过DTS提供的数据同步功能，可以轻松实现数据的流转，将企业数据集中分析。
+[数据传输服务](https://dts.console.aliyun.com/#/home/)（Data Transmission Service，简称DTS）支持将RDS PostgreSQL数据同步至AnalyticDB for PostgreSQL。通过DTS提供的数据同步功能，可以轻松实现数据的流转，将企业数据集中分析。
 
 ## 前提条件 {#section_d8q_1qa_ssm .section}
 
