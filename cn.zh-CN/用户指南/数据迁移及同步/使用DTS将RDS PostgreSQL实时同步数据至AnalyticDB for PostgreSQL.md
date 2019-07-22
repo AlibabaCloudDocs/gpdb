@@ -5,7 +5,7 @@
 ## 前提条件 {#section_d8q_1qa_ssm .section}
 
 -   源RDS PostgreSQL和目标AnalyticDB for PostgreSQL的数据表必须建有主键。
--   源库需为RDS PostgreSQL 9.48以上版本。
+-   源库需为RDS PostgreSQL 9.4或10版本。
 
 ## 注意事项 {#section_z1x_9n3_lft .section}
 
@@ -65,7 +65,7 @@
 9.  定位至已购买的数据同步实例，单击**配置同步链路**。
 10. 配置同步通道的源实例及目标实例信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156212045650671_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156376661050671_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |----|----|----|
@@ -92,12 +92,16 @@
 11. 单击页面右下角的**授权白名单并进入下一步**。
 12. 配置同步策略及对象信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156212045650675_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156376661052438_zh-CN.png)
 
     |配置项目|配置参数|配置说明|
     |:---|----|:---|
     |同步策略配置|同步初始化|选择**全量数据初始化**。 **说明：** 将源实例中已经存在同步对象的数据在目标实例中初始化，作为后续增量同步数据的基线数据。
 
+ |
+    |目标已存在表的处理模式|     -   **预检查并报错拦截**：如果发现目标表中已有数据，报错停止。
+    -   **清空目标表数据**：如果发现目标表中已有数据，清空表数据。
+    -   **无操作**：无论目标表是否有数据，不做任何操作。
  |
     |同步操作类型|     -   **Insert**
     -   **Update**
@@ -122,7 +126,7 @@
     -   如果预检查失败，请查看具体的失败详情。根据失败原因修复后，重新进行预检查。
 14. 在预检查对话框中显示**预检查通过**后，关闭预检查对话框，该同步作业的同步任务正式开始。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156212045650676_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156376661050676_zh-CN.png)
 
 15. 等待该同步作业的链路初始化完成，直至状态处于**同步中**。
 
