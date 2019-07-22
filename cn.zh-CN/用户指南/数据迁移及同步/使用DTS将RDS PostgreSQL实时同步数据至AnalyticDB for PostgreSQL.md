@@ -9,10 +9,20 @@
 
 ## 注意事项 {#section_z1x_9n3_lft .section}
 
--   同步过程中，若源库有DDL操作，需要手工在目标库中进行对应的DDL操作。
+-   不支持迁移使用C语言编写的function。
+-   一个数据同步任务只能对一个数据库进行数据同步，如果有多个数据库需要同步，则需要为每个数据库创建数据同步任务。
+-   如果同步对象为数据库，在同步过程中，在待同步的数据库中创建新表时，需要在自建PostgreSQL中对新创建的表执行如下语句：
+
+    ``` {#codeblock_jfz_f3j_uhp}
+    ALTER TABLE schema.table REPLICA IDENTITY FULL;
+    ```
+
+    **说明：** 将schema和table替换成真实的schema名和表名。
+
 -   目前不支持BIT、VARBIT、JSON、GEOMETRY、ARRAY、UUID、TSQUERY、TSVECTOR、TXID\_SNAPSHOT类型的数据同步。
 -   RDS PostgreSQL的JSON类型字段可以同步为AnalyticDB for PostgreSQL的VARCHAR类型。
 -   仅支持INSERT、UPDATE、DELETE语句的数据同步；不支持DDL及其它DML 语句同步。
+-   同步过程中，若源库有DDL操作，需要手工在目标库中进行对应的DDL操作，然后重启DTS任务。
 
 ## 迁移前准备工作 {#section_2kq_h0l_zm8 .section}
 
@@ -65,7 +75,7 @@
 9.  定位至已购买的数据同步实例，单击**配置同步链路**。
 10. 配置同步通道的源实例及目标实例信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156376661050671_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156378384150671_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |----|----|----|
@@ -92,7 +102,7 @@
 11. 单击页面右下角的**授权白名单并进入下一步**。
 12. 配置同步策略及对象信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156376661052438_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156378384152438_zh-CN.png)
 
     |配置项目|配置参数|配置说明|
     |:---|----|:---|
@@ -126,7 +136,7 @@
     -   如果预检查失败，请查看具体的失败详情。根据失败原因修复后，重新进行预检查。
 14. 在预检查对话框中显示**预检查通过**后，关闭预检查对话框，该同步作业的同步任务正式开始。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156376661050676_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156378384250676_zh-CN.png)
 
 15. 等待该同步作业的链路初始化完成，直至状态处于**同步中**。
 
