@@ -4,25 +4,22 @@
 
 ## 前提条件 {#section_d8q_1qa_ssm .section}
 
--   源RDS PostgreSQL和目标AnalyticDB for PostgreSQL的数据表必须建有主键。
--   源库需为RDS PostgreSQL 9.4或10版本。
+-   源RDS PostgreSQL和目标AnalyticDB for PostgreSQL的数据表必须建有主键，该唯一标识用于在同步任务中断重做时，保证记录唯一性。
+-   源库需为RDS PostgreSQL 9.4及以上版本或10.0 及以上版本。
 
 ## 注意事项 {#section_z1x_9n3_lft .section}
 
--   不支持迁移使用C语言编写的function。
 -   一个数据同步任务只能对一个数据库进行数据同步，如果有多个数据库需要同步，则需要为每个数据库创建数据同步任务。
--   如果同步对象为数据库，在同步过程中，在待同步的数据库中创建新表时，需要在RDS PostgreSQL中对新创建的表执行如下语句：
+-   对于已经启动同步任务的源库，若源库中创建新表并要将其加入同步任务，要求对该表执行如下操作，从而保证该表数据同步的一致性 ：（注：对于首次创建同步任务时，在源库中已经指定的将要同步的表，DTS会对这些表自动完成该操作）
 
     ``` {#codeblock_jfz_f3j_uhp}
     ALTER TABLE schema.table REPLICA IDENTITY FULL;
     ```
 
-    **说明：** 将schema和table替换成真实的schema名和表名。
-
--   目前不支持BIT、VARBIT、JSON、GEOMETRY、ARRAY、UUID、TSQUERY、TSVECTOR、TXID\_SNAPSHOT类型的数据同步。
+-   不支持BIT、VARBIT、JSON、GEOMETRY、ARRAY、UUID、TSQUERY、TSVECTOR、TXID\_SNAPSHOT类型的数据同步。
 -   RDS PostgreSQL的JSON类型字段可以同步为AnalyticDB for PostgreSQL的VARCHAR类型。
 -   仅支持INSERT、UPDATE、DELETE语句的数据同步；不支持DDL及其它DML 语句同步。
--   同步过程中，若源库有DDL操作，需要手工在目标库中进行对应的DDL操作，然后重启DTS任务。
+-   同步过程中，若源库有涉及同步链路的DDL操作，需要手工在目标库中进行对应的DDL操作，然后重启DTS任务。
 
 ## 迁移前准备工作 {#section_2kq_h0l_zm8 .section}
 
@@ -75,7 +72,7 @@
 9.  定位至已购买的数据同步实例，单击**配置同步链路**。
 10. 配置同步通道的源实例及目标实例信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156378395750671_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156462474550671_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |----|----|----|
@@ -102,7 +99,7 @@
 11. 单击页面右下角的**授权白名单并进入下一步**。
 12. 配置同步策略及对象信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156378395752438_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156462474552438_zh-CN.png)
 
     |配置项目|配置参数|配置说明|
     |:---|----|:---|
@@ -136,7 +133,7 @@
     -   如果预检查失败，请查看具体的失败详情。根据失败原因修复后，重新进行预检查。
 14. 在预检查对话框中显示**预检查通过**后，关闭预检查对话框，该同步作业的同步任务正式开始。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156378395750676_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/684075/156462474550676_zh-CN.png)
 
 15. 等待该同步作业的链路初始化完成，直至状态处于**同步中**。
 
