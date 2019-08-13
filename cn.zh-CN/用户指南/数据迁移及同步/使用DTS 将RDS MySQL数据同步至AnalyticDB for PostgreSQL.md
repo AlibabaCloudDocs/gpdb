@@ -10,7 +10,7 @@
 ## 数据同步功能限制 {#section_dwq_cwz_nhb .section}
 
 -   同步对象仅支持数据表，暂不支持非数据表的对象。
--   暂不支持结构迁移功能。
+-   暂不支持结构迁移功能。可以使用开源工具进行 MySQL 表定义到 ADB PG表定义的转换 [MySQL到ADB PG版表结构转换工具](https://yq.aliyun.com/articles/712865)。
 -   不支持JSON、GEOMETRY、CURVE、SURFACE、MULTIPOINT、MULTILINESTRING、MULTIPOLYGON、GEOMETRYCOLLECTION、BYTEA类型的数据同步。
 
 ## 支持的同步语法 {#section_czl_s5z_nhb .section}
@@ -81,7 +81,7 @@
 3.  定位至已购买的数据同步实例，单击**配置同步链路**。
 4.  配置同步通道的源实例及目标实例信息。
 
-    ![配置数据同步的源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156180568845688_zh-CN.png)
+    ![配置数据同步的源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156569567045688_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |:---|:---|:---|
@@ -110,7 +110,7 @@
 5.  单击页面右下角的**授权白名单并进入下一步**。
 6.  配置同步策略及对象信息。
 
-    ![配置同步策略和对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156180568845690_zh-CN.png)
+    ![配置同步策略和对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156569567045690_zh-CN.png)
 
     |配置项目|配置选项|配置说明|
     |:---|:---|:---|
@@ -148,12 +148,12 @@
     **说明：** 
 
     -   在数据同步任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动数据同步任务。
-    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156180568945708_zh-CN.png)，查看具体的失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156569567045708_zh-CN.png)，查看具体的失败详情。根据失败原因修复后，重新进行预检查。
 8.  在预检查对话框中显示**预检查通过**后，关闭预检查对话框，该同步作业的同步任务正式开始。
 9.  等待该同步作业的链路初始化完成，直至状态处于**同步中**。
 
     您可以在 数据同步页面，查看数据同步状态。
 
-    ![数据同步状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156180568945691_zh-CN.png)
+    ![数据同步状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/188230/156569567145691_zh-CN.png)
 
 
