@@ -2,9 +2,9 @@
 
 This document lists the basic features and limits of AnalyticDB for PostgreSQL.
 
-## Features { .section}
+## Features {#section_qcl_hwm_03g .section}
 
--   Covers the key functions of Greenplum Database. For details, see [Summary of Greenplum Features](http://gpdb.docs.pivotal.io/4380/ref_guide/feature_summary.html).
+-   Covers the key functions of Greenplum Database. For details, see [Summary of Greenplum Features](https://gpdb.docs.pivotal.io/43330/ref_guide/feature_summary.html).
 
 -   Supports MetaScan and SortKey.
 
@@ -21,9 +21,9 @@ This document lists the basic features and limits of AnalyticDB for PostgreSQL.
     **Note:** Only support json data type of JSON, and not support jsonb data type of JSON.
 
 
-## Limits { .section}
+## Limits {#section_wa9_zfv_j32 .section}
 
--   For limits of the core functions, see [Summary of Greenplum Features](http://gpdb.docs.pivotal.io/4380/ref_guide/feature_summary.html).
+-   For limits of the core functions, see [Summary of Greenplum Features](https://gpdb.docs.pivotal.io/43330/ref_guide/feature_summary.html).
 
 -   Permission limits: The initial user of AnalyticDB for PostgreSQL \(the root user\) has the permission for creating databases \(`CREATEDB`\) and users \(`CREATEROLE`\), but does not have the super user permission \(`SUPERUSER`\). That is,
 
