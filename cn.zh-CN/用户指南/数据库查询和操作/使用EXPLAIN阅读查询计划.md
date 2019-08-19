@@ -88,9 +88,9 @@ Gather Motion 2:1 (slice1; segments: 2) (cost=0.00..20.88 rows=1 width=13)
 
 运行这个查询花掉的总时间是22.548毫秒。Sequential scan操作只有Segment（seg0）节点返回了1行，用了0.255毫秒找到第一行且用了0.486毫秒来扫描所有的行。Segment向Master发送数据的Gather Motion接收到1行。这个操作的总消耗时间是0.537毫秒。
 
-**常见的查询操作**
+**常见的查询算子**
 
-表扫描操作符（SCAN）扫描表中的行以寻找一个行的集合。对于不同种类的存储有不同的扫描操作符。它们包括：
+表扫描操作算子（SCAN）扫描表中的行以寻找一个行的集合，包括以下一些类型：
 
 -   Seq Scan ：顺序 扫描表中的所有行。
 -   Append-only Scan ： 扫描行存追加优化表。
@@ -105,19 +105,19 @@ Gather Motion 2:1 (slice1; segments: 2) (cost=0.00..20.88 rows=1 width=13)
     Function Scan节点将动态选择的分区列表传递给Result节点，该节点又会被传递给Sequence节点。
 
 
-表连接操作符（JOIN）包括以下一些类型：
+表连接操作算子（JOIN）包括以下一些类型：
 
 -   Hash Join ：从较小的表构建一个哈希表，用连接列作为哈希键扫描较大的表，为连接列计算哈希键并寻找具有相同哈希键的行。哈希连接通常是数据库中最快的连接。计划中的Hash Cond标识要被连接的列。
 -   Nested Loop Join ：选择在较大的表作为外表，迭代扫描较小的表中的行。Nested Loop Join要求广播其中的一个小表，这样一个表中的所有行才能与其他表中的所有行进行连接操作。Nested Loop Join在较小的表或者通过使用索引约束的表上执行得不错，但在使用Nested Loop连接大型表时可能会有性能影响。设置配置参数enable\_nestloop为OFF（默认）能够让优化器更偏向选择Hash Join。
 -   Merge Join ：排序两个表并且将它们连接起来。Merge Join对于预排序好的数据很快。为了使查询优化器偏向选择Merge Join，可将参数enable\_mergejoin设置为ON。
 
-移动操作符（MOTION）在Segment节点之间移动数据，包括以下一些类型：
+移动操作算子（MOTION）在Segment节点之间移动数据，包括以下一些类型：
 
 -   Broadcast motion ：每一个Segment节点将自己的行发送给所有其他Segment节点，这样每一个Segment节点都有表的一份完整的本地拷贝。优化器通常只为小型表选择Broadcast motion。对大型表来说，Broadcast motion是会比较慢的。在连接操作没有按照连接键分布的情况下，可能会将把一个表中所需的行动态重分布到别的Segment节点上。
 -   Redistribute motion ： 每一个Segment节点重新哈希数据并且把行发送到对应于哈希键的Segment节点上。
 -   Gather motion ：来自所有Segment的结果数据被合并在一起发送到节点上（通常是Master节点）。对大部分查询计划来说这是最后的操作。
 
-查询计划中出现的其他操作符包括：
+查询计划中出现的其他操作算子包括：
 
 -   Materialize ：优化器将一个子查询结果进行物化。
 -   InitPlan ：预查询，被用在动态分区消除中，当执行时还不知道优化器需要用来标识要扫描分区的值时，会执行这个预查询。
