@@ -12,8 +12,8 @@
 |[ModifyDBInstanceDescription](intl.zh-CN/API参考/实例管理/ModifyDBInstanceDescription.md#)|修改实例的备注名|
 |[ModifyDBInstanceMaintainTime](intl.zh-CN/API参考/实例管理/ModifyDBInstanceMaintainTime.md#)|修改实例可例行维护的时间|
 |[RestartDBInstance](intl.zh-CN/API参考/实例管理/RestartDBInstance.md#)|重启实例|
-|UpgradeDBInstance|修改实例规格|
-|UpgradeDBVersion|升级实例小版本|
+|[UpgradeDBInstance](intl.zh-CN/API参考/实例管理/UpgradeDBInstance.md#)|变更实例规格|
+|[UpgradeDBVersion](intl.zh-CN/API参考/实例管理/UpgradeDBVersion.md#)|升级实例小版本|
 |[DescribeDBInstancePerformance](intl.zh-CN/API参考/实例管理/DescribeDBInstancePerformance.md#)|查看性能监控数据|
 
 |API|描述|
