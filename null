@@ -1,19 +1,10 @@
-# 删除实例标签
+# 实例标签筛选
 
-如果实例调整或者不再需要标签，您可以删除该实例的标签。
+实例绑定标签后，您可以根据标签筛选实例。
 
-## 限制说明
+1.  登录[云原生数据仓库PostgreSQL版控制台](https://gpdbnext.console.aliyun.com/)
+2.  单击**实例列表**表格左上角的**标签**按钮，选择标签的**键**和**值**筛选实例，如下图所示。
 
--   每次解绑的标签数量不能超过20个。
--   任一标签在解绑后，如果没有绑定任何实例，则该标签会被删除。
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7943992951/p67460.jpg)
 
-## 操作步骤
-
-1.  登录[云原生数据仓库PostgreSQL版控制台。](https://gpdbnext.console.aliyun.com/)
-2.  选择某一实例，鼠标悬浮在“标签”图标上，点击“编辑标签”。
-3.  单击要删除的标签后的X删除标签，如下图所示。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3253992951/p67457.jpg)
-
-4.  单击**确认**,完成操作。
 
