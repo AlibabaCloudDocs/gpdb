@@ -1,146 +1,47 @@
-# 4.3版本与6.0版本兼容性注意事项
+# 扩容/升级实例规格
 
-本文介绍了ADB PG 4.3版本与6.0版本在兼容性上的注意事项，如果您需要将实例从4.3版本升级到6.0版本，请根据实际情况对本文提及的部分进行相应的修改。
+在使用云数据库 AnalyticDB for PostgreSQL 过程中，随着您的数据量和计算量的动态增长，一些计算资源如CPU、磁盘、内存以及数据处理节点数量将成为数据处理速度的瓶颈。为了支持实例的动态扩展，AnalyticDB for PostgreSQL 提供在线扩容实例规格的功能，目前暂不支持对实例的降级操作。本文介绍了升级实例规格的相关操作。
 
-## 优化器
+## 查看当前实例规格
 
-|名称|V4.3|V6.0|
-|--|----|----|
-|默认优化器|Legacy优化器|ORCA优化器|
+AnalyticDB for PostgreSQL 实例集群规格包括**计算节点规格**和**计算节点数据量**，各种计算节点规格详细说明见[规格及选型](/cn.zh-CN/规格和定价/规格及选型.md) 。
 
-4.3版本与6.0版本都支持Legacy优化器和ORCA优化器，可根据需求选择使用，有关优化器的选择，请参见[两种优化器的选择](/cn.zh-CN/最佳实践/查询性能优化指导.md)。
+您可以通过以下的步骤来查看当前的实例规格：
 
-## 转义符
+1.  登录[云数据库AnalyticDB for PostgreSQL管理控制台](https://gpdb.console.aliyun.com)。
+2.  登录[云数据库AnalyticDB for PostgreSQL管理控制台](https://partners-intl.console.aliyun.com/#/gpdb)。
+3.  选择要操作实例所在的地域。例如，华东1。
 
--   在6.0版本中，字符串的转义字符`\` ，将作为字符串本身，不再表示转义符。
--   可执行以下语句保持和4.3版本语义一致，但不建议这样操作。
+4.  单击目标实例右侧操作栏中的**管理**按钮，进入基本信息页面。
 
-    ```
-    set standard_conforming_strings = off;
-    ```
-
-    **说明：** 上述语句仅对session级别生效。如果需要对集群生效，请[提交工单](https://workorder.console.aliyun.com/console.htm#/ticket/add?productCode=gpdb)，由ADB PG后台技术人员进行设置。
+    在基本信息页面的**配置信息**中显示了当前的实例规格，包括**计算节点规格**，**计算节点数量**（注：原规格定义模式 计算组规格、计算组详情、计算组数量等也会一同显示）。
 
 
-## 类型转换
+AnalyticDB for PostgreSQL 目前提供两类规格：
 
--   6.0版本中不再支持`YYYYMMDDHH24MISS`格式的字符串自动强转为时间戳类型。您可以通过系统内建函数`to_timestamp/to_char`，进行`YYYYMMDDHH24MISS`格式的字符串和时间戳之间的转换。
--   6.0版本不再支持数字类型隐式转换成TEXT类型。如果4.3版本中有这类语句，升级到6.0版本后，您可以通过增加Function支持这类场景。比如：
+-   高性能，规格名称以高性能SSD开始，基于 SSD存储，提供更好的I/O能力，带来更高的性能。
+-   高容量，规格名称以大存储HDD开始，基于HDD存储，提供更大、更实惠的空间，满足更高的存储需要。
 
-    ```
-    create or replace function substr(numeric, integer,integer)returns text as $$
-    select substr($1::text,$2,$3);
-    $$ language sql IMMUTABLE strict;
-    ```
+## 扩容实例规格
 
-    ```
-    create or replace function pg_catalog.btrim(str numeric) returns text as $$
-    return $_[0];
-    $$ language plperl IMMUTABLE strict;
-    ```
+当确认需要升级实例规格后，您可以按照下面的步骤进行实例规格的升级扩容：
 
-    ```
-    create or replace function to_date(timestamp, text) returns date as $$
-    select to_date($1::text,$2);
-    $$ language sql IMMUTABLE strict;
-    ```
+1.  登录[云数据库AnalyticDB for PostgreSQL管理控制台](https://gpdb.console.aliyun.com)。
+2.  登录[云数据库AnalyticDB for PostgreSQL管理控制台](https://partners-intl.console.aliyun.com/#/gpdb)。
+3.  选择要操作实例所在的地域。例如，华东1。
 
-    ```
-    create or replace function to_date(integer, text) returns date as $$
-    select to_date($1::text,$2);
-    $$ language sql IMMUTABLE strict;
-    ```
+4.  单击目标实例右侧操作栏中的**升级**按钮，进入确认订单页面。
 
--   如果有SQL或Function需要隐式转换成TEXT类型的场景，会受到影响，需要手工改写。
+5.  选择合适的计算节点规格和计算节点数量，点击去开通按钮。
 
-## 外部表错误日志
+    目前，AnalyticDB for PostgreSQL 支持不同的计算节点规格和计算节点数量组合，详情参见[规则组合速查表](https://www.aliyun.com/price/product#/gpdb/detail)。在选择新的计算节点规格和计算节点数量组合时，要满足以下约束：
 
-6.0版本不支持在`create external table`或`copy`语句时，使用`into error_table`子句。您可以使用系统函数代替`into error_table`子句的功能。
+    -   新旧计算节点规格必须为同一存储类型节点规格，而且新的计算节点规格 \>= 旧的计算节点规格
+    -   如果新的计算节点规格 = 旧的计算节点规格，新的计算节点数量 \> 旧的计算节点数量
+    在选择计算节点规格和计算节点数量的时候，除了满足以上约束，您还需要对自己的数据量和计算量进行评估，从而选择合适的计算节点规格和计算节点数量组合，详情可参考[如何选择实例规格](/cn.zh-CN/常见问题/如何选择实例规格？.md) 。
 
-```
-gp_read_error_log('$external_table')
-gp_truncate_error_log('$external_table')
-```
+    **说明：** 根据您数据量的不同，实例规格升级的过程大约需要至少30分钟到数十个小时不等，与表数量、分区表数量、索引数量、是否压缩、总数据量、实例规格等因素相关。在此过程中，为了保证数据的一致性，您实例只对外提供只读服务，并且会闪断两次，请您提前做出调整。当升级实例规格结束，对应实例恢复运行中状态，您可以正常访问数据库，而且实例的数据库内核版本自动升级为最新。
 
-## 数据类型
 
--   NUMERIC类型的文件存储格式变化，会影响到磁盘空间使用；
--   MONEY类型由32位改为64位，会影响磁盘空间使用；
--   6.0版本不支持以下数据类型作为分布键：
-    -   abstime
-    -   reltime
-    -   tinterval
-    -   money
-    -   anyarray
-
-## 关键字
-
-6.0版本新增、修改、删除了部分关键字。（数据库对象的命名，不可以与关键字冲突）。
-
-关键字不同的分类，含义不一样。可以通过如下命令，查看所有关键字和具体分类。（4.3 和 6.0 版本均适用）。
-
-```
-select * from pg_get_keywords();
-```
-
-|catcode|catdesc|说明|
-|-------|-------|--|
-|U|unreserved|不保留，可以用于任何对象（视图、表、函数、类型、索引、字段、类型 等）。|
-|C|unreserved \(cannot be function or type name\)|不保留，但是不可用于函数、类型名。|
-|T|reserved \(can be function or type name\)|保留，但是可用于函数、类型名。|
-|R|reserved|保留，不可用于任何对象名称。|
-
-|关键字|v4.3|v6.0|
-|---|----|----|
-|between|reserved|unreserved \(cannot be function or type name\)|
-|collation|无|reserved \(can be function or type name\)|
-|concurrently|unreserved|reserved \(can be function or type name\)|
-|convert|unreserved \(cannot be function or type name\)|无|
-|filter|reserved|unreserved|
-|lateral|-|reserved|
-|new|reserved|无|
-|off|reserved|unreserved|
-|old|reserved|无|
-|percentile\_cont|unreserved \(cannot be function or type name\)|无|
-|percentile\_disc|unreserved \(cannot be function or type name\)|无|
-|range|reserved|unreserved|
-|reindex|unreserved|reserved|
-|rows|reserved|unreserved|
-|sort|reserved|reserved \(can be function or type name\)|
-|variadic|无|reserved|
-
-## 系统表
-
-系统表在4.3版和6.0版中有部分区别，如果您的业务逻辑引用了以下系统表，请进行修改否则将引起报错。
-
-|V4.3|V6.0|说明|
-|----|----|--|
-|pg\_class.reltoastidxid|无|已删除|
-|pg\_stat\_activity.procpid|pg\_stat\_activity.pid|进程号|
-|pg\_stat\_activity.current\_query|pg\_stat\_activity.statepg\_stat\_activity.query
-
-|拆分为两列，state标识后端状态，query标识当前执行的请求|
-|gp\_distribution\_policy.attrnums|gp\_distribution\_policy.distkey|修改列名，且数据类型变int2vector|
-|sesion\_level\_memory\_consumption.\_\_gp\_localidsesion\_level\_memory\_consumption.\_\_gp\_masterid
-
-|无|已删除|
-|pg\_filespacepg\_filespace\_entry
-
-|无|已删除|
-
-## 内置函数的参数
-
-在6.0版本中，一些内置函数的参数发生了变化。
-
-|V4.3|V6.0|说明|
-|----|----|--|
-|int4\_avg\_accum\(bytea, integer\)|int4\_avg\_accum\(bigint\[\], integer\)|无|
-|string\_agg\(expression\)|string\_agg\(expression, delimiter\)|把一个表达式变成字符串|
-
-## 其他用法
-
-|名称|V4.3|V6.0|
-|--|----|----|
-|left\(\)函数|不支持|支持|
-|update分布键|不支持|支持|
+在完成了上述操作之后，您可以回到控制台，查看目标实例的运行状态。如果实例规格升级操作完成，则实例运行状态为**运行中**，否则为**升降级中**。
 
