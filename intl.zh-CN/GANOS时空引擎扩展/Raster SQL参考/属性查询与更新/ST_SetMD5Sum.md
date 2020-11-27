@@ -19,7 +19,7 @@ text ST_SetMD5Sum(raster raster_obj, text md5sum)
 
 将MD5字符串记录到raster对象中。MD5字符串长度必须为32位，并且只能由数字和小写字母组成。
 
-GUC ganos.raster.calculate\_md5：指定是否在raster对象入库时计算md5sum并保存到元数据中。有关变量信息请参见[ganos.raster.calculate\_md5]()。
+GUC ganos.raster.calculate\_md5：指定是否在raster对象入库时计算md5sum并保存到元数据中。有关变量信息请参见[ganos.raster.calculate\_md5](/intl.zh-CN/GANOS时空引擎扩展/Raster SQL参考/变量/ganos.raster.calculate_md5.md)。
 
 ## 示例
 
