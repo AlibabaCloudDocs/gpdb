@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-通过[ST\_StatsQuantile]()预先计算分位数。
+通过[ST\_StatsQuantile](/cn.zh-CN/GANOS时空引擎扩展/Raster SQL参考/属性查询与更新/ST_StatsQuantile.md)预先计算分位数。
 
 ## 语法
 
