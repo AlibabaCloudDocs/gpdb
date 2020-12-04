@@ -1,47 +1,52 @@
-# Create an instance {#concept_r32_mgr_52b .concept}
+# Create an instance
 
-You can create or purchase a AnalyticDB for PostgreSQL instance by using one of the following methods:
+This topic describes how to create an instance in the AnalyticDB for PostgreSQL console.
 
--   Create an instance in the AnalyticDB for PostgreSQL console.
--   Purchase an instance on the AnalyticDB for PostgreSQL Purchase Page.
+## Prerequisites
 
-This document describes the detailed steps for creating a AnalyticDB for PostgreSQL instance in the console.
+-   An Alibaba Cloud account is created. To create an Alibaba Cloud account, go to the [Alibaba Cloud official website](http://www.aliyun.com/).
 
-## Billing method {#section_k3g_knl_gfb .section}
+## Procedure
 
-AnalyticDB for PostgreSQL only supports the **Pay-As-You-Go** method.
+1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com).
+2.  In the upper-right corner, click **Create Instance**. The AnalyticDB for PostgreSQL buy page appears.
+3.  Select Subscription or Pay-As-You-Go as the billing method.
 
-## Prerequisites {#section_jy4_lnl_gfb .section}
+    -   **Pay-as-you-go**: A pay-as-you-go instance is charged on an hourly basis based on your actual resource usage. We recommend that you select this billing method for short-term use. You can release the instance that is no longer used. This helps you reduce costs.
+    -   **Subscription**: You must pay an upfront subscription fee when you create an instance. We recommend that you select this billing method for long-term use because this method is more cost-effective than the pay-as-you-go billing method. Larger discounts are provided for longer subscription periods.
+    **Note:** You can change the billing method of an instance from pay-as-you-go to subscription. However, you cannot change the billing method from subscription to pay-as-you-go.
 
-You have registered an account and signed up.
+4.  Configure the following parameters.
 
-## Procedure { .section}
+    |Parameter|Description|
+    |---------|-----------|
+    |**Region**|Select a region to deploy the instance. You cannot change the region after the instance is created.
 
-1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/).
-2.  Click **Create Instance**.
+    -   We recommend that you select a region near the location of your desired users to improve access speed.
+    -   Make sure that the instance is deployed in the same region as that of the Elastic Compute Service \(ECS\) instance to which you want to connect. Otherwise, the AnalyticDB for PostgreSQL instance and the ECS instance can only communicate over the Internet instead of an internal network. This may compromise performance. |
+    |**Zone**|Select a zone to deploy the instance. Each zone is considered a physical location. Zones within a region are independent of each other. No differences exist among these zones.
 
-3.  Select the instance configuration. The options include:
+You can deploy your AnalyticDB for PostgreSQL instance and ECS instance in the same zone or in different zones. |
+    |**Network Type**|Set the network type of the instance. The default value is VPC. A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and better performance than the classic network. Before you specify this parameter, make sure that you have created a VPC and a VSwitch that are deployed in the same region as that of the instance. For more information, see [Create a VPC](/intl.en-US/VPCs and VSwitches/VPC management/Create a VPC.md).|
+    |**VPC**|Select a VPC.|
+    |**VSwitch**|Select a VSwitch in the specified VPC.|
+    |**Instance resource type**|**Instance Resource Type**: You cannot extend independent disks on the fly in the console. |
+    |**Engine Version**|Only **6.0** is supported. |
+    |**Node specification（segment）**|Select the specifications of the computing resources. Different node types have different storage capacities and computing capabilities. For more information about specifications, see [Instance specifications](/intl.en-US/Specifications and Pricing/Instance specifications.md) for AnalyticDB for PostgreSQL.|
+    |**Node Number（segment）**|Set the number of nodes in the instance. An instance must contain a minimum of two nodes. The performance of an instance improves if the number of nodes increases.|
+    |**Storage Disk Type**|Select **Enhanced SSD \(ESSD\)** or **Ultra Disk**. An **Enhanced SSD \(ESSD\)** outperforms **Ultra Disk** in the read/write performance whereas the latter is more cost-effective.|
+    |**Single Node Storage Capacity**|Set the storage capacity of each node in the instance.|
 
-    -   Region and zone: for guidance on how to select, see [Regions and zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).
+5.  After you configure the parameters, click **Buy Now**.
+6.  On the Confirm Order page, select the Terms of Service check box, and click **Pay**.
+7.  Verify that the instance is created on the Instances page.
 
-    -   Engine: the database type. Only supports **Storage Included**.
-
-    -   Instance Class: the instance type. It is the unit of computing resources. Different classes have different storage spaces and computing capabilities. For details, see [Instance types](../../../../intl.en-US/Product Introduction/Instance types.md#).
-
-    -   Instance Groups: the number of purchased instances. The minimum is two. More groups provide higher linear performance.
-
-4.  Confirm your order information, and then click **Buy Now**.
-
-5.  Click **Activate** to activate the instance.
-
-6.  Go to the **Instance List** page of [AnalyticDB for PostgreSQL console](https://gpdb.console.aliyun.com/#/gpdbList/basic/all/normal) to view the newly created instance.
+    **Note:** Wait until the instance enters the **Running** state. Then, you can view and manage the instance.
 
 
-**Note:** The instance initialization takes some time. You can perform subsequent operations only after the instance status becomes Running.
-
-## Related API {#section_my2_bm5_vgb .section}
+## Related operations
 
 |API|Description|
 |---|-----------|
-|[CreateDBInstance](../../../../intl.en-US/API Reference/Instance management/CreateDBInstance.md#)|Creates a database instance.|
+|[t16918.md\#](/intl.en-US/API Reference/Instance management/CreateDBInstance.md)|Creates an instance.|
 
