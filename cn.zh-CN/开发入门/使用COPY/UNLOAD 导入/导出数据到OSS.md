@@ -51,7 +51,7 @@ ADB PG 中可以使用COPY/UNLOAD命令，用于便捷地从外表导入数据�
     2.  使用 UNLOAD，导出指定列数据到OSS。
 
         ```
-        -- 使用ULOAD将local_t的a,c两列导出到“oss://adbpg-regress/local_t/”路径
+        -- 使用UNLOAD将local_t的a,c两列导出到“oss://adbpg-regress/local_t/”路径
         UNLOAD ('select a, c from local_t') TO 'oss://adbpg-regress/local_t/'
         ACCESS_KEY_ID 'id'
         SECRET_ACCESS_KEY 'key'
