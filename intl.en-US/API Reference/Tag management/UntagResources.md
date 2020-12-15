@@ -15,14 +15,15 @@ Unbinds tags from specific AnalyticDB for PostgreSQL instances. After you unbind
 |ResourceId.N|RepeatList|Yes|gp-xxxxxxxxxxx|The ID of an instance. Valid values of N: 1 to 50. |
 |ResourceType|String|Yes|instance|The mode of the instance. Valid values:
 
- -   `instance`: reserved storage mode
+-   `instance`: reserved storage mode
 -   `ALIYUN::GPDB::INSTANCE`: elastic storage mode |
+|TagKey.N|RepeatList|No|TestKey|The key of a tag. Valid values of N: 1 to 20.|
 |All|Boolean|No|false|Specifies whether to unbind all tags from an instance. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
 
- -   true
+-   true
 -   false
 
- Default value: false |
+Default value: false |
 
 ## Response parameters
 
