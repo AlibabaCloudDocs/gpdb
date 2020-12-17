@@ -114,7 +114,7 @@ ADB PG 中可以使用COPY/UNLOAD命令，用于便捷地从外表导入数据�
         |--|--|--|----|---|--|
         |endpoint|字符串|无|是|无|指定oss的endpoint|
         |fdw|字符串|无|是|无|指定oss fdw插件名字。COPY命令在创建临时Server时需要用到。|
-        |其他所有创建外表时用到的option，如format, filetype, delimiter,escape等| |无| | |剩下的option是创建临时外表时用到的option，请参见[使用 OSS Foreign Table 访问 OSS 数据](/intl.zh-CN/开发入门/使用 OSS Foreign Table 访问 OSS 数据.md)。|
+        |其他所有创建外表时用到的option，如format, filetype, delimiter,escape等|不涉及|无|否|无|剩下的option是创建临时外表时用到的option，请参见[使用 OSS Foreign Table 访问 OSS 数据](/intl.zh-CN/开发入门/使用 OSS Foreign Table 访问 OSS 数据.md)。|
 
 
 -   **使用示例**
@@ -153,7 +153,23 @@ ADB PG 中可以使用COPY/UNLOAD命令，用于便捷地从外表导入数据�
         (10 rows)
         ```
 
-    3.  导入其他格式示例。
+    3.  可以看到从外表导入的a和c列 与源数据表local\_t的a和c列数据相同
+
+        ```
+        postgres=# select sum(hashtext(t.a::text)) as col_a_hash, sum(hashtext(t.c::text)) as col_c_hash from local_t2 t;
+         col_a_hash  | col_c_hash
+        -------------+-------------
+         23725368368 | 13447976580
+        (1 row)
+        
+        postgres=# select sum(hashtext(t.a::text)) as col_a_hash, sum(hashtext(t.c::text)) as col_c_hash from local_t t;
+         col_a_hash  | col_c_hash
+        -------------+-------------
+         23725368368 | 13447976580
+        (1 row)
+        ```
+
+    4.  导入其他格式示例。
 
         ```
         -- 导入ORC格式数据
@@ -174,5 +190,27 @@ ADB PG 中可以使用COPY/UNLOAD命令，用于便捷地从外表导入数据�
         ENDPOINT 'oss-cn-hangzhou-zmf.aliyuncs.com'
         FDW 'oss_fdw';
         ```
+
+
+**说明：** 在使用UNLOAD/COPY 导出为CSV文件时，可能存在某些option会因关键字冲突而发生语法错误，需要将option选项进行特殊处理。
+
+-   需要进行特殊处理的options：`delimiter`、`quote`、`null`、`header`、`escape`、`encoding`。
+-   处理方式：将option选项用双引号引用，并写成小写形式。示例如下：
+
+    ```
+    UNLOAD ('select * from table') 
+    TO 'path'
+    ACCESS_KEY_ID 'id'
+    SECRET_ACCESS_KEY 'key'
+    FORMAT csv
+    "delimiter" '|'
+    "quote" '"'
+    "null" ''
+    "header" 'true'
+    "escape" 'E'
+    "encoding" 'utf-8'
+    FDW 'oss_fdw'
+    ENDPOINT 'endpoint';
+    ```
 
 
