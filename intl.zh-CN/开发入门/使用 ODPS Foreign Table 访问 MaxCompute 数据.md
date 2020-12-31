@@ -303,7 +303,7 @@ ODPS FDW 模块的加入，填补了当前 ADB PG 与 MaxCompute 的数据同步
 
      
   
-  4. 当出现 MaxCompute 上不存在的分区外表，查询外表时，会告警显示，用户可以参考 本章的3.5节 如何删除子分区外表 删除相应子分区。
+  4. 当出现 MaxCompute 上不存在的分区外表，查询外表时，会告警显示，用户可以参考本章的3.5节 **如何删除子分区外表** 删除相应子分区。
 
      ![不存在的分析外表](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6923588951/p141731.png)
      
