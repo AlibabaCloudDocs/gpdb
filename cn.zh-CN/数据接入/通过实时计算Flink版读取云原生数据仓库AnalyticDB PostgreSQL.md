@@ -61,7 +61,7 @@ WITH参数
 
 |         参数名         |       参数含义       |                                                      备注                                                       |
 |---------------------|------------------|---------------------------------------------------------------------------------------------------------------|
-| url                 | ADBPG连接地址        | 必填，需要填写需要填写格式为jdbc:postgresql://\<ADBPG内网连接串\>/databaseName 的内网连接地址。                                          |
+| url                 | ADBPG连接地址        | 必填，需要填写格式为jdbc:postgresql://\<ADBPG内网连接串\>/databaseName 的内网连接地址。                                              |
 | tableName           | ADBPG源表名         | 必填，填写维表对应的ADBPG数据仓库中的表名。                                                                                      |
 | userName            | ADBPG用户名         | 必填。                                                                                                           |
 | password            | ADBPG密码          | 必填。                                                                                                           |
@@ -117,27 +117,27 @@ CACHE参数
 
 在实时计算控制台上，点击项目管理-项目列表，进入项目名进入自己创建的项目：
 
-![4-1](//static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1833472061/p173474.png)
+![4-1](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173474.png)
 
 点击开发-新建作业，创建数据写入的Flink SQL作业：
 
-![4-2](//static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1833472061/p173475.png)
+![4-2](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173475.png)
 
-![4-3](//static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1833472061/p173476.png)
+![4-3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173476.png)
 
 目前采用Flink自定义维表的方式支持读取ADB PG版目标表数据，使用自定义维表功能上线前需要在资源引用界面上传及引用jar包，编写完作业后点击资源引用-\>新建资源-\>上传jar包-\>更多-\>引用：
 
-![3](//static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1833472061/p173497.png)通过以下链接下载jar包：
+![3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173497.png)通过以下链接下载jar包：
 
 https://adbpg-public.oss-cn-beijing.aliyuncs.com/blink-customerdim-adbpg-0909.jar
 
 完成作业开发后，依次点击保存、上线，即可上线该任务。
 
-![4-4](//static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1833472061/p173511.png)
+![4-4](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173511.png)
 
 继续点击运维，启动对应项目即可启动任务。
 
-![4-5](//static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1833472061/p173510.png)
+![4-5](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173510.png)
 
 代码示例 
 -------------------------
