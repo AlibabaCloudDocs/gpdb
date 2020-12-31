@@ -126,7 +126,7 @@ rb_iterate(rb_build('{1,2,3}'))
 |rb\_contains|roaringbitmap, integer|bool|判断Bitmap是否包含特定的Offset|```
 rb_contains(rb_build('{1,2,3}'),1)
 ``` |
-|rb\_contains|roaringbitmap, integer, integer|bool|判断Bitmap是否包含特定的Offset段\(某个范围\)|```
+|rb\_contains|roaringbitmap, integer, integer|bool|判断Bitmap是否包含特定的Offset段（某个范围）|```
 rb_contains(rb_build('{1,2,3}'),rb_build('{3,4,5}'))
 ``` |
 |rb\_contains|roaringbitmap, roaringbitmap|bool|判断Bitmap是否包含另外一个bitmap|```
