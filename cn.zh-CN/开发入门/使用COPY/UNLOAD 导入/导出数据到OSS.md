@@ -25,7 +25,7 @@ ADB PG 中可以使用COPY/UNLOAD命令，用于便捷地从外表导入数据�
         |选项|类型|单位|是否必选|默认值|备注|
         |--|--|--|----|---|--|
         |endpoint|字符串|无|是|无|指定oss的endpoint|
-        |fdw|字符串|无|是|无|指定oss fdw插件名字。COPY命令在创建临时Server时需要用到。|
+        |fdw|字符串|无|是|无|指定oss fdw插件名字。UNLOAD命令在创建临时Server时需要用到。|
         |其他所有创建外表时用到的option，如format, filetype, delimiter,escape等| |无| | |剩下的option是创建临时外表时用到的option，请参见[使用 OSS Foreign Table 访问 OSS 数据](/cn.zh-CN/开发入门/使用 OSS Foreign Table 访问 OSS 数据.md)。|
 
 
