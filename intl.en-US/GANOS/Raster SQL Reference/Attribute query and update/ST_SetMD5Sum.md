@@ -19,7 +19,7 @@ text ST_SetMD5Sum(raster raster_obj, text md5sum)
 
 This function records the MD5 hash string in the metadata of the raster object. The MD5 hash string must be 32 characters in length and can contain only digits and lowercase letters.
 
-GUC ganos.raster.calculate\_md5: specifies whether to calculate the MD5 hash string and saves the string to the metadata when the raster object is stored. For more information, see [ganos.raster.calculate\_md5]().
+GUC ganos.raster.calculate\_md5: specifies whether to calculate the MD5 hash string and saves the string to the metadata when the raster object is stored. For more information, see [ganos.raster.calculate\_md5](/intl.en-US/GANOS/Raster SQL Reference/Variables/ganos.raster.calculate_md5.md).
 
 ## Examples
 
