@@ -4,7 +4,7 @@ This function queries the pixel values of the quantiles for a raster object.
 
 ## Prerequisites
 
-The quantiles of the raster object are calculated by using the [ST\_StatsQuantile]() function.
+The quantiles of the raster object are calculated by using the [ST\_StatsQuantile](/intl.en-US/GANOS/Raster SQL Reference/Attribute query and update/ST_StatsQuantile.md) function.
 
 ## Syntax
 
