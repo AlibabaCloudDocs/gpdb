@@ -1,73 +1,88 @@
-# CreateDBInstance {#concept_nkf_dbm_q2b .concept}
+# CreateDBInstance
 
-## 描述 { .section}
+调用CreateDBInstance接口创建 AnalyticDB for PostgreSQL实例。
 
-创建HybridDB for PostgreSQL实例。
+## 调试
 
-## 输入参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=CreateDBInstance&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|CreateDBInstance|
-|RegionId|String|是|地域ID，如cn-hangzhou，可选的地域详见DescribeRegions接口。|
-|ZoneId|String|是|可用区ID，如cn-hangzhou-d，可选的可用区详见DescribeRegions接口。|
-|Engine|String|是|引擎，取值为gpdb。|
-|EngineVersion|String|是|引擎版本，取值为4.3。|
-|PayType|String|否|付费类型：-   Postpaid：按量付费，为默认值。
--   Prepaid：包年包月。
+## 请求参数
 
-|
-|InstanceNetworkType|String|是|实例网络类型，取值为Classic或者VPC，默认为"Classic"。|
-|VPCId|String|否|InstanceNetworkType=VPC时，VPCId 必须填写，VPCId所在地域必须与RegionId 保持一致。|
-|VSwitchId|String|否|InstanceNetworkType=VPC时，VSwitchId 必须填写，VSwitchId所在可用区必须与ZoneId 保持一致。|
-|DBInstanceClass|String|是|实例规格，详见[实例规格表](intl.zh-CN/API参考/附录/实例规格表.md#)。|
-|DBInstanceGroupCount|String|是|HybridDB for PostgreSQL 计算组的数量。|
-|DBInstanceDescription|String|否|HybridDB for PostgreSQL实例描述，长度为256字符。|
-|SecurityIPList|String|否|IP白名单，默认值为"`127.0.0.1`"。|
-|ClientToken|String|是|幂等性校验。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|CreateDBInstance|系统规定参数。取值：**CreateDBInstance**。 |
+|ClientToken|String|是|0c593ea1-3bea-11e9-b96b-88e9fe637760|幂等性校验。 |
+|DBInstanceClass|String|是|gpdb.group.segsdx1|实例规格，详见[实例规格表](~~86942~~)。 |
+|DBInstanceGroupCount|String|是|2|AnalyticDB for PostgreSQL 计算组的数量。 |
+|Engine|String|是|gpdb|引擎，取值为gpdb。 |
+|EngineVersion|String|是|4.3|引擎版本，取值为4.3。 |
+|RegionId|String|是|cn-hangzhou|地域ID，如cn-hangzhou，可选的地域详见DescribeRegions接口。 |
+|SecurityIPList|String|是|127.0.0.1|IP白名单，默认值为"`127.0.0.1`"。 |
+|ZoneId|String|是|cn-hangzhou-i|可用区ID，如cn-hangzhou-d，可选的可用区详见DescribeRegions接口。 |
+|DBInstanceDescription|String|否|gp-xxxxxx|AnalyticDB for PostgreSQL实例描述，长度为256字符。 |
+|PayType|String|否|Prepaid|付费类型：
 
-## 返回参数 { .section}
+ -   Postpaid：按量付费，为默认值。
+-   Prepaid：包年包月。 |
+|Period|String|否|Month|购买资源的时长单位。 |
+|UsedTime|String|否|1|购买资源的时长。 |
+|InstanceNetworkType|String|否|VPC|实例网络类型，取值为**VPC**。 |
+|VPCId|String|否|vpc-xxxxxxx|InstanceNetworkType=VPC时，VPCId 必须填写，VPCId所在地域必须与RegionId 保持一致。 |
+|VSwitchId|String|否|vsw-xxxxxxxx|InstanceNetworkType=VPC时，VSwitchId 必须填写，VSwitchId所在可用区必须与ZoneId 保持一致。 |
+|PrivateIpAddress|String|否|127.0.0.1|私有地址。 |
 
-|参数|类型|说明|
-|--|--|--|
-|<公共返回参数\>|String|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)|
-|DBInstanceId|String|实例名|
-|OrderId|String|订单ID|
+## 返回数据
 
-## 请求示例 {#section_uvb_mmt_42b .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|ConnectionString|String|gp-xxxxxxx.gpdb.rds.aliyuncs.com|连接地址。 |
+|DBInstanceId|String|gp-xxxxxxxxx|实例ID。 |
+|OrderId|String|xxxxxxxx|订单编号。 |
+|Port|String|3432|端口。 |
+|RequestId|String|5414A4E5-4C36-4461-95FC-23757A20B5F8|请求ID。 |
+
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=CreateDBInstance
+&ClientToken=0c593ea1-3bea-11e9-b96b-88e9fe637760
 &Engine=gpdb
 &EngineVersion=4.3
 &RegionId=cn-hangzhou
-&ZoneId=cn-hangzhou-b
-&PayType=Postpaid
-&InstanceNetworkType=Classic
-&DBInstanceClass=gpdb.group.segsdx1
-&DBInstanceGroupCount=2
-&ClientToken=f918f59c-89be-42ee-bb86-d027243b2cfb
+&SecurityIPList=127.0.0.1
+&ZoneId=cn-hangzhou-i
 &<公共请求参数>
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
 <CreateDBInstanceResponse>
-  <dbInstanceId>gp-xxxxxxx</dbInstanceId>
-  <orderId>xxxxxxxxxxx</orderId>
+          <dbInstanceId>gp-xxxxxxx</dbInstanceId>
+          <orderId>xxxxxxxx</orderId>
+          <connectionString>gp-xxxxxxx.gpdb.rds.aliyuncs.com</connectionString>
+          <port>3432</port>
+          <RequestId>5414A4E5-4C36-4461-95FC-23757A20B5F8</RequestId>
 </CreateDBInstanceResponse>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
 {
-	"dbInstanceId":"gp-xxxxxxx",
-	"orderId":xxxxxxxxxxx
+	"dbInstanceId": "gp-xxxxxxx",
+	"orderId": "xxxxxxxx",
+	"connectionString": "gp-xxxxxxx.gpdb.rds.aliyuncs.com",
+	"port": "3432",
+	"RequestId": "5414A4E5-4C36-4461-95FC-23757A20B5F8"
 }
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/gpdb)查看更多错误码。
 
