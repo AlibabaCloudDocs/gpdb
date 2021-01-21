@@ -1,0 +1,381 @@
+# DescribeRegions
+
+该接口用于查看用户可选的地域和可用区。调用创建实例接口之前，先用该接口查询RegionId。
+
+## 调试
+
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=DescribeRegions&type=RPC&version=2016-05-03)
+
+## 请求参数
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeRegions|系统规定参数。取值：DescribeRegions。 |
+|Region|String|否|cn-hangzhou|地域。 |
+
+## 返回数据
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|FF8EB261-5447-4B1B-9F14-294CEA008A9F|请求ID。 |
+|Regions|Array| |地域列表。 |
+|RegionId|String|cn-hangzhou|地域ID。 |
+|Zones|Array| |可用区列表。 |
+|ZoneId|String|cn-hangzhou-c|可用区ID。 |
+|VpcEnabled|Boolean|true|VPC是否可用。 |
+
+## 示例
+
+请求示例
+
+```
+https://gpdb.aliyuncs.com/?Action=DescribeRegions
+&<公共请求参数>
+```
+
+正常返回示例
+
+`XML` 格式
+
+```
+<RequestId>FF8EB261-5447-4B1B-9F14-294CEA008A9F</RequestId>
+<Regions>
+    <Region>
+        <RegionId>cn-beijing</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-beijing-c</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-beijing-g</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-zhangjiakou</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-zhangjiakou-b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-hangzhou</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-hangzhou-b</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-hangzhou-e</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-hangzhou-f</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-shanghai</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-shanghai-b</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-shanghai-d</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-shenzhen</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-shenzhen-a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-1b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-2</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-2a</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-2b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>us-east-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>us-east-1b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>us-west-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>us-west-1a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-chengdu</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-chengdu-a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-3</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-3a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-huhehaote</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-huhehaote-a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-south-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-south-1a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-5</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-5a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+</Regions>
+```
+
+`JSON` 格式
+
+```
+{
+    "RequestId":"FF8EB261-5447-4B1B-9F14-294CEA008A9F",
+    "Regions":{
+        "Region":[
+            {
+                "RegionId":"cn-beijing",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-beijing-c"
+                        },
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-beijing-g"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"cn-zhangjiakou",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-zhangjiakou-b"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"cn-hangzhou",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-hangzhou-b"
+                        },
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-hangzhou-e"
+                        },
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-hangzhou-f"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"cn-shanghai",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-shanghai-b"
+                        },
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-shanghai-d"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"cn-shenzhen",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-shenzhen-a"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"ap-southeast-1",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"ap-southeast-1b"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"ap-southeast-2",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"ap-southeast-2a"
+                        },
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"ap-southeast-2b"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"us-east-1",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"us-east-1b"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"us-west-1",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"us-west-1a"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"cn-chengdu",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-chengdu-a"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"ap-southeast-3",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"ap-southeast-3a"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"cn-huhehaote",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"cn-huhehaote-a"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"ap-south-1",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"ap-south-1a"
+                        }
+                    ]
+                }
+            },
+            {
+                "RegionId":"ap-southeast-5",
+                "Zones":{
+                    "Zone":[
+                        {
+                            "VpcEnabled":true,
+                            "ZoneId":"ap-southeast-5a"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+```
+
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/gpdb)查看更多错误码。
+
