@@ -1,23 +1,23 @@
-# RestartDBInstance {#concept_wwg_5bm_q2b .concept}
+# RestartDBInstance
 
-## Description { .section}
+## Description
 
-You can call this operation to restart the database instance.
+Restarts an instance.
 
-## Parameters { .section}
+## Request parameters
 
-|**Name**|**Type**|**Required**|**Description**|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|**Parameter**|**Type**|**Required**|**Description**|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to RestartDBInstance.|
 |DBInstanceId|String|Yes|The ID of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=RestartDBInstance
@@ -25,7 +25,7 @@ https://gpdb.aliyuncs.com/?Action=RestartDBInstance
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
