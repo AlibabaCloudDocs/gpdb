@@ -1,4 +1,4 @@
-# Use RAM for resource authorization {#reference_pgj_lyl_q2b .reference}
+# Use RAM for resource authorization
 
 The instances you create through your Alibaba Cloud account are the resources owned by the account. By default, an account has full access to its own resources.
 
