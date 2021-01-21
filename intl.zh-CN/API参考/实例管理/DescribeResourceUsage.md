@@ -1,55 +1,57 @@
-# DescribeResourceUsage {#concept_uhn_mbm_q2b .concept}
+# DescribeResourceUsage
 
-## 描述 { .section}
+调用DescribeResourceUsage查看实例的资源利用情况。
 
-查看实例的资源利用情况，返回用户的某个实例的已用空间大小。
+## 调试
 
-## 请求参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=DescribeResourceUsage&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值：DescribeResourceUsage。|
-|DBInstanceId|String|是|实例名。|
+## 请求参数
 
-## 返回参数 { .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeResourceUsage|系统规定参数。取值：DescribeResourceUsage。 |
+|DBInstanceId|String|是|gp-xxxxxxxxxxx|实例ID。 |
 
-|名称|类型|描述|
-|--|--|--|
-|<公共返回参数\>|无|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
-|DBInstanceId|String|实例名。|
-|Engine|String|数据库类型。|
-|DiskUsed|Integer|已用空间（DataSize+LogSize），单位：Byte，-1表示没有数据。|
-|DataSize|Integer|数据文件占用空间，单位：Byte，-1表示没有数据。|
-|LogSize|Integer|日志占用空间，单位：Byte，-1表示没有数据。|
-|BackupSize|Integer|备份占用空间，单位：Byte，-1表示没有数据。|
+## 返回数据
 
-## 请求示例 { .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|860FBA9E-BFFD-493E-91A1-2349B9D74AE7|请求ID。 |
+|DBInstanceId|String|gp-xxxxxxxx|实例ID。 |
+|Engine|String|gpdb|数据库类型。 |
+|DiskUsed|Long|285212672|已用空间（DataSize+LogSize），单位：Byte，-1表示没有数据。 |
+|DataSize|Long|83886080|数据文件占用空间，单位：Byte，-1表示没有数据。 |
+|LogSize|Long|201326592|日志占用空间，单位：Byte，-1表示没有数据。 |
+|BackupSize|Long|26624|备份占用空间，单位：Byte，-1表示没有数据。 |
+
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeResourceUsage
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxxxxxx
 &<公共请求参数>
-
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
 <DescribeResourceUsageResponse>
-	<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-	<RequestId>860FBA9E-BFFD-493E-91A1-2349B9D74AE7</RequestId>
-	<LogSize>201326592</LogSize>
-	<DataSize>83886080</DataSize>
-	<BackupSize>26624</BackupSize>
-	<Engine>gpdb</Engine>
-	<DiskUsed>285212672</DiskUsed>
+          <DBInstanceId>gp-xxxxxxx</DBInstanceId>
+          <RequestId>860FBA9E-BFFD-493E-91A1-2349B9D74AE7</RequestId>
+          <LogSize>201326592</LogSize>
+          <DataSize>83886080</DataSize>
+          <BackupSize>26624</BackupSize>
+          <Engine>gpdb</Engine>
+          <DiskUsed>285212672</DiskUsed>
 </DescribeResourceUsageResponse>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
 {
@@ -62,4 +64,8 @@ https://gpdb.aliyuncs.com/?Action=DescribeResourceUsage
     "DiskUsed":285212672
 }
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/gpdb)查看更多错误码。
 
