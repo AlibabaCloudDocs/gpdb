@@ -1,4 +1,4 @@
-# API的鉴权规则 {#reference_lpq_xyl_q2b .reference}
+# API的鉴权规则
 
 当子用户通过API 进行资源访问时，后台向RAM进行权限检查，以确保调用者拥有相应权限。
 
