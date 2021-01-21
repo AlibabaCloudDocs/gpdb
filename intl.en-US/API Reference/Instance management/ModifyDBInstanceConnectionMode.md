@@ -1,31 +1,29 @@
-# ModifyDBInstanceConnectionMode {#concept_e14_4bm_q2b .concept}
+# ModifyDBInstanceConnectionMode
 
-## Description { .section}
+## Description
 
 You can call this operation to modify the access mode of the instance. Currently, two modes are supported:
 
 -   Standard mode
 -   Safe mode
 
-## Request parameters { .section}
+## Request parameters
 
 |Name|Type|Required|Description|
 |----|----|--------|-----------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|<Common request parameters\>|-| Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceConnectionMode.|
 |DBInstanceId|String|Yes|The ID of the instance.|
-|ConnectionMode|String|Yes| -   Standard
--   Safe
+|ConnectionMode|String|Yes|-   Standard
+-   Safe |
 
- |
-
-## Response parameters { .section}
+## Response parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceConnectionMode
@@ -35,7 +33,7 @@ https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceConnectionMode
 
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
