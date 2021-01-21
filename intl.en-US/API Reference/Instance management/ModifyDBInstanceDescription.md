@@ -1,6 +1,6 @@
-# ModifyDBInstanceDescription {#concept_hqr_qbm_q2b .concept}
+# ModifyDBInstanceDescription
 
-## Description { .section}
+## Description
 
 You can call this API to modify the description of the instance so that you can easily identify it.
 
@@ -8,18 +8,18 @@ You can call this API to modify the description of the instance so that you can 
 
 |Name|Type|Required|Description|
 |----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|<Common request parameters\>|-|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceDescription.|
 |DBInstanceId|String|Yes|The ID of the instance.|
 |DBInstanceDescription|Sting|Yes|The description of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceDescription
@@ -29,7 +29,7 @@ https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceDescription
 
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
