@@ -1,45 +1,54 @@
-# DeleteDBInstance {#concept_u51_fbm_q2b .concept}
+# DeleteDBInstance
 
-## 描述 { .section}
+调用DeleteDBInstance释放按量付费实例。
 
-删除实例。
+## 调试
 
-## 输入参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=DeleteDBInstance&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值：DeleteDBInstance。|
-|DBInstanceId|String|是|实例名。|
+## 请求参数
 
-## 返回参数 { .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DeleteDBInstance|系统规定参数。取值：DeleteDBInstance。 |
+|DBInstanceId|String|是|gp-xxxxxx|实例名。 |
+|ClientToken|String|否|0c593ea1-3bea-11e9-b96b-88e9fe637760|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。 |
 
-|名称|**类型**|**描述**|
-|--|------|------|
-|<公共返回参数\>|-|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
+## 返回数据
 
-## 请求示例 { .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|65BDA532-28AF-4122-AA39-B382721EEE64|请求ID。 |
+
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=DeleteDBInstance
-&DBInstanceId=gp-xxxxxxx 
+&DBInstanceId=gp-xxxxxx
 &<公共请求参数>
-
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
 <DeleteDBInstanceResponse>  
-     <RequestId>65BDA532-28AF-4122-AA39-B382721EEE64</RequestId>
+       <RequestId>65BDA532-28AF-4122-AA39-B382721EEE64</RequestId>
 </DeleteDBInstanceResponse>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
-{"RequestId":" 65BDA532-28AF-4122-AA39-B382721EEE64"}
+{
+    "RequestId": "65BDA532-28AF-4122-AA39-B382721EEE64"
+}
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/gpdb)查看更多错误码。
 
