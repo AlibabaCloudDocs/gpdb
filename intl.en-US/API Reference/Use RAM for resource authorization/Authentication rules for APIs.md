@@ -1,4 +1,4 @@
-# Authentication rules for APIs {#reference_lpq_xyl_q2b .reference}
+# Authentication rules for APIs
 
 When you use APIs to access resources as a RAM user, AnalyticDB for PostgreSQL checks whether the RAM user is granted the required permissions by querying Resource Access Management \(RAM\).
 
