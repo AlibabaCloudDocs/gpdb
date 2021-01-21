@@ -1,238 +1,140 @@
-# DescribeDBInstances {#concept_cdm_3bm_q2b .concept}
+# DescribeDBInstances
 
-## 描述 { .section}
+调用DescribeDBInstances查询数据库实例列表。
 
-描述数据库实例列表。
+## 调试
 
-## 请求参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=DescribeDBInstances&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值为DescribeDBInstances。|
-|RegionId|String|是|实例的region，通过接口DescribeRegions查看。|
-|Engine|String|否|数据库类型，默认取值为PostgreSQL。|
-|DBInstanceType|String|否|实例类型，取值范围如下：-   Primary：主实例
--   Readonly：只读实例
--   Guard：灾备实例
--   Temp：临时实例
--   不填：默认返回所有。
+## 请求参数
 
-|
-|DBInstanceDescription|String|否|实例描述。|
-|InstanceNetworkType|String|否|返回指定网络类型的实例，取值范围如下：-   VPC：专有网络类型
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeDBInstances|系统规定参数。取值：DescribeDBInstances。 |
+|RegionId|String|是|cn-hangzhou|地域ID。 |
+|DBInstanceDescription|String|否|gp-xxxxxxxx|实例描述。 |
+|InstanceNetworkType|String|否|VPC|实例网络类型，取值范围如下：
+
+ -   VPC：专有网络类型
 -   Classic：经典网络类型
--   不填：默认返回所有网络类型的实例。
+-   不填：默认返回所有网络类型的实例 |
+|DBInstanceIds|String|否|gp-xxxxxxxxx，gp-xxxxxxx|实例ID，多个实例ID之间用半角逗号分隔。 |
+|Tag.N.Key|String|否|key1|标签键。 |
+|Tag.N.Value|String|否|value1|标签值。 |
+|PageSize|Integer|否|50|每页记录数，取值：30/50/100，默认值：30。 |
+|PageNumber|Integer|否|1|页码，大于0且不超过Integer的最大值，默认值：1。 |
 
-|
-|ConnectionMode|String|否| -   Standard：为标准访问模式。
--   Safe：为高安全访问模式。
--   不填：默认返回所有。
+## 返回数据
 
- |
-|Tags|String|否|查询绑定该标签的实例，传入值格式为JSON string，包括TagKey和TagValue，TagKey不能为空，TagValue可为空。格式示例：`{"key1":"value1"}`。|
-|PageSize|Integer|否|每页记录数，取值：30/50/100，默认值：30。|
-|PageNumber|Integer|否|页码，大于0且不超过Integer的最大值，默认值：1。|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|Items|Array| |实例详情列表。 |
+|DBInstance| | | |
+|ConnectionMode|String|Standard|访问模式。
 
-## 返回参数 { .section}
+ -   Standard：标准访问模式
+-   Safe：高安全访问模式 |
+|CreateTime|String|2019-09-08T16:00:00Z|创建时间。 |
+|DBInstanceDescription|String|gp-xxxxxxxxxx|实例描述。 |
+|DBInstanceId|String|gp-xxxxxxxx|实例ID。 |
+|DBInstanceNetType|String|Internet|实例网卡类型。 |
+|DBInstanceStatus|String|Running|实例状态，详见[实例状态表](~~86944~~)。 |
+|Engine|String|gpdb|数据库类型。 |
+|EngineVersion|String|4.3|数据库版本。 |
+|ExpireTime|String|2019-09-08T16:00:00Z|到期时间，按量付费实例无到期时间。 |
+|InstanceDeployType|String|public|集群类型。
 
-|名称|类型|描述|
-|--|--|--|
-|<公共返回参数\>| |详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
-|PageNumber|Integer|页数|
-|TotalRecordCount|Integer|总记录数。|
-|PageRecordCount|Integer|本页实例个数。|
-|Items|List<DBInstance\>|由DBInstance组成的数组。|
+ -   cell：独享集群
+-   public：共享集群 |
+|InstanceNetworkType|String|VPC|实例网络类型。
 
-|名称|类型|描述|
-|--|--|--|
-|DBInstanceId|String|实例名。|
-|DBInstanceDescription|String|实例描述。|
-|PayType|String|付费类型：-   Postpaid：按量付费。
--   Prepaid：包年包月。
+ -   VPC：专有网络类型
+-   Classic：经典网络类型 |
+|LockMode|String|Unlock|锁定方式。
 
-|
-|InstanceNetworkType|String|网络类型：-   VPC：专有网络类型
--   Classic：经典网络类型
-
-|
-|ConnectionMode|String| -   Standard：标准访问模式
--   Safe：高安全访问模式
-
- |
-|RegionId|String|地域。|
-|ZoneId|String|可用区。|
-|ExpireTime|String|到期时间，按量付费实例无到期时间。|
-|DBInstanceStatus|String|详见[实例状态表](intl.zh-CN/API参考/附录/实例状态表.md#)。|
-|Engine|String|数据库类型。|
-|EngineVersion|String|数据库版本。|
-|DBInstanceNetType|String| -   Internet：外网
--   Intranet：内网
-
- |
-|LockMode|String| -   Unlock：正常
+ -   Unlock：正常
 -   ManualLock：手动触发锁定
 -   LockByExpiration：实例过期自动锁定
 -   LockByRestoration：实例回滚前的自动锁定
--   LockByDiskQuota：实例空间满自动锁定，不可访问实例
+-   LockByDiskQuota：实例空间满自动锁定 |
+|LockReason|String|Unknow|被锁定的原因 |
+|PayType|String|Prepaid|计费类型：
 
- |
-|LockReason|String|被锁定的原因。|
-|CreateTime|String|创建时间。|
-|VPCId|String|VPC ID。|
-|VSwitchId|String|VSwitch ID。|
+ -   Postpaid：按量付费
+-   Prepaid：包年包月 |
+|RegionId|String|cn-hangzhou|地域ID。 |
+|Tags|Array| |实例标签。 |
+|Tag| | | |
+|Key|String|key1|标签键。 |
+|Value|String|value1|标签值。 |
+|VSwitchId|String|vsw-xxxxxxxxx|VSwitch ID。 |
+|VpcId|String|vpc-xxxxxxxxxx|VPC ID。 |
+|ZoneId|String|cn-hangzhou|可用区ID。 |
+|PageNumber|Integer|1|当前页码。 |
+|PageRecordCount|Integer|2|当前页记录数。 |
+|RequestId|String|BBE00C04-A3E8-4114-881D-0480A72CB92E|请求ID。 |
+|TotalRecordCount|Integer|2|总记录数。 |
 
-## 请求示例 { .section}
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeDBInstances
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
-<DescribeDBInstancesResponse>
-    <Items>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>1</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-e</ZoneId>
-			<DBInstanceDescription>gpdb_test</DBInstanceDescription>
-			<InstanceNetworkType>Classic</InstanceNetworkType>
-			<VSwitchId>vsw-xxxxxxx</VSwitchId>
-			<VpcId>vpc-xxxxxxx</VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2019-06-27T16:00:00Z</ExpireTime>
-			<CreateTime>2018-06-27T12:07:11Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType\>Prepaid</PayType\>
-		</DBInstance>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>1</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-e</ZoneId>
-			<DBInstanceDescription>gp-xxxxxxx</DBInstanceDescription>
-			<InstanceNetworkType>Classic</InstanceNetworkType>
-			<VSwitchId>vsw-xxxxxxx</VSwitchId>
-			<VpcId>vpc-xxxxxxx</VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2999-09-08T16:00:00Z</ExpireTime>
-			<CreateTime>2018-06-27T11:51:46Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType>Postpaid</PayType>
-		</DBInstance>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>2</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-e</ZoneId>
-			<DBInstanceDescription>测试</DBInstanceDescription>
-			<InstanceNetworkType>VPC</InstanceNetworkType>
-			<VSwitchId>vsw-xxxxxxx</VSwitchId>
-			<VpcId>vpc-xxxxxxx</VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2018-07-27T16:00:00Z</ExpireTime>
-			<CreateTime>2018-06-27T11:46:11Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType>Prepaid</PayType>
-		</DBInstance>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>1</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-f</ZoneId>
-			<DBInstanceDescription>测试2</DBInstanceDescription>
-			<InstanceNetworkType>Classic</InstanceNetworkType>
-			<VSwitchId></VSwitchId>
-			<VpcId></VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2018-07-20T16:00:00Z</ExpireTime>
-			<CreateTime>2018-06-20T05:42:03Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType\>Prepaid</PayType\>
-		</DBInstance>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>2</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-b</ZoneId>
-			<DBInstanceDescription>gp-xxxxxxx</DBInstanceDescription>
-			<InstanceNetworkType>VPC</InstanceNetworkType>
-			<VSwitchId>vsw-xxxxxxx</VSwitchId>
-			<VpcId>vpc-xxxxxxx</VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2999-09-08T16:00:00Z</ExpireTime>
-			<CreateTime>2018-06-05T03:42:41Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType>Postpaid</PayType>
-		</DBInstance>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>2</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-b</ZoneId>
-			<DBInstanceDescription>测试</DBInstanceDescription>
-			<InstanceNetworkType>Classic</InstanceNetworkType>
-			<VSwitchId></VSwitchId>
-			<VpcId></VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2999-09-08T16:00:00Z</ExpireTime>
-			<CreateTime>2018-05-07T06:48:47Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType>Postpaid</PayType>
-		</DBInstance>
-		<DBInstance>
-			<LockMode>Unlock</LockMode>
-			<DBInstanceNetType>2</DBInstanceNetType>
-			<DBInstanceId>gp-xxxxxxx</DBInstanceId>
-			<ZoneId>cn-hangzhou-b</ZoneId>
-			<DBInstanceDescription>gp-xxxxxxx</DBInstanceDescription>
-			<InstanceNetworkType>VPC</InstanceNetworkType>
-			<VSwitchId>vsw-xxxxxxx</VSwitchId>
-			<VpcId>vpc-xxxxxxx</VpcId>
-			<Engine>gpdb</Engine>
-			<ExpireTime>2999-09-08T16:00:00Z</ExpireTime>
-			<CreateTime>2018-03-16T07:10:03Z</CreateTime>
-			<RegionId>cn-hangzhou</RegionId>
-			<EngineVersion>4.3</EngineVersion>
-			<LockReason></LockReason>
-			<DBInstanceStatus>Running</DBInstanceStatus>
-			<PayType>Postpaid</PayType>
-		</DBInstance>
-	</Items>
-	<PageNumber>1</PageNumber>
-	<TotalRecordCount>7</TotalRecordCount>
-	<RequestId>BBE00C04-A3E8-4114-881D-0480A72CB92E</RequestId>
-	<PageRecordCount>7</PageRecordCount>
-</DescribeDBInstancesResponse>
+<Items>
+    <DBInstance>
+        <LockMode>Unlock</LockMode>
+        <DBInstanceNetType>1</DBInstanceNetType>
+        <DBInstanceId>gp-xxxxxxx</DBInstanceId>
+        <ZoneId>cn-hangzhou-e</ZoneId>
+        <DBInstanceDescription>gpdb_test</DBInstanceDescription>
+        <InstanceNetworkType>Classic</InstanceNetworkType>
+        <VSwitchId>vsw-xxxxxxx</VSwitchId>
+        <VpcId>vpc-xxxxxxx</VpcId>
+        <Engine>gpdb</Engine>
+        <ExpireTime>2019-06-27T16:00:00Z</ExpireTime>
+        <CreateTime>2018-06-27T12:07:11Z</CreateTime>
+        <RegionId>cn-hangzhou</RegionId>
+        <EngineVersion>4.3</EngineVersion>
+        <LockReason/>
+        <DBInstanceStatus>Running</DBInstanceStatus>
+        <PayType>Prepaid</PayType>
+    </DBInstance>
+    <DBInstance>
+        <LockMode>Unlock</LockMode>
+        <DBInstanceNetType>1</DBInstanceNetType>
+        <DBInstanceId>gp-xxxxxxx</DBInstanceId>
+        <ZoneId>cn-hangzhou-e</ZoneId>
+        <DBInstanceDescription>gp-xxxxxxx</DBInstanceDescription>
+        <InstanceNetworkType>Classic</InstanceNetworkType>
+        <VSwitchId>vsw-xxxxxxx</VSwitchId>
+        <VpcId>vpc-xxxxxxx</VpcId>
+        <Engine>gpdb</Engine>
+        <ExpireTime>2999-09-08T16:00:00Z</ExpireTime>
+        <CreateTime>2018-06-27T11:51:46Z</CreateTime>
+        <RegionId>cn-hangzhou</RegionId>
+        <EngineVersion>4.3</EngineVersion>
+        <LockReason/>
+        <DBInstanceStatus>Running</DBInstanceStatus>
+        <PayType>Postpaid</PayType>
+    </DBInstance>
+</Items>
+<PageNumber>1</PageNumber>
+<TotalRecordCount>2</TotalRecordCount>
+<RequestId>BBE00C04-A3E8-4114-881D-0480A72CB92E</RequestId>
+<PageRecordCount>2</PageRecordCount>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
 {
@@ -273,104 +175,17 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstances
                 "LockReason":"",
                 "DBInstanceStatus":"Running",
                 "PayType":"Postpaid"
-            },
-            {
-                "LockMode":"Unlock",
-                "DBInstanceNetType":"2",
-                "DBInstanceId":"gp-xxxxxxx",
-                "ZoneId":"cn-hangzhou-e",
-                "DBInstanceDescription":"测试",
-                "InstanceNetworkType":"VPC",
-                "VSwitchId":"vsw-xxxxxxx",
-                "VpcId":"vpc-xxxxxxx",
-                "Engine":"gpdb",
-                "ExpireTime":"2018-07-27T16:00:00Z",
-                "CreateTime":"2018-06-27T11:46:11Z",
-                "RegionId":"cn-hangzhou",
-                "EngineVersion":"4.3",
-                "LockReason":"",
-                "DBInstanceStatus":"Running",
-                "PayType":"Prepaid"
-            },
-            {
-                "LockMode":"Unlock",
-                "DBInstanceNetType":"1",
-                "DBInstanceId":"gp-xxxxxxx",
-                "ZoneId":"cn-hangzhou-f",
-                "DBInstanceDescription":"测试2",
-                "InstanceNetworkType":"Classic",
-                "VSwitchId":"",
-                "VpcId":"",
-                "Engine":"gpdb",
-                "ExpireTime":"2018-07-20T16:00:00Z",
-                "CreateTime":"2018-06-20T05:42:03Z",
-                "RegionId":"cn-hangzhou",
-                "EngineVersion":"4.3",
-                "LockReason":"",
-                "DBInstanceStatus":"Running",
-                "PayType":"Prepaid"
-            },
-            {
-                "LockMode":"Unlock",
-                "DBInstanceNetType":"2",
-                "DBInstanceId":"gp-xxxxxxx",
-                "ZoneId":"cn-hangzhou-b",
-                "DBInstanceDescription":"gp-xxxxxxx",
-                "InstanceNetworkType":"VPC",
-                "VSwitchId":"vsw-xxxxxxx",
-                "VpcId":"vpc-xxxxxxx",
-                "Engine":"gpdb",
-                "ExpireTime":"2999-09-08T16:00:00Z",
-                "CreateTime":"2018-06-05T03:42:41Z",
-                "RegionId":"cn-hangzhou",
-                "EngineVersion":"4.3",
-                "LockReason":"",
-                "DBInstanceStatus":"Running",
-                "PayType":"Postpaid"
-            },
-            {
-                "LockMode":"Unlock",
-                "DBInstanceNetType":"2",
-                "DBInstanceId":"gp-xxxxxxx",
-                "ZoneId":"cn-hangzhou-b",
-                "DBInstanceDescription":"测试",
-                "InstanceNetworkType":"Classic",
-                "VSwitchId":"",
-                "VpcId":"",
-                "Engine":"gpdb",
-                "ExpireTime":"2999-09-08T16:00:00Z",
-                "CreateTime":"2018-05-07T06:48:47Z",
-                "RegionId":"cn-hangzhou",
-                "EngineVersion":"4.3",
-                "LockReason":"",
-                "DBInstanceStatus":"Running",
-                "PayType":"Postpaid"
-            },
-            {
-                "LockMode":"Unlock",
-                "DBInstanceNetType":"2",
-                "DBInstanceId":"gp-xxxxxxx",
-                "ZoneId":"cn-hangzhou-b",
-                "DBInstanceDescription":"gp-xxxxxxx",
-                "InstanceNetworkType":"VPC",
-                "VSwitchId":"vsw-xxxxxxx",
-                "VpcId":"vpc-xxxxxxx",
-                "Engine":"gpdb",
-                "ExpireTime":"2999-09-08T16:00:00Z",
-                "CreateTime":"2018-03-16T07:10:03Z",
-                "RegionId":"cn-hangzhou",
-                "EngineVersion":"4.3",
-                "LockReason":"",
-                "DBInstanceStatus":"Running",
-                "PayType":"Postpaid"
             }
         ]
     },
     "PageNumber":1,
-    "TotalRecordCount":7,
+    "TotalRecordCount":2,
     "RequestId":"BBE00C04-A3E8-4114-881D-0480A72CB92E",
-    "PageRecordCount":7
+    "PageRecordCount":2
 }
-
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/gpdb)查看更多错误码。
 
