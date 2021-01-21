@@ -1,21 +1,21 @@
-# DescribeRegions {#concept_a5h_kbm_q2b .concept}
+# DescribeRegions
 
-## Description { .section}
+## Description
 
 You can call this operation to query available regions and zones. You must make a DescribeRegions request to query the value of RegionId of the target region before calling the CreateDBInstance operation.
 
-## Request parameters { .section}
+## Request parameters
 
 |Name|Type|Required| Description|
 |----|----|--------|------------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|<Common request parameters\>|-| Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to DescribeRegions.|
 
-## Response parameters { .section}
+## Response parameters
 
 |Name |Type|Description|
 |-----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 |Regions|List<Region\>|The list of regions.|
 
 |Name|Type|Description|
@@ -28,7 +28,7 @@ You can call this operation to query available regions and zones. You must make 
 |ZoneId |String |The name of a zone.|
 |VpcEnabled|Boolean|This parameter indicates whether a VPC is available.|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeRegions
@@ -36,7 +36,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeRegions
 
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
