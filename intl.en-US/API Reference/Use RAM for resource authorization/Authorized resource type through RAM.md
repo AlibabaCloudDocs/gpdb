@@ -1,4 +1,4 @@
-# Authorized resource type through RAM {#reference_qbx_ryl_q2b .reference}
+# Authorized resource type through RAM
 
 Currently, RAM only supports authorizing DBInstance.
 
@@ -6,15 +6,13 @@ The description of resources to be authorized through RAM is as follows.
 
 |Resource type|Description in authorization policy|
 |-------------|-----------------------------------|
-|DBInstance| acs:gpdb:$regionid: $accountid:dbinstance/$dbinstanceid
+|DBInstance|acs:gpdb:$regionid: $accountid:dbinstance/$dbinstanceid
 
  acs:gpdb:$regionid:$accountid:dbinstance/\*
 
- acs:gpdb:\* : \*:dbinstance/\*
+ acs:gpdb:\* : \*:dbinstance/\* |
 
- |
-
-**Note:** 
+**Note:**
 
 -   The value of $regionid should be the id of a region or a "\*".
 -   The value of $dbinstanceid should be the id of a DBInstance or an asterisk \(\*\).
