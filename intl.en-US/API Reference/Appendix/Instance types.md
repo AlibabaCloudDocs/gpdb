@@ -1,4 +1,4 @@
-# Instance types {#concept_d1p_13m_q2b .concept}
+# Instance types
 
 Currently, AnalyticDB for PostgreSQL provides two instance type families.
 
@@ -11,7 +11,7 @@ We recommend that you choose the appropriate instance type based on the storage 
 
 AnalyticDB for PostgreSQL supports OSS-based external tables and data compression in external storage through gzip. You can store the data that are not involved in real-time computing to external storage to save costs.
 
-## Type specification {#section_mcr_bwm_q2b .section}
+## Type specification
 
 The specification for high-performance instances is shown in the table as follows.
 
