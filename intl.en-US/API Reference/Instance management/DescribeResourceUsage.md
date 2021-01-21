@@ -1,30 +1,30 @@
-# DescribeResourceUsage {#concept_uhn_mbm_q2b .concept}
+# DescribeResourceUsage
 
-## Description { .section}
+## Description
 
-You can call this operation to check disk space that is used by an instance.
+Queries the disk space usage of an instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String| Yes|The operation that you want to perform. Set the value to DescribeResourceUsage.|
-|DBInstanceId|String| Yes|The instance ID.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to DescribeResourceUsage.|
+|DBInstanceId|String|Yes|The ID of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name |Type|Description|
-|-----|----|-----------|
-|<Common response parameters\>|N/A|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
-|DBInstanceId|String|The instance ID.|
-|Engine|String |The database type.|
-|DiskUsed|Integer|The used space of a disk. The used space indicates the user data space \(DataSize\) and log data space \(LogSize\) combined. A value of -1 indicates that this parameter is not applicable. Unit: Bytes.|
-|DataSize|Integer|The disk space that is used to store user data. A value of -1 indicates that this parameter is not applicable. Unit: Bytes.|
-|LogSize|Integer|The disk space that is used to store log files. A value of -1 indicates that this parameter is not applicable. Unit: Bytes.|
-|BackupSize|Integer|The disk space that is used to store backup files. A value of -1 indicates that this parameter is not applicable. Unit: Bytes.|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|DBInstanceId|String|The ID of the instance.|
+|Engine|String|The database engine used by the instance.|
+|DiskUsed|Integer|The total space occupied by data files and log files. Unit: bytes. The value -1 indicates that no space is occupied by data or log files.|
+|DataSize|Integer|The space occupied by data files. Unit: bytes. The value -1 indicates that no space is occupied by data files.|
+|LogSize|Integer|The space occupied by log files. Unit: bytes. The value -1 indicates that no space is occupied by log files.|
+|BackupSize|Integer|The space occupied by backup files. Unit: bytes. The value -1 indicates that no space is occupied by backup files.|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeResourceUsage
@@ -33,7 +33,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeResourceUsage
 
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
