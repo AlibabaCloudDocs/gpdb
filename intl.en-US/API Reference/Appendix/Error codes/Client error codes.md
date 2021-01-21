@@ -1,9 +1,9 @@
-# Client error codes {#concept_ksj_whm_q2b .concept}
+# Client error codes
 
-## Common errors {#section_yyh_kys_jbb .section}
+## Common errors
 
-|Error code|Description|HTTP status code|
-|----------|-----------|----------------|
+|Error code|Error message|HTTP status code|
+|----------|-------------|----------------|
 |MissingParameter|The input parameter "parameter name" that is mandatory for processing this request is not supplied.|400|
 |InvalidParameter|The specified parameter "Action or Version" is not valid.|400|
 |InvalidAccessKeyId.NotFound|The Access Key ID provided does not exist in our records.|404|
@@ -11,7 +11,7 @@
 |IllegalTimestamp|The input parameter "Timestamp" that is mandatory for processing this request is not supplied.|400|
 |InvalidOwnerId|The specified OwnerId is not valid.|400|
 |InvalidOwnerAccount|The specified OwnerAccount is not valid.|400|
-|InvalidOwner|OwnerId and OwnerAccount can’t be used at one API access.|400|
+|InvalidOwner|OwnerId and OwnerAccount can't be used at one API access.|400|
 |Throttling|Request was denied due to request throttling.|400|
 |InvalidAction|The specified action is not valid.|403|
 |ActionUnauthorized|The specified action is not available for you|403|
@@ -23,14 +23,14 @@
 |Forbidden.RiskControl|This operation is forbidden by Aliyun Risk Control system.|403|
 |InsufficientBalance|Your account does not have enough balance.|400|
 |Forbidden.Authentication|This operation is forbidden by Aliyun Realname Authentication system.|403|
-|Invalid<parameter name\>. ValueNotSupported|The specified parameter "parameter name" is not valid.|400|
-|Invalid<parameter name\>. Malformed|The specified parameter "parameter name n" is not valid.|400|
-|InvalidParameter|The specified parameter "parameter name n " is not valid.|400|
+|Invalid<parameter name\>.ValueNotSupported|The specified parameter "parameter name" is not valid.|400|
+|Invalid<parameter name\>.Malformed|The specified parameter "parameter name n" is not valid.|400|
+|InvalidParameter|The specified parameter " parameter name n " is not valid.|400|
 
-## Specific errors {#section_k4g_tys_jbb .section}
+## Operation-specific errors
 
-|Error code|Description|HTTP status code|
-|----------|-----------|----------------|
+|Error code|Error message|HTTP status code|
+|----------|-------------|----------------|
 |InvalidRegionId.NotFound|The DBInstanceId provided does not exist in our records.|404|
 |InvalidSecurityIPList.Duplicate|The Security IP address is not in the available range or occupied.|400|
 |InvalidSecurityIPListLength.Malformed|The security IP address is beyond the available range or is already used.|400|
@@ -95,7 +95,7 @@
 |InvalidConnectionString.Duplicate Specified|Connection string already exists in the Aliyun RDS.|403|
 |InvalidConnectionString.Duplicate Specified|Connection string or port want to be modified is the same with current net type.|400|
 |InvalidConnectionStringPrefix.Duplicated|The specified connection string already exists.|403|
-|InvalidCurrentConnectionString.NotFound|Specified current connection string doesn’t exist.|400|
+|InvalidCurrentConnectionString.NotFound|Specified current connection string doesn't exist.|400|
 |InvalidDBInstanceId.NotFound|The specified DBInstanceId does not exist.|400|
 |InvalidDBInstanceId.QuotaExceeded|The quota of instance id exceeds.|400|
 |InvalidDBInstanceNetType.NotFound|The Specified DB instance net type is not found.|404|
