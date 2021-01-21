@@ -1,24 +1,24 @@
-# DeleteDBInstance {#concept_u51_fbm_q2b .concept}
+# DeleteDBInstance
 
-## Description { .section}
+## Description
 
 You can call this operation to delete an instance.
 
-## Request parameters { .section}
+## Request parameters
 
 |Name|Type|Required|Description|
 |----|----|--------|-----------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|<Common request parameters\>|-| Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String| Yes|The operation that you want to perform. Set the value to DeleteDBInstance.|
 |DBInstanceId|String|Yes|The instance ID.|
 
-## Response parameters { .section}
+## Response parameters
 
 |Name |Type|Description|
 |-----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DeleteDBInstance
@@ -26,7 +26,7 @@ https://gpdb.aliyuncs.com/?Action=DeleteDBInstance
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
