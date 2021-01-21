@@ -1,48 +1,55 @@
-# DeleteDatabase {#concept_m11_2cm_q2b .concept}
+# DeleteDatabase
 
-## Description { .section}
+You can call this operation to delete a database from an AnalyticDB for PostgreSQL instance.
 
-You can call this operation to remove a database of an instance.
+## Debugging
 
-## Request parameters { .section}
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=gpdb&api=DeleteDatabase&type=RPC&version=2016-05-03)
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request paramters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String|Yes|The operation that you want to perform. Set the value to DeleteDatabase.|
-|DBInstanceId|String| Yes|The instance name.|
-|DBName|String| Yes|The database name.|
+## Request parameters
 
-## Response parameters { .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|DeleteDatabase|The operation that you want to perform. Set the value to DeleteDatabase. |
+|DBInstanceId|String|Yes|gp-xxxxxxxxxxx|The ID of the instance. |
+|DBName|String|No|testdb01|The name of the database. |
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+## Response parameters
 
-## Sample requests { .section}
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|07F6177E-6DE4-408A-BB4F-0723301340F3|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DeleteDatabase
 &DBName=testdb01
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxxxxxx
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+Sample success responses
 
-**XML format**
+`XML` format
 
 ```
 <DeleteDatabaseResponse>
-     <RequestId>07F6177E-6DE4-408A-BB4F-0723301340F3</RequestId>
+       <RequestId>07F6177E-6DE4-408A-BB4F-0723301340F3</RequestId>
 </DeleteDatabaseResponse>
 ```
 
-**JSON format**
+`JSON` format
 
 ```
 {
     "RequestId":"07F6177E-6DE4-408A-BB4F-0723301340F3"
- }
+}
 ```
+
+## Error code
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
