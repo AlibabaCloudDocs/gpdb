@@ -1,4 +1,4 @@
-# Instance statuses {#concept_ctf_g3m_q2b .concept}
+# Instance statuses
 
 |Status|Description|
 |------|-----------|
