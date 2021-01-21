@@ -1,25 +1,25 @@
-# ReleaseInstancePublicConnection {#concept_tmj_qhm_q2b .concept}
+# ReleaseInstancePublicConnection
 
-## 描述 { .section}
+## 描述
 
 该接口用于释放实例的外网连接。
 
-## 请求参数 { .section}
+## 请求参数
 
 |名称|类型|是否必须|描述|
 |--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
+|<公共请求参数\>|-|是|参见[公共参数](/cn.zh-CN/API参考/公共参数.md)。|
 |Action|String|是|系统规定参数，取值为ReleaseInstancePublicConnection。|
 |DBInstanceId|String|是|实例名。|
 |CurrentConnectionString|String|是|外网连接。|
 
-## 返回参数 { .section}
+## 返回参数
 
 |名称|类型|描述|
 |--|--|--|
-|<公共返回参数\>|-|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
+|<公共返回参数\>|-|详见[公共返回参数](/cn.zh-CN/API参考/公共参数.mdsection_apd_1rv_3bb)。|
 
-## 请求示例 { .section}
+## 请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=ReleaseInstancePublicConnection
@@ -28,7 +28,7 @@ https://gpdb.aliyuncs.com/?Action=ReleaseInstancePublicConnection
 &<公共请求参数>
 ```
 
-## 返回示例 { .section}
+## 返回示例
 
 **XML格式**
 
