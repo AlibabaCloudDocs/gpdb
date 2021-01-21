@@ -1,4 +1,4 @@
-# Server error codes {#concept_vkg_yhm_q2b .concept}
+# Server error codes
 
 |Error code|Description|HTTP status code|
 |----------|-----------|----------------|
