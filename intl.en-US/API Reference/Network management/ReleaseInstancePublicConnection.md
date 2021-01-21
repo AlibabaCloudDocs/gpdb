@@ -1,25 +1,25 @@
-# ReleaseInstancePublicConnection {#concept_tmj_qhm_q2b .concept}
+# ReleaseInstancePublicConnection
 
-## Description { .section}
+## Description
 
 You can call this operation to release the public network connection string of the instance.
 
-## Request parameters { .section}
+## Request parameters
 
 |Name|Type|Required|Description|
 |----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|<Common request parameters\>|-|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ReleaseInstancePublicConnection.|
 |DBInstanceId|String|Yes|The ID of the instance.|
 |CurrentConnectionString|String|Yes|The public network connection string of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
 |Name|Type|Description|
 |----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ReleaseInstancePublicConnection
@@ -28,7 +28,7 @@ https://gpdb.aliyuncs.com/?Action=ReleaseInstancePublicConnection
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
