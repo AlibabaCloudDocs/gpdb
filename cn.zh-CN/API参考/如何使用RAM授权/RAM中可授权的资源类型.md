@@ -1,4 +1,4 @@
-# RAM中可授权的资源类型 {#reference_qbx_ryl_q2b .reference}
+# RAM中可授权的资源类型
 
 目前，可以在RAM中进行授权的资源类型仅一种——DBInstance。
 
@@ -6,15 +6,13 @@
 
 |资源类型|授权策略中的资源描述方式|
 |----|------------|
-|DBInstance| acs:gpdb:$regionid: $accountid:dbinstance/$dbinstanceid
+|DBInstance|acs:gpdb:$regionid: $accountid:dbinstance/$dbinstanceid
 
  acs:gpdb:$regionid:$accountid:dbinstance/\*
 
- acs:gpdb:\* : \*:dbinstance/\*
+ acs:gpdb:\* : \*:dbinstance/\* |
 
- |
-
-**说明：** 
+**说明：**
 
 -   所有$regionid应为某个region的id，或者“\*”。
 -   所有$dbinstanceid应为某个dbinstance的id，或者“\*”。
