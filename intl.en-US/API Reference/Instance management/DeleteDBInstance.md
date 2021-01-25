@@ -2,28 +2,29 @@
 
 ## Description
 
-You can call this operation to delete an instance.
+Deletes an instance.
 
 ## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
-|Action|String| Yes|The operation that you want to perform. Set the value to DeleteDBInstance.|
-|DBInstanceId|String|Yes|The instance ID.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to DeleteDBInstance.|
+|DBInstanceId|String|Yes|The ID of the instance.|
 
 ## Response parameters
 
-|Name |Type|Description|
-|-----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Parameter|**Type**|**Description**|
+|---------|--------|---------------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
 ## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DeleteDBInstance
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxx 
 &<Common request parameters>
+
 ```
 
 ## Sample responses
@@ -39,6 +40,6 @@ https://gpdb.aliyuncs.com/?Action=DeleteDBInstance
 **JSON format**
 
 ```
-"RequestId": " 65BDA532-28AF-4122-AA39-B382721EEE64"
+{"RequestId":" 65BDA532-28AF-4122-AA39-B382721EEE64"}
 ```
 
