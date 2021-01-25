@@ -1,37 +1,35 @@
-# DescribeAccounts {#concept_f12_hcm_q2b .concept}
+# DescribeAccounts
 
-## Description { .section}
+## Description
 
-You can call this operation to query the list of accounts.
+Queries the accounts created on an AnalyticDB for PostgreSQL instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required| Description|
-|----|----|--------|------------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to DescribeAccounts.|
-|DBInstanceId|String|Yes|The instance ID.|
-|AccountName| String| No|The account name.|
+|DBInstanceId|String|Yes|The ID of the instance.|
+|AccountName|String|No|The name of the initial user created during instance creation.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name |Type|Description|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Accounts|List<DBInstanceAccount\>|An array consisting of accounts.|
+
+|Field|Type|Description|
 |-----|----|-----------|
-|<Common response paramters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
-|Accounts|List<DBInstanceAccount\>|The list of accounts.|
-
-|Name|Type|Description|
-|----|----|-----------|
-|DBInstanceId|String |The instance name.|
-|AccountName|String|The account name.|
-|AccountStatus|String |The account status is as follows:-   0: indicates that the account is being created.
--   1: indicates that the account is being used.
--   3: indicates that the account is being deleted.
-
-|
+|DBInstanceId|String|The ID of the instance.|
+|AccountName|String|The name of the account.|
+|AccountStatus|String|The status of the account. Valid values: -   0: The account is being created.
+-   1: The account is in use.
+-   3: The account is being deleted. |
 |AccountDescription|String|The description of the account.|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeAccounts
@@ -39,7 +37,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeAccounts
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
@@ -65,7 +63,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeAccounts
       "DBInstanceAccount": [
         {
           "AccountDescription": "", 
-          "DBInstanceId": "gp-xxxxxxx", 
+          "DBInstanceId":"pgm-xxxxxxx", 
           "AccountStatus": "1", 
           "AccountName": "testaccount_1"
         }
