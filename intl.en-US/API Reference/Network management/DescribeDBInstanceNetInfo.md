@@ -1,41 +1,37 @@
-# DescribeDBInstanceNetInfo {#concept_qvg_jhm_q2b .concept}
+# DescribeDBInstanceNetInfo
 
-## Description { .section}
+## Description
 
-You can call this operation to query the connection information of the instance.
+Queries the connection information of an instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required| Description|
-|----|----|--------|------------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String| Yes|The operation that you want to perform. Set the value to DescribeDBInstanceNetInfo.|
-|DBInstanceId|String| Yes|The instance ID.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to DescribeDBInstanceNetInfo.|
+|DBInstanceId|String|Yes|The ID of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name |Type|Description|
-|-----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>| |For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 |DBInstanceNetInfos|List<DBInstanceNetInfo\>|The connection information of the instance.|
-|InstanceNetworkType|String | -   Classic: classic networks.
--   VPC: VPC networks.
+|InstanceNetworkType|String|The network type of the instance. Valid values: -   Classic: classic network
+-   VPC: Virtual Private Cloud |
 
- |
+|Parameter|Type|Description|
+|---------|----|-----------|
+|ConnectionString|String|The DNS connection string.|
+|IPAddress|String|The IP address of the instance.|
+|IPType|String|The IP address type of the instance. -   Valid values for instances in a classic network: Inner and Public
+-   Valid values for instances in a VPC: Private and Public |
+|Port|String|The port of the instance.|
+|VPCId|String|The ID of the VPC.|
+|VSwitchId|String|The ID of the VSwitch. If there are multiple IDs, they are separated with commas \(,\).|
 
-|Name|Type|Description|
-|----|----|-----------|
-|ConnectionString|String |The DNS connection string.|
-|IPAddress|String |The IP address.|
-|IPType|String | -   For a classic network, the IPType parameter can be Inner or Public.
--   For a VPC network, the IPType parameter can be Private or Public.
-
- |
-|Port|String |The port information.|
-|VPCId|String |The name of the VPC.|
-|VSwitchId|String|The name of the VSwitch. You can separate multiple values with commas.|
-
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeDBInstanceNetInfo
@@ -43,23 +39,23 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstanceNetInfo
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
 ```
 <DescribeDBInstanceNetInfoResponse>
     <instanceNetworkType>Classic</instanceNetworkType>
-	<DBInstanceNetInfos>
-		<DBInstanceNetInfo>
-			<DBInstanceNetType>1</DBInstanceNetType>
-			<connectionString>gp-xxxxxxx.gpdb.rds.aliyuncs.com</connectionString>
-			<ipAddress>127.0.0.1</ipAddress>
-			<port>3432</port>
-			<userVisible>1</userVisible>
-		</DBInstanceNetInfo>
-	</DBInstanceNetInfos>
-	<RequestId>7565770E-7C45-462D-BA4A-8A5396F2CAD1</RequestId>
+    <DBInstanceNetInfos>
+        <DBInstanceNetInfo>
+            <DBInstanceNetType>1</DBInstanceNetType>
+            <connectionString>gp-xxxxxxx.gpdb.rds.aliyuncs.com</connectionString>
+            <ipAddress>127.0.0.1</ipAddress>
+            <port>3432</port>
+            <userVisible>1</userVisible>
+        </DBInstanceNetInfo>
+    </DBInstanceNetInfos>
+    <RequestId>7565770E-7C45-462D-BA4A-8A5396F2CAD1</RequestId>
 </DescribeDBInstanceNetInfoResponse>
 ```
 
@@ -67,7 +63,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstanceNetInfo
 
 ```
 {
-    "InstanceNetworkType": "classic",
+    "instanceNetworkType":"Classic",
     "DBInstanceNetInfos": {
       "DBInstanceNetInfo": [
         {
