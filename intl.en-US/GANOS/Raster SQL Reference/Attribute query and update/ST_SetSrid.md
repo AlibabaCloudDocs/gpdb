@@ -17,7 +17,7 @@ raster ST_SetSrid(raster rast, integer srid);
 
 ## Description
 
-If the raster object is stored in external mode, you need to ensure that the raster object is geographically referenced and the specified SRID can be found in the spatial\_ref\_sys table. Otherwise, the information about the raster object cannot be updated.
+If the raster object is stored in external mode, you must make sure that the raster object is geographically referenced and the specified SRID can be found in the spatial\_ref\_sys table. Otherwise, the information about the raster object cannot be updated.
 
 ## Examples
 
