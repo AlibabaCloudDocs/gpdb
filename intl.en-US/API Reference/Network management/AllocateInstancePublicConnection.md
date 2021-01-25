@@ -1,28 +1,29 @@
-# AllocateInstancePublicConnection {#concept_ks2_hhm_q2b .concept}
+# AllocateInstancePublicConnection
 
-## Description { .section}
+## Description
 
-You can call this operation to specify a prefix for the public network connection string of the instance.
+Assigns a prefix to the public endpoint of an instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String| Yes|The operation that you want to perform. Set the value to AllocateInstancePublicConnection.|
-|DBInstanceId|String|Yes|The instance ID.|
-|ConnectionStringPrefix|String| Yes|The prefix of the connection string.|
-|Port|String| Yes|The port number. Valid values: 3200 to 3999.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to AllocateInstancePublicConnection.|
+|DBInstanceId|String|Yes|The ID of the instance.|
+|ConnectionStringPrefix|String|Yes|The endpoint of the instance.|
+|Port|String|Yes|The port of the instance. Valid values: 3200 to 3999.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests {#section_mgb_1p5_42b .section}
+## Sample requests
 
 ```
+
 https://gpdb.aliyuncs.com/?Action=AllocateInstancePublicConnection
 &DBInstanceId=gp-xxxxxxx
 &ConnectionStringPrefix=gp-xxxxxxx
@@ -30,7 +31,7 @@ https://gpdb.aliyuncs.com/?Action=AllocateInstancePublicConnection
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
