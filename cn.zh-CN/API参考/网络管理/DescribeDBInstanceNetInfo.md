@@ -1,85 +1,90 @@
-# DescribeDBInstanceNetInfo {#concept_qvg_jhm_q2b .concept}
+# DescribeDBInstanceNetInfo
 
-## 描述 { .section}
+调用DescribeDBInstanceNetInfo查询实例的连接信息。
 
-描述实例的连接信息。
+## 调试
 
-## 输入参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=DescribeDBInstanceNetInfo&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值：DescribeDBInstanceNetInfo。|
-|DBInstanceId|String|是|实例名。|
+## 请求参数
 
-## 返回参数 { .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|DBInstanceId|String|是|gp-xxxxxxxxxx|实例ID。 |
 
-|名称|类型|描述|
-|--|--|--|
-|<公共返回参数\>| |详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
-|DBInstanceNetInfos|List<DBInstanceNetInfo\>|实例的连接信息。|
-|InstanceNetworkType|String| -   Classic：经典网络。
--   VPC：VPC网络。
+## 返回数据
 
- |
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|7565770E-7C45-462D-BA4A-8A5396F2CAD1|请求ID。 |
+|InstanceNetworkType|String|Classic|实例网络类型：
 
-|名称|类型|描述|
-|--|--|--|
-|ConnectionString|String|DNS连接串。|
-|IPAddress|String|IP地址。|
-|IPType|String| -   经典网络类型的实例IPType为：Inner、Public。
--   VPC类型的实例IPType为：Private、Public。
+ -   Classic：经典网络。
+-   VPC：VPC网络。 |
+|DBInstanceNetInfos|Array| |实例的连接信息。 |
+|ConnectionString|String|gp-xxxxxxx.gpdb.rds.aliyuncs.com|数据库连接URL。 |
+|IPAddress|String|127.0.0.1|IP地址。 |
+|IPType|String|Inner|IP类型。
 
- |
-|Port|String|端口信息。|
-|VPCId|String|VPC ID。|
-|VSwitchId|String|VSwitch ID，多个值用英文逗号“,”隔开。|
+ -   经典网络类型的实例IPType为：Inner、Public。
+-   VPC类型的实例IPType为：Private、Public。 |
+|Port|String|3432|端口信息。 |
+|VPCId|String|vpc-xxxxxxx|VPC ID。 |
+|VSwitchId|String|vsw-xxxxxxxx|VSwitch ID，多个值用英文逗号“,”隔开。 |
 
-## 请求示例 { .section}
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeDBInstanceNetInfo
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxxxxx
 &<公共请求参数>
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
 <DescribeDBInstanceNetInfoResponse>
-    <instanceNetworkType>Classic</instanceNetworkType>
-	<DBInstanceNetInfos>
-		<DBInstanceNetInfo>
-			<DBInstanceNetType>1</DBInstanceNetType>
-			<connectionString>gp-xxxxxxx.gpdb.rds.aliyuncs.com</connectionString>
-			<ipAddress>127.0.0.1</ipAddress>
-			<port>3432</port>
-			<userVisible>1</userVisible>
-		</DBInstanceNetInfo>
-	</DBInstanceNetInfos>
-	<RequestId>7565770E-7C45-462D-BA4A-8A5396F2CAD1</RequestId>
+  <instanceNetworkType>Classic</instanceNetworkType>
+  <DBInstanceNetInfos>
+        <DBInstanceNetInfo>
+              <DBInstanceNetType>1</DBInstanceNetType>
+              <connectionString>gp-xxxxxxx.gpdb.rds.aliyuncs.com</connectionString>
+              <ipAddress>127.0.0.1</ipAddress>
+              <port>3432</port>
+              <VPCId>vpc-xxxxxxxxx</VPCId>
+              <VSwitchId>vsw-xxxxxxx</VSwitchId>
+        </DBInstanceNetInfo>
+  </DBInstanceNetInfos>
+  <RequestId>7565770E-7C45-462D-BA4A-8A5396F2CAD1</RequestId>
 </DescribeDBInstanceNetInfoResponse>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
 {
-    "instanceNetworkType":"Classic",
-    "DBInstanceNetInfos": {
-      "DBInstanceNetInfo": [
-        {
-           "DBInstanceNetType":"1",
-            "connectionString":"gp-xxxxxxx.gpdb.rds.aliyuncs.com",
-            "ipAddress":"127.0.0.1",
-            "port":"3432",
-            "userVisible":1
-        }
-      ]
-    }, 
-    "RequestId": "7565770E-7C45-462D-BA4A-8A5396F2CAD1"
-  }
+	"instanceNetworkType": "Classic",
+	"DBInstanceNetInfos": {
+		"DBInstanceNetInfo": [
+			{
+				"DBInstanceNetType": "1",
+				"connectionString": "gp-xxxxxxx.gpdb.rds.aliyuncs.com",
+				"ipAddress": "127.0.0.1",
+				"port": "3432",
+				"VPCId": "vpc-xxxxxxxxx",
+				"VSwitchId": "vsw-xxxxxxx"
+			}
+		]
+	},
+	"RequestId": "7565770E-7C45-462D-BA4A-8A5396F2CAD1"
+}
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/gpdb)查看更多错误码。
 
