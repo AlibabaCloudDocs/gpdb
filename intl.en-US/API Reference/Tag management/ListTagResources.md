@@ -1,6 +1,6 @@
 # ListTagResources
 
-Queries tags that are bound to one or more AnalyticDB for PostgreSQL instances.
+You can call this operation to query tags that are bound to one or more AnalyticDB for PostgreSQL instances.
 
 ## Debugging
 
@@ -11,34 +11,34 @@ Queries tags that are bound to one or more AnalyticDB for PostgreSQL instances.
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|No|ListTagResources|The operation that you want to perform. Set the value to ListTagResources. |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region. You can call the [DescribeRegions](~~86912~~) operation to query region IDs. |
-|ResourceType|String|Yes|instance|The mode of the instance. Valid values:
+|RegionId|String|Yes|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list. |
+|ResourceType|String|Yes|instance|The storage mode of the instance. Valid values:
 
 -   `instance`: reserved storage mode
 -   `ALIYUN::GPDB::INSTANCE`: elastic storage mode |
-|ResourceId.N|RepeatList|No|gp-xxxxxxxxxx|The ID of an instance. Valid values of N: 1 to 50. |
-|Tag.N.Key|String|No|TestKey|The key of a tag. A tag key can contain 1 to 128 characters in length. Valid values of N: 1 to 20.
+|ResourceId.N|RepeatList|No|gp-xxxxxxxxxx|The ID of instance N. Valid values of N: 1 to 50. |
+|Tag.N.Key|String|No|TestKey|The key of tag N. The key must be 1 to 128 characters in length. Valid values of N: 1 to 20.
 
-You can use key-value pair `Tag.N.Key and Tag.N.Value` to query AnalyticDB for PostgreSQL instances that have specific tags bound.
+You can use `Tag.N.Key and Tag.N.Value` to query AnalyticDB for PostgreSQL instances to which specific tags are bound.
 
--   If you specify only `Tag.N.Key`, the instances that contain all the specified tag keys are returned.
--   If you specify only`Tag.N.Value`, error `InvalidParameter.TagValue` is returned.
--   If you specify multiple tag key-value pairs at a time, the instances that have all the specified tags are returned. |
-|Tag.N.Value|String|No|TestValue|The value of a tag. A tag value can contain 1 to 128 characters in length. Valid values of N: 1 to 20. |
-|NextToken|String|No|caeba0bbb2be03f84eb48b699f0a4883|The token that you specify to start the next query. |
+-   If you specify only `Tag.N.Key`, the instances whose tags contain the specified tag keys are returned.
+-   If you specify only`Tag.N.Value`, `InvalidParameter.TagValue` is returned.
+-   If you specify multiple tag key-value pairs at a time, the instances to which all the specified tags are bound are returned. |
+|Tag.N.Value|String|No|TestValue|The value of tag N. The value must be 1 to 128 characters in length. Valid values of N: 1 to 20. |
+|NextToken|String|No|caeba0bbb2be03f84eb48b699f0a4883|The token used to perform the next query. |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
-|NextToken|String|caeba0bbb2be03f84eb48b699f0a4883|The token that is returned for the next query. |
+|NextToken|String|caeba0bbb2be03f84eb48b699f0a4883|The token used to perform the next query. |
 |RequestId|String|5414A4E5-4C36-4461-95FC-23757A20B5F8|The ID of the request. |
-|TagResources|Array of TagResource| |A list of instances and tags, including the instance IDs, instance modes, and tag key-value pairs. |
-|TagResource| | | |
-|ResourceId|String|gp-xxxxxxxxxx|The ID of an instance. |
-|ResourceType|String|instance|The mode of the instance. |
-|TagKey|String|TestKey|The key of the tag. |
-|TagValue|String|TestValue|The value of the tag. |
+|TagResources|Array of TagResource|N/A|Details about the instances and tags, including the instance IDs, instance modes, and tag key-value pairs. |
+|TagResource|N/A|N/A|N/A|
+|ResourceId|String|gp-xxxxxxxxxx|The ID of the instance. |
+|ResourceType|String|instance|The storage mode of the instance. |
+|TagKey|String|TestKey|The tag key. |
+|TagValue|String|TestValue|The tag value. |
 
 ## Examples
 
