@@ -30,18 +30,18 @@ create index tr_traj_test_stm_etm_sp_index on traj_test using gist (st_starttime
 
 ## Use appropriate partitioned tables
 
-The amount of trajectory data in a database keeps increasing along with the continuous use of the database. As a result, a larger number of database indexes are created and data queries slow down. You can use table partitioning to decrease the data size of a single table.
+The amount of trajectory data in a database keeps increasing along with the continuous use of the database. As a result, a larger number of database indexes are created and data queries slow down. In this case, you can use partitioned tables to decrease the data size of a single table.
 
-For more information about table partitioning, see [Table partitioning](https://www.postgresql.org/docs/current/ddl-partitioning.html) in the PostgreSQL documentation.
+For more information about table partitioning, visit [Table partitioning](https://www.postgresql.org/docs/current/ddl-partitioning.html) in the PostgreSQL documentation.
 
 ## Reduce the use of string-type attribute fields
 
 A large number of string-type attribute fields in trajectory data lead to a waste of the storage space and performance deterioration.
 
 -   If string-type attribute fields have fixed values, they can be converted into integers. We recommend that you convert the data type in code.
--   If string-type attribute fields are required, you can set a default length for them to save space.
+-   If string-type attribute fields are required, you can set a default length for the fields to save space.
 
-    To set a default length for string-type attribute fields, do as follows:
+    To set a default length for string-type attribute fields, execute the following statement:
 
     ```
     -- Set the default length of string-type attribute fields to 32.
@@ -55,23 +55,23 @@ We recommend that you use multiple trajectory points to generate a trajectory ob
 
 ## Use the advanced compression mode
 
-LZ4 is an advanced compression algorithm, with a higher compression ratio and execution speed. To enable the LZ4 compression algorithm, do as follows:
+LZ4 is an advanced compression algorithm, with a higher compression ratio and execution speed. To enable and disable the LZ4 compression algorithm, execute the following statements:
 
 ```
 -- Enable LZ4 compression.
 Set toast_compression_use_lz4 = true; 
 
--- Disable LZ4 compression to use the default PostgreSQL compression algorithm.
+-- Disable LZ4 compression and use the default PostgreSQL compression algorithm.
 Set toast_compression_use_lz4 = false;
 ```
 
-To enable the LZ4 compression algorithm for the entire database by default, do as follows:
+To enable and disable the LZ4 compression algorithm for the entire database by default, execute the following statements:
 
 ```
 -- Enable LZ4 compression for the database.
 Alter database dbname Set toast_compression_use_lz4 = true;
 
--- Disable LZ4 compression to use the default compression algorithm for the database.
+-- Disable LZ4 compression and use the default compression algorithm for the database.
 Alter database dbname Set toast_compression_use_lz4 = false;
 ```
 
