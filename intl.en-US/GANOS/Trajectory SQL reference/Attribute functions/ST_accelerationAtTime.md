@@ -13,7 +13,7 @@ float8 ST_accelerationAtTime (trajectory traj, timestamp t);
 |Parameter|Description|
 |---------|-----------|
 |traj|The trajectory object.|
-|t|The specified time point.|
+|t|The time point.|
 
 ## Example
 
