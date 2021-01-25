@@ -1,28 +1,28 @@
-# CreateAccount {#concept_i4v_lcm_q2b .concept}
+# CreateAccount
 
-## Description { .section}
+## Description
 
-You can call this operation to create an account for a database.
+Creates an account for an instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required| Description|
-|----|----|--------|------------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String| Yes|The operation that you want to perform. Set the value to CreateAccount.|
-|DBInstanceId|String| Yes|The instance name.|
-|DatabaseName|String|No|The database name.|
-|AccountName|String|Yes|The account name.|
-|AccountPassword|String| Yes|The password.|
-|AccountDescription| String| No|The description of the account.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to CreateAccount.|
+|DBInstanceId|String|Yes|The ID of the instance.|
+|DatabaseName|String|No|The name of the database.|
+|AccountName|String|Yes|The username of the account.|
+|AccountPassword|String|Yes|The password of the account.|
+|AccountDescription|String|No|The description of the account.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=CreateAccount
@@ -32,7 +32,7 @@ https://gpdb.aliyuncs.com/?Action=CreateAccount
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
