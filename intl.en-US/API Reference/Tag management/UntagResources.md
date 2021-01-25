@@ -1,6 +1,6 @@
 # UntagResources
 
-Unbinds tags from specific AnalyticDB for PostgreSQL instances. After you unbind tags, the tags are automatically deleted if they are not bound to other instances.
+You can call this operation to unbind tags from specific AnalyticDB for PostgreSQL instances. If the tags are not bound to other instances, the tags are automatically deleted after you unbind them.
 
 ## Debugging
 
@@ -11,19 +11,19 @@ Unbinds tags from specific AnalyticDB for PostgreSQL instances. After you unbind
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|No|UntagResources|The operation that you want to perform. Set the value to UntagResources. |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region. You can call the [DescribeRegions](~~86912~~) operation to query region IDs. |
-|ResourceId.N|RepeatList|Yes|gp-xxxxxxxxxxx|The ID of an instance. Valid values of N: 1 to 50. |
-|ResourceType|String|Yes|instance|The mode of the instance. Valid values:
+|RegionId|String|Yes|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list. |
+|ResourceId.N|RepeatList|Yes|gp-xxxxxxxxxxx|The ID of instance N. Valid values of N: 1 to 50. |
+|ResourceType|String|Yes|instance|The storage mode of the instance. Valid values:
 
--   `instance`: reserved storage mode
+ -   `instance`: reserved storage mode
 -   `ALIYUN::GPDB::INSTANCE`: elastic storage mode |
-|TagKey.N|RepeatList|No|TestKey|The key of a tag. Valid values of N: 1 to 20.|
+|TagKey.N|RepeatList|No|TestKey|The key of tag N. Valid values of N: 1 to 20. |
 |All|Boolean|No|false|Specifies whether to unbind all tags from an instance. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
 
--   true
+ -   true
 -   false
 
-Default value: false |
+ Default value: false. |
 
 ## Response parameters
 
