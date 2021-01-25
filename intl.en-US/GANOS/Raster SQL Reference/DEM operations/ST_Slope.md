@@ -1,6 +1,6 @@
 # ST\_Slope
 
-This function computes the slope from each cell of a raster surface and returns an array of slopes in units of degrees.
+This function calculates the slope from each cell of a raster surface and returns an array of slopes in units of degrees.
 
 ## Syntax
 
@@ -15,10 +15,10 @@ float8[] ST_Slope(raster rast, integer pyramid_level, integer band, Box extent, 
 |rast|The raster object.|
 |pyramid\_level|The pyramid level.|
 |Band|The sequence number of the band.|
-|box|The area to be analyzed, in the format of '\(\(minX,minY\),\(maxX,maxY\)\)'.|
-|type|The coordinate type of the area to be analyzed. Valid values: -   Raster: pixel coordinates
+|box|The area to be analyzed, in the format of `'((minX,minY),(maxX,maxY))'`.|
+|type|The coordinate type of the area to be analyzed. You can specify only one value. Valid values: -   Raster: pixel coordinates
 -   World: world coordinates |
-|zfactor|The conversion factor that adjusts the units of measure for the vertical \(or elevation\) units when they are different from the horizontal coordinate \(x,y\) units of the input surface. Default value: 1.|
+|zfactor|The conversion factor that adjusts the units of measure for the vertical \(or elevation\) units when the units are different from the horizontal coordinate \(x,y\) units of the input surface. Default value: 1.|
 
 ## Description
 
