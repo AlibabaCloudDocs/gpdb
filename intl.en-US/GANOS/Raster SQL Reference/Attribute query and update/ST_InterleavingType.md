@@ -12,9 +12,9 @@ text ST_InterleavingType(raster raster_obj);
 
 |Parameter|Description|
 |:--------|:----------|
-|raster\_obj|The raster object.|
+|raster\_obj|A raster object.|
 
-## Examples
+## Example
 
 ```
 select ST_InterleavingType(raster_obj) from raster_table;
