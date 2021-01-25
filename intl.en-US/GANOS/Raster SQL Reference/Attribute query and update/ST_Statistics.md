@@ -13,7 +13,7 @@ text ST_Statistics(raster raster_obj, integer band);
 |Parameter|Description|
 |---------|-----------|
 |raster\_obj|The raster object.|
-|band|The band sequence number, starting from 0.|
+|band|The sequence number of the band, which starts from 0.|
 
 ## Examples
 
@@ -21,6 +21,6 @@ text ST_Statistics(raster raster_obj, integer band);
 select ST_Statistics(raster_obj, 0) from raster_table where id=1;
 
 __________________________________
-'{	"min": 0.00, "max": 255.00, "mean": 125.00, "std": 23.123, "approx": false}' 
+'{    "min" : 0.00, "max" : 255.00,"mean" : 125.00,"std" : 23.123,"approx" : false}'
 ```
 
