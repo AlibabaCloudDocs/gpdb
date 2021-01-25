@@ -13,7 +13,7 @@ text ST_ColorTable(raster raster_obj, integer band);
 |Parameter|Description|
 |:--------|:----------|
 |raster\_obj|The raster object.|
-|band|The band sequence number, starting from 0.|
+|band|The sequence number of the band, which starts from 0.|
 
 ## Description
 
