@@ -1,24 +1,24 @@
 # Request structure
 
-To make an API call, send an HTTP GET request to the OpenAPI endpoint with request parameters according to the description of the corresponding API operation. The processing results are returned in the response.
+To send an API request, you must send an HTTP GET request to the API endpoint. You must add the request parameters that correspond to the API operation being called. After you call the API, the system returns a response.
 
 ## Endpoints
 
-The endpoint of this API is gpdb.aliyuncs.com.
+The endpoint of the API is gpdb.aliyuncs.com.
 
 ## Protocols
 
-You can send HTTP and HTTPS requests. We recommend that you send HTTPS requests for better security. Some password-related APIs only support HTTPS.
+You can call API operations by sending HTTP or HTTPS requests. For security purposes, we recommend that you send HTTPS requests. Some password-related API operations only support HTTPS.
 
 ## Methods
 
-You can send requests using the HTTP GET method. In an HTTP GET request, parameters are included as part of the URL.
+The system allows you to send HTTP GET requests. This requires request parameters to be included in request URLs.
 
 ## Parameters
 
-Specify the Action parameter, for example, CreateDBInstance. Additionally, specify the common request parameters that are applicable for all operations and operation-specific parameters that are applicable only for this operation.
+When you make an API request, you must set the Action parameter to the operation \(such as CreateDBInstance\) that you want to perform. You must also specify common request parameters and operation-specific request parameters.
 
 ## Encoding
 
-Requests and responses are encoded using the UTF-8 character set.
+Requests and responses are encoded in UTF-8.
 
