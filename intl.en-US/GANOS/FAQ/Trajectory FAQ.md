@@ -1,8 +1,10 @@
 # Trajectory FAQ
 
+This topic provides answers to the commonly asked questions about trajecotry. This helps you use the Ganos engine in AnalyticDB for PostgreSQL.
+
 ## How do I convert the data of coordinate points into a trajectory object?
 
-You can use the ST\_makeTrajectory constructor to convert the data of coordinate points into a trajectory object. The procedure is as follows:
+You can use the ST\_makeTrajectory constructor to convert the data of coordinate points into a trajectory object. You can execute the following statements:
 
 ```
 -- Create an extension.
@@ -34,7 +36,7 @@ FROM (select array_agg(x order by id) as x,
 If the built-in ST\_makeTrajectory constructor does not meet your requirements, you can customize one with required attributes. For example, to create a trajectory object with five attributes, including two of the int8 type, two of the float4 type, and one of the timestamp type, you can customize the following constructor:
 
 ```
-CREATE OR REPLACE FUNCTION ST_MakeTrajectory(type leaftype, x float8[], y float8[],  
+CREATE OR REPLACE FUNCTION  ST_MakeTrajectory(type leaftype, x float8[], y float8[] , 
                srid integer, timespan timestamp[],attrs_name cstring[], attr1 int8[], 
                attr2 int8[], attr3 float4[], attr4 float4[], attr5 timestamp[])
     RETURNS trajectory
@@ -46,12 +48,12 @@ In this constructor, the first six parameters are fixed, and the last five param
 
 ## How do I append trajectory points to a trajectory object?
 
-You can use the ST\_append constructor to append trajectory points to an existing trajectory object. The syntax of the ST\_append constructor is as follows:
+You can use the ST\_append constructor to append trajectory points to an existing trajectory object. The following statements describe the syntax of the ST\_append constructor.
 
 ```
-trajectory ST_append(trajectory traj, geometry spatial, timestamp[] timespan, text str_theme_json);
+trajectory ST_append(trajectory traj, geometry spatial, timestamp[] timespan, text str_theme_json) ;
 
-trajectory ST_append(trajectory traj, trajectory tail);
+trajectory ST_append(trajectory traj, trajectroy tail) ;
 ```
 
 The following example shows how to append trajectory points to a trajectory object based on a point table.
@@ -79,7 +81,7 @@ FROM (select array_agg(x order by id) as x,
       array_agg(t order by id) as t,
       array_agg(speed order by id) as s
   From points) a;
-  
+
 -- Insert trajectory points.
 insert into points values(5, 128.5, 28.5, '2019-01-01 00:00:05', 105);
 insert into points values(6, 128.6, 28.6, '2019-01-01 00:00:06', 106);
@@ -117,7 +119,7 @@ With point_traj as (
       array_agg(y order by id) as y,
       array_agg(t order by id) as t,
       array_agg(speed order by id) as s
-      From points WHERE ID > 5) a 
+      From points WHERE ID > 5 ) a 
 )
 Update traj 
 set traj = ST_append(traj.traj, a.traj)
@@ -127,41 +129,41 @@ WHERE traj.ID =1;
 
 ## How do I enable advanced compression?
 
-LZ4 is an advanced compression algorithm, with a higher compression ratio and execution speed. To enable the LZ4 compression algorithm, do as follows:
+LZ4 is an advanced compression algorithm, which has a higher compression ratio and execution speed. To enable and disable the LZ4 compression algorithm, execute the following statements:
 
 ```
 -- Enable LZ4 compression.
 Set toast_compression_use_lz4 = true; 
 
--- Disable LZ4 compression to use the default PostgreSQL compression algorithm.
+-- Disable LZ4 compression and use the default PostgreSQL compression algorithm.
 Set toast_compression_use_lz4 = false;
 ```
 
-To enable the LZ4 compression algorithm for the entire database by default, do as follows:
+To enable and disable the LZ4 compression algorithm for the entire database by default, execute the following statements:
 
 ```
 -- Enable LZ4 compression for the database.
 Alter database dbname Set toast_compression_use_lz4 = true;
 
--- Disable LZ4 compression to use the default compression algorithm for the database.
+-- Disable LZ4 compression and use the default compression algorithm for the database.
 Alter database dbname Set toast_compression_use_lz4 = false;
 ```
 
 ## How do I set a default length for string-type attribute fields?
 
-You can use the GUC variable ganos.trajectory.attr\_string\_length to set a default length for string-type attribute fields. You can do as follows:
+You can use the GUC variable ganos.trajectory.attr\_string\_length to set a default length for string-type attribute fields. You can execute the following statement:
 
 ```
 Set ganos.trajectory.attr_string_length = 32;
 ```
 
-## How do I compute the maximum, minimum, or average value of an attribute field?
+## How do I calculate the maximum, minimum, or average value of an attribute field?
 
-To compute the maximum, minimum, or average value of an attribute field, do as follows:
+To calculate the maximum, minimum, or average value of an attribute field, execute the following statement:
 
 ```
 With traj AS (
-  select '{"trajectory":{"version":1,"type":"STPOINT","leafcount":2,"start_time":"2010-01-01 11:30:00","end_time":"2010-01-01 12:30:00","spatial":"SRID=4326;LINESTRING(1 1,3 5)","timeline":["2010-01-01 11:30:00","2010-01-01 12:30:00"],"attributes":{"leafcount":2,"velocity":{"type":"integer","length":4,"nullable":true,"value":[1,100]},"speed":{"type":"float","length":8,"nullable":true,"value":[null,1.0]},"angle":{"type":"string","length":64,"nullable":true,"value":["test",null]}, "tngel2":{"type":"timestamp","length":8,"nullable":true,"value":["2010-01-01 12:30:00",null]},"bearing":{"type":"bool","length":1,"nullable":true,"value":[null,true]}}}}'::trajectory a)
+  select '{"trajectory":{"version":1,"type":"STPOINT","leafcount":2,"start_time":"2010-01-01 11:30:00","end_time":"2010-01-01 12:30:00","spatial":"SRID=4326;LINESTRING(1 1,3 5)","timeline":["2010-01-01 11:30:00","2010-01-01 12:30:00"],"attributes":{"leafcount":2,"velocity":{"type":"integer","length":4,"nullable":true,"value":[1,100]},"speed":{"type":"float","length":8,"nullable":true,"value":[null,1.0]},"angel":{"type":"string","length":64,"nullable":true,"value":["test",null]}, "tngel2":{"type":"timestamp","length":8,"nullable":true,"value":["2010-01-01 12:30:00",null]},"bearing":{"type":"bool","length":1,"nullable":true,"value":[null,true]}}}}'::trajectory a)
 select avg(v) from 
 (
 Select unnest(st_trajAttrsAsInteger(a, 'velocity')) as v from traj
