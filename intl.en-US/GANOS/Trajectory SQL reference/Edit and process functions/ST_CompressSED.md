@@ -5,7 +5,7 @@ This function compresses a trajectory object based on the offset threshold of th
 ## Syntax
 
 ```
-trajectory ST_CompressSED (trajectory traj, float8 dist);
+trajectory ST_CompressSed (trajectory traj, float8 dist);
 ```
 
 ## Parameters
@@ -17,7 +17,7 @@ trajectory ST_CompressSED (trajectory traj, float8 dist);
 
 ## Description
 
-This function computes the SED of trajectory points, discards the points whose SED offset is smaller than the SED offset threshold to compress the trajectory object in lossy mode, and returns the compressed trajectory object.
+This function calculates the SED of trajectory points, discards the points whose SED offset is smaller than the SED offset threshold to compress the trajectory object in lossy mode, and then returns the compressed trajectory object.
 
 ## Examples
 
