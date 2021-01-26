@@ -1,36 +1,32 @@
-# ModifySecurityIps {#concept_lb2_vgm_q2b .concept}
+# ModifySecurityIps
 
-## Description { .section}
+## Description
 
-You can call this operation to modify the whitelist. The whitelist includes the IP addresses that are allowed to access the database instance. An instance must meet the following conditions when you call this API:
+Modifies an IP address whitelist of an AnalyticDB for PostgreSQL instance. Before you call this operation, make sure that the following requirements are met:
 
--   The instance is running.
--   The instance has not been locked.
+-   The instance is in the Running state.
+-   The instance is not locked.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifySecurityIps.|
-|DBInstanceId|String|Yes|The instance name.|
-|SecurityIPList|String| Yes|You can add up to 1000 IP addresses under a whitelist. Multiple IP addresses are separated by commas. The format is as follows:-   0.0.0.0/0
--   10.23.12.24 \(IP\)
--   10.23.12.24/24 represents the IPv4 address 10.23.12.24. Its subnet mask is 255.255.255.0. /24 represents the length of a routing prefix. The length ranges from 1 to 32. The IP address is expressed as a Classless Inter-Domain Routing \(CIDR\) notation.
+|DBInstanceId|String|Yes|The ID of the instance.|
+|SecurityIPList|String|Yes|The IP address whitelist. Each IP address whitelist can contain up to 1,000 IP addresses that are separated with commas \(,\). Format examples: -   0.0.0.0/0
+-   10.23.12.24 \(This is an IP address.\)
+-   10.23.12.24/24 \(This is a CIDR block in which /24 indicates that the prefix of the CIDR block is 24 bits in length. You can replace 24 with a value that ranges from 1 to 32. CIDR is short for Classless Inter-Domain Routing.\) |
+|DBInstanceIPArrayName|String|No|The name of the IP address whitelist. If you do not specify this parameter, this operation takes effect on the IP address whitelist labeled default. **Note:** An instance can contain up to 50 IP address whitelists. |
+|DBInstanceIPArrayAttribute|String|No|This parameter is empty by default. You can use this parameter to specify an attribute for an IP address whitelist. If you specify the `hidden` attribute for an IP address whitelist, that IP address whitelist does not appear in the AnalyticDB for PostgreSQL console.|
 
-|
-|DBInstanceIPArrayName| String| No|The name of a whitelist. If you do not enter the name, IP addresses are added under the default whitelist.**Note:** You can create up to 50 whitelists for an instance.
+## Response parameters
 
-|
-|DBInstanceIPArrayAttribute|String|No|The parameter is empty by default. You can use this parameter to specify an attribute for a whitelist. A whitelist with the `hidden` attribute does not appear in the console.|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Response parameters { .section}
-
-|Name |Type|Description|
-|-----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
-
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifySecurityIps
@@ -39,7 +35,7 @@ https://gpdb.aliyuncs.com/?Action=ModifySecurityIps
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
