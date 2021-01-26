@@ -1,31 +1,29 @@
-# ModifyDBInstanceNetworkType {#concept_ofq_mhm_q2b .concept}
+# ModifyDBInstanceNetworkType
 
-## Description { .section}
+## Description
 
-You can call this operation to switch the network type of the instance between a VPC and a classic network.
+Switches the network type of an instance between VPC and classic network.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceNetworkType.|
 |DBInstanceId|String|Yes|The ID of the instance.|
-|InstanceNetworkType|String|Yes|The type of the network:-   VPC
--   Classic
+|InstanceNetworkType|String|Yes|The network type of the instance. Valid values:-   VPC: Virtual Private Cloud
+-   Classic: classic network |
+|VPCId|String|No|The ID of the VPC.|
+|VSwitchId|String|No|The ID of the VSwitch. This parameter must be specified if the VPCId parameter is specified.|
+|PrivateIpAddress|String|No|The private IP address of the instance. You can specify an IP address of the VPC to which the VSwitch belongs. If no IP address is specified, the system automatically assigns an IP address based on the VPC ID and VSwitch ID.|
 
-|
-|VPCId| String| No|The ID of the VPC.|
-|VSwitchId|String|No|The ID of the VSwitch. This parameter is required if the value of VPCId is specified.|
-|PrivateIpAddress|String|No|You can specify the IP address of the VPC to which the VSwitch belongs. If no IP address is specified, the system automatically assigns one IP address based on the VPCId and VSwitchId.|
+## Response parameters
 
-## Response parameters { .section}
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
-
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceNetworkType
@@ -34,7 +32,7 @@ https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceNetworkType
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
