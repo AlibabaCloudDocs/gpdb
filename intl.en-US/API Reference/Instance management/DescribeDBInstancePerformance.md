@@ -1,62 +1,60 @@
-# DescribeDBInstancePerformance {#concept_asc_ccm_q2b .concept}
+# DescribeDBInstancePerformance
 
-## Description { .section}
+## Description
 
-You can call this operation to check the list of database performance metrics for an instance over a period of time.
+Queries specified performance metrics for an instance over a specific time range.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required| Description|
-|----|----|--------|------------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to DescribeDBInstancePerformance.|
-|DBInstanceId|String| Yes|The instance name.|
-|Key|String| Yes|Metrics of database performance. Separate multiple metrics with commas. For more information, see [Performance parameters](reseller.en-US/API Reference/Appendix/Performance parameters.md#)。|
-|StartTime|String| Yes|The start time of a period during which you want to check metrics. For example, 2018-06-11T15:00Z.|
-|EndTime|String| Yes|The end time of a period during which you want to check metrics. For example, 2018-06-11T16:00Z.|
+|DBInstanceId|String|Yes|The ID of the instance.|
+|Key|String|Yes|The performance metric you want to query. Separate multiple performance metrics with commas \(,\). For more information, see [Performance parameters](/intl.en-US/API Reference/Appendix/Performance parameters.md).|
+|StartTime|String|Yes|The start time of the query, such as 2018-06-11T15:00Z.|
+|EndTime|String|Yes|The end time of the query, such as 2018-06-11T16:00Z.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response paramters\>|None.|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb)。|
-|DBInstanceId|String |The instance name.|
-|Engine|String |The database type.|
-|StartTime|String|The start time. The format is `YYYY-MM-DDTHH:mmZ`, such as 2018-05-30T03:29Z.|
-|EndTime|String|The end time. The end time must not be earlier than the start time. The format is `YYYY-MM-DDTHH:mmZ`, such as 2018-05-30T03:29Z.|
-|PerformanceKeys|List<PerformanceKey\>|List of metrics, such as \{perf1, perf2, perf3, …\}.|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|DBInstanceId|String|The ID of the instance.|
+|Engine|String|The database engine used by the instance.|
+|StartTime|String|The start time of the query. The time is in the `YYYY-MM-DDTHH:mmZ` format, such as 2018-05-30T03:29Z.|
+|EndTime|String|The end time of the query. The time is in the `YYYY-MM-DDTHH:mmZ` format, such as 2018-05-30T03:29Z. The end time must be later than the start time.|
+|PerformanceKeys|List<PerformanceKey\>|An array consisting of performance metrics in the \{perf1, perf2, perf3, ...\} format.|
 
-|Name|Type|Description|
-|----|----|-----------|
-|Key|String |The name of a metric.|
-|Unit|String |The unit of a metric.|
-|ValueFormat|String |The format of a value: If multiple metrics return in the value of this parameter, these metrics will be separated with ampersands \(&\), such as `com_delete&com_insert&com_insert_select&com_replace`.
+|Parameter|Type|Description|
+|---------|----|-----------|
+|Key|String|The performance metric.|
+|Unit|String|The unit of the performance metric.|
+|ValueFormat|String|The format of the performance metric value. If the performance metric has multiple value fields, they are separated with ampersands \(&\), such as `com_delete&com_insert&com_insert_select&com_replace`. The value fields specified in the ValueFormat parameter correspond to the values specified in the Value parameter.|
+|GroupValues|List<GroupValue\>|An array consisting of metric values in groups in the \{value1, value2, ...\} format.|
 
-|
-|GroupValues|List<GroupValue\>|List of group values, such as \{value1, value2, …\}.|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|Name|String|The name of the group.|
+|Values|List<Value\>|An array consisting of metric values in the \{value1, value2, ...\} format.|
 
-|Name|Type|Description|
-|----|----|-----------|
-|Name|String |The group name.|
-|Values|List<Value\>|List of values, such as \{value1, value2, …\}.|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|Value|String|The value of the performance metric.|
+|Date|String|The time when the metric value was recorded. Unit: milliseconds.|
 
-|Name|Type|Description|
-|----|----|-----------|
-|Value|String |The value of a metric.|
-|date|String|The time when the metric value was recorded.|
-
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeDBInstancePerformance
 &DBInstanceId=gp-xxxxxxx
 &key=CpuUsage,MemoryUsage,Gpdb_SpaceUsage,Gpdb_IOPS,Gpdb_session
-& Endtime = MAID: 00Z
-&StartTime=2015-11-30T01:33Z
+&EndTime=2018-07-09T03:43Z
+&StartTime=2018-07-08T03:43Z
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
@@ -130,7 +128,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstancePerformance
 			<Name>master</Name>
 		</GroupValues>
 		<Unit>int</Unit>
-		<ValueFormat>data_iops&write_iops&read_iops</ValueFormat>
+		<ValueFormat>data_iops&amp;write_iops&amp;read_iops</ValueFormat>
 	</PerformanceKeys>
 	<PerformanceKeys>
 		<Key>Gpdb_SpaceUsage</Key>
