@@ -1,26 +1,26 @@
-# ModifyDBInstanceMaintainTime {#concept_vvs_sbm_q2b .concept}
+# ModifyDBInstanceMaintainTime
 
-## Description { .section}
+## Description
 
-You can call this operation to modify the maintenance window of the instance. Generally, it is set to the periods of off-peak service usage to minimize the impact on services. Alibaba Cloud performs instance maintenance during the maintenance window you set.
+Modifies the maintenance window of an instance. We recommend that you set the maintenance window to an off-peak hour to minimize the impact on services. Alibaba Cloud performs routine maintenance for the instance within the maintenance window you set.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceMaintainTime.|
 |DBInstanceId|String|Yes|The ID of the instance.|
-|StartTime|String|Yes|The start time of the maintenance window. For example, 02:00Z.|
-|EndTime|String|Yes|The end time of the maintenance window. For example, 03:00Z \(the start time should be earlier than the end time\).|
+|StartTime|String|Yes|The start time of the maintenance window, such as 02:00Z.|
+|EndTime|String|Yes|The end time of the maintenance window, such as 03:00Z. The end time must be later than the start time.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceMaintainTime
@@ -31,7 +31,7 @@ https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceMaintainTime
 
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
