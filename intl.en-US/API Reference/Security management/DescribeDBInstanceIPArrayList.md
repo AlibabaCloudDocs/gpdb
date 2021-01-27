@@ -1,35 +1,33 @@
-# DescribeDBInstanceIPArrayList {#concept_h1y_sgm_q2b .concept}
+# DescribeDBInstanceIPArrayList
 
-## Description { .section}
+## Description
 
-You can call this operation to query the list of whitelists for an instance.
+Queries the IP addresses that are allowed to access an instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String| Yes|The operation that you want to perform. Set the value to DescribeDBInstanceIPArrayList.|
-|DBInstanceId|String| Yes|The instance name.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to DescribeDBInstanceIPArrayList.|
+|DBInstanceId|String|Yes|The ID of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
-|Items|List<DBInstanceIPArray\>|The list of whitelists for an instance.|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>| |For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Items|List<DBInstanceIPArray\>|An array consisting of IP address whitelists.|
 
-|Name|Type|Description|
-|----|----|-----------|
-|DBInstanceIPArrayName|String |The name of the whitelist.|
-|DBInstanceIPArrayAttribute|String |This parameter is empty by default. You can use this parameter to specify an attribute for a whitelist. A whitelist with the `hidden` attribute does not appear in the console.|
-|SecurityIPList|String |You can add up to 1000 IP addresses to a whitelist. Multiple IP addresses are separated by commas. The format is as follows:-   0.0.0.0/0
--   10.23.12.24 \(IP\)
--   10.23.12.24/24 represents the IPv4 address 10.23.12.24. Its subnet mask is 255.255.255.0, which has 24 leading 1 bits, and its associated routing prefix. The IP address is expressed as Classless Inter-Domain Routing \(CIDR\) notation.
+|Parameter|Type|Description|
+|---------|----|-----------|
+|DBInstanceIPArrayName|String|The name of the IP address whitelist.|
+|DBInstanceIPArrayAttribute|String|The attribute of the IP address whitelist. Default value: null. A whitelist with the `hidden` attribute does not appear in the console.|
+|SecurityIPList|String|The IP addresses in the whitelist. A whitelist can contain up to 1,000 IP addresses that are separated with commas \(,\). The formats are as follows:-   0.0.0.0/0.
+-   10.23.12.24 \(IP address\).
+-   Classless Inter-Domain Routing \(CIDR\) blocks, such as 10.23.12.24/24, where /24 indicates that the prefix of the CIDR block is 24-bit. You can replace 24 with a value ranging from 1 to 32. |
 
-|
-
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeDBInstanceIPArrayList
@@ -37,7 +35,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstanceIPArrayList
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
