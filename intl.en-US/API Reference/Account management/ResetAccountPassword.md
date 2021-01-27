@@ -1,29 +1,29 @@
-# ResetAccountPassword {#concept_m3l_ncm_q2b .concept}
+# ResetAccountPassword
 
-## Description { .section}
+## Description
 
-You can call this operation to reset the password for your account. The prerequisites are as follows.
+Resets the password of an account for an instance. Before you call this operation, make sure that the following requirements are met:
 
--   The instance is running.
+-   The instance is in the running state.
 -   The instance is not locked.
 
-## Parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
-|Action|String| Yes|The operation that you want to perform. Set the value to ResetAccountPassword.|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
+|Action|String|Yes|The operation that you want to perform. Set the value to ResetAccountPassword.|
 |DBInstanceId|String|Yes|The ID of the instance.|
-|AccountName|String| Yes|The name of the account.|
-|AccountPassword|String| Yes|The new password consists of at least three types of characters of uppercase letters, lowercase letters, numbers, and special characters. The special character is "!". Length constraints: Minimum length of 8 characters. Maximum length of 32 characters. @\#$%^&\*\(\)\_+-=。|
+|AccountName|String|Yes|The name of the account.|
+|AccountPassword|String|Yes|The new password for the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ! @ \# $ % ^ & \* \( \) \_ + - =|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>| |For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ResetAccountPassword
@@ -33,7 +33,7 @@ https://gpdb.aliyuncs.com/?Action=ResetAccountPassword
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
