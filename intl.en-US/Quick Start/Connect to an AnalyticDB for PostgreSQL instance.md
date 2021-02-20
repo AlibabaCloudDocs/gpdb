@@ -12,14 +12,11 @@ This section describes how to use the DMS console to connect to an AnalyticDB fo
 
 1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdbnext.console.aliyun.com/gpdb/cn-hangzhou/list).
 2.  Create an instance. For more information, see [Create an instance](/intl.en-US/Quick Start/Create an instance.md). If you have created one, find the instance and click its ID.
-3.  Create an account. For more information, see [t16843.md\#](/intl.en-US/Quick Start/Configure an account.md).
+3.  Create an account. For more information, see [Configure an account](/intl.en-US/Quick Start/Configure an account.md).
 
     **Note:** This account is used to log on to the DMS console. A single account can be created for each instance.
 
 4.  In the upper-right corner, click **Login Database**.
-
-    ![](../images/p50990.png)
-
 5.  On the RDS Database Logon page that appears, enter the username and password, and click **Log On**.
 
 ## psql
@@ -114,8 +111,6 @@ You can download [pgAdmin III 1.6.3](https://www.postgresql.org/ftp/pgadmin/pgad
 2.  Choose **File** \> **Add Server**.
 
 3.  In the New Server Registration dialog box, set parameters as prompted.
-
-    ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/43729/cn_zh/1486448524740/pgadmin-connect-snapshot.png)
 
 4.  Click **OK** to connect to the AnalyticDB for PostgreSQL instance.
 
