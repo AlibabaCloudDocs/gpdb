@@ -6,13 +6,13 @@ Blink 3.6.0版本开始支持通过Blink connector将数据写入云原生数据
 
 -   实时计算集群和ADB PG版实例位于同一VPC下，且ADB PG实例的白名单规则允许Blink集群网段访问。
 -   实时计算集群为3.6.0及以上版本，可按以下步骤创建。
-    1.  开通阿里云实时计算服务和项目，请参见[t40807.md\#](/cn.zh-CN/Blink独享/共享集群（原产品线）/准备工作/开通服务和创建项目.md)。
+    1.  开通阿里云实时计算服务和项目，请参见[开通服务和创建项目](/cn.zh-CN/Blink独享/共享集群（原产品线）/准备工作/开通服务和创建项目.md)。
 
         **说明：** 开通的实时计算集群与目标ADB PG版集群必须在同一VPC下。
 
     2.  确认并安装实时计算集群3.6.0及以上版本，请参见[管理独享集群Blink版本](/cn.zh-CN/Blink独享/共享集群（原产品线）/Flink SQL开发指南/管理独享集群Blink版本.md)。
 
-        ![2-2-4 ](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7340594951/p127364.png)
+        ![2-2-4 ](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7340594951/p127364.png)
 
 -   设置6.0版本ADB PG版实例。
     1.  [创建实例](/cn.zh-CN/快速入门/创建实例.md)。
@@ -22,15 +22,15 @@ Blink 3.6.0版本开始支持通过Blink connector将数据写入云原生数据
     2.  设置ADB PG版实例白名单。
         1.  在[VPC控制台](https://vpc.console.aliyun.com/)找到对应网段的ip地址。
 
-            ![3-2-1 ](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7340594951/p127366.png)
+            ![3-2-1 ](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7340594951/p127366.png)
 
         2.  在[ADB PG版控制台](https://gpdbnext.console.aliyun.com/)点击目标ADB PG版实例ID，在实例详情页面，单击**数据安全性**\>**添加白名单分组**。
 
-            ![白名单](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4093274951/p129715.png)
+            ![白名单](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4093274951/p129715.png)
 
         3.  将对应的VPC网段添加进ADB PG版实例白名单，单击**确定**。
 
-            ![添加白名单](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4093274951/p129707.png)
+            ![添加白名单](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4093274951/p129707.png)
 
     3.  创建ADB PG版目标表。
 
@@ -59,13 +59,13 @@ Blink 3.6.0版本开始支持通过Blink connector将数据写入云原生数据
 
 1.  在实时计算控制台上，点击**项目管理**\>**项目列表**，单击项目名进入目标项目。
 
-    ![创建数据写入任务1](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/8340594951/p128426.png)
+    ![创建数据写入任务1](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8340594951/p128426.png)
 
 2.  点击**开发**\>**新建作业**，创建数据写入的Flink SQL作业。
 
-    ![创建数据写入任务2](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/8340594951/p128428.png)
+    ![创建数据写入任务2](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8340594951/p128428.png)
 
-    ![创建数据写入任务3](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/8340594951/p128429.png)
+    ![创建数据写入任务3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8340594951/p128429.png)
 
 
 写入ADB PG的作业举例。
@@ -158,7 +158,7 @@ blink 3.6.0 版本默认为0，3.6.4及以上版本默认值为1；当取值为0
 |targetSchema|Schema名称|否|默认值为public。|
 |writeMode|在useCopy字段基础上，更细分的写入方式|否|blink 3.6.4 以后版本开始支持，在useCopy字段为0的场景下，可以设定writeMode字段采用其他写入方式，参数取值如下：-   0 ：采用BATCH INSERT方式写入数据。
 -   1（默认值）：采用COPY API写入数据。
--   2：采用BATCH UPSERT方式写入数据。upsert含义见[文档](https://help.aliyun.com/document_detail/162380.html?spm=5176.11065259.1996646101.searchclickresult.49752818hBAUaZ) |
+-   2：采用BATCH UPSERT方式写入数据。upsert含义见[INSERT ON CONFLICT覆盖写入](/cn.zh-CN/开发入门/INSERT ON CONFLICT覆盖写入.md)。 |
 
 类型映射
 
@@ -182,20 +182,20 @@ blink 3.6.0 版本默认为0，3.6.4及以上版本默认值为1；当取值为0
 
 1.  在开发作业页面的右下角确认当前作业版本为3.6.0及以上，如果不符请点击切换版本。
 
-    ![启动导入任务](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4093274951/p129709.png)
+    ![启动导入任务](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4093274951/p129709.png)
 
 2.  完成作业开发后，依次点击**保存**、**上线**，即可上线该任务。
 
-    ![保存上线](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4093274951/p129710.png)
+    ![保存上线](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4093274951/p129710.png)
 
 3.  点击**运维**，在运维页面点击目标项目操作栏中的**启动**即可开始导入。
 
-    ![启动任务3](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/8340594951/p128436.png)
+    ![启动任务3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8340594951/p128436.png)
 
 
 连接对应ADBPG实例，发现数据已经写入了目标表。
 
-![add4](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5093274951/p129687.png)
+![add4](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5093274951/p129687.png)
 
 ## 版本变更记录
 
