@@ -7,8 +7,6 @@ AnalyticDB for PostgreSQL allows you to use Java Database Connectivity \(JDBC\) 
 -   This feature is available only for AnalyticDB for PostgreSQL instances in elastic storage mode. Moreover, the AnalyticDB for PostgreSQL instances must be in the same VPC as the external data sources.
 -   This feature is unavailable for the existing AnalyticDB for PostgreSQL instances in elastic storage mode that were created before September 6, 2020. This is because the existing instances cannot be connected to external databases over different network architectures. If you want to use this feature for the existing instances, we recommend that you contact Alibaba Cloud technical support to apply for new instances and migrate data.
 
-![Federated analytics of external databases](../images/p166373.png)
-
 ## Configure a JDBC server
 
 JDBC server configurations vary based on user requirements. To use JDBC to query data from external data sources for federated analytics, you must [submit a ticket](https://workorder.console.aliyun.com/console.htm#/ticket/add?productCode=gpdb) to request technical support to configure the specified JDBC server. The following table describes the information that is required to query data from external data sources.
