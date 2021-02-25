@@ -22,12 +22,12 @@ This topic describes how to create an instance in the AnalyticDB for PostgreSQL 
     |---------|-----------|
     |**Region**|Select a region to deploy the instance. You cannot change the region after the instance is created.
 
-     -   We recommend that you select a region near the location of your desired users to improve access speed.
+    -   We recommend that you select a region near the location of your desired users to improve access speed.
     -   Make sure that the instance is deployed in the same region as that of the Elastic Compute Service \(ECS\) instance to which you want to connect. Otherwise, the AnalyticDB for PostgreSQL instance and the ECS instance can only communicate over the Internet instead of an internal network. This may compromise performance. |
     |**Zone**|Select a zone to deploy the instance. Each zone is considered a physical location. Zones within a region are independent of each other. No differences exist among these zones.
 
- You can deploy your AnalyticDB for PostgreSQL instance and ECS instance in the same zone or in different zones. |
-    |**Network Type**|Set the network type of the instance. The default value is VPC. A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and better performance than the classic network. Before you specify this parameter, make sure that you have created a VPC and a VSwitch that are deployed in the same region as that of the instance. For more information, see [Create a VPC](/intl.en-US/VPCs and vSwitchs/Create a VPC.md).|
+You can deploy your AnalyticDB for PostgreSQL instance and ECS instance in the same zone or in different zones. |
+    |**Network Type**|Set the network type of the instance. The default value is VPC. A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and better performance than the classic network. Before you specify this parameter, make sure that you have created a VPC and a VSwitch that are deployed in the same region as that of the instance. For more information, see .|
     |**VPC**|Select a VPC.|
     |**VSwitch**|Select a VSwitch in the specified VPC.|
     |**Instance resource type**|**Instance Resource Type**: You cannot extend independent disks on the fly in the console. |
