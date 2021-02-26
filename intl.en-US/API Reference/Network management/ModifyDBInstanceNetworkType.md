@@ -1,52 +1,60 @@
 # ModifyDBInstanceNetworkType
 
-## Description
+You can call this operation to switch the network type of an AnalyticDB for PostgreSQL instance between VPC and classic network.
 
-Switches the network type of an instance between VPC and classic network.
+## Debugging
+
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=gpdb&api=ModifyDBInstanceNetworkType&type=RPC&version=2016-05-03)
 
 ## Request parameters
 
-|Parameter|Type|Required|Description|
-|---------|----|--------|-----------|
-|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
-|Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceNetworkType.|
-|DBInstanceId|String|Yes|The ID of the instance.|
-|InstanceNetworkType|String|Yes|The network type of the instance. Valid values:-   VPC: Virtual Private Cloud
--   Classic: classic network |
-|VPCId|String|No|The ID of the VPC.|
-|VSwitchId|String|No|The ID of the VSwitch. This parameter must be specified if the VPCId parameter is specified.|
-|PrivateIpAddress|String|No|The private IP address of the instance. You can specify an IP address of the VPC to which the VSwitch belongs. If no IP address is specified, the system automatically assigns an IP address based on the VPC ID and VSwitch ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|DBInstanceId|String|Yes|gp-xxxxxxxx|The ID of the instance. |
+|InstanceNetworkType|String|Yes|VPC|The network type of the instance. Valid values:
+
+ -   VPC
+-   Classic |
+|VPCId|String|No|vpc-xxxxxxxx|The VPC ID of the instance. |
+|VSwitchId|String|No|vsw-xxxxxxxx|The vSwitch ID of the instance. This parameter is required if the VPCId parameter is specified. |
+|PrivateIpAddress|String|No|192.168.0.10|The private IP address of the instance. You can specify an IP address of the VPC to which the vSwitch belongs. If no IP address is specified, the system assigns an IP address based on the VPC ID and vSwitch ID. |
 
 ## Response parameters
 
-|Parameter|Type|Description|
-|---------|----|-----------|
-|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|2d0c35a9-f5da-44ba-852d-741e27b7eb0b|The ID of the request. |
 
-## Sample requests
+## Examples
+
+Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceNetworkType
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxxx
 &InstanceNetworkType=VPC
 &<Common request parameters>
 ```
 
-## Sample responses
+Sample success responses
 
-**XML format**
+`XML` format
 
 ```
 <ModifyDBInstanceNetworkTypeResponse>
-         <RequestId>2d0c35a9-f5da-44ba-852d-741e27b7eb0b</RequestId>
+           <RequestId>2d0c35a9-f5da-44ba-852d-741e27b7eb0b</RequestId>
 </ModifyDBInstanceNetworkTypeResponse>
 ```
 
-**JSON format**
+`JSON` format
 
 ```
 {
   "RequestId":"2d0c35a9-f5da-44ba-852d-741e27b7eb0b"
 }
 ```
+
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
