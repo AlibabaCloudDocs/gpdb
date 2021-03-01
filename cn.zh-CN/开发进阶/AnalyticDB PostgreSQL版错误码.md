@@ -214,7 +214,7 @@ AnalyticDB PostgreSQL版服务器发出的所有消息都赋予了五个字符�
 | 57P01 | 管理员关机（ADMIN SHUTDOWN）                                                |
 | 57P02 | 崩溃关机（CRASH SHUTDOWN）                                                 |
 | 57P03 | 现在无法连接（CANNOT CONNECT NOW）                                           |
-| 58 类：系统错误( PostgreSQL 自己内部的错误)                                              ||
+| 58 类：系统错误（PostgreSQL 自己内部的错误）                                               ||
 | 58030 | IO错误（IO ERROR）                                                       |
 | 58P01 | 未定义的文件（UNDEFINED FILE）                                               |
 | 58P02 | 重复的文件（DUPLICATE FILE）                                                |
