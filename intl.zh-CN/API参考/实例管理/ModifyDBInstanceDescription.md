@@ -1,49 +1,54 @@
-# ModifyDBInstanceDescription {#concept_hqr_qbm_q2b .concept}
+# ModifyDBInstanceDescription
 
-## 描述 { .section}
+调用ModifyDBInstanceDescription修改实例的备注名。
 
-该接口用于修改实例的备注名，方便用户记录实例。
+## 调试
 
-**请求参数**
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=ModifyDBInstanceDescription&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值为ModifyDBInstanceDescription。|
-|DBInstanceId|String|是|实例名。|
-|DBInstanceDescription|Sting|是|实例备注名。|
+## 请求参数
 
-## 返回参数 { .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|DBInstanceDescription|String|是|gp-xxxxxxxx|实例备注信息。 |
+|DBInstanceId|String|是|gp-xxxxxxxx|实例ID。 |
 
-|名称|类型|描述|
-|--|--|--|
-|<公共返回参数\>|-|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
+## 返回数据
 
-## 请求示例 { .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|107BE202-D1A2-479E-98E0-A892B472562F|请求ID。 |
+
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceDescription
-&DBInstanceId=gp-bp1gjo105888f3b69
-&DBInstanceDescription=testInstanceDescribe
+&DBInstanceDescription=gp-xxxxxxxx
+&DBInstanceId=gp-xxxxxxxx
 &<公共请求参数>
-
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
 <ModifyDBInstanceDescriptionResponse>
-         <RequestId>107BE202-D1A2-479E-98E0-A892B472562F</RequestId>
+           <RequestId>107BE202-D1A2-479E-98E0-A892B472562F</RequestId>
 </ModifyDBInstanceDescriptionResponse>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
 {
-    "RequestId": "107BE202-D1A2-479E-98E0-A892B472562F"
+        "RequestId": "107BE202-D1A2-479E-98E0-A892B472562F"
 }
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/gpdb)查看更多错误码。
 
