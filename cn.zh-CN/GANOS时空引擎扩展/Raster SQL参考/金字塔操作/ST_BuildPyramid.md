@@ -5,10 +5,12 @@
 ## 语法
 
 ```
-raster ST_BuildPyramid(raster source);
-raster ST_BuildPyramid(raster source,  cstring chunkTableName);
-raster ST_BuildPyramid(raster source,  integer pyramidLevel, ResampleAlgorithm algorithm,
-                       cstring chunkTableName, cstring storageOption);
+raster ST_BuildPyramid(raster source,  
+                       integer pyramidLevel default -1,  
+                       ResampleAlgorithm algorithm default 'Near', 
+                       cstring chunkTableName default '', 
+                       cstring storageOption default '{}',
+                       cstring buildOption default '{}');
 ```
 
 ## 参数
@@ -16,15 +18,16 @@ raster ST_BuildPyramid(raster source,  integer pyramidLevel, ResampleAlgorithm 
 |参数名称|描述|
 |:---|:-|
 |source|需要创建金字塔的raster对象。|
-|chunkTableName|金字塔所存储的分块表名称。|
+|chunkTableName|金字塔所存储的分块表名称。只对基于对象存储（OSS）的栅格对象有效。|
 |pyramidLevel|金字塔创建的层级， -1表示创建到最高层级。|
 |algorithm|创建金字塔的重采样算法，取值如下：-   Near：最邻近
 -   Average：平均值
 -   Bilinear：二次线性
 -   Cubic：三次卷积 |
-|storageOption|存储选项。该选项只针对基于对象存储OSS的栅格对象有效。|
+|storageOption|JSON字符串，存储选项。描述raster对象金字塔的分块存储信息。该选项只针对基于对象存储OSS的栅格对象有效。|
+|buildOption|JSON字符串，构建选项。当前支持参数parallel，可以设置操作并行度，数据类型为Integer，取值范围为1~64。不指定parallel时，使用GUC参数[ganos.parallel.degree]()的值。**说明：** 如果启用并行创建金字塔，则不支持事务。如果创建失败或需要对事务回滚，使用[ST\_deletePyramid](/cn.zh-CN/时空数据库/Raster SQL参考/金字塔操作/ST_deletePyramid.md)删除已经创建的金字塔。 |
 
-storageOption是基于JSON格式的字符串，描述raster对象金字塔的分块存储信息。支持的参数如下。
+storageOption参数说明如下。
 
 |参数名称|类型|说明|
 |----|--|--|
