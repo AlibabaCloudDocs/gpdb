@@ -1,47 +1,50 @@
-# DescribeSQLCollectorPolicy {#concept_xxh_ygm_q2b .concept}
+# DescribeSQLCollectorPolicy
 
-## 描述 { .section}
+调用DescribeSQLCollectorPolicy查询指定实例的SQL采集功能是否打开。
 
-查询指定实例的SQL采集功能是否打开。
+## 调试
 
-## 请求参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=DescribeSQLCollectorPolicy&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值：DescribeSQLCollectorPolicy。|
-|DBInstanceId|String|是|实例名。|
+## 请求参数
 
-## 返回参数 { .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeSQLCollectorPolicy|系统规定参数。取值：DescribeSQLCollectorPolicy。 |
+|DBInstanceId|String|是|gp-xxxxxxxxx|实例ID。 |
 
-|名称|类型|描述|
-|--|--|--|
-|<公共返回参数\>| |详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
-|SQLCollectorStatus|String| -   Enable：SQL采集开启。
--   Disabled：SQL采集关闭。
+## 返回数据
 
- |
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|ABB39CC3-4488-4857-905D-2E4A051D0521|请求ID。 |
+|SQLCollectorStatus|String|Enable|SQL采集状态。
 
-## 请求示例 { .section}
+ -   Enable：SQL采集开启。
+-   Disabled：SQL采集关闭。 |
+
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeSQLCollectorPolicy
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxxxx
 &<公共请求参数>
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
 ```
 <DescribeSQLCollectorPolicyResponse>
-	<RequestId>ABB39CC3-4488-4857-905D-2E4A051D0521</RequestId>
-	<SQLCollectorStatus>Enable</SQLCollectorStatus>
+	  <RequestId>ABB39CC3-4488-4857-905D-2E4A051D0521</RequestId>
+	  <SQLCollectorStatus>Enable</SQLCollectorStatus>
 </DescribeSQLCollectorPolicyResponse>
 ```
 
-**JSON格式**
+`JSON` 格式
 
 ```
 {
@@ -49,4 +52,8 @@ https://gpdb.aliyuncs.com/?Action=DescribeSQLCollectorPolicy
     "SQLCollectorStatus":"Enable"
 }
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/gpdb)查看更多错误码。
 
