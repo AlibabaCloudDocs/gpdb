@@ -1,8 +1,8 @@
-# 通过 HyperLoglog 实现高性能多维数据透视 {#concept_onc_jzf_v2b .concept}
+# 通过 HyperLoglog 实现高性能多维数据透视
 
-本文结和电商类数据透视示例，介绍了使用AnalyticDB for PostgreSQL通过HLL预计算，实现毫秒级多维数据透视的方法。关于HyperLogLog的用法，请参考[使用HLL](../../../../cn.zh-CN/用户指南/高级扩展插件（EXTENSION）/HyperLogLog 的使用.md#)。
+本文结和电商类数据透视示例，介绍了使用AnalyticDB for PostgreSQL通过HLL预计算，实现毫秒级多维数据透视的方法。关于HyperLogLog的用法，请参考[使用HLL](/cn.zh-CN/开发进阶/高级扩展插件使用/HyperLogLog 的使用.md)。
 
-## 实践总结 {#section_ggx_lzf_v2b .section}
+## 实践总结
 
 本文介绍的操作方法，涉及以下最佳实践。如您已了解操作方法，可以直接参考实践总结来应用。
 
@@ -23,19 +23,19 @@
 -   使用列存储，提升压缩比，节省统计数据的空间占用。
 
 
-## 背景 {#section_jgx_lzf_v2b .section}
+## 背景
 
 典型的电商类数据透视业务会使用一些用户的标签数据作为透视的语料。例如，包含品牌的ID，销售区域的ID，品牌对应用户的ID，以及若干用户标签字段，时间字段等。在作分析时，标签可能会按不同的维度进行归类。例如，tag1 性别，tag2 年龄段, tag3 兴趣爱好等等。
 
 业务方较多的需求往往是对自有品牌的用户进行透视。例如，一个非常典型的数据透视需求就是统计不同的销售区域（渠道）、时间段、标签维度下的用户数。
 
-## 准备 {#section_kgx_lzf_v2b .section}
+## 准备
 
 作为示例，定义以下数据结构。
 
 -   t1：每天所在区域、销售渠道的活跃用户ID。
 
-    ``` {#codeblock_6wr_wrp_gy8}
+    ```
     t1 (
     uid,       -- 用户 ID
     groupid,   -- 销售渠道、区域 ID
@@ -45,7 +45,7 @@
 
 -   t2：每个品牌的自有用户（维护增量）。
 
-    ``` {#codeblock_i24_6gt_psf}
+    ```
     t2 (
     uid,    -- 用户 ID
     brand   -- 品牌
@@ -54,7 +54,7 @@
 
 -   t3：用户标签（维护增量）。
 
-    ``` {#codeblock_yol_0c1_mzt}
+    ```
     t3 (
     uid,    -- 用户 ID
     tag1,   -- 标签1，如兴趣
@@ -67,7 +67,7 @@
 
 基于已定义的数据结构，可以按照品牌、销售区域、标签、日期进行透视。例如，
 
-``` {#codeblock_iei_2xj_pad}
+```
 select
   '兴趣' as tag,
   t3.tag1 as tag_value,
@@ -87,7 +87,7 @@ group by t3.tag1
 
 可以看出，这类查询的运算量较大。而且，分析师可能需要对不同的维度进行比对分析。因此，建议采用预计算的方法进行优化。
 
-## 使用预计算优化检索 {#section_ahx_lzf_v2b .section}
+## 使用预计算优化检索
 
 为实现快速检索，您可以使用以下优化方法：
 
@@ -100,7 +100,7 @@ group by t3.tag1
 
 通过预计算优化，希望得到以下结果：
 
-``` {#codeblock_7ps_nzy_tu3}
+```
 t_result (
   day,      -- 日期
   brand,    -- 品牌 ID
@@ -117,7 +117,7 @@ t_result (
 
 得到这份结果后，分析师的查询过程可以简化为以下内容：
 
-``` {#codeblock_d2p_iwm_w6q}
+```
 select
   day, brand, groupid, 'tag?' as tag, cnt, uids, hll_uids
 from t_result
@@ -132,11 +132,11 @@ where
 
 可以看出，预计算后能够以少量的运算，实现更加复杂的维度分析。例如，可以分析出某两天的差异用户，多个TAG叠加的用户等。
 
-## 使用预计算的方法 {#section_ccj_3dg_v2b .section}
+## 使用预计算的方法
 
 使用如下SQL来产生统计结果。
 
-``` {#codeblock_6ts_xcl_37p}
+```
 select
   t1.day,
   t2.brand,
@@ -171,7 +171,7 @@ group by
   )
 ```
 
-## 预计算结果透视查询 {#section_zhx_lzf_v2b .section}
+## 预计算结果透视查询
 
 如果进行复杂透视，可以对分析结果的不同记录进行数组逻辑运算，得到UID集合结果。
 
@@ -181,7 +181,7 @@ group by
 
 -   统计在数组1但不在数组2的值。
 
-    ``` {#codeblock_q8c_twg_fio}
+    ```
     create or replace function arr_miner(anyarray, anyarray) returns anyarray as $$
     select array(select * from (select unnest($1) except select unnest($2)) t group by 1);
     $$ language sql strict;
@@ -189,7 +189,7 @@ group by
 
 -   统计数组1和数组2的交集。
 
-    ``` {#codeblock_im8_q3e_jub}
+    ```
     create or replace function arr_overlap(anyarray, anyarray) returns anyarray as $$
     select array(select * from (select unnest($1) intersect select unnest($2)) t group by 1);
     $$ language sql strict;
@@ -197,7 +197,7 @@ group by
 
 -   统计数组1和数组2的并集。
 
-    ``` {#codeblock_xfx_36z_nij}
+    ```
     create or replace function arr_merge(anyarray, anyarray) returns anyarray as $$
     select array(select unnest(array_cat($1,$2)) group by 1);
     $$ language sql strict;
@@ -208,23 +208,23 @@ group by
 
 例如，假设促销活动前（2017-06-24）的用户集合为UID1\[\]，促销活动后（2017-06-25）的用户集合为UID2\[\]，可以使用以下命令得出促销活动中有哪些新增用户。
 
-``` {#codeblock_6oa_kn3_717}
+```
 arr_miner(uid2[], uid1[])
 ```
 
-## 使用HLL做数据逻辑计算 {#section_k3x_lzf_v2b .section}
+## 使用HLL做数据逻辑计算
 
 您可以使用HLL进行以下逻辑计算。
 
 -   计算唯一值个数。
 
-    ``` {#codeblock_qj8_14i_ml1}
+    ```
     hll_cardinality(users)
     ```
 
 -   计算两个HLL的并集，得到一个HLL。
 
-    ``` {#codeblock_37l_9tu_vzk}
+    ```
     hll_union()
     ```
 
@@ -233,11 +233,11 @@ arr_miner(uid2[], uid1[])
 
 例如，假设在促销活动前（2017-06-24）的用户集合HLL为uid1\_hll，促销活动后（2017-06-25）的用户集合HLL为uid2\_hll，可以使用以下命令得出促销活动中有哪些新增用户。
 
-``` {#codeblock_kvj_8z0_998}
+```
 hll_cardinality(uid2_hll) - hll_cardinality(uid1_hll)
 ```
 
-## 预计算调度 {#section_q3x_lzf_v2b .section}
+## 预计算调度
 
 在优化前，业务通过即时JOIN得到透视结果，而优化后使用事先统计的方法来获得透视结果，而事先统计本身需要调度。调度方法取决于数据的来源以及数据合并的方法（流式增量或批量增量）。
 
@@ -245,7 +245,7 @@ hll_cardinality(uid2_hll) - hll_cardinality(uid1_hll)
 
 历史统计数据无更新，只有增量。需要定时将统计结果写入并合并至`t_result`结果表中。
 
-``` {#codeblock_a8h_l4b_57m}
+```
 insert into t_result
 select
   t1.day,
@@ -282,7 +282,7 @@ group by
 
 数据结果按天进行统计，但如果要查询按月，或者按年的统计，则需要对按天统计的数据查询并汇聚。业务也能选择异步汇聚，最终用户查询到的是汇聚后的结果。
 
-``` {#codeblock_6e6_8m3_mzj}
+```
 t_result_month (
   month,    -- yyyy-mm
   brand,    -- 品牌 ID
@@ -299,7 +299,7 @@ t_result_month (
 
 array聚合需要自定义以下聚合函数：
 
-``` {#codeblock_v8p_0av_ap6}
+```
 postgres=# create aggregate arragg (anyarray) ( sfunc=arr_merge, stype=anyarray);
 CREATE AGGREGATE
 postgres=# select arragg(c1) from (values (array[1,2,3]),(array[2,5,6])) t (c1);
@@ -311,7 +311,7 @@ postgres=# select arragg(c1) from (values (array[1,2,3]),(array[2,5,6])) t (c1);
 
 例如，您可以使用以下SQL，来按月汇聚数据：
 
-``` {#codeblock_2gw_0i7_ino}
+```
 select
   to_char(day, 'yyyy-mm'),
   brand,
@@ -336,7 +336,7 @@ group by
 
 以此类推，可以得出按年汇聚的结果。
 
-## 流式调度 {#section_tjx_lzf_v2b .section}
+## 流式调度
 
 如果业务方有实时统计的需求，那么可以使用流式计算的方法，实时进行以上聚合统计。如果数据量非常庞大，可以根据分区键，对数据进行分流，不同的数据落到不同的流计算节点，最后汇总流计算的结果到AnalyticDB for PostgreSQL\(base on GPDB\)中。
 
