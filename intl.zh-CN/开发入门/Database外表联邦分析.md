@@ -7,8 +7,6 @@
 -   本特性只支持存储弹性模式实例，且需要ADB PG实例和目标访问的外部数据源处于同一个VPC网络。
 -   2020年9月6日前申请的存量存储弹性模式实例，由于网络架构不同，无法与外部数据库网络打通，无法使用该特性。如需使用，请联系后台技术人员，重新申请实例，迁移数据。
 
-![Database外表联邦分析](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7792800061/p166373.png)
-
 ## 前提条件：配置SEVER端
 
 由于不同用户的需求配置不尽相同。如果您需要通过JDBC的方式访问外部数据源进行联邦分析，请[提交工单](https://workorder.console.aliyun.com/console.htm#/ticket/add?productCode=gpdb)由ADB PG后台技术人员进行配置。以下为提交工单时需要提交的对应文件。
@@ -40,7 +38,7 @@
     |参数|说明|
     |--|--|
     |path-to-data|外表访问表名，例如 public.test\_a|
-    |PROFILE \[&<custom-option\>=<value\>\[...\]\]|访问外部数据的配置。使用JDDBC方式访问外部数据库时使用PROFILE=Jdbc |
+    |PROFILE \[&<custom-option\>=<value\>\[...\]\]|访问外部数据的配置。使用JDBC方式访问外部数据库时使用PROFILE=Jdbc |
     |FORMAT '\[TEXT\|CSV\|CUSTOM\]'|读取文件的格式。|
     |formatting-properties|与特定文件数据对应的格式化选项： formatter 或者 delimiter（分割符）    -   与CUSTOM搭配
         -   formatter='pxfwritable\_import'
