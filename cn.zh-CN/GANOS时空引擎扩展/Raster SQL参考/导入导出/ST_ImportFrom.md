@@ -5,7 +5,10 @@
 ## 语法
 
 ```
-raster ST_ImportFrom(cstring chunkTableName, cstring url);
+raster ST_ImportFrom(cstring chunkTableName, 
+                     cstring url, 
+                     cstring storageOption default '{}',
+                     cstring importOption default '{}');
 ```
 
 ## 参数
