@@ -49,7 +49,7 @@ TPC-C是由TPC\(Transaction Processing Performance Council，事务处理性能�
 
 测试在不同并发度情况下，ADBPG6.0的性能结果，结果如下图所示，其中横坐标代表不同的并发数，纵坐标代表TPC-C性能（单位为tpmC），从图中可以看到，ADBPG6.0的峰值性能可以达到 101231.3 tpmC。
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/2734032951/p87912.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2734032951/p87912.png)
 
 ## 如何使用benchmarksql进行ADBPG的TPC-C测试
 
