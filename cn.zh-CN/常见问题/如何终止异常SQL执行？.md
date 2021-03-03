@@ -1,8 +1,8 @@
-# 如何终止异常SQL执行？ {#concept_gry_h5d_xgb .concept}
+# 如何终止异常SQL执行？
 
 若需要终止特定的SQL或会话来恢复系统状态，先通过`pg_stat_activity`系统视图查询当前的查询：
 
-``` {#codeblock_llv_a7f_gks}
+```
 select current_query,procpid from pg_stat_activity ;
 
                     current_query                    | procpid
@@ -15,7 +15,7 @@ select current_query,procpid from pg_stat_activity ;
 
 终止非当前连接的SELECT：
 
-``` {#codeblock_6jz_rs2_74q}
+```
 SELECT pg_cancel_backend(pg_stat_activity.procpid)
 FROM pg_stat_activity
 WHERE procpid <> pg_backend_pid() and current_query like 'SELECT%';--注意SELECT的大小写
@@ -28,7 +28,7 @@ WHERE procpid <> pg_backend_pid() and current_query like 'SELECT%';--注意SELEC
 
 或
 
-``` {#codeblock_vin_mq5_kik}
+```
 SELECT pg_terminate_backend(pg_stat_activity.procpid)
 FROM pg_stat_activity
 WHERE procpid <> pg_backend_pid() and current_query like 'SELECT%'; --注意SELECT的大小写
