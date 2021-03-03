@@ -11,7 +11,7 @@
 
 任务之间的依赖是任务调度中的一个重要的功能，例如，我们在DataWorks里面创建两个云原生数据仓库PostgreSQL版的任务，其中表与任务之间的关系如下图：
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0603266951/p58666.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0603266951/p58666.png)
 
 -   任务：finished\_orders
 
@@ -34,28 +34,28 @@
 
 1.  设置任务`finished_orders`运行时间。
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0603266951/p58718.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0603266951/p58718.png)
 
 2.  配置任务`high_value_finished_orders` 任务依赖。
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0603266951/p58720.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0603266951/p58720.png)
 
     ​任务依赖如果无法自动解析，可以手动指定上游依赖节点。
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1603266951/p58721.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1603266951/p58721.png)
 
 
 ## 任务发布
 
 选择上述步骤提交的任务，点击发布按钮，如下图所示。
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1603266951/p58722.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1603266951/p58722.png)
 
 您可以在发布列表页面可以查看任务是否发布成功。
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1603266951/p58725.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1603266951/p58725.png)
 
 发布成功之后，您可以进入任务运维页面查看配置的任务，并进行各种运维操作。
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1603266951/p58726.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1603266951/p58726.png)
 
