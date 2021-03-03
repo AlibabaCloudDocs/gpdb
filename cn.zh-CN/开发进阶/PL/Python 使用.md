@@ -1,6 +1,6 @@
 # PL/Python 使用
 
-云原生数据仓库AnalyticDB PostgreSQL支持用户使用 PL/Python 过程语言自定义函数。
+云原生数据仓库AnalyticDB PostgreSQL版支持用户使用 PL/Python 过程语言自定义函数。
 
 ## 限制
 
