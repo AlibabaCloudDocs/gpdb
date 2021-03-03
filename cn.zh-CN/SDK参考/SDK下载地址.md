@@ -1,4 +1,4 @@
-# SDK下载地址 {#concept_r3x_tym_q2b .concept}
+# SDK下载地址
 
 AnalyticDB for PostgreSQL支持以下类型的SDK：
 
