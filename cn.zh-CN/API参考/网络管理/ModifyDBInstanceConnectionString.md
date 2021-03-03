@@ -1,51 +1,59 @@
-# ModifyDBInstanceConnectionString {#concept_ryv_khm_q2b .concept}
+# ModifyDBInstanceConnectionString
 
-## 描述 { .section}
+调用修改实例的内外网连接URL。
 
-该接口用于修改实例的内外网连接地址和端口。
+## 调试
 
-## 请求参数 { .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=gpdb&api=ModifyDBInstanceConnectionString&type=RPC&version=2016-05-03)
 
-|名称|类型|是否必须|描述|
-|--|--|----|--|
-|<公共请求参数\>|-|是|参见[公共参数](intl.zh-CN/API参考/公共参数.md#)。|
-|Action|String|是|系统规定参数，取值为ModifyDBInstanceConnectionString。|
-|DBInstanceId|String|是|实例名。|
-|CurrentConnectionString|String|是|实例当前的某个连接地址。|
-|ConnectionStringPrefix|String|是|目标连接地址。|
-|Port|String|否|目标端口。|
+## 请求参数
 
-## 返回参数 { .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|ModifyDBInstanceConnectionString|系统规定参数。取值：ModifyDBInstanceConnectionString。 |
+|ConnectionStringPrefix|String|是|gp-xxxxxxxx|目标连接地址。 |
+|CurrentConnectionString|String|是|gp-xxxxxxx.gpdb.rds.aliyuncs.com|实例当前的某个连接地址。 |
+|DBInstanceId|String|是|gp-xxxxxxx|实例ID。 |
+|Port|String|是|3432|目标端口。 |
 
-|名称|类型|描述|
-|--|--|--|
-|<公共返回参数\>|-|详见[公共返回参数](intl.zh-CN/API参考/公共参数.md#section_apd_1rv_3bb)。|
+## 返回数据
 
-## 请求示例 { .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|29B0BF34-D069-4495-92C7-FA6D94528A9E|请求ID。 |
+
+## 示例
+
+请求示例
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceConnectionString
-&DBInstanceId=gp-xxxxxxx
+&ConnectionStringPrefix=gp-xxxxxxxx
 &CurrentConnectionString=gp-xxxxxxx.gpdb.rds.aliyuncs.com
-&ConnectionStringPrefix=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxx
+&Port=3432
 &<公共请求参数>
 ```
 
-## 返回示例 { .section}
+正常返回示例
 
-**XML格式**
+`XML`格式
 
 ```
 <ModifyDBInstanceConnectionStringResponse>
-         <RequestId>29B0BF34-D069-4495-92C7-FA6D94528A9E</RequestId>
+           <RequestId>29B0BF34-D069-4495-92C7-FA6D94528A9E</RequestId>
 </ModifyDBInstanceConnectionStringResponse>
 ```
 
-**JSON格式**
+`JSON`格式
 
 ```
 {
-      "RequestId":"29B0BF34-D069-4495-92C7-FA6D94528A9E"
-  }
+	"RequestId": "29B0BF34-D069-4495-92C7-FA6D94528A9E"
+}
 ```
+
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/gpdb)查看更多错误码。
 
