@@ -14,12 +14,12 @@
 
     -   请在云原生数据仓库PostgreSQL版白名单中添加如下IP地址，Quick BI才能访问云原生数据仓库PostgreSQL版：10.152.69.0/24,10.152.163.0/24,139.224.4.0/24。
     -   关于如何设置白名单，请参见[设置白名单](/intl.zh-CN/快速入门/设置白名单.md)。
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7393992951/p51309.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7393992951/p51309.png)
 
     |配置项|说明|
     |---|--|
     |**显示名称**|数据源名称。|
-    |**数据库地址**|云原生数据仓库PostgreSQL版的连接地址，详情请参见[连接地址](/intl.zh-CN/实例管理/管理外网地址.md)。|
+    |**数据库地址**|云原生数据仓库PostgreSQL版的连接地址，详情请参见[连接地址](/intl.zh-CN/实例管理/网络连接/管理外网地址.md)。|
     |**端口**|连接地址对应的端口号。|
     |**数据库**|云原生数据仓库PostgreSQL版数据库名。|
     |**Schema**|数据库Schema名。|
