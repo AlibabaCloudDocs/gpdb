@@ -1,50 +1,58 @@
 # ModifySQLCollectorPolicy
 
-## Description
+You can call this operation to enable or disable the SQL collection feature for an instance.
 
-You can call this operation to enable or disable SQL collection for the instance.
+## Debugging
+
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=gpdb&api=ModifySQLCollectorPolicy&type=RPC&version=2016-05-03)
 
 ## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
-|Action|String|Yes|The operation that you want to perform. Set the value to ModifySQLCollectorPolicy.|
-|DBInstanceId|String|Yes|The ID of the instance.|
-|SQLCollectorStatus|String|Yes|-   Enabled: SQL collection is enabled.
--   Disabled: SQL collection is disabled. |
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|ModifySQLCollectorPolicy|The operation that you want to perform. Set the value to ModifySQLCollectorPolicy. |
+|DBInstanceId|String|Yes|gp-xxxxxxxx|The ID of the instance. |
+|SQLCollectorStatus|String|Yes|Enable|Specifies whether to enable or disable SQL collection.
+
+ -   Enable: enables SQL collection.
+-   Disabled: disables SQL collection. |
 
 ## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|4FA1F1D1-50A6-4F60-9A78-5752F2076A53|The ID of the request. |
 
-## Sample requests
+## Examples
+
+Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifySQLCollectorPolicy
-&DBInstanceId=gp-xxxxxxx
+&DBInstanceId=gp-xxxxxxxx
 &SQLCollectorStatus=Enable
 &<Common request parameters>
 ```
 
-## Sample responses
+Sample success responses
 
-**XML format**
+`XML` format
 
 ```
 <ModifySQLCollectorPolicyResponse>
-         <RequestId>4FA1F1D1-50A6-4F60-9A78-5752F2076A53</RequestId>
+           <RequestId>4FA1F1D1-50A6-4F60-9A78-5752F2076A53</RequestId>
 </ModifySQLCollectorPolicyResponse>
-			
 ```
 
-**JSON format**
+`JSON` format
 
 ```
 {
   "RequestId":"4FA1F1D1-50A6-4F60-9A78-5752F2076A53"
 }
 ```
+
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
