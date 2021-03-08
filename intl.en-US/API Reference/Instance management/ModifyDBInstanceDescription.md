@@ -1,49 +1,54 @@
 # ModifyDBInstanceDescription
 
-## Description
+You can call this operation to modify the description of an AnalyticDB for PostgreSQL instance.
 
-Modifies the description of an instance.
+## Debugging
 
-**Request parameters**
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=gpdb&api=ModifyDBInstanceDescription&type=RPC&version=2016-05-03)
 
-|Parameter|Type|Required|Description|
-|---------|----|--------|-----------|
-|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
-|Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceDescription.|
-|DBInstanceId|String|Yes|The ID of the instance.|
-|DBInstanceDescription|String|Yes|The description of the instance.|
+## Request parameters
+
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|DBInstanceDescription|String|Yes|gp-xxxxxxxx|The description of the instance. |
+|DBInstanceId|String|Yes|gp-xxxxxxxx|The ID of the instance. |
 
 ## Response parameters
 
-|Parameter|Type|Description|
-|---------|----|-----------|
-|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|107BE202-D1A2-479E-98E0-A892B472562F|The ID of the request. |
 
-## Sample requests
+## Examples
+
+Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceDescription
-&DBInstanceId=gp-xxxxxxx
-&DBInstanceDescription=testInstanceDescribe
+&DBInstanceDescription=gp-xxxxxxxx
+&DBInstanceId=gp-xxxxxxxx
 &<Common request parameters>
-
 ```
 
-## Sample responses
+Sample success responses
 
-**XML format**
+`XML` format
 
 ```
 <ModifyDBInstanceDescriptionResponse>
-         <RequestId>107BE202-D1A2-479E-98E0-A892B472562F</RequestId>
+           <RequestId>107BE202-D1A2-479E-98E0-A892B472562F</RequestId>
 </ModifyDBInstanceDescriptionResponse>
 ```
 
-**JSON format**
+`JSON` format
 
 ```
 {
-    "RequestId": "107BE202-D1A2-479E-98E0-A892B472562F"
+        "RequestId": "107BE202-D1A2-479E-98E0-A892B472562F"
 }
 ```
+
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
