@@ -1,51 +1,57 @@
 # AllocateInstancePublicConnection
 
-## Description
+You can call this operation to specify a public endpoint for an AnalyticDB for PostgreSQL instance.
 
-Assigns a prefix to the public endpoint of an instance.
+## Debugging
+
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=gpdb&api=AllocateInstancePublicConnection&type=RPC&version=2016-05-03)
 
 ## Request parameters
 
-|Parameter|Type|Required|Description|
-|---------|----|--------|-----------|
-|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
-|Action|String|Yes|The operation that you want to perform. Set the value to AllocateInstancePublicConnection.|
-|DBInstanceId|String|Yes|The ID of the instance.|
-|ConnectionStringPrefix|String|Yes|The endpoint of the instance.|
-|Port|String|Yes|The port of the instance. Valid values: 3200 to 3999.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|No|AllocateInstancePublicConnection|The operation that you want to perform. Set the value to AllocateInstancePublicConnection. |
+|ConnectionStringPrefix|String|Yes|gp-xxxxxxxx|The endpoint that is used to connect to the specified database. |
+|DBInstanceId|String|Yes|gp-xxxxxxxx|The ID of the instance. |
+|Port|String|Yes|3432|The port number of the instance. Valid values: 3200 to 3999. |
 
 ## Response parameters
 
-|Parameter|Type|Description|
-|---------|----|-----------|
-|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|ADD6EA90-EECB-4C12-9F26-0B6DB58710EF|The ID of the request. |
 
-## Sample requests
+## Examples
+
+Sample requests
 
 ```
-
-https://gpdb.aliyuncs.com/?Action=AllocateInstancePublicConnection
-&DBInstanceId=gp-xxxxxxx
-&ConnectionStringPrefix=gp-xxxxxxx
+http(s)://gpdb.aliyuncs.com/? Action=AllocateInstancePublicConnection
+&ConnectionStringPrefix=gp-xxxxxxxx
+&DBInstanceId=gp-xxxxxxxx
 &Port=3432
 &<Common request parameters>
 ```
 
-## Sample responses
+Sample success responses
 
-**XML format**
+`XML` format
 
 ```
 <AllocateInstancePublicConnectionResponse>  
-     <RequestId>ADD6EA90-EECB-4C12-9F26-0B6DB58710EF</RequestId>
+       <RequestId>ADD6EA90-EECB-4C12-9F26-0B6DB58710EF</RequestId>
 </AllocateInstancePublicConnectionResponse>
 ```
 
-**JSON format**
+`JSON` format
 
 ```
 {
    "RequestId": "ADD6EA90-EECB-4C12-9F26-0B6DB58710EF"
 }
 ```
+
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
