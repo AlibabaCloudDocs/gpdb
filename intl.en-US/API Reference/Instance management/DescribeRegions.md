@@ -1,200 +1,195 @@
 # DescribeRegions
 
-## Description
+You can call this operation to query available regions and zones. You must call the DescribeRegions operation to query the available regions before you call the CreateDBInstance operation.
 
-You can call this operation to query available regions and zones. You must make a DescribeRegions request to query the value of RegionId of the target region before calling the CreateDBInstance operation.
+## Debugging
+
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=gpdb&api=DescribeRegions&type=RPC&version=2016-05-03)
 
 ## Request parameters
 
-|Name|Type|Required| Description|
-|----|----|--------|------------|
-|<Common request parameters\>|-| Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
-|Action|String|Yes|The operation that you want to perform. Set the value to DescribeRegions.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|DescribeRegions|The operation that you want to perform. Set the value to DescribeRegions. |
+|Region|String|No|cn-hangzhou|The region ID of the instance. |
 
 ## Response parameters
 
-|Name |Type|Description|
-|-----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
-|Regions|List<Region\>|The list of regions.|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|FF8EB261-5447-4B1B-9F14-294CEA008A9F|The ID of the request. |
+|Regions|Array| |Details about the regions. |
+|RegionId|String|cn-hangzhou|The region ID of the instance. |
+|Zones|Array| |Details about the zones. |
+|ZoneId|String|cn-hangzhou-c|The zone ID of the instance. |
+|VpcEnabled|Boolean|true|Indicates whether the VPC in the zone is available. |
 
-|Name|Type|Description|
-|----|----|-----------|
-|RegionId|String |The name of a region.|
-|Zones|List<Zone\>|The list of zones.|
+## Examples
 
-|Name|Type|Description|
-|----|----|-----------|
-|ZoneId |String |The name of a zone.|
-|VpcEnabled|Boolean|This parameter indicates whether a VPC is available.|
-
-## Sample requests
+Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=DescribeRegions
 &<Common request parameters>
-
 ```
 
-## Sample responses
+Sample success responses
 
-**XML format**
+`XML` format
 
 ```
-<DescribeRegionsResponse>
- <RequestId>FF8EB261-5447-4B1B-9F14-294CEA008A9F</RequestId>
-	<Regions>
-		<Region>
-			<RegionId>cn-beijing</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-beijing-c</ZoneId>
-				</Zone>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-beijing-g</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>cn-zhangjiakou</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-zhangjiakou-b</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>cn-hangzhou</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-hangzhou-b</ZoneId>
-				</Zone>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-hangzhou-e</ZoneId>
-				</Zone>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-hangzhou-f</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>cn-shanghai</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-shanghai-b</ZoneId>
-				</Zone>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-shanghai-d</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>cn-shenzhen</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-shenzhen-a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>ap-southeast-1</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>ap-southeast-1b</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>ap-southeast-2</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>ap-southeast-2a</ZoneId>
-				</Zone>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>ap-southeast-2b</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>us-east-1</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>us-east-1b</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>us-west-1</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>us-west-1a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>cn-chengdu</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-chengdu-a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>ap-southeast-3</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>ap-southeast-3a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>cn-huhehaote</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>cn-huhehaote-a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>ap-south-1</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>ap-south-1a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-		<Region>
-			<RegionId>ap-southeast-5</RegionId>
-			<Zones>
-				<Zone>
-					<VpcEnabled>true</VpcEnabled>
-					<ZoneId>ap-southeast-5a</ZoneId>
-				</Zone>
-			</Zones>
-		</Region>
-	</Regions>
-</DescribeRegionsResponse>
+<RequestId>FF8EB261-5447-4B1B-9F14-294CEA008A9F</RequestId>
+<Regions>
+    <Region>
+        <RegionId>cn-beijing</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-beijing-c</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-beijing-g</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-zhangjiakou</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-zhangjiakou-b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-hangzhou</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-hangzhou-b</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-hangzhou-e</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-hangzhou-f</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-shanghai</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-shanghai-b</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-shanghai-d</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-shenzhen</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-shenzhen-a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-1b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-2</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-2a</ZoneId>
+            </Zone>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-2b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>us-east-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>us-east-1b</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>us-west-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>us-west-1a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-chengdu</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-chengdu-a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-3</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-3a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>cn-huhehaote</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>cn-huhehaote-a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-south-1</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-south-1a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+    <Region>
+        <RegionId>ap-southeast-5</RegionId>
+        <Zones>
+            <Zone>
+                <VpcEnabled>true</VpcEnabled>
+                <ZoneId>ap-southeast-5a</ZoneId>
+            </Zone>
+        </Zones>
+    </Region>
+</Regions>
 ```
 
-**JSON format**
+`JSON` format
 
 ```
 {
@@ -304,7 +299,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeRegions
                     "Zone":[
                         {
                             "VpcEnabled":true,
-                            "ZoneId":"us-east-1b"3333
+                            "ZoneId":"us-east-1b"
                         }
                     ]
                 }
@@ -312,7 +307,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeRegions
             {
                 "RegionId":"us-west-1",
                 "Zones":{
-                    333333333"Zone":[
+                    "Zone":[
                         {
                             "VpcEnabled":true,
                             "ZoneId":"us-west-1a"
@@ -345,7 +340,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeRegions
             {
                 "RegionId":"cn-huhehaote",
                 "Zones":{
-                    "Zone": [
+                    "Zone":[
                         {
                             "VpcEnabled":true,
                             "ZoneId":"cn-huhehaote-a"
@@ -379,4 +374,8 @@ https://gpdb.aliyuncs.com/?Action=DescribeRegions
     }
 }
 ```
+
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
