@@ -68,7 +68,6 @@ ENDPOINT 'endpoint';
         |--|--|----|--|
         |endpoint|字符串|是|指定OSS的endpoint。|
         |fdw|字符串|是|指定oss fdw插件名字。COPY命令在创建临时Server时需要用到。|
-        |allowoverwrite|布尔字符串|否|指定是否覆写已存在的manifest文件。**说明：** 仅覆写manifest文件，不会覆写数据文件。 |
         |其他所有创建外表时用到的option，如format，filetype，delimiter，escape等|不涉及|不涉及|创建临时外表时用到的option，详细内容请参见[使用 OSS Foreign Table 访问 OSS 数据](/cn.zh-CN/开发入门/使用 OSS Foreign Table 访问 OSS 数据.md)。|
 
 -   **示例1**
@@ -262,7 +261,7 @@ ENDPOINT 'endpoint';
         |选项|类型|是否必选|备注|
         |--|--|----|--|
         |endpoint|字符串|是|指定OSS的endpoint。|
-        |fdw|字符串|是|指定oss fdw插件名字。COPY命令在创建临时Server时需要用到。|
+        |fdw|字符串|是|指定oss fdw插件名字。UNLOAD命令在创建临时Server时需要用到。|
         |allowoverwrite|布尔字符串|否|指定是否覆写已存在的manifest文件。**说明：** 仅覆写manifest文件，不会覆写数据文件。 |
         |其他所有创建外表时用到的option，如format，filetype，delimiter，escape等|不涉及|不涉及|创建临时外表时用到的option，详细内容请参见[使用 OSS Foreign Table 访问 OSS 数据](/cn.zh-CN/开发入门/使用 OSS Foreign Table 访问 OSS 数据.md)。|
 
