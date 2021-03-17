@@ -19,14 +19,14 @@ This topic describes how to use the COPY or UNLOAD statement to import or export
     -   destination\_url: the URL of the OSS bucket in which the query result data is stored. Example: oss://bucket-name/path-prefix.
     -   <access-key-id\>: the AccessKey ID of the OSS account.
     -   <secret-access-key\>: the AccessKey secret of the OSS account.
-    -   \[ FORMAT \] \[ AS \] data\_format: the file format in which the exported data is stored. This field is optional. The default format is CSV. You can set data\_format to CSV, ORC, or TEXT.
-    -   \[ option \[ value \] \[, ... \] \]: one or more parameters. Specify each parameter in the key-value pair format. The following table describes the available parameters.
+    -   \[ FORMAT \] \[ AS \] data\_format: the file format in which the exported data is stored. This parameter is optional. The default format is CSV. You can set data\_format to CSV, ORC, or TEXT.
+    -   \[ option \[ value \] \[, ... \] \]: a list of one or more options. Specify each option in the key-value pair format. The following table describes the available parameters.
 
-        |Parameter|Type|Unit|Required|Default value|Description|
-        |---------|----|----|--------|-------------|-----------|
+        |Option|Type|Unit|Required|Default value|Description|
+        |------|----|----|--------|-------------|-----------|
         |endpoint|String|None|Yes|None|The endpoint for the specified OSS region.|
         |fdw|String|None|Yes|None|The name of the oss\_fdw plug-in. The oss\_fdw plug-in is required when you create a temporary OSS server for the UNLOAD statement.|
-        |Other parameters that are used to create an OSS foreign table, including format, filetype, delimiter, and escape.|N/A|None|N/A|N/A|The parameters that are used to create a temporary OSS foreign table. For more information, see [Use OSS foreign tables to access OSS data](/intl.en-US/Beginner Developer Guide/Use OSS foreign tables to access OSS data.md).|
+        |Other options that are used to create an OSS foreign table, including format, filetype, delimiter, and escape.|N/A|None| | |The options that are used to create a temporary OSS foreign table. For more information, see [Use OSS foreign tables to access OSS data](/intl.en-US/Beginner Developer Guide/Use OSS foreign tables to access OSS data.md).|
 
 
 -   **Examples**
@@ -107,14 +107,14 @@ This topic describes how to use the COPY or UNLOAD statement to import or export
     -   data\_source: the URL of the OSS bucket from which data is obtained. Example: oss://bucket\_name/path\_prefix.
     -   <access-key-id\>: the AccessKey ID of the OSS account.
     -   <secret-access-key\>: the AccessKey secret of the OSS account.
-    -   \[ FORMAT \] \[ AS \] data\_format: the file format in which the imported data is stored. This field is optional. The default format is CSV. You can set data\_format to CSV, JSON, JSONLINE, ORC, PARQUET, or TEXT.
-    -   \[ option \[ value \] \[, ... \] \]: one or more parameters. Specify each parameter in the key-value pair format. The following table describes the available parameters.
+    -   \[ FORMAT \] \[ AS \] data\_format: the file format in which the imported data is stored. This parameter is optional. The default format is CSV. You can set data\_format to CSV, JSON, JSONLINE, ORC, PARQUET, or TEXT.
+    -   \[ option \[ value \] \[, ... \] \]: a list of one or more options. Specify each option in the key-value pair format. The following table describes the available parameters.
 
-        |Parameter|Type|Unit|Required|Default value|Description|
-        |---------|----|----|--------|-------------|-----------|
-        |endpoint|String|None|Yes|None|The endpoint for the specified OSS region.|
-        |fdw|String|None|Yes|None|The name of the oss\_fdw plug-in. The oss\_fdw plug-in is required when you create a temporary OSS server for the COPY statement.|
-        |Other parameters that are used to create an OSS foreign table, including format, filetype, delimiter, and escape.|N/A|None|N/A|N/A|The parameters that are used to create a temporary OSS foreign table. For more information, see [Use OSS foreign tables to access OSS data](/intl.en-US/Beginner Developer Guide/Use OSS foreign tables to access OSS data.md).|
+        |Option|Type|Unit|Required|Default value|Description|
+        |------|----|----|--------|-------------|-----------|
+        |endpoint|String|N/A|Yes|None|The endpoint for the specified OSS region.|
+        |fdw|String|N/A|Yes|None|The name of the oss\_fdw plug-in. The oss\_fdw plug-in is required when you create a temporary OSS server for the COPY statement.|
+        |Other options that are used to create an OSS foreign table, including format, filetype, delimiter, and escape.|N/A|N/A|No|None|The options that are used to create a temporary OSS foreign table. For more information, see [Use OSS foreign tables to access OSS data](/intl.en-US/Beginner Developer Guide/Use OSS foreign tables to access OSS data.md).|
 
 
 -   **Examples**
@@ -153,7 +153,23 @@ This topic describes how to use the COPY or UNLOAD statement to import or export
         (10 rows)
         ```
 
-    3.  Save the data in a format other than CSV.
+    3.  Check whether the data in columns a and c of the local\_t2 table is the same as that of the local\_t table.
+
+        ```
+        postgres=# select sum(hashtext(t.a::text)) as col_a_hash, sum(hashtext(t.c::text)) as col_c_hash from local_t2 t;
+         col_a_hash  | col_c_hash
+        -------------+-------------
+         23725368368 | 13447976580
+        (1 row)
+        
+        postgres=# select sum(hashtext(t.a::text)) as col_a_hash, sum(hashtext(t.c::text)) as col_c_hash from local_t t;
+         col_a_hash  | col_c_hash
+        -------------+-------------
+         23725368368 | 13447976580
+        (1 row)
+        ```
+
+    4.  Save the data in a format other than CSV.
 
         ```
         -- Save the data in the ORC format.
@@ -174,5 +190,27 @@ This topic describes how to use the COPY or UNLOAD statement to import or export
         ENDPOINT 'oss-cn-hangzhou-zmf.aliyuncs.com'
         FDW 'oss_fdw';
         ```
+
+
+**Note:** When you use the COPY or UNLOAD statement to export data and store the data in a CSV file, you must specify some options in a particular way. Otherwise, syntax errors may occur because some options may be the same as keywords.
+
+-   You must specify the following options in a particular way: `delimiter`, `quote`, `null`, `header`, `escape`, and `encoding`.
+-   Method: Enclose the parameters in quotation marks \("\) and write the options in lowercase letters. Example:
+
+    ```
+    UNLOAD ('select * from table') 
+    TO 'path'
+    ACCESS_KEY_ID 'id'
+    SECRET_ACCESS_KEY 'key'
+    FORMAT csv
+    "delimiter" '|'
+    "quote" '"'
+    "null" ''
+    "header" 'true'
+    "escape" 'E'
+    "encoding" 'utf-8'
+    FDW 'oss_fdw'
+    ENDPOINT 'endpoint';
+    ```
 
 
