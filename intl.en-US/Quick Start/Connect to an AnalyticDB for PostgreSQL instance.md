@@ -1,27 +1,34 @@
 # Connect to an AnalyticDB for PostgreSQL instance
 
-This topic describes how to connect to an AnalyticDB for PostgreSQL instance. AnalyticDB for PostgreSQL is fully compatible with the message-based protocol of PostgreSQL. Therefore, you can connect to an AnalyticDB for PostgreSQL instance by using tools that support the protocol, such as psql, libpq, Java Database Connectivity \(JDBC\), Open Database Connectivity \(ODBC\), and psycopg2. You can also use graphical user interface \(GUI\) tools such as pgAdmin, DBeaver, and Navicat. AnalyticDB for PostgreSQL V4.3 supports only pgAdmin III 1.6.3 and earlier. AnalyticDB for PostgreSQL V6.0 supports the latest version of pgAdmin 4. You can use Data Management Service \(DMS\) to manage and develop AnalyticDB for PostgreSQL instances.
+This topic describes how to connect to an AnalyticDB for PostgreSQL instance. AnalyticDB for PostgreSQL is fully compatible with the message-based protocol of PostgreSQL. Therefore, you can connect to an AnalyticDB for PostgreSQL instance by using tools that support the protocol, such as psql, libpq, Java Database Connectivity \(JDBC\), Open Database Connectivity \(ODBC\), and psycopg2. You can also use graphical user interface \(GUI\) tools such as pgAdmin, DBeaver, and Navicat. AnalyticDB for PostgreSQL V4.3 supports only pgAdmin III 1.6.3 and earlier. AnalyticDB for PostgreSQL V6.0 supports pgAdmin 4 and earlier. You can use Data Management \(DMS\) to manage and develop AnalyticDB for PostgreSQL instances.
 
 **Note:** AnalyticDB for PostgreSQL V4.3 is based on the PostgreSQL 8.3 kernel. AnalyticDB for PostgreSQL V6.0 is based on the PostgreSQL 9.4 kernel.
 
 ## DMS console
 
-[DMS](https://www.alibabacloud.com/help/zh/doc-detail/47550.htm) can manage relational databases, such as ApsaraDB RDS for MySQL, ApsaraDB RDS for SQL Server, ApsaraDB RDS for PostgreSQL, ApsaraDB RDS for PPAS, and HybridDB for MySQL, OLTP databases such as PolarDB-X, OLAP databases such as AnalyticDB and Data Lake Analytics \(DLA\), and NoSQL databases such as ApsaraDB for MongoDB and ApsaraDB for Redis. DMS offers an integrated solution to manage data, schemas, and servers. You can also use DMS to authorize users, audit security, view BI charts and data trends, track data, and optimize performance.
+[数据管理](https://help.aliyun.com/document_detail/47550.html)[DMS](https://www.alibabacloud.com/help/zh/doc-detail/47550.htm) allows you to manage relational databases such as MySQL, SQL Server, PostgreSQL, Postgres Plus Advanced Server \(PPAS\), and Petadata, online analytical processing \(OLAP\) databases such as Distributed Relational Database Service \(DRDS\), AnalyticDB and Data Lake Analytics \(DLA\), and NoSQL databases such as MongoDB and Redis. DMS offers an integrated solution to manage data, schemas, and servers. You can also use DMS to authorize users, audit security, view BI charts and data trends, track data, and optimize performance.
 
 This section describes how to use the DMS console to connect to an AnalyticDB for PostgreSQL instance.
 
 1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdbnext.console.aliyun.com/gpdb/cn-hangzhou/list).
-2.  Create an instance. For more information, see [Create an instance](/intl.en-US/Quick Start/Create an instance.md). If you have created one, find the instance and click its ID.
-3.  Create an account. For more information, see [Configure an account](/intl.en-US/Quick Start/Configure an account.md).
+2.  Create an instance. For more information, see [Create an instance](/intl.en-US/Quick Start/Create an instance.md). If an instance is created, find the instance and click the instance ID.
+3.  Create an account. For more information, see [t16843.md\#](/intl.en-US/Quick Start/Configure an account.md).
 
     **Note:** This account is used to log on to the DMS console. A single account can be created for each instance.
 
 4.  In the upper-right corner, click **Login Database**.
-5.  On the RDS Database Logon page that appears, enter the username and password, and click **Log On**.
+5.  On the Login instance page, enter the required information about the database, and click Login.
+6.  若有页面弹出如下提示，请根据当前情况选择相应设置。
+
+    -   **设置所有实例：**当前用户下所有的实例都会被添加DMS的IP地址，以后不需要重复操作该步骤。
+    -   **设置本实例：**只有当前登录的实例添加DMS的IP地址。
+    -   **不设置：**不设置DMS的IP地址，该操作将无法使用DMS登录数据库。
+    ![](../images/p50991.png)
+
 
 ## psql
 
-psql is a command line tool used together with Greenplum, and provides a variety of commands. Its binary files are located in the bin directory of Greenplum. To use psql to connect to an AnalyticDB for PostgreSQL instance, perform the following steps:
+psql is a command line tool used together with Greenplum, and provides a variety of commands. The binary files of psql are located in the bin directory of Greenplum. To use psql to connect to an AnalyticDB for PostgreSQL instance, perform the following steps:
 
 1.  Connect to the instance by using one of the following methods:
 
@@ -43,8 +50,8 @@ psql is a command line tool used together with Greenplum, and provides a variety
         -   -p: the port used to connect to the database.
         -   -d: the name of the database. The default value is postgres.
         -   -U: the account used to connect to the database.
-        -   You can run the `psql - help` command to view more options. You can also run the `\?` command to view the commands supported in psql.
-2.  Enter the password to go to the psql shell interface. The following figure shows the psql shell interface.
+        -   You can run the `psql --help` command to view more options. You can also run the `\?` command to view the commands supported in psql.
+2.  Enter the password to go to the psql shell interface. The following example describes the psql shell interface:
 
     ```
     postgres=>
@@ -53,14 +60,14 @@ psql is a command line tool used together with Greenplum, and provides a variety
 
 **References**
 
--   For more information, visit [gp6 psql](http://docs.greenplum.org/6-4/utility_guide/ref/psql.html#topic1) in the Greenplum database documentation.
+-   For more information about how to use psql, visit [psql](http://docs.greenplum.org/6-4/utility_guide/ref/psql.html#topic1) in the Greenplum database documentation.
 
--   AnalyticDB for PostgreSQL also supports psql commands for PostgreSQL. Pay attention to the differences between psql in Greenplum and that in PostgreSQL. For more information, visit [PostgreSQL 8.3.23 Documentation - psql](https://www.postgresql.org/docs/8.3/static/app-psql.html) in the PostgreSQL documentation.
+-   AnalyticDB for PostgreSQL also supports psql commands for PostgreSQL. Take note of the differences between psql commands in PostgreSQL and psql commands in AnalyticDB for PostgreSQL. For more information, visit [psql](https://www.postgresql.org/docs/8.3/static/app-psql.html) in the PostgreSQL documentation.
 
 
-**How to download client tools**
+**Download client tools**
 
-The download method varies depending on your operating system version:
+The download URL varies based on your operating system version:
 
 -   Download client tools for AnalyticDB for PostgreSQL V4.3:
 
@@ -68,14 +75,14 @@ The download method varies depending on your operating system version:
 
     -   If you use Red Hat Enterprise Linux 7 or CentOS 7, click [ADBPG\_client\_package\_el7](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/43729/cn_zh/1491914523043/apsaradb_for_gp_client_package.redhat.el7.x86_64.tar.gz).
 
--   Download the client tool for AnalyticDB for PostgreSQL V6.0:
+-   Download client tools for AnalyticDB for PostgreSQL V6.0:
 
     -   If you use Red Hat Enterprise Linux 6 or CentOS 6, click [ADBPG\_client\_package\_el6](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/181125/cn_zh/1598426142282/adbpg_client_package.el6.x86_64.tar.gz).
 
     -   If you use Red Hat Enterprise Linux 7 or CentOS 7, click [ADBPG\_client\_package\_el7](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/181125/cn_zh/1598426198114/adbpg_client_package.el7.x86_64.tar.gz).
 
 
-**How to use client tools**
+**Use client tools**
 
 After you download the client tool package, you can use the client tools. The following example shows how to use a client tool to connect to an AnalyticDB for PostgreSQL V6.0 instance when you use CentOS 7.
 
@@ -93,16 +100,29 @@ After you download the client tool package, you can use the client tools. The fo
 
 3.  The bin directory includes client tools such as psql and pg\_dump. Run the command based on the reference documentation of each tool.
 
-    -   For information about how to use psql to connect to an AnalyticDB for PostgreSQL instance, see [psql](#section_nll_ssr_52b).
+    -   For information about how to use psql to connect to an AnalyticDB for PostgreSQL instance, visit [psql](#section_nll_ssr_52b).
 
-    -   pg\_dump is a logical backup tool for PostgreSQL. For information about how to use pg\_dump, see [pg\_dump](https://gpdb.docs.pivotal.io/6-10/utility_guide/ref/pg_dump.html).
+    -   pg\_dump is a logical backup tool for PostgreSQL. For information about how to use pg\_dump, visit [pg\_dump](https://gpdb.docs.pivotal.io/6-10/utility_guide/ref/pg_dump.html).
 
+
+You can use the Docker toolkit for AnalyticDB for PostgreSQL, as shown in the following sample code. For more information about how to install Docker, visit [Get Started with Docker](https://www.docker.com/get-started).
+
+```
+# Run the tool image corresponding to the AnalyticDB for PostgreSQL V 4.x.
+docker run -idt --name=adbpgcli aliadbpg/adbpgcli:v4.3.0  
+docker exec -it adbpgcli /bin/bash -l
+
+# Run the tool image corresponding to the AnalyticDB for PostgreSQL V 6.x.
+docker run -idt --name=adbpgcli aliadbpg/adbpgcli:v6.3.0
+docker exec -it adbpgcli /bin/bash -l
+[root@adbpgcli /]# psql --help
+```
 
 ## pgAdmin
 
-pgAdmin is a graphical client tool for PostgreSQL and can be used to connect to an AnalyticDB for PostgreSQL instance. For more information, visit the [official pgAdmin website](https://www.pgadmin.org/). AnalyticDB for PostgreSQL V4.3 is based on the PostgreSQL 8.3 kernel. Therefore, you must use pgAdmin III 1.6.3 or earlier to connect to an AnalyticDB for PostgreSQL V4.3 instance. AnalyticDB for PostgreSQL V4.3 does not support pgAdmin 4. AnalyticDB for PostgreSQL V6.0 is based on the PostgreSQL 9.4 kernel and supports the latest version of pgAdmin 4.
+pgAdmin is a GUI client tool for PostgreSQL and can be used to connect to an AnalyticDB for PostgreSQL instance. For more information, visit [pgAdmin](https://www.pgadmin.org/). AnalyticDB for PostgreSQL V4.3 is based on the PostgreSQL 8.3 kernel. Therefore, you must use pgAdmin III 1.6.3 or earlier to connect to an AnalyticDB for PostgreSQL V4.3 instance. AnalyticDB for PostgreSQL V4.3 does not support pgAdmin 4. AnalyticDB for PostgreSQL V6.0 is based on the PostgreSQL 9.4 kernel and supports pgAdmin 4 or earlier.
 
-You can download [pgAdmin III 1.6.3](https://www.postgresql.org/ftp/pgadmin/pgadmin3/v1.6.3/) or [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/1.x/) from the PostgreSQL official website. pgAdmin is compatible with various operating systems such as Windows, macOS, and Linux. For other graphical client tools, see [Graphical client tools](#graphy_client).
+You can download [pgAdmin III 1.6.3](https://www.postgresql.org/ftp/pgadmin/pgadmin3/v1.6.3/) or [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/1.x/) from the PostgreSQL official website. pgAdmin is compatible with various operating systems such as Windows, macOS, and Linux. For more GUI client tools, see [GUI client tools](#graphy_client).
 
 **Procedure**
 
@@ -110,7 +130,7 @@ You can download [pgAdmin III 1.6.3](https://www.postgresql.org/ftp/pgadmin/pgad
 
 2.  Choose **File** \> **Add Server**.
 
-3.  In the New Server Registration dialog box, set parameters as prompted.
+3.  In the New Server Registration dialog box, set parameters.
 
 4.  Click **OK** to connect to the AnalyticDB for PostgreSQL instance.
 
@@ -177,7 +197,7 @@ For more information, visit [The PostgreSQL JDBC Interface](https://jdbc.postgre
 
 ## Python
 
-You can use psycopg2 to connect to Greenplum or PostgreSQL. The procedure is as follows:
+You can use psycopg2 to connect to Greenplum or PostgreSQL for the Python programming language. To use psycopg2, perform the following steps:
 
 1.  Install psycopg2. If you use CentOS, you can use one of the following installation methods:
 
@@ -210,7 +230,7 @@ You can use psycopg2 to connect to Greenplum or PostgreSQL. The procedure is as 
      conn.close()
     ```
 
-    The system displays information similar to the following:
+    The system displays information similar to the following example:
 
     ```
     (1, -1, 'p', 'p', 's', 'u', 3022, '192.168.2.158', '192.168.2.158', None, None)
@@ -226,7 +246,7 @@ You can use psycopg2 to connect to Greenplum or PostgreSQL. The procedure is as 
 
 libpq is the C application programmer's interface to PostgreSQL. You can use libpq libraries to access and manage PostgreSQL databases in a C program. If Greenplum or PostgreSQL is deployed, you can find both the static and dynamic libraries of libpq in the lib directory.
 
-For example programs, click [30.19. Example Programs](http://www.postgresql.org/docs/8.3/static/libpq-example.html).
+For more information about examples, visit [Example Programs](http://www.postgresql.org/docs/8.3/static/libpq-example.html).
 
 For more information about libpq, visit [PostgreSQL 9.4.10 Documentation - Chapter 31. libpq - C Library](http://www.postgresql.org/docs/9.4/static/libpq.html).
 
@@ -282,7 +302,7 @@ The PostgreSQL ODBC driver is an open source tool licensed based on the GNU Less
     ReadOnly = 0
     ```
 
-4.  Test the connectivity.
+4.  Test connectivity.
 
     ```
     echo "select count(*) from pg_class" | isql mygpdb
@@ -307,13 +327,13 @@ The PostgreSQL ODBC driver is an open source tool licensed based on the GNU Less
 5.  After ODBC is connected to the instance, connect your application to ODBC. For more information, visit [PostgreSQL ODBC driver](https://odbc.postgresql.org/) and [psqlODBC HOWTO - C\#](https://odbc.postgresql.org/howto-csharp.html).
 
 
-## More information
+## Other client tools
 
-**Graphical client tools**
+**GUI client tools**
 
-You can use the following graphical client tools to connect to AnalyticDB for PostgreSQL instances:
+You can use the following GUI client tools to connect to AnalyticDB for PostgreSQL instances:
 
--   [pgadmin III \(1.6.3\)](https://www.postgresql.org/ftp/pgadmin/pgadmin3/v1.6.3/)
+-   [pgAdmin III 1.6.3](https://www.postgresql.org/ftp/pgadmin/pgadmin3/v1.6.3/)
 -   [pgAdmin 4](https://www.pgadmin.org/)
 -   [dbeaver](https://dbeaver.io/)
 -   [Navicat Premium](https://www.navicat.com/download/navicat-premium)
@@ -322,7 +342,7 @@ You can use the following graphical client tools to connect to AnalyticDB for Po
 
 **Greenplum client tools**
 
-The official Greenplum website provides a tool package, which includes JDBC, ODBC, and libpq. The package is easy to install and use. For more information, visit [Pivotal Greenplum documentation](http://gpdb.docs.pivotal.io/43330/client_tool_guides/drivers/unix/unix_connect.html).
+The official Greenplum website provides a tool package, which includes JDBC, ODBC, and libpq. The package is easy to install and use. For more information, visit [Greenplum Database 4.3 Connectivity Tools for UNIX](http://gpdb.docs.pivotal.io/43330/client_tool_guides/drivers/unix/unix_connect.html).
 
 ## References
 
