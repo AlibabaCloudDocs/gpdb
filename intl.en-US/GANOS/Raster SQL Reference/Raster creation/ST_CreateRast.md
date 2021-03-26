@@ -35,7 +35,7 @@ The following table describes fields in the storageOption parameter.
 
 You can specify the path of the OSS object in the following format: `oss://access_id:secrect_key@Endpoint/path_to/file`. The endpoint is optional. If you do not specify the endpoint, the system finds the endpoint and you must make sure that the path starts with a forward slash \(/\).
 
-The endpoint is the domain name that you can use to access the OSS bucket where the OSS object is stored. For the best import performance, make sure that the AnalyticDB for PostgreSQL instance resides in the same region as the OSS bucket. For more information, see[OSS Endpoint](https://www.alibabacloud.com/help/zh/doc-detail/31834.htm).
+The endpoint is the domain name that you can use to access the OSS bucket where the OSS object is stored. For the best import performance, make sure that the AnalyticDB for PostgreSQL instance resides in the same region as the OSS bucket. For more information, see [OSS Endpoint](https://www.alibabacloud.com/help/zh/doc-detail/31834.htm).
 
 ## Examples
 
