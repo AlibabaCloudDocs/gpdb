@@ -15,7 +15,7 @@ int8[] ST_attrIntFilter(trajectory traj, cstring attr_field_name,cstring operato
 |---------|---------|
 |traj|The trajectory object.|
 |attr\_field\_name|The name of the specified attribute field.|
-|operator|Filter, `'='`， `'! ='`， `'>'`， `'<'`， `'>='`， `'<='`， `'[]'`， `'(]'`， `'[)'`， `'()'`.|
+|operator|Filter, `'='`, `'! ='`, `'>'`, `'<'`, `'>='`, `'<='`, `'[]'`, `'(]'`, `'[)'`, `'()'`.|
 |value and value1|The fixed value of the attribute field and the minimum fixed value of the attribute field.|
 |value2|The maximum fixed value of the attribute field.|
 
