@@ -30,10 +30,10 @@ You can deploy your AnalyticDB for PostgreSQL instance and ECS instance in the s
     |**Network Type**|Set the network type of the instance. The default value is VPC. A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and better performance than the classic network. Before you specify this parameter, make sure that you have created a VPC and a VSwitch that are deployed in the same region as that of the instance. For more information, see .|
     |**VPC**|Select a VPC.|
     |**VSwitch**|Select a VSwitch in the specified VPC.|
-    |**Instance resource type**|**Instance Resource Type**: You cannot extend independent disks on the fly in the console. |
-    |**Engine Version**|Only **6.0** is supported. |
-    |**Node specification（segment）**|Select the specifications of the computing resources. Different node types have different storage capacities and computing capabilities. For more information about specifications, see [Instance specifications](/intl.en-US/Specifications and Pricing/Instance specifications.md) for AnalyticDB for PostgreSQL.|
-    |**Node Number（segment）**|Set the number of nodes in the instance. An instance must contain a minimum of two nodes. The performance of an instance improves if the number of nodes increases.|
+    |**Instance resource type**|**Reserved Storage Mode**: You cannot extend independent disks on the fly in the console. |
+    |**Engine Version**|Only **6.0 Standard Edition** is supported. |
+    |**Node specification\(segment\)**|Select the specifications of the computing resources. Different node types have different storage capacities and computing capabilities. For more information about specifications, see [Instance specifications](/intl.en-US/Specifications and Pricing/Instance specifications.md) for AnalyticDB for PostgreSQL.|
+    |**Node Number\(segment\)**|Set the number of nodes in the instance. An instance must contain a minimum of two nodes. The performance of an instance improves if the number of nodes increases.|
     |**Storage Disk Type**|Select **Enhanced SSD \(ESSD\)** or **Ultra Disk**. An **Enhanced SSD \(ESSD\)** outperforms **Ultra Disk** in the read/write performance whereas the latter is more cost-effective.|
     |**Single Node Storage Capacity**|Set the storage capacity of each node in the instance.|
 
