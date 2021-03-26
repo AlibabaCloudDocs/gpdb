@@ -13,7 +13,7 @@ The following sections describe how to use MaxCompute FDW.
 ## Use MaxCompute FDW
 
 1.  For a new AnalyticDB for PostgreSQL instance, the MaxCompute FDW extension is automatically created. In this case, you **can skip the following step**.
-2.  For an existing AnalyticDB for PostgreSQL instance, you can use the **initial database account** to connect to a specified database， and run the following commands to create the MaxCompute FDW extension and grant all database accounts the permission to use the extension:
+2.  For an existing AnalyticDB for PostgreSQL instance, you can use the **initial database account** to connect to a specified database, and run the following commands to create the MaxCompute FDW extension and grant all database accounts the permission to use the extension:
 
 ```
 -- Create the MaxCompute FDW extension.
@@ -180,7 +180,7 @@ OPTIONS (
 
 3.3.3 Partitioned foreign tables
 
-A partitioned foreign table is mapped to a partitioned MaxCompute table. The following code shows how to use the preceding MaxCompute table src that contains two levels of partitions to create a partitioned foreign table. For more information, see [Table partitioning](/intl.en-US/Data/Table partitioning.md).
+A partitioned foreign table is mapped to a partitioned MaxCompute table. The following code shows how to use the preceding MaxCompute table src that contains two levels of partitions to create a partitioned foreign table. For more information, see [Define table partitioning](/intl.en-US/Data/Define table partitioning.md).
 
 ```
 CREATE FOREIGN TABLE odps_src(                    -- The name of the MaxCompute foreign table
