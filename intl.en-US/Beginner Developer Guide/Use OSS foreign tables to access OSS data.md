@@ -31,11 +31,42 @@ Use an OSS foreign table
 
 To use an OSS foreign table, perform the following operations:
 
-* Create a ***user mapping*** to a foreign server. For more information, see [CREATE USER MAPPING](https://www.postgresql.org/docs/9.4/sql-createusermapping.html).
+* Create a 
 
-* Create an ***OSS*** ***foreign server*** . For more information, see [CREATE SERVER](https://www.postgresql.org/docs/9.4/sql-createserver.html).
+  ***user mapping*** 
 
-* Create an **OSS** ***foreign table*** . For more information, see [CREATE FOREIGN TABLE](https://www.postgresql.org/docs/9.4/sql-createforeigntable.html).
+  to a foreign server. For more information, see 
+
+  [CREATE USER MAPPING](https://www.postgresql.org/docs/9.4/sql-createusermapping.html)
+
+  .
+  
+
+* Create an 
+
+  ***OSS*** 
+
+  ***foreign server*** 
+
+  . For more information, see 
+
+  [CREATE SERVER](https://www.postgresql.org/docs/9.4/sql-createserver.html)
+
+  .
+  
+
+* Create an 
+
+  **OSS** 
+
+  ***foreign table*** 
+
+  . For more information, see 
+
+  [CREATE FOREIGN TABLE](https://www.postgresql.org/docs/9.4/sql-createforeigntable.html)
+
+  .
+  
 
 
 
@@ -53,9 +84,15 @@ For example, you can use the [ossutil command line tool](https://www.alibabaclou
 
 In the preceding information:
 
-* **adbpg-tpch** is the name of the OSS bucket.
+* **adbpg-tpch** 
 
-* **data/tpch_data_10x/...** is the path of the file relative to the OSS bucket.
+  is the name of the OSS bucket.
+  
+
+* **data/tpch_data_10x/...** 
+
+  is the path of the file relative to the OSS bucket.
+  
 
 
 
@@ -144,7 +181,7 @@ After you create an OSS server, you must create a user mapping from your Analyti
 
 
 
-For more information about valid parameter values, see 2.3 Parameter description. For more information about how to create a user mapping, see[CREATE USER MAPPING](https://www.postgresql.org/docs/9.4/sql-createusermapping.html).
+For more information about valid parameter values, see 2.3 Parameter description. For more information about how to create a user mapping, see [CREATE USER MAPPING](https://www.postgresql.org/docs/9.4/sql-createusermapping.html).
 
 2.3 Parameter description
 
@@ -165,7 +202,11 @@ After you create an OSS bucket and an account that is used to access the OSS buc
 
 * Uncompressed text files in CSV, TXT, JSON, and JSON Lines formats.
 
+  
+
 * GZIP or standard Snappy-compressed text files in CSV and TXT formats. GZIP-compressed text files in JSON and JSON Lines formats.
+
+  
 
 * Binary files in ORC format. For more information about the data type mappings between ORC files and AnalyticDB for PostgreSQL files, see 
 
@@ -184,8 +225,8 @@ After you create an OSS bucket and an account that is used to access the OSS buc
 
     CREATE FOREIGN TABLE x(i int, j int)
     SERVER oss_serv OPTIONS (format 'jsonline')
-    PARTITION BY LIST (j) (	
-        VALUES('20181218'),	
+    PARTITION BY LIST (j) (        
+        VALUES('20181218'),        
         VALUES('20190101')
     );
 
@@ -284,7 +325,7 @@ Only OSS foreign tables in CSV and TXT formats support the fault tolerance mecha
                     dir 'error_sales/',        -- Specify the OSS directory that the foreign table matches.
                     format 'csv',              -- Parse files in the CSV format.
                     encoding 'utf8');          -- Specify the encoding format. 
-       				
+                                       
 
    
 
@@ -326,7 +367,7 @@ Only OSS foreign tables in CSV and TXT formats support the fault tolerance mecha
         2020-04-22 19:37:35.21125+08 | oss_error_sales | error_sales/sales.2.csv |       2 |         | invalid byte sequence for encoding "UTF8": 0xed 0xab 0xad |         | \x
         2020-04-22 19:37:35.21125+08 | oss_error_sales | error_sales/sales.2.csv |       3 |         | invalid byte sequence for encoding "UTF8": 0xed 0xab 0xad |         | \x
         2020-04-22 19:37:35.21125+08 | oss_error_sales | error_sales/sales.3.csv |       2 |         | invalid byte sequence for encoding "UTF8": 0xed 0xab 0xad |         | \x
-       (3 rows)		 	
+       (3 rows)                         
 
    
 
@@ -444,6 +485,8 @@ You can query an OSS foreign table in the same way as you query an internal tabl
 
 * Data filtering based on key-value pairs
 
+  
+
 
 
 
@@ -453,6 +496,8 @@ You can query an OSS foreign table in the same way as you query an internal tabl
 
 * Data aggregation
 
+  
+
 
 
 
@@ -461,6 +506,8 @@ You can query an OSS foreign table in the same way as you query an internal tabl
 
 
 * A combination of the filter, group, and limit clauses
+
+  
 
 
 
@@ -476,6 +523,8 @@ You can query an OSS foreign table in the same way as you query an internal tabl
 4.3 Join OSS foreign tables and internal tables for data analytics
 
 * Example - Join internal AOCS table aocs_lineitem and OSS foreign tables for a TPC-H Q3 query
+
+  
 
 
 
@@ -683,11 +732,19 @@ Determine the number of files in the OSS foreign table based on the number of co
 
 * All compute nodes of an AnalyticDB for PostgreSQL instance read data in parallel from the data files stored in OSS by using a round-robin algorithm.
 
+  
+
 * We recommend that you use the same data encoding formats for data files and databases to simplify the encoding process and maximize efficiency. The default database encoding format is UTF-8.
+
+  
 
 * Multiple CSV and TXT files can be read in parallel. By default, four files are read in parallel.
 
+  
+
 * To maximize reading efficiency, we recommend that you set the number of files that are read in parallel as an integer multiple of the number of compute node cores. The number of compute node cores is the product of the number of compute nodes and the number of cores per compute node.
+
+  
 
 
 
@@ -871,6 +928,8 @@ The following list describes the parameters in this message:
 
 * ErrorCode: the error code returned by OSS.
 
+  
+
 * ErrorMessage: the error message returned by OSS.
 
 * RequestId: the UUID of the request. If you need technical support, contact Customer Services and provide this ID.
@@ -885,9 +944,15 @@ Differences between OSS foreign tables and OSS external tables
 
 * AnalyticDB for PostgreSQL allows you to use OSS external tables to import and export data. However, OSS external tables cannot meet requirements for the analysis of large amounts of OSS data.
 
+  
+
 * OSS foreign tables are developed based on the PostgreSQL FDW framework and support ORC and CSV files. The CSV files can be compressed by using GZIP. OSS foreign tables can be partitioned based on one or more columns. You can collect the statistics of OSS foreign tables so that the optimizer can generate an optimal query plan.
 
+  
+
 * Foreign tables are superior to external tables in terms of performance, features, and stability. Therefore, the Greenplum community plans to replace external tables with foreign tables.
+
+  
 
 
 
@@ -897,11 +962,19 @@ References
 
 * [Get started with Object Storage Service](/intl.en-US/Quick Start/Get started with OSS.md)
 
+  
+
 * [OSS domain names](/intl.en-US/Developer Guide/Endpoint/OSS domain names.md)
+
+  
 
 * [Handle errors](/intl.en-US/SDK Reference/C/Error handling.md)
 
+  
+
 * [Handle OSS errors](/intl.en-US/Developer Guide/Troubleshooting/Error responses.md)
+
+  
 
 
 
