@@ -23,7 +23,7 @@ You can call this operation to query the specified performance metrics of an ins
 |DBInstanceId|String|gp-xxxxxxxxxx|The ID of the instance. |
 |Engine|String|gpdb|The database engine of the instance. |
 |StartTime|String|2018-07-08T03:47Z|The beginning of the time range over which the query was performed. The time is displayed in the `YYYY-MM-DDTHH:mmZ` format. Example: 2018-05-30T03:29Z. |
-|EndTime|String|2018-07-09T03:47Z|The end of the time range over which the query was performed. The time is displayed in the `YYYY-MM-DDTHH:mmZ`format. The end time is later than the start time. Example: 2018-05-30T03:29Z. |
+|EndTime|String|2018-07-09T03:47Z|The end of the time range over which the query was performed. The time is displayed in the `YYYY-MM-DDTHH:mmZ` format. The end time is later than the start time. Example: 2018-05-30T03:29Z. |
 |PerformanceKeys|List|\{ "Key": "MemoryUsage", "GroupValues": \[\{ "Name": "7198315-1530522046144-1", "Values": "" \}, \{ "Name": "7198315-1530522046144-0", "Values": "" \}, \{"Values": "", "Name": "master" \} \], "Unit": "%", "ValueFormat": "mem\_usage"\}|Details about the performance metrics Format: \{perf1, perf2, perf3, …\}. |
 
 ## Examples
