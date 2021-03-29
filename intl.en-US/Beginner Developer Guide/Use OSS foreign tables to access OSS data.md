@@ -3,8 +3,6 @@ Use OSS foreign tables to access OSS data
 
 This topic describes how to use OSS foreign tables to access OSS data. OSS foreign tables are designed based on the PostgreSQL Foreign Data Wrapper (FDW) framework to access OSS data for data analysis.
 
-![Overview ](../images/p101830.png)
-
 OSS foreign tables allow you to perform the following operations:
 
 * Import OSS data to the internal row-oriented tables and column-oriented tables of the AnalyticDB for PostgreSQL instance for accelerated data analysis.
@@ -168,7 +166,7 @@ After you create an OSS server, you must create a user mapping from your Analyti
 
   
 
-* `CURRENT_USER`or`USER`: Both parameters specify the name of the current user.
+* `CURRENT_USER` or `USER`: Both parameters specify the name of the current user.
 
   
 
