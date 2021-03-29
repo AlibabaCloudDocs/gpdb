@@ -22,7 +22,7 @@ You can call this operation to query tags that are bound to one or more Analytic
 You can use `Tag.N.Key and Tag.N.Value` to query AnalyticDB for PostgreSQL instances to which specific tags are bound.
 
 -   If you specify only `Tag.N.Key`, the instances whose tags contain the specified tag keys are returned.
--   If you specify only`Tag.N.Value`, `InvalidParameter.TagValue` is returned.
+-   If you specify only `Tag.N.Value`, `InvalidParameter.TagValue` is returned.
 -   If you specify multiple tag key-value pairs at a time, the instances to which all the specified tags are bound are returned. |
 |Tag.N.Value|String|No|TestValue|The value of tag N. The value must be 1 to 128 characters in length. Valid values of N: 1 to 20. |
 |NextToken|String|No|caeba0bbb2be03f84eb48b699f0a4883|The token used to perform the next query. |
