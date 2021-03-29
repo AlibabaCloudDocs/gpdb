@@ -2,7 +2,7 @@
 
 支持的ETL工具见下，可以同时参见更详细的同步方案列表[数据迁移及同步方案综述](/intl.zh-CN/数据接入/数据迁移及同步方案综述.md)：
 
--   [数据传输服务（DTS）](https://help.aliyun.com/document_detail/26607.html)：阿里云提供的实时数据同步服务，可以将其他数据源（RDS MySQL，ECS自建MySQL，PolarDB等）实时同步数据到AnalyticDB PostgreSQL版，构建实时数据仓库解决方案。
+-   [数据传输服务（DTS）](/intl.zh-CN/实例管理/升级实例配置.md)：阿里云提供的实时数据同步服务，可以将其他数据源（RDS MySQL，ECS自建MySQL，PolarDB等）实时同步数据到AnalyticDB PostgreSQL版，构建实时数据仓库解决方案。
 -   [阿里云的数据集成服务\(Data Integration\)](https://www.aliyun.com/product/cdp/) ：阿里云提供的ETL工具。在数据集成服务中，将AnalyticDB PostgreSQL版配置为一个PostgreSQL数据库，即可实现其他数据源（RDS、MaxCompute、TableStore等）到AnalyticDB PostgreSQL版的数据同步。
     -   您可以直接从其他数据源读取数据，写入到AnalyticDB PostgreSQL版中。
     -   如果数据量较大，需要并发导入，则建议您先通过数据集成服务把数据从其他数据源导入到OSS，再通过OSS外部表导入AnalyticDB PostgreSQL版。
