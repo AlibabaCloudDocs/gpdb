@@ -12,7 +12,7 @@ You can call this operation to query the specified performance metrics of an ins
 |---------|----|--------|-------|-----------|
 |DBInstanceId|String|Yes|gp-xxxxxxxx|The ID of the instance. |
 |EndTime|String|Yes|2018-07-09T03:47Z|The end of the time range to query. Example: 2018-06-11T16:00Z. |
-|Key|String|Yes|CpuUsage,MemoryUsage,Gpdb\_SpaceUsage,Gpdb\_IOPS,Gpdb\_session|The performance metrics. Separate multiple performance metrics with commas \(,\). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html?spm=a2c4g.11186623.2.13.4fdd5d6bmjXyc6#concept-g5l-d3m-q2b). |
+|Key|String|Yes|CpuUsage,MemoryUsage,Gpdb\_SpaceUsage,Gpdb\_IOPS,Gpdb\_session|The performance metrics. Separate multiple performance metrics with commas \(,\). For more information, see [Performance parameters](~~86943~~). |
 |StartTime|String|Yes|2018-07-08T03:47Z|The beginning of the time range to query. Example: 2018-06-11T15:00Z. |
 
 ## Response parameters
