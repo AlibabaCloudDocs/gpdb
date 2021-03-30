@@ -10,21 +10,22 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
+|Action|String|是|DescribeDBInstancePerformance|系统规定参数。取值：DescribeDBInstancePerformance。 |
 |DBInstanceId|String|是|gp-xxxxxxxx|实例ID。 |
 |EndTime|String|是|2018-07-09T03:47Z|查询结束时间，格式如：2018-06-11T16:00Z。 |
-|Key|String|是|CpuUsage,MemoryUsage,Gpdb\_SpaceUsage,Gpdb\_IOPS,Gpdb\_session|性能指标，多个指标用英文半角“,”分隔，见[性能参数表](https://help.aliyun.com/document_detail/86943.html?spm=a2c4g.11186623.2.13.4fdd5d6bmjXyc6#concept-g5l-d3m-q2b)。 |
+|Key|String|是|CpuUsage,MemoryUsage,Gpdb\_SpaceUsage,Gpdb\_IOPS,Gpdb\_session|性能指标，多个指标用英文半角“,”分隔，见[性能参数表](~~86943~~)。 |
 |StartTime|String|是|2018-07-08T03:47Z|查询开始时间，格式如：2018-06-11T15:00Z。 |
 
 ## 返回数据
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|5E85244A-AB47-46A3-A3AD-5F307DCB407E|请求ID。 |
 |DBInstanceId|String|gp-xxxxxxxxxx|实例ID。 |
-|Engine|String|gpdb|数据库类型。 |
-|StartTime|String|2018-07-08T03:47Z|查询开始时间，格式：`YYYY-MM-DDTHH:mmZ`，如2018-05-30T03:29Z。 |
 |EndTime|String|2018-07-09T03:47Z|查询结束时间，格式：`YYYY-MM-DDTHH:mmZ`，如2018-05-30T03:29Z，大于查询开始时间。 |
+|Engine|String|gpdb|数据库类型。 |
 |PerformanceKeys|List|\{ "Key": "MemoryUsage", "GroupValues": \[\{ "Name": "7198315-1530522046144-1", "Values": "" \}, \{ "Name": "7198315-1530522046144-0", "Values": "" \}, \{"Values": "", "Name": "master" \} \], "Unit": "%", "ValueFormat": "mem\_usage"\}|数组格式：\{perf1, perf2, perf3, …\}。 |
+|RequestId|String|5E85244A-AB47-46A3-A3AD-5F307DCB407E|请求ID。 |
+|StartTime|String|2018-07-08T03:47Z|查询开始时间，格式：`YYYY-MM-DDTHH:mmZ`，如2018-05-30T03:29Z。 |
 
 ## 示例
 
@@ -41,104 +42,104 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstancePerformance
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <DescribeDBInstancePerformanceResponse> 
       <RequestId>5E85244A-AB47-46A3-A3AD-5F307DCB407E</RequestId>
-      <DBInstanceId>gp-xxxxxxx</DBInstanceId>
-      <PerformanceKeys>
-            <Key>MemoryUsage</Key>
-            <GroupValues>
-                  <Name>7198315-1530522046144-1</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Name>7198315-1530522046144-0</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Values></Values>
-                  <Name>master</Name>
-            </GroupValues>
-            <Unit>%</Unit>
-            <ValueFormat>mem_usage</ValueFormat>
-      </PerformanceKeys>
-      <PerformanceKeys>
-            <Key>Gpdb_session</Key>
-            <GroupValues>
-                  <Name>7198315-1530522046144-1</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Name>7198315-1530522046144-0</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Values></Values>
-                  <Name>master</Name>
-            </GroupValues>
-            <Unit>int</Unit>
-            <ValueFormat>conn_count</ValueFormat>
-      </PerformanceKeys>
-      <PerformanceKeys>
-            <Key>CpuUsage</Key>
-            <GroupValues>
-                  <Name>7198315-1530522046144-1</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Name>7198315-1530522046144-0</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Values></Values>
-                  <Name>master</Name>
-            </GroupValues>
-            <Unit>%</Unit>
-            <ValueFormat>cpu_usage</ValueFormat>
-      </PerformanceKeys>
-      <PerformanceKeys>
-            <Key>Gpdb_IOPS</Key>
-            <GroupValues>
-                  <Name>7198315-1530522046144-1</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Name>7198315-1530522046144-0</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Values></Values>
-                  <Name>master</Name>
-            </GroupValues>
-            <Unit>int</Unit>
-            <ValueFormat>data_iops&amp;write_iops&amp;read_iops</ValueFormat>
-      </PerformanceKeys>
-      <PerformanceKeys>
-            <Key>Gpdb_SpaceUsage</Key>
-            <GroupValues>
-                  <Name>7198315-1530522046144-1</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Name>7198315-1530522046144-0</Name>
-                  <Values></Values>
-            </GroupValues>
-            <GroupValues>
-                  <Values></Values>
-                  <Name>master</Name>
-            </GroupValues>
-            <Unit>Byte</Unit>
-            <ValueFormat>space</ValueFormat>
-      </PerformanceKeys>
-      <EndTime>2018-07-09T03:47Z</EndTime>
-      <StartTime>2018-07-08T03:47Z</StartTime>
-      <Engine>gpdb</Engine>
+	  <DBInstanceId>gp-xxxxxxx</DBInstanceId>
+	  <PerformanceKeys>
+		    <Key>MemoryUsage</Key>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-1</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-0</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Values></Values>
+			      <Name>master</Name>
+		    </GroupValues>
+		    <Unit>%</Unit>
+		    <ValueFormat>mem_usage</ValueFormat>
+	  </PerformanceKeys>
+	  <PerformanceKeys>
+		    <Key>Gpdb_session</Key>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-1</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-0</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Values></Values>
+			      <Name>master</Name>
+		    </GroupValues>
+		    <Unit>int</Unit>
+		    <ValueFormat>conn_count</ValueFormat>
+	  </PerformanceKeys>
+	  <PerformanceKeys>
+		    <Key>CpuUsage</Key>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-1</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-0</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Values></Values>
+			      <Name>master</Name>
+		    </GroupValues>
+		    <Unit>%</Unit>
+		    <ValueFormat>cpu_usage</ValueFormat>
+	  </PerformanceKeys>
+	  <PerformanceKeys>
+		    <Key>Gpdb_IOPS</Key>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-1</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-0</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Values></Values>
+			      <Name>master</Name>
+		    </GroupValues>
+		    <Unit>int</Unit>
+		    <ValueFormat>data_iops&amp;write_iops&amp;read_iops</ValueFormat>
+	  </PerformanceKeys>
+	  <PerformanceKeys>
+		    <Key>Gpdb_SpaceUsage</Key>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-1</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Name>7198315-1530522046144-0</Name>
+			      <Values></Values>
+		    </GroupValues>
+		    <GroupValues>
+			      <Values></Values>
+			      <Name>master</Name>
+		    </GroupValues>
+		    <Unit>Byte</Unit>
+		    <ValueFormat>space</ValueFormat>
+	  </PerformanceKeys>
+	  <EndTime>2018-07-09T03:47Z</EndTime>
+	  <StartTime>2018-07-08T03:47Z</StartTime>
+	  <Engine>gpdb</Engine>
 </DescribeDBInstancePerformanceResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
