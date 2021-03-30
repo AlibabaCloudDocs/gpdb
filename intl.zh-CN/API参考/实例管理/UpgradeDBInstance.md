@@ -10,22 +10,23 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|DBInstanceClass|String|是|gpdb.group.segsdx1|实例规格，详情请参见[实例规格表](https://help.aliyun.com/document_detail/86942.html?spm=a2c4g.11186623.2.14.326b72932oCiGD#concept-d1p-13m-q2b)。 |
+|Action|String|是|UpgradeDBInstance|系统规定参数。取值：UpgradeDBInstance。 |
+|DBInstanceClass|String|是|gpdb.group.segsdx1|实例规格，详情请参见[实例规格表](~~869422~~)。 |
 |DBInstanceGroupCount|String|是|2|分析型数据库PostgreSQL版的计算组数量。 |
 |DBInstanceId|String|是|gp-xxxxxxxx|实例ID。 |
 |RegionId|String|是|cn-hangzhou|地域ID。 |
 |PayType|String|否|Prepaid|付费类型：
 
--   Postpaid：按量付费，为默认值。
+ -   Postpaid：按量付费，为默认值。
 -   Prepaid：包年包月。 |
 
 ## 返回数据
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|25C11EE5-B7E8-481A-A07C-BD619971A570|请求ID。 |
 |DBInstanceId|String|gp-xxxxxxxxxx|实例ID。 |
 |OrderId|String|101450956|订单ID， |
+|RequestId|String|25C11EE5-B7E8-481A-A07C-BD619971A570|请求ID。 |
 
 ## 示例
 
@@ -42,7 +43,7 @@ https://gpdb.aliyuncs.com/?Action=UpgradeDBInstance
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <UpgradeDBInstanceResponse>
@@ -52,7 +53,7 @@ https://gpdb.aliyuncs.com/?Action=UpgradeDBInstance
 </UpgradeDBInstanceResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
