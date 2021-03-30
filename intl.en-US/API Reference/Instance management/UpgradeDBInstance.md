@@ -10,13 +10,13 @@ You can call this operation to change the type of an AnalyticDB for PostgreSQL i
 
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
-|DBInstanceClass|String|Yes|gpdb.group.segsdx1|The instance type. For more information, see [Instance types](~~869422~~). |
+|DBInstanceClass|String|Yes|gpdb.group.segsdx1|The instance type. For more information, see [Instance types](~~86942~~). |
 |DBInstanceGroupCount|String|Yes|2|The number of compute nodes of the instance. |
 |DBInstanceId|String|Yes|gp-xxxxxxxx|The ID of the instance. |
 |RegionId|String|Yes|cn-hangzhou|The region ID of the instance. |
 |PayType|String|No|Prepaid|The billing method of the instance. Default value: Postpaid. Valid values:
 
--   Postpaid: pay-as-you-go
+ -   Postpaid: pay-as-you-go
 -   Prepaid: subscription |
 
 ## Response parameters
