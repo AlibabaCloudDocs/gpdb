@@ -1,4 +1,4 @@
-# How to view the data size of a table or a database? {#concept_yl1_ndg_v2b .concept}
+# How to view the data size of a table or a database?
 
 Suppose that the table schema is `<schemaname>` and the table name is `<tablename>`.
 
