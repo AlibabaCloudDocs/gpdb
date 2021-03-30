@@ -44,7 +44,7 @@ You can call this operation to query the details of an AnalyticDB for PostgreSQL
 
  -   Internet
 -   Intranet |
-|DBInstanceStatus|String|Running|The state of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/86944.html?spm=a2c4g.11186623.2.13.1ca92ecblQvsB5#concept-ctf-g3m-q2b). |
+|DBInstanceStatus|String|Running|The state of the instance. For more information, see [Instance statuses](~~86944~~). |
 |DBInstanceStorage|Long|160|The disk space of the instance. Unit: GB. |
 |Engine|String|gpdb|The database engine of the instance |
 |EngineVersion|String|4.3|The version of the database engine. |
