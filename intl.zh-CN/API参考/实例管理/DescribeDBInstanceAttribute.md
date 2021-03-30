@@ -44,7 +44,7 @@
 
  -   Internet：外网
 -   Intranet：内网 |
-|DBInstanceStatus|String|Running|实例状态，详见[实例状态表](https://help.aliyun.com/document_detail/86944.html?spm=a2c4g.11186623.2.13.1ca92ecblQvsB5#concept-ctf-g3m-q2b)。 |
+|DBInstanceStatus|String|Running|实例状态，详见[实例状态表](~~86944~~)。 |
 |DBInstanceStorage|Long|160|实例存储空间，单位：GB。 |
 |Engine|String|gpdb|数据库引擎。 |
 |EngineVersion|String|4.3|数据库版本。 |
