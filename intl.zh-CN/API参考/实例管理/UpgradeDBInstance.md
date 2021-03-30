@@ -11,7 +11,7 @@
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
 |Action|String|是|UpgradeDBInstance|系统规定参数。取值：UpgradeDBInstance。 |
-|DBInstanceClass|String|是|gpdb.group.segsdx1|实例规格，详情请参见[实例规格表](~~869422~~)。 |
+|DBInstanceClass|String|是|gpdb.group.segsdx1|实例规格，详情请参见[实例规格表](~~86942~~)。 |
 |DBInstanceGroupCount|String|是|2|分析型数据库PostgreSQL版的计算组数量。 |
 |DBInstanceId|String|是|gp-xxxxxxxx|实例ID。 |
 |RegionId|String|是|cn-hangzhou|地域ID。 |
