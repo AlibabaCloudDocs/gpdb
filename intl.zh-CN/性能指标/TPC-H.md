@@ -388,16 +388,20 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
 
 **查询加速** 
 
-特别的，AnalyticDB for PostgreSQL 6.0 的向量计算加速引擎，可大幅提升查询性能，在TPC-H场景下可提升1倍左右。
+特别的，AnalyticDB for PostgreSQL 6.0 的向量计算引擎Laser，可大幅提升查询性能，在TPC-H场景下可提升1倍性能。
 
 使用方法：
 
-在session级别，修改参数 enable_odyssey为on，可开启加速引擎 。即执行如下SQL
+在session级别，创建Laser插件，可开启加速引擎 。即执行如下SQL
 
 
 
 
-    set enable_odyssey = on;
+    --首先需要创建Laser计算引擎 extension
+    create extension if not exists laser;
+    
+    --开启Laser计算引擎
+    set laser.enable = on;
 
 
 
@@ -406,11 +410,11 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
 
 
 
-    set enable_odyssey = off;
+    set laser.enable = off;
 
 
 
-如果使用如下脚本执行22条TPCH SQL，需要在每个Query文件开始出增加一行`set enable_odyssey = on;`
+如果使用如下脚本执行22条TPCH SQL，需要在每个Query文件开始出增加一行`set laser.enable = on;`
 
 **执行全部查询，并记录每条耗时和总耗时** 
 
@@ -491,9 +495,12 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
 
 
 
+    --创建向量化计算引擎Laser插件
+    create extension if not exists laser;
+    
     -- Q1
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         l_returnflag,
         l_linestatus,
@@ -518,7 +525,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q2
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         s_acctbal,
         s_name,
@@ -566,7 +573,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q3
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         l_orderkey,
         sum(l_extendedprice * (1 - l_discount)) as revenue,
@@ -593,7 +600,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q4
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         o_orderpriority,
         count(*) as order_count
@@ -618,7 +625,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q5
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         n_name,
         sum(l_extendedprice * (1 - l_discount)) as revenue
@@ -646,7 +653,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q6
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         sum(l_extendedprice * l_discount) as revenue
     from
@@ -659,7 +666,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q7
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         supp_nation,
         cust_nation,
@@ -702,7 +709,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q8
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         o_year,
         sum(case
@@ -743,7 +750,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q9
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         nation,
         o_year,
@@ -779,7 +786,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q10
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         c_custkey,
         c_name,
@@ -815,7 +822,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q11
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         ps_partkey,
         sum(ps_supplycost * ps_availqty) as value
@@ -846,7 +853,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q12
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         l_shipmode,
         sum(case
@@ -878,7 +885,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q13
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         c_count,
         count(*) as custdist
@@ -902,7 +909,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q14
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         100.00 * sum(case
             when p_type like 'PROMO%'
@@ -919,7 +926,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q15
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     create view revenue0 (supplier_no, total_revenue) as
         select
             l_suppkey,
@@ -954,7 +961,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q16
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         p_brand,
         p_type,
@@ -988,7 +995,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q17
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         sum(l_extendedprice) / 7.0 as avg_yearly
     from
@@ -1009,7 +1016,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q18
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         c_name,
         c_custkey,
@@ -1046,7 +1053,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q19
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         sum(l_extendedprice* (1 - l_discount)) as revenue
     from
@@ -1085,7 +1092,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q20
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         s_name,
         s_address
@@ -1126,7 +1133,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q21
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
         s_name,
         count(*) as numwait
@@ -1170,7 +1177,7 @@ OSS外表文档参考：[OSS外表高速导入或导出OSS数据](/intl.zh-CN/�
     
     -- Q22
     -- 开启向量加速引擎，并设置开关变量为on
-    set enable_odyssey = on;
+    set laser.enable = on;
     select
             cntrycode,
             count(*) as numcust,
