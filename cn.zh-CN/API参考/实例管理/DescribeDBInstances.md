@@ -56,11 +56,14 @@
 -   LockByRestoration：实例回滚前的自动锁定
 -   LockByDiskQuota：实例空间满自动锁定 |
 |LockReason|String|Unknow|被锁定的原因 |
+|MasterNodeNum|Integer|1|实例MASTER数量。 |
 |PayType|String|Prepaid|计费类型：
 
  -   Postpaid：按量付费
 -   Prepaid：包年包月 |
 |RegionId|String|cn-hangzhou|地域ID。 |
+|SegNodeNum|String|50|节点segment的存储空间，单位GB。 |
+|StorageSize|String|4|实例Segment的数量。 |
 |StorageType|String|cloud\_essd|AnalyticDB PG实例用的存储类型：
 
  -   cloud\_essd，ESSD云盘
@@ -98,6 +101,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstances
 <PageNumber>1</PageNumber>
 <Items>
     <DBInstance>
+        <MasterNodeNum>1</MasterNodeNum>
         <StorageType>cloud_essd</StorageType>
         <EngineVersion>4.3</EngineVersion>
         <DBInstanceStatus>Running</DBInstanceStatus>
@@ -105,12 +109,14 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstances
         <DBInstanceNetType>Internet</DBInstanceNetType>
         <CreateTime>2019-09-08T16:00:00Z</CreateTime>
         <VSwitchId>vsw-xxxxxxxxx</VSwitchId>
+        <SegNodeNum>50 </SegNodeNum>
+        <StorageSize>4</StorageSize>
         <PayType>Prepaid</PayType>
         <LockMode>Unlock</LockMode>
         <InstanceNetworkType>VPC</InstanceNetworkType>
         <VpcId>vpc-xxxxxxxxxx</VpcId>
         <DBInstanceId>gp-xxxxxxxx</DBInstanceId>
-        <InstanceDeployType>public</InstanceDeployType>
+        <InstanceDeployType>cluster</InstanceDeployType>
         <ConnectionMode>Standard</ConnectionMode>
         <RegionId>cn-hangzhou</RegionId>
         <ExpireTime>2019-09-08T16:00:00Z</ExpireTime>
@@ -130,7 +136,7 @@ https://gpdb.aliyuncs.com/?Action=DescribeDBInstances
 `JSON`格式
 
 ```
-{"TotalRecordCount":"2","PageRecordCount":"2","RequestId":"BBE00C04-A3E8-4114-881D-0480A72CB92E","PageNumber":"1","Items":{"DBInstance":[{"StorageType":"cloud_essd","EngineVersion":"4.3","DBInstanceStatus":"Running","ZoneId":"cn-hangzhou","DBInstanceNetType":"Internet","CreateTime":"2019-09-08T16:00:00Z","VSwitchId":"vsw-xxxxxxxxx","PayType":"Prepaid","LockMode":"Unlock","InstanceNetworkType":"VPC","VpcId":"vpc-xxxxxxxxxx","DBInstanceId":"gp-xxxxxxxx","InstanceDeployType":"public","ConnectionMode":"Standard","RegionId":"cn-hangzhou","ExpireTime":"2019-09-08T16:00:00Z","LockReason":"Unknow","Engine":"gpdb","DBInstanceDescription":"gp-xxxxxxxxxx","Tags":{"Tag":[{"Value":"value1","Key":"key1"}]}}]}}
+{"TotalRecordCount":"2","PageRecordCount":"2","RequestId":"BBE00C04-A3E8-4114-881D-0480A72CB92E","PageNumber":"1","Items":{"DBInstance":[{"MasterNodeNum":"1","StorageType":"cloud_essd","EngineVersion":"4.3","DBInstanceStatus":"Running","ZoneId":"cn-hangzhou","DBInstanceNetType":"Internet","CreateTime":"2019-09-08T16:00:00Z","VSwitchId":"vsw-xxxxxxxxx","SegNodeNum":"50 ","StorageSize":"4","PayType":"Prepaid","LockMode":"Unlock","InstanceNetworkType":"VPC","VpcId":"vpc-xxxxxxxxxx","DBInstanceId":"gp-xxxxxxxx","InstanceDeployType":"cluster","ConnectionMode":"Standard","RegionId":"cn-hangzhou","ExpireTime":"2019-09-08T16:00:00Z","LockReason":"Unknow","Engine":"gpdb","DBInstanceDescription":"gp-xxxxxxxxxx","Tags":{"Tag":[{"Value":"value1","Key":"key1"}]}}]}}
 ```
 
 ## 错误码
