@@ -22,7 +22,7 @@
 -   Saturday：周六；
 -   Sunday：周日。 |
 |PreferredBackupTime|String|是|15:00Z-16:00Z|数据备份时间。默认值00:00-01:00，格式：HH:mmZ-HH:mmZ（UTC时间）。 |
-|BackupRetentionPeriod|Integer|否|7|数据备份保留天数。默认7天，最大值定为7天 取值范围\(1,7\)。 |
+|BackupRetentionPeriod|Integer|否|7|数据备份保留天数。默认7天，最大值定为7天，取值范围（1,7）。 |
 |EnableRecoveryPoint|Boolean|否|true|是否开启自动打恢复点。
 
  -   true：开启；
