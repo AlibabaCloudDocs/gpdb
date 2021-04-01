@@ -48,7 +48,7 @@
 |--|--|---|--|
 |Items|Array of Backup| |备份集列表。 |
 |BackupEndTime|String|2011-06-01T17:00Z|备份结束时间。格式：yyyy-MM-ddTHH:mmZ（UTC时间）。 |
-|BackupEndTimeLocal|String|2011-05-30 03:29:00|本次备份结束时间。格式：yyyy-MM-dd HH:mm:ss \(当地时间\)。 |
+|BackupEndTimeLocal|String|2011-05-30 03:29:00|本次备份结束时间。格式：yyyy-MM-dd HH:mm:ss （当地时间）。 |
 |BackupMode|String|Automated|备份模式。
 
  对全量备份取值：
@@ -64,7 +64,7 @@
 |BackupSetId|String|327329803|备份集ID。 |
 |BackupSize|Long|2167808|备份文件大小，单位：Byte。 |
 |BackupStartTime|String|2011-06-01T17:00Z|备份开始时间。格式：yyyy-MM-ddTHH:mmZ（UTC时间）。 |
-|BackupStartTimeLocal|String|2011-05-30 03:29:00|本次备份开始时间。格式：yyyy-MM-dd HH:mm:ss \(当地时间\)。 |
+|BackupStartTimeLocal|String|2011-05-30 03:29:00|本次备份开始时间。格式：yyyy-MM-dd HH:mm:ss （当地时间）。 |
 |BackupStatus|String|Success|备份集状态。取值：
 
  -   Success：成功。
