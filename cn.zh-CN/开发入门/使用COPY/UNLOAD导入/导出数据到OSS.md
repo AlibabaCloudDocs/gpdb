@@ -185,7 +185,7 @@ ENDPOINT 'endpoint';
     COPY导入OSS数据时，可能会存在异常的数据行（无法正常COPY导入）。当遇到这种情况时，可以通过额外的option选项设置实现容错。
 
     -   log\_errors：表示是否记录错误行信息。
-    -   segment\_reject\_limit：表示容错比例，即错误行在已解析行数中的占比。
+    -   segment\_reject\_limit：`segment_reject_limit '10'`表示最多容忍10行，大于等于10行时报错退出；`segment_reject_limit '10%'` 表示当前的错误总行数/当前总共已处理的行 \>= 10% 时，报错退出。
     1.  创建本地表。
 
         ```
