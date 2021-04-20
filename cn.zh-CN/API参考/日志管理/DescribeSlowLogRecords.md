@@ -12,9 +12,9 @@
 |--|--|----|---|--|
 |Action|String|是|DescribeSlowLogRecords|系统规定参数。取值：DescribeSlowLogRecords。 |
 |DBInstanceId|String|是|gp-xxxxxxx|实例ID。 |
-|EndTime|String|是|2018-07-19T09:00:08Z|查询开始日期，格式：`YYYY-MM-DDTHH:mmZ`。 |
-|StartTime|String|是|2018-07-09T09:00:08Z|查询开始日期，格式：`YYYY-MM-DDTHH:mmZ`。 |
 |SQLId|Long|否|143242632|SQL ID。 |
+|StartTime|String|是|2018-07-09T09:00:08Z|查询开始日期，格式：`YYYY-MM-DDTHH:mmZ`。 |
+|EndTime|String|是|2018-07-19T09:00:08Z|查询结束日期，格式：`YYYY-MM-DDTHH:mmZ`。 |
 |DBName|String|否|test|数据库名称。 |
 |PageSize|Integer|否|30|每页记录数，取值：30/50/100；默认值：30。 |
 |PageNumber|Integer|否|1|页码，大于0且不超过Integer的最大值；默认值：1。 |
@@ -23,21 +23,20 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|Engine|String|gpdb|数据库类型。 |
-|Items|Array of SQLSlowRecord| |由SQLSlowRecord组成的数组。 |
-|SQLSlowRecord| | | |
-|DBName|String|test|数据库名称。 |
-|ExecutionStartTime|String|2018-07-09T09:00:08Z|执行开始时间；格式：YYYY-MM-DDTHH:mm:ss Z，如2011-06-11T15:00:08Z。 |
-|HostAddress|String|127.0.0.1|用户连接数据库的主机地址。 |
-|LockTimes|Long|12|锁定时长，单位：秒。 |
-|ParseRowCounts|Long|125|解析行数。 |
-|QueryTimes|Long|123|执行时长，单位：秒。 |
-|ReturnRowCounts|Long|1|返回行数。 |
-|SQLText|String|update test.zxb set id=0 limit 1|查询语句。 |
-|PageNumber|Integer|1|页码。 |
+|TotalRecordCount|Integer|1|总记录数。 |
 |PageRecordCount|Integer|1|本页SQL语句个数。 |
 |RequestId|String|542BB8D6-4268-45CC-A557-B03EFD7AB30A|请求ID。 |
-|TotalRecordCount|Integer|1|总记录数。 |
+|PageNumber|Integer|1|页码。 |
+|Items|Array of SQLSlowRecord| |由SQLSlowRecord组成的数组。 |
+|ExecutionStartTime|String|2018-07-09T09:00:08Z|执行开始时间；格式：YYYY-MM-DDTHH:mm:ss Z，如2011-06-11T15:00:08Z。 |
+|HostAddress|String|127.0.0.1|用户连接数据库的主机地址。 |
+|QueryTimes|Long|123|执行时长，单位：秒。 |
+|SQLText|String|update test.zxb set id=0 limit 1|查询语句。 |
+|ReturnRowCounts|Long|1|返回行数。 |
+|ParseRowCounts|Long|125|解析行数。 |
+|DBName|String|test|数据库名称。 |
+|LockTimes|Long|12|锁定时长，单位：秒。 |
+|Engine|String|gpdb|数据库类型。 |
 
 ## 示例
 
@@ -56,50 +55,54 @@ https://gpdb.aliyuncs.com/?Action=DescribeSlowLogRecords
 `XML`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/xml
+
 <DescribeSlowLogRecordsResponse> 
-	  <RequestId>542BB8D6-4268-45CC-A557-B03EFD7AB30A</RequestId>
-	  <Engine>gpdb</Engine>
-	  <PageNumber>1</PageNumber>
-	  <PageRecordCount>1</PageRecordCount>
-	  <TotalRecordCount>1</TotalRecordCount>
-	  <Items>
-		    <SQLSlowRecord>
-			      <HostAddress>127.0.0.1</HostAddress>
-			      <DBName>test</DBName>
-			      <SQLText> update test.zxb set id=0 limit 1</SQLText>
-			      <QueryTimes>123</QueryTimes>
-			      <LockTimes>12</LockTimes>
-			      <ParseRowCounts>125</ParseRowCounts>
-			      <ReturnRowCounts>1</ReturnRowCounts>
-			      <ExecutionStartTime>2018-07-09T09:00:08Z</ExecutionStartTime>
-		    </SQLSlowRecord>
-	  </Items>
+	<RequestId>542BB8D6-4268-45CC-A557-B03EFD7AB30A</RequestId>
+	<Engine>gpdb</Engine>
+	<PageNumber>1</PageNumber>
+	<PageRecordCount>1</PageRecordCount>
+	<TotalRecordCount>1</TotalRecordCount>
+	<Items>
+		<SQLSlowRecord>
+			<HostAddress>127.0.0.1</HostAddress>
+			<DBName>test</DBName>
+			<SQLText> update test.zxb set id=0 limit 1</SQLText>
+			<QueryTimes>123</QueryTimes>
+			<LockTimes>12</LockTimes>
+			<ParseRowCounts>125</ParseRowCounts>
+			<ReturnRowCounts>1</ReturnRowCounts>
+			<ExecutionStartTime>2018-07-09T09:00:08Z</ExecutionStartTime>
+		</SQLSlowRecord>
+	</Items>
 </DescribeSlowLogRecordsResponse>
 ```
 
 `JSON`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/json
+
 {
-    "RequestId":"542BB8D6-4268-45CC-A557-B03EFD7AB30A",
-    "Engine":"gpdb",
-    "PageNumber":1,
-    "PageRecordCount":1,
-    "TotalRecordCount":1,
-    "Items":{
-        "SQLSlowRecord":[
-            {
-                "HostAddress":"127.0.0.1",
-                "DBName":"test",
-                "SQLText":" update test.zxb set id=0 limit 1",
-                "QueryTimes":"123",
-                "LockTimes":"12",
-                "ParseRowCounts":"125",
-                "ReturnRowCounts":"1",
-                "ExecutionStartTime":"2018-07-09T09:00:08Z"
-            }
-        ]
-    }
+  "RequestId" : "542BB8D6-4268-45CC-A557-B03EFD7AB30A",
+  "Engine" : "gpdb",
+  "PageNumber" : 1,
+  "PageRecordCount" : 1,
+  "TotalRecordCount" : 1,
+  "Items" : {
+    "SQLSlowRecord" : [ {
+      "HostAddress" : "127.0.0.1",
+      "DBName" : "test",
+      "SQLText" : " update test.zxb set id=0 limit 1",
+      "QueryTimes" : "123",
+      "LockTimes" : "12",
+      "ParseRowCounts" : "125",
+      "ReturnRowCounts" : "1",
+      "ExecutionStartTime" : "2018-07-09T09:00:08Z"
+    } ]
+  }
 }
 ```
 
