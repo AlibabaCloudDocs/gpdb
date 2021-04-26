@@ -48,7 +48,7 @@ Sample success responses
     <IsChangeableConfig>true</IsChangeableConfig>
     <CurrentValue>11800000</CurrentValue>
     <ParameterName>statement_timeout</ParameterName>
-    <ParameterDescription>Sets the maximum allowed duration of any statement，A value of 0 turns off the timeout.</ParameterDescription>
+    <ParameterDescription>Sets the maximum allowed duration of any statement, A value of 0 turns off the timeout.</ParameterDescription>
     <ForceRestartInstance>false</ForceRestartInstance>
 </Parameters>
 <Parameters>
