@@ -92,7 +92,7 @@ Sample success responses
 }
 ```
 
-## 错误码
+## Error codes
 
-访问[错误中心](https://error-center.alibabacloud.com/status/product/gpdb)查看更多错误码。
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/gpdb).
 
