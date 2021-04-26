@@ -62,7 +62,7 @@ If you want to use MetaScan for existing instances, perform the following operat
 
     In the AnalyticDB for PostgreSQL console, find the instance whose kernel you want to update and click its ID. In the upper-right corner of the page that appears, click Upgrade Minor Version.
 
-    ![](../images/p65635.png)
+    ![14207702](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1107249161/p268434.png)
 
 -   Update the metadata of tables
 
@@ -108,7 +108,7 @@ If you want to use MetaScan for existing instances, perform the following operat
 
 The sort key feature of AnalyticDB for PostgreSQL sorts data in tables by a specific column. Using MetaScan together with the sort key feature improves the performance of MetaScan. Column-oriented tables store data in blocks. MetaScan uses metadata to check whether blocks meet query criteria and skips blocks that do not meet query criteria. This reduces I/Os and improves scanning performance. If data in filtered columns is distributed in all blocks, all blocks need to be scanned even though most required data is filtered. If you create a sort key for each filtered column, the same data in a column is combined into several consecutive blocks. This way, MetaScan can filter out blocks that do not meet criteria to improve scanning performance.
 
-For more information about how to create a sort key, see[Use sort keys in column-oriented tables](/intl.en-US/Beginner Developer Guide/Use sort keys in column-oriented tables.md)
+For more information about how to create a sort key, see [Use sort keys in column-oriented tables](/intl.en-US/Beginner Developer Guide/Use sort keys in column-oriented tables.md).
 
 ## Limits
 
@@ -118,5 +118,5 @@ MetaScan is incompatible with the ORCA optimizer and is unavailable if the ORCA 
 SHOW OPTIMIZER;
 ```
 
-If ON is returned, the ORCA optimizer is used. For more information about the ORCA optimizer, see[Choose a query optimizer](/intl.en-US/Best Practices/Optimize query performance.md)
+If ON is returned, the ORCA optimizer is used. For more information about the ORCA optimizer, see [Choose a query optimizer](/intl.en-US/Best Practices/Optimize query performance.md).
 
