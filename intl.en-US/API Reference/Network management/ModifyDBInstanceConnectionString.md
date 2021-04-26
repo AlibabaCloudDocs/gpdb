@@ -1,37 +1,37 @@
-# ModifyDBInstanceConnectionString {#concept_ryv_khm_q2b .concept}
+# ModifyDBInstanceConnectionString
 
-## Description { .section}
+## Description
 
-You can call this operation to modify the connection string and the port.
+Modifies the internal or public endpoint and port of an instance.
 
-## Request parameters { .section}
+## Request parameters
 
-|Name|Type|Required|Description|
-|----|----|--------|-----------|
-|<Common request parameters\>|-|Yes|For more information, see [Common parameters](reseller.en-US/API Reference/Common parameters.md#).|
+|Parameter|Type|Required|Description|
+|---------|----|--------|-----------|
+|<Common request parameters\>|N/A|Yes|For more information, see [Common parameters](/intl.en-US/API Reference/Common parameters.md).|
 |Action|String|Yes|The operation that you want to perform. Set the value to ModifyDBInstanceConnectionString.|
 |DBInstanceId|String|Yes|The ID of the instance.|
-|CurrentConnectionString|String| Yes|The current connection string of the instance.|
-|ConnectionStringPrefix|String| Yes|The target connection string.|
-|Port|String|No|The target port.|
+|CurrentConnectionString|String|Yes|The original endpoint of the instance.|
+|ConnectionStringPrefix|String|Yes|The new endpoint of the instance.|
+|Port|String|No|The new port of the instance.|
 
-## Response parameters { .section}
+## Response parameters
 
-|Name|Type|Description|
-|----|----|-----------|
-|<Common response parameters\>|-|For more information, see [Common response parameters](reseller.en-US/API Reference/Common parameters.md#section_apd_1rv_3bb).|
+|Parameter|Type|Description|
+|---------|----|-----------|
+|<Common response parameters\>|N/A|For more information, see [Common response parameters](/intl.en-US/API Reference/Common parameters.mdsection_apd_1rv_3bb).|
 
-## Sample requests { .section}
+## Sample requests
 
 ```
 https://gpdb.aliyuncs.com/?Action=ModifyDBInstanceConnectionString
 &DBInstanceId=gp-xxxxxxx
 &CurrentConnectionString=gp-xxxxxxx.gpdb.rds.aliyuncs.com
-&ConnectionStringPrefix=gp-xxxxxxxnew
+&ConnectionStringPrefix=gp-xxxxxxx
 &<Common request parameters>
 ```
 
-## Sample responses { .section}
+## Sample responses
 
 **XML format**
 
