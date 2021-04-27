@@ -15,7 +15,7 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |DBInstanceDescription|String|No|gp-xxxxxxxx|The description of the instance. |
 |InstanceNetworkType|String|No|VPC|The network type of the instance. Valid values:
 
- -   VPC
+-   VPC
 -   Classic
 -   If you do not specify this parameter, instances of all network types are returned. |
 |DBInstanceIds|String|No|gp-xxxxxxxxx,gp-xxxxxxx|The ID of the instance. Separate multiple IDs with commas \(,\). |
@@ -32,7 +32,7 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |DBInstance| | | |
 |ConnectionMode|String|Standard|The access mode of the instance. Valid values:
 
- -   Standard
+-   Standard
 -   Safe |
 |CreateTime|String|2019-09-08T16:00:00Z|The time when the cluster was created. |
 |DBInstanceDescription|String|gp-xxxxxxxxxx|The description of the instance. |
@@ -42,15 +42,15 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |Engine|String|gpdb|The database engine of the instance. |
 |EngineVersion|String|4.3|The version of the database engine. |
 |ExpireTime|String|2019-09-08T16:00:00Z|The time when the instance is scheduled to expire. Pay-as-you-go instances do not expire. |
-|InstanceDeployType|String|cluster|-   cluster: ESC
+|InstanceDeployType|String|cluster|-   cluster: ECS
 -   replicaSet: physical machine |
 |InstanceNetworkType|String|VPC|The network type of the instance. Valid values:
 
- -   VPC
+-   VPC
 -   Classic |
 |LockMode|String|Unlock|Indicates whether the instance is locked. Valid values:
 
- -   Unlock: The instance is not locked.
+-   Unlock: The instance is not locked.
 -   ManualLock: The instance is manually locked.
 -   LockByExpiration: The instance is automatically locked after it expires.
 -   LockByRestoration: The instance is automatically locked before a rollback.
@@ -58,12 +58,12 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |LockReason|String|Unknow|The reason why the instance is locked. |
 |PayType|String|Prepaid|The billing method of the instance. Valid values:
 
- -   Postpaid: pay-as-you-go
+-   Postpaid: pay-as-you-go
 -   Prepaid: subscription |
 |RegionId|String|cn-hangzhou|The region ID of the instance. |
 |StorageType|String|cloud\_essd|The storage type of the instance.
 
- -   cloud\_essd: enhanced SSD \(ESSD\)
+-   cloud\_essd: enhanced SSD \(ESSD\)
 -   cloud\_efficiency: ultra disk |
 |Tags|Array of Tag| |Details about the tags. |
 |Tag| | | |
