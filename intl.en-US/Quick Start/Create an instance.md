@@ -13,9 +13,6 @@ This topic describes how to create an instance in the AnalyticDB for PostgreSQL 
 
     3.  In the **Create Service Linked Role** message, click **OK**.
 
-        ![Create Service-linked Role](../images/p161621.png)
-
-
 ## Procedure
 
 1.  Log on to the [AnalyticDB for PostgreSQL console](https://gpdbnext.console.aliyun.com/gpdb/cn-hangzhou/list).
