@@ -6,7 +6,7 @@
 版本限制 
 -------------------------
 
-* 创建3.6.0及以上版本实时计算集群
+* 创建3.6.0及以上版本实时计算集群。
 
   
 
@@ -62,15 +62,16 @@ WITH参数
 |         参数名         |       参数含义       |                                                      备注                                                       |
 |---------------------|------------------|---------------------------------------------------------------------------------------------------------------|
 | url                 | ADBPG连接地址        | 必填，需要填写格式为jdbc:postgresql://\<ADBPG内网连接串\>/databaseName 的内网连接地址。                                              |
+| type                | 表类型              | 必填。                                                                                                           |
 | tableName           | ADBPG源表名         | 必填，填写维表对应的ADBPG数据仓库中的表名。                                                                                      |
 | userName            | ADBPG用户名         | 必填。                                                                                                           |
 | password            | ADBPG密码          | 必填。                                                                                                           |
-| joinMaxRows         | 左表一条记录连接右表的最大记录数 | 非必填，表示在一对多连接时，左表一条记录连接右表的最大记录数（默认值为1024）。在一对多连接的记录数过多时，可能会极大的影响流任务的性能，因此您需要增大Cache的内存（cacheSize限制的是左表key的个数）。 |
+| joinMaxRows         | 左表一条记录连接右表的最大记录数 | 非必填，表示在一对多连接时，左表一条记录连接右表的最大记录数（默认值为1024）。在一对多连接的记录数过多时，可能会极大地影响流任务的性能，因此您需要增大Cache的内存（cacheSize限制的是左表key的个数）。 |
 | maxRetryTimes       | 单次SQL失败后重试次数     | 非必填，实际执行时，可能会因为各种因素造成执行失败，比如网络或者IO不稳定，超时等原因，ADBPG维表支持SQL执行失败后自动重试，用maxRetryTimes参数可以设定重试次数。默认值为3。             |
 | connectionMaxActive | 连接池最大连接数         | 非必填，ADBPG维表中内置连接池，设置合理的连接池最大连接数可以兼顾效率和安全性，默认值为5。                                                              |
-| retryWaitTime       | 重试休眠时间           | 非必填，每次SQL失败重试之间的sleep间隔，单位ms，默认值100                                                                           |
-| targetSchema        | 查询的ADBPG schema  | 非必填，默认值public                                                                                                 |
-| caseSensitive       | 是否大小写敏感          | 非必填，默认值0，即不敏感；填1可以设置为敏感；                                                                                      |
+| retryWaitTime       | 重试休眠时间           | 非必填，每次SQL失败重试之间的sleep间隔，单位ms，默认值100。                                                                          |
+| targetSchema        | 查询的ADBPG schema  | 非必填，默认值public。                                                                                                |
+| caseSensitive       | 是否大小写敏感          | 非必填，默认值0，即不敏感；填1可以设置为敏感。                                                                                      |
 
 
 
@@ -115,29 +116,28 @@ CACHE参数
 创建和运行Flink作业 
 ---------------------------------
 
-在实时计算控制台上，点击项目管理-项目列表，进入项目名进入自己创建的项目：
+1. 登录[实时计算控制台](https://realtime-compute.console.aliyun.com/regions/cn-shanghai)，在页面顶部菜单栏上，鼠标悬停在用户头像上，单击项目管理。在项目管理\>项目列表页面，单击项目名进入自己创建的项目。![4-1](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173474.png)
 
-![4-1](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173474.png)
+   
 
-点击开发-新建作业，创建数据写入的Flink SQL作业：
+2. 单击开发\>新建作业，创建数据写入的Flink SQL作业。![4-2](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173475.png)![4-3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173476.png)
 
-![4-2](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173475.png)
+   
 
-![4-3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173476.png)
+3. 目前采用Flink自定义维表的方式支持读取ADB PG版目标表数据，使用自定义维表功能上线前需要在资源引用界面上传及引用.jar包，编写完作业后点击资源引用\>新建资源\>上传JAR包\>更多\>引用。![3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173497.png)通过以下链接下载jar包：[下载JAR包。](https://adbpg-public.oss-cn-beijing.aliyuncs.com/blink-customerdim-adbpg-0909.jar)
 
-目前采用Flink自定义维表的方式支持读取ADB PG版目标表数据，使用自定义维表功能上线前需要在资源引用界面上传及引用jar包，编写完作业后点击资源引用-\>新建资源-\>上传jar包-\>更多-\>引用：
+   
 
-![3](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173497.png)通过以下链接下载jar包：
+4. 完成作业开发后，依次点击保存、上线，即可上线该任务。![4-4](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173511.png)
 
-https://adbpg-public.oss-cn-beijing.aliyuncs.com/blink-customerdim-adbpg-0909.jar
+   
 
-完成作业开发后，依次点击保存、上线，即可上线该任务。
+5. 继续点击运维，启动对应项目即可启动任务。![18609001](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1459730261/p271545.png)
 
-![4-4](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173511.png)
+   
 
-继续点击运维，启动对应项目即可启动任务。
 
-![4-5](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1833472061/p173510.png)
+
 
 代码示例 
 -------------------------
@@ -224,6 +224,12 @@ https://adbpg-public.oss-cn-beijing.aliyuncs.com/blink-customerdim-adbpg-0909.ja
     left join
     dim_adbpg FOR SYSTEM_TIME AS OF PROCTIME() AS T
     on R.c1 = T.id;
+
+
+
+
+
+
 
 
 
