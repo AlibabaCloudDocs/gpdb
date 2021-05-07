@@ -2,44 +2,39 @@
 
 pg\_stat\_activity是一个非常有用的视图，可以分析排查当前运行的SQL任务以及一些异常问题。pg\_stat\_activity 每行展示的是一个“process” 的相关信息，这里的“process”可以理解为一个用户连接。
 
-pg\_stat\_activity视图的字段描述如下
+pg\_stat\_activity视图的字段描述如下：
 
 |字段|类型|描述|
 |--|--|--|
-|datid|oid|这个后端连接到的数据库的OID|
-|datname|name|这个后端连接到的数据库的名称|
-|procpid|integer|这个后端的进程 ID （注：4.3 版本支持的字段定义）|
-|pid|integer|这个后端的进程 ID （注：6.0 版本支持的字段定义）|
-|sess\_id|integer|登录到这个后端的用户的session id|
-|usesysid|oid|登录到这个后端的用户的 OID|
-|usename|name|登录到这个后端的用户的名称|
-|current\_query|text|注：4.3 版本支持的字段定义
-
-这个域显示当前正在执行的查询。 默认情况下，查询文本被截断为1024个字符；可以通过参数 track\_activity\_query\_size更改此值|
-|query|text|注：6.0版本支持的字段定义
-
-这个后端最近查询的文本。如果state为active，这个域显示当前正在执行的查询。在所有其他状态下，它显示上一个被执行的查询。 默认情况下，查询文本被截断为1024个字符；可以通过参数 track\_activity\_query\_size更改此值|
-|waiting|boolean|True，如果当前SQL在锁等待，否则 false|
-|query\_start| |当前活动查询被开始的时间，如果state不是active，这个域为上一个查询被开始的时间|
-|backend\_start| |当前后台进程开始的时间|
+|datid|oid|这个后端连接到的数据库的OID。|
+|datname|name|这个后端连接到的数据库的名称。|
+|procpid|integer|这个后端的进程 ID。**说明：** procpid为4.3 版本支持的字段定义。 |
+|pid|integer|这个后端的进程 ID。**说明：** pid为6.0 版本支持的字段定义。 |
+|sess\_id|integer|登录到这个后端的用户的session id。|
+|usesysid|oid|登录到这个后端的用户的 OID。|
+|usename|name|登录到这个后端的用户的名称。|
+|current\_query|text|这个域显示当前正在执行的查询。 默认情况下，查询文本被截断为1024个字符；可以通过参数 track\_activity\_query\_size更改此值。**说明：** current\_query为4.3 版本支持的字段定义。 |
+|query|text|这个后端最近查询的文本。如果state为active，这个域显示当前正在执行的查询。在所有其他状态下，它显示上一个被执行的查询。 默认情况下，查询文本被截断为1024个字符；可以通过参数 track\_activity\_query\_size更改此值。**说明：** query为6.0 版本支持的字段定义。 |
+|waiting|boolean|如果当前SQL在锁等待，waiting取值为True，否则为false。|
+|query\_start|datetime|当前活动查询被开始的时间，如果state不是active，这个域为上一个查询被开始的时间。|
+|backend\_start|datetime|当前后台进程开始的时间。|
 |client\_addr|inet|连接到这个后端的客户端的 IP 地址。如果这个域为空，它表示客户端通过服务器机器上的一个 Unix 套接字连接或者这是一个内部进程（如自动清理）。|
-|client\_port|integer|客户端用以和这个后端通信的 TCP 端口号，如果使用 Unix 套接字则为-1|
-|application\_name|text|连接到这个后端的应用的名称|
+|client\_port|integer|客户端用以和这个后端通信的 TCP 端口号，如果使用 Unix 套接字则为-1。|
+|application\_name|text|连接到这个后端的应用的名称。|
 |xact\_start| |这个进程的当前事务被启动的时间，如果没有活动事务则为空。如果当前查询是它的第一个事务，这一列等于query\_start。|
-|waiting\_reason|text|当前执行等待的原因，可能是等锁或者等待节点间数据的复制|
-|state|text|注：只有6.0版本支持
-
-这个后端目前的状态，包括 active，idle，idle in transaction，idle in transaction \(aborted\)，fastpath function call，disabled|
-|state\_change|timestampz|注：只有6.0版本支持
-
-上次state状态切换的时间|
+|waiting\_reason|text|当前执行等待的原因，可能是等锁或者等待节点间数据的复制。|
+|state|text|这个后端目前的状态，包括 active，idle，idle in transaction，idle in transaction \(aborted\)，fastpath function call，disabled。**说明：** 只有6.0版本支持。 |
+|state\_change|timestampz|上次state状态切换的时间。**说明：** 只有6.0版本支持。 |
 
 ## 查看连接信息
 
 通过下述SQL就能确认当前的连接用户和对应的连接机器。
 
 ```
-postgres=# SELECT datname,usename,client_addr,client_port FROM pg_stat_activity ;
+SELECT datname,usename,client_addr,client_port FROM pg_stat_activity ;
+```
+
+```
 datname  |  usename  |  client_addr   | client_port
 ----------+-----------+----------------+-------------
  postgres | joe       |  xx.xx.xx.xx   |       60621
@@ -51,17 +46,27 @@ datname  |  usename  |  client_addr   | client_port
 
 获取当前用户执行SQL信息：
 
+4.3 版本：
+
 ```
- 4.3 版本：
-postgres=# SELECT datname,usename,current_query FROM pg_stat_activity ;
+SELECT datname,usename,current_query FROM pg_stat_activity ;
+```
+
+```
  datname  | usename  |                        current_query
 ----------+----------+--------------------------------------------------------------
  postgres | postgres | SELECT datname,usename,current_query FROM pg_stat_activity ;
  postgres | joe      | <IDLE>
 (2 rows)
+```
 
 6.0 版本：
-postgres=# SELECT datname,usename,query FROM pg_stat_activity ;
+
+```
+SELECT datname,usename,query FROM pg_stat_activity ;
+```
+
+```
  datname  | usename  |                        query
 ----------+----------+--------------------------------------------------------------
  postgres | postgres | SELECT datname,usename,query FROM pg_stat_activity ;
@@ -71,13 +76,17 @@ postgres=# SELECT datname,usename,query FROM pg_stat_activity ;
 
 只看当前正在运行的SQL信息：
 
+4.3 版本：
+
 ```
-4.3 版本
 SELECT datname,usename,current_query
    FROM pg_stat_activity
    WHERE current_query != '<IDLE>' ;
+```
 
-6.0 版本
+6.0 版本：
+
+```
 SELECT datname,usename,query
    FROM pg_stat_activity
    WHERE state != 'idle' ;
@@ -87,14 +96,18 @@ SELECT datname,usename,query
 
 查看当前运行中的耗时较长的SQL语句
 
+4.3 版本：
+
 ```
-4.3 版本
 select current_timestamp - query_start as runtime, datname, usename, current_query
     from pg_stat_activity
     where current_query != '<IDLE>'
     order by 1 desc;
+```
 
-6.0 版本
+6.0 版本：
+
+```
 select current_timestamp - query_start as runtime, datname, usename, query
     from pg_stat_activity
     where state != 'idle'
@@ -144,13 +157,17 @@ runtime     |    datname     | usename  |                                current
 
 如果一个SQL运行很长时间没有结果，需要检查该SQL还在运行中还是已经被block了：
 
+4.3 版本：
+
 ```
-4.3 版本
 SELECT datname,usename,current_query
    FROM pg_stat_activity
    WHERE waiting;
+```
 
-6.0 版本
+6.0 版本：
+
+```
 SELECT datname,usename,query
    FROM pg_stat_activity
    WHERE waiting;
