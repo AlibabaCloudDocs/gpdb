@@ -1,6 +1,6 @@
 # 通过 HyperLoglog 实现高性能多维数据透视
 
-本文结和电商类数据透视示例，介绍了使用AnalyticDB for PostgreSQL通过HLL预计算，实现毫秒级多维数据透视的方法。关于HyperLogLog的用法，请参考[使用HLL](/intl.zh-CN/开发进阶/高级扩展插件使用/HyperLogLog 的使用.md)。
+本文通过电商类数据透视示例，介绍了使用AnalyticDB for PostgreSQL通过HLL预计算，实现毫秒级多维数据透视的方法。关于HyperLogLog的用法，请参考[使用HLL](/intl.zh-CN/开发进阶/高级扩展插件使用/HyperLogLog 的使用.md)。
 
 ## 实践总结
 
