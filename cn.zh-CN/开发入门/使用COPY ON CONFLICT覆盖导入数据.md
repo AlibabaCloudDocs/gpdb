@@ -1,9 +1,9 @@
 使用COPY ON CONFLICT覆盖导入数据 
 =============================================
 
-COPY ON CONFLICT是[AnalyticDB PostgresSQL](/cn.zh-CN/产品简介/产品概述.md)针对COPY覆盖写入需求新增的功能。目前，COPY ON CONFLICT仅支持全表约束检查及全列覆盖写入。
+COPY ON CONFLICT是[AnalyticDB PostgreSQL](/cn.zh-CN/产品简介/产品概述.md)针对COPY覆盖写入需求新增的功能。目前，COPY ON CONFLICT仅支持全表约束检查及全列覆盖写入。
 
-在[AnalyticDB PostgresSQL](/cn.zh-CN/产品简介/产品概述.md)中，可以通过COPY快速导入数据，但是在COPY导入数据的过程中，如果数据与表的约束冲突，会导致COPY任务报错退出。[AnalyticDB PostgresSQL](/cn.zh-CN/产品简介/产品概述.md)提供COPY ON CONFLICT功能，支持在COPY过程中处理表的约束问题，使COPY任务不会因为约束冲突而失败。
+在[AnalyticDB PostgreSQL](/cn.zh-CN/产品简介/产品概述.md)中，可以通过COPY快速导入数据，但是在COPY导入数据的过程中，如果数据与表的约束冲突，会导致COPY任务报错退出。[AnalyticDB PostgreSQL](/cn.zh-CN/产品简介/产品概述.md)提供COPY ON CONFLICT功能，支持在COPY过程中处理表的约束问题，使COPY任务不会因为约束冲突而失败。
 
 
 
