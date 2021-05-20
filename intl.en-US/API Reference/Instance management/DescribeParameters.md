@@ -63,7 +63,7 @@ Sample success responses
 <RequestId>8CA0F95F-0F2D-4E85-ADD1-32C7FCE5E17D</RequestId>
 ```
 
-`JSON`格式
+`JSON` format
 
 ```
 
