@@ -1,6 +1,6 @@
 # DescribeDBInstances
 
-You can call this operation to query the list of AnalyticDB for PostgreSQL instances.
+Queries the list of AnalyticDB for PostgreSQL instances.
 
 ## Debugging
 
@@ -15,7 +15,7 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |DBInstanceDescription|String|No|gp-xxxxxxxx|The description of the instance. |
 |InstanceNetworkType|String|No|VPC|The network type of the instance. Valid values:
 
--   VPC
+ -   VPC
 -   Classic
 -   If you do not specify this parameter, instances of all network types are returned. |
 |DBInstanceIds|String|No|gp-xxxxxxxxx,gp-xxxxxxx|The ID of the instance. Separate multiple IDs with commas \(,\). |
@@ -32,7 +32,7 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |DBInstance| | | |
 |ConnectionMode|String|Standard|The access mode of the instance. Valid values:
 
--   Standard
+ -   Standard
 -   Safe |
 |CreateTime|String|2019-09-08T16:00:00Z|The time when the cluster was created. |
 |DBInstanceDescription|String|gp-xxxxxxxxxx|The description of the instance. |
@@ -42,33 +42,36 @@ You can call this operation to query the list of AnalyticDB for PostgreSQL insta
 |Engine|String|gpdb|The database engine of the instance. |
 |EngineVersion|String|4.3|The version of the database engine. |
 |ExpireTime|String|2019-09-08T16:00:00Z|The time when the instance is scheduled to expire. Pay-as-you-go instances do not expire. |
-|InstanceDeployType|String|cluster|-   cluster: ECS
+|InstanceDeployType|String|cluster|-   cluster: Elastic Compute Service \(ECS\) instance
 -   replicaSet: physical machine |
 |InstanceNetworkType|String|VPC|The network type of the instance. Valid values:
 
--   VPC
+ -   VPC
 -   Classic |
 |LockMode|String|Unlock|Indicates whether the instance is locked. Valid values:
 
--   Unlock: The instance is not locked.
+ -   Unlock: The instance is not locked.
 -   ManualLock: The instance is manually locked.
 -   LockByExpiration: The instance is automatically locked after it expires.
 -   LockByRestoration: The instance is automatically locked before a rollback.
 -   LockByDiskQuota: The instance is automatically locked when the disk space is full. |
 |LockReason|String|Unknow|The reason why the instance is locked. |
+|MasterNodeNum|Integer|1|The number of coordinator nodes. |
 |PayType|String|Prepaid|The billing method of the instance. Valid values:
 
--   Postpaid: pay-as-you-go
+ -   Postpaid: pay-as-you-go
 -   Prepaid: subscription |
 |RegionId|String|cn-hangzhou|The region ID of the instance. |
+|SegNodeNum|String|50|The storage capacity of a compute node. Unit: GB. |
+|StorageSize|String|4|The number of compute nodes. |
 |StorageType|String|cloud\_essd|The storage type of the instance.
 
--   cloud\_essd: enhanced SSD \(ESSD\)
+ -   cloud\_essd: enhanced SSD \(ESSD\)
 -   cloud\_efficiency: ultra disk |
 |Tags|Array of Tag| |Details about the tags. |
 |Tag| | | |
-|Key|String|key1|The key of the tag. |
-|Value|String|value1|The value of the tag. |
+|Key|String|key1|The tag key of the instance. |
+|Value|String|value1|The tag value of the instance. |
 |VSwitchId|String|vsw-xxxxxxxxx|The vSwitch ID of the instance. |
 |VpcId|String|vpc-xxxxxxxxxx|The VPC ID of the instance. |
 |ZoneId|String|cn-hangzhou|The zone ID of the instance. |
@@ -98,6 +101,7 @@ Sample success responses
 <PageNumber>1</PageNumber>
 <Items>
     <DBInstance>
+        <MasterNodeNum>1</MasterNodeNum>
         <StorageType>cloud_essd</StorageType>
         <EngineVersion>4.3</EngineVersion>
         <DBInstanceStatus>Running</DBInstanceStatus>
@@ -105,12 +109,14 @@ Sample success responses
         <DBInstanceNetType>Internet</DBInstanceNetType>
         <CreateTime>2019-09-08T16:00:00Z</CreateTime>
         <VSwitchId>vsw-xxxxxxxxx</VSwitchId>
+        <SegNodeNum>50 </SegNodeNum>
+        <StorageSize>4</StorageSize>
         <PayType>Prepaid</PayType>
         <LockMode>Unlock</LockMode>
         <InstanceNetworkType>VPC</InstanceNetworkType>
         <VpcId>vpc-xxxxxxxxxx</VpcId>
         <DBInstanceId>gp-xxxxxxxx</DBInstanceId>
-        <InstanceDeployType>public</InstanceDeployType>
+        <InstanceDeployType>cluster</InstanceDeployType>
         <ConnectionMode>Standard</ConnectionMode>
         <RegionId>cn-hangzhou</RegionId>
         <ExpireTime>2019-09-08T16:00:00Z</ExpireTime>
@@ -130,7 +136,7 @@ Sample success responses
 `JSON` format
 
 ```
-{"TotalRecordCount":"2","PageRecordCount":"2","RequestId":"BBE00C04-A3E8-4114-881D-0480A72CB92E","PageNumber":"1","Items":{"DBInstance":[{"StorageType":"cloud_essd","EngineVersion":"4.3","DBInstanceStatus":"Running","ZoneId":"cn-hangzhou","DBInstanceNetType":"Internet","CreateTime":"2019-09-08T16:00:00Z","VSwitchId":"vsw-xxxxxxxxx","PayType":"Prepaid","LockMode":"Unlock","InstanceNetworkType":"VPC","VpcId":"vpc-xxxxxxxxxx","DBInstanceId":"gp-xxxxxxxx","InstanceDeployType":"public","ConnectionMode":"Standard","RegionId":"cn-hangzhou","ExpireTime":"2019-09-08T16:00:00Z","LockReason":"Unknow","Engine":"gpdb","DBInstanceDescription":"gp-xxxxxxxxxx","Tags":{"Tag":[{"Value":"value1","Key":"key1"}]}}]}}
+{"TotalRecordCount":"2","PageRecordCount":"2","RequestId":"BBE00C04-A3E8-4114-881D-0480A72CB92E","PageNumber":"1","Items":{"DBInstance":[{"MasterNodeNum":"1","StorageType":"cloud_essd","EngineVersion":"4.3","DBInstanceStatus":"Running","ZoneId":"cn-hangzhou","DBInstanceNetType":"Internet","CreateTime":"2019-09-08T16:00:00Z","VSwitchId":"vsw-xxxxxxxxx","SegNodeNum":"50 ","StorageSize":"4","PayType":"Prepaid","LockMode":"Unlock","InstanceNetworkType":"VPC","VpcId":"vpc-xxxxxxxxxx","DBInstanceId":"gp-xxxxxxxx","InstanceDeployType":"cluster","ConnectionMode":"Standard","RegionId":"cn-hangzhou","ExpireTime":"2019-09-08T16:00:00Z","LockReason":"Unknow","Engine":"gpdb","DBInstanceDescription":"gp-xxxxxxxxxx","Tags":{"Tag":[{"Value":"value1","Key":"key1"}]}}]}}
 ```
 
 ## Error codes
