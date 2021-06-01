@@ -8,6 +8,14 @@ ANALYZE使用命令如下：
 ANALYZE [VERBOSE] [ROOTPARTITION [ALL] ] [table [ (column [, ...] ) ]]
 ```
 
+## AUTO ANALYZE
+
+AUTO ANALYZE可以自动执行ANALYZE命令。AUTO ANALYZE将检查具有大量插入、更新或删除的表，并在需要的时候主动对表执行ANALYZE来收集更新表的统计信息。当前默认情况下，当表改动行数超过10%时，AUTO ANALYZE会自动对表触发一次ANALYZE操作。
+
+对于MULTI MASTER实例，当前暂时只能追踪主MASTER上发生的改动行为，辅助MASTER发生的改动行为将不会触发AUTO ANALYZE。
+
+**说明：** 云原生数据仓库AnalyticDB PostgreSQL版仅20210527及以后版本支持AUTO ANALYZE功能，如何升级小版本，请参见[版本升级](/intl.zh-CN/实例管理/版本管理/版本升级.md)。
+
 ## 选择生成统计信息
 
 不带参数运行ANALYZE会为数据库中所有的表更新统计信息，运行时间可能会很长。用户可以指定表名或者列名来指定收集单个表或者某些列的统计信息。当数据被改变时，应该有选择地ANALYZE表。
