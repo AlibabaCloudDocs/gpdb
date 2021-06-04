@@ -10,7 +10,7 @@
 CREATE EXTENSION "uuid-ossp";
 ```
 
-**说明：** 只有superuser或rds\_superuser权限用户可以安装该插件。
+**说明：** 需要rds\_superuser权限用户安装该插件。
 
 ## 插件说明
 
@@ -57,11 +57,11 @@ a0ee-bc99-9c0b-4ef8-bb6d-6bb9-bd38-0a11
     |`uuid_generate_v1mc()`|此函数会生成一个v1版本的UUID。和`uuid_generate_v1()`的区别在于`uuid_generate_v1mc()`使用的是一个随机多播MAC地址，`uuid_generate_v1()`使用的是计算机的真实的MAC地址。|
     |`uuid_generate_v3(namespace uuid, name text)`|此函数会生成一个v3版本的UUID。这个函数会使用指定输入名称`name`在指定的命名空间`namespace` 中生成。     -   指定的命名空间应该是调用下表中的函数`uuid_ns_*()`返回的常量。
     -   参数`name`是一个指定命名空间`namespace`中的标识符。
- 例如：     ```
+例如：     ```
 SELECT uuid_generate_v3(uuid_ns_url(), 'http://www.postgresql.org');
     ```
 
- `name`会使用MD5算法进行哈希，从产生的UUID中不能反向获得明文。利用这个方法生成的UUID不需要随机算法且不依赖任何运行相关的环境因素，生成过程是可重复的。 |
+`name`会使用MD5算法进行哈希，从产生的UUID中不能反向获得明文。利用这个方法生成的UUID不需要随机算法且不依赖任何运行相关的环境因素，生成过程是可重复的。 |
     |`uuid_generate_v4()`|此函数会生成一个v4版本的UUID。算法完全依靠随机数。|
     |`uuid_generate_v5(namespace uuid, name text)`|此函数会生成一个v5版本的UUID。工作过程类似于v3版本的 UUID，但是v5版本使用的是SHA-1的哈希算法，因为SHA-1算法被认为比 MD5算法更安全，所有应该尽量使用v5版本而不是v3版本。|
 
