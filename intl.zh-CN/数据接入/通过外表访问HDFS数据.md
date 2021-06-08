@@ -1,16 +1,14 @@
 # 通过外表访问HDFS数据
 
-注：该功能公共云预计6月份上线
-
-AnalyticDB for PostgreSQL 支持从Hadoop集群中读取数据，并写入数据到Hadoop集群中，用到的工具有外部表 external tables 和 gphdfs 协议。本文主要介绍在AnalyticDB for PostgreSQL中使用gphdfs协议向HDFS读写数据的步骤.
+云原生数据仓库AnalyticDB PostgreSQL版支持在Hadoop集群上读写数据。本文主要介绍在云原生数据仓库AnalyticDB PostgreSQL版中使用gphdfs协议向HDFS读写数据的步骤。
 
 本文内容包括：
 
 -   创建HDFS测试文件
 -   创建HDFS读外表并查询数据
 -   创建HDFS写外表并写入数据
--   通过外表访问Hive
--   通过外表访问HBase
+
+注：该功能公共云预计8月份上线。
 
 ## 创建HDFS测试文件
 
