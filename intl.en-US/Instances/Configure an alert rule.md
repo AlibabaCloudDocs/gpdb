@@ -26,7 +26,7 @@ CloudMonitor supports threshold-triggered and event-triggered alert rules. The f
 
 5.  Move the pointer over a chart and click the enlarge icon to zoom in the chart.
 
-    ![2021040608](../images/p260641.png)
+    ![2021040608](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2240223261/p260641.png)
 
     **Note:** Metric names of compute nodes are displayed in different ways in the **CloudMonitor** and AnalyticDB for PostgreSQL consoles. In the AnalyticDB for PostgreSQL console, the names of compute nodes are displayed. In the CloudMonitor console, the names of the hosts for compute nodes are displayed.
 
@@ -35,11 +35,11 @@ CloudMonitor supports threshold-triggered and event-triggered alert rules. The f
 
 1.  In the [CloudMonitor](https://cloudmonitor.console.aliyun.com/#/alarmservice/product=&searchValue=&searchType=&searchProduct=) console, move the pointer over a chart and click the alert icon to configure a threshold-triggered alert for the corresponding metric.
 
-    ![2021040609](../images/p260659.png)
+    ![2021040609](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2240223261/p260659.png)
 
 2.  On the page that appears, configure an alert rule. To configure multiple alert rules, click **Add Alert Rule**. You can create an individual alert rule for each metric. If the value of a metric exceeds the related threshold, the system sends you an alert notification.
 
-    ![2021040606](../images/p260664.png)
+    ![2021040606](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2240223261/p260664.png)
 
     -   Metric: You can select metrics whose names start with flexible for instances in flexible storage mode, and select metrics whose names start with reserved for instances in reserved storage mode.
     -   1 Minute cycle: The monitoring data within 1 minute is aggregated into one monitoring data point for comparison with the specified threshold. CloudMonitor provides one data point within 1 minute. If you select 1 Minute cycle, one data point is generated and no aggregation is required. If you select 5 Minute cycle, five data points are generated and the system aggregates the five data points into one data point.
