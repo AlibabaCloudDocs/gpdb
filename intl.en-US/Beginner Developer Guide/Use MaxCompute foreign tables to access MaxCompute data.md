@@ -1,6 +1,6 @@
 # Use MaxCompute foreign tables to access MaxCompute data
 
-MaxCompute foreign-data wrapper \(FDW\) of AnalyticDB for PostgreSQL is designed based on the PostgreSQL FDW framework to access data that is stored in , which is formerly known as ODPS. The following figure shows the overall architecture.
+MaxCompute foreign-data wrapper \(FDW\) of AnalyticDB for PostgreSQL is designed based on the PostgreSQL FDW framework to access data that is stored in , which is formerly known as ODPS.
 
 MaxCompute FDW allows you to synchronize data from MaxCompute to AnalyticDB for PostgreSQL. You can create the following three types of MaxCompute foreign tables by using MaxCompute FDW:
 
