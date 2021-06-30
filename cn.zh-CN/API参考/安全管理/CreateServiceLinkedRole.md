@@ -1,6 +1,6 @@
 # CreateServiceLinkedRole
 
-调取CreateServiceLinkedRole接口创建SLR。
+调用CreateServiceLinkedRole接口创建服务关联角色（SLR）。
 
 ## 调试
 
@@ -10,8 +10,8 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateServiceLinkedRole|系统规定参数。取值：CreateServiceLinkedRole。 |
-|RegionId|String|是|cn-hangzhou|地域信息。 |
+|Action|String|是|CreateServiceLinkedRole|系统规定参数。取值：**CreateServiceLinkedRole**。 |
+|RegionId|String|是|cn-hangzhou|地域ID，您可以通过[DescribeRegions](~~86912~~)接口查看可用的地域ID。 |
 
 ## 返回数据
 
@@ -25,8 +25,8 @@
 
 ```
 http(s)://gpdb.aliyuncs.com/?Action=CreateServiceLinkedRole
-&<公共请求参数>
 &RegionId=cn-hangzhou
+&公共请求参数
 ```
 
 正常返回示例
@@ -34,14 +34,22 @@ http(s)://gpdb.aliyuncs.com/?Action=CreateServiceLinkedRole
 `XML`格式
 
 ```
-<RequestId>B4CAF581-2AC7-41AD-8940-D56DF7AADF5B</RequestId>
+HTTP/1.1 200 OK
+Content-Type:application/xml
+
+<CreateServiceLinkedRoleResponse>
+    <RequestId>B4CAF581-2AC7-41AD-8940-D56DF7AADF5B</RequestId>
+</CreateServiceLinkedRoleResponse>
 ```
 
 `JSON`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/json
+
 {
-    "RequestId": "B4CAF581-2AC7-41AD-8940-D56DF7AADF5B"
+  "RequestId" : "B4CAF581-2AC7-41AD-8940-D56DF7AADF5B"
 }
 ```
 
