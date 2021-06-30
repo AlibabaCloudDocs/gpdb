@@ -44,10 +44,6 @@ Coordinator nodes and compute nodes provide multiple replicas to ensure high ava
     ![21107201](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2837273261/p276623.png)
 
 
-## Component interaction
-
-The following figure shows the process from the connection between a client and an instance to the execution of an SQL statement. In the process, module components interact with each other.
-
 ## Data models
 
 Ideally, tabular data is evenly distributed across nodes. Even data distribution makes the most advantage of I/O performance of an instance, improves storage capacity, and optimizes efficiency in computing and network transmission. Hash distribution is the default table distribution option. AnalyticDB for PostgreSQL also supports replication distribution and random distribution. Replication distribution generates a full copy of the table accessible on each compute node. Typically, replication distribution is used for small tables on which associated queries are frequently performed. When queries are executed on replicated tables, data is not required to be broadcasted or redistributed. This way, query performance is improved. Random distribution is suitable for scenarios where fields in a large table are inappropriate to be hash columns. For example, hash distribution may cause data skew among nodes and replication distribution is not suitable for a large table. In this case, random distribution evenly distributes data across compute nodes.
