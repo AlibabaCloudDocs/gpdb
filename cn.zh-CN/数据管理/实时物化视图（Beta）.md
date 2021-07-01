@@ -27,7 +27,7 @@ AnalyticDB PostgreSQL版对实时物化视图的查询语句有所限制，您�
 -   查询语句仅能够包含一张或两张表。
 -   如果查询语句包含两张表，两张表间仅支持使用INNER JOIN语句，不支持SELF JOIN。
 -   查询语句可以包含大部分的过滤和投影操作。
--   当查询语句包含聚合操作时，只支持COUNT、SUM、AVG、MAX、MIN（MAX和MIN只支持COPY和INSERT），且不支持HAVING子句。
+-   当查询语句包含聚合操作时，只支持COUNT、SUM、AVG、MAX、MIN，且不支持HAVING子句。
 -   查询语句只能为简单的语句，不支持子查询、CTE等复杂的语句。
 
 当您在基表上创建了实时物化视图，对基表执行的DDL将受到限制，限制如下：
@@ -38,7 +38,6 @@ AnalyticDB PostgreSQL版对实时物化视图的查询语句有所限制，您�
 
 测试阶段实时物化视图还存在部分限制，限制如下：
 
--   暂不支持对基表的变更语句使用CTE。
 -   暂时仅支持HEAP表，不支持AO表
 
 ## 使用场景
@@ -92,7 +91,7 @@ AnalyticDB PostgreSQL版对实时物化视图的查询语句有所限制，您�
 2.  创建实时物化视图。示例如下：
 
     ```
-    CREATE INCREMENTAL MATERIALIZED VIEW mv AS SELECT * FROM TEST WHERE b > 40;
+    CREATE INCREMENTAL MATERIALIZED VIEW mv AS SELECT * FROM TEST WHERE b > 40 DISTRIBUTED BY (a);
     ```
 
 3.  向基表插入数据。示例如下：
