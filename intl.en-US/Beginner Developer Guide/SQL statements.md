@@ -676,7 +676,7 @@ CREATE LIBRARY library_name LANGUAGE [JAVA] FROM oss_location OWNER ownername
 CREATE LIBRARY library_name LANGUAGE [JAVA] VALUES file_content_hex OWNER ownername
 ```
 
-For more information, see [CREATE LIBRARY](https://www.alibabacloud.com/help/zh/doc-detail/126635.html).
+For more information, see [CREATE LIBRARY](/intl.en-US/Advanced Developer Guide/Use PL/Java/Use the CREATE LIBRARY statement.md).
 
 ## CREATE OPERATOR
 
@@ -1015,7 +1015,7 @@ Deletes a custom library package.
 DROP LIBRARY library_name
 ```
 
-For more information, see [DROP LIBRARY](https://www.alibabacloud.com/help/zh/doc-detail/126635.html).
+For more information, see [DROP LIBRARY](/intl.en-US/Advanced Developer Guide/Use PL/Java/Use the CREATE LIBRARY statement.md).
 
 ## DROP OPERATOR
 
