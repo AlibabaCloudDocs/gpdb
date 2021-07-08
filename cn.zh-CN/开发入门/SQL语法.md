@@ -46,6 +46,7 @@
 -   [CREATE SEQUENCE](#section_xqc_x3h_thb)
 -   [CREATE TABLE](#section_hjr_cjh_thb)
 -   [CREATE TABLE AS](#section_isp_fjh_thb)
+-   [\#section\_slz\_cs9\_0bv](#section_slz_cs9_0bv)
 -   [CREATE TYPE](#section_oxj_hjh_thb)
 -   [CREATE USER](#section_rgd_kjh_thb)
 -   [CREATE VIEW](#section_ff4_mjh_thb)
@@ -113,7 +114,7 @@
 ABORT [WORK | TRANSACTION]
 ```
 
-更多信息请参考[ABORT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ABORT.html)。
+更多信息，请参见[ABORT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ABORT.html)。
 
 ## ALTER AGGREGATE
 
@@ -125,7 +126,7 @@ ALTER AGGREGATE name ( type [ , ... ] ) OWNER TO new_owner
 ALTER AGGREGATE name ( type [ , ... ] ) SET SCHEMA new_schema
 ```
 
-更多信息请参考[ALTER AGGREGATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_AGGREGATE.html)。
+更多信息，请参见[ALTER AGGREGATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_AGGREGATE.html)。
 
 ## ALTER CONVERSION
 
@@ -136,7 +137,7 @@ ALTER CONVERSION name RENAME TO newname
 ALTER CONVERSION name OWNER TO newowner
 ```
 
-更多信息请参考[ALTER CONVERSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_CONVERSION.html)。
+更多信息，请参见[ALTER CONVERSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_CONVERSION.html)。
 
 ## ALTER DATABASE
 
@@ -150,7 +151,7 @@ ALTER DATABASE name RENAME TO newname
 ALTER DATABASE name OWNER TO new_owner
 ```
 
-更多信息请参考[ALTER DATABASE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_DATABASE.html)。
+更多信息，请参见[ALTER DATABASE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_DATABASE.html)。
 
 ## ALTER DOMAIN
 
@@ -178,7 +179,7 @@ ALTER EXTERNAL TABLE name SET SCHEMA new_schema
 ALTER EXTERNAL TABLE name action [, ... ]
 ```
 
-更多信息请参考[ALTER EXTERNAL TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_EXTERNAL_TABLE.html)。
+更多信息，请参见[ALTER EXTERNAL TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_EXTERNAL_TABLE.html)。
 
 ## ALTER FUNCTION
 
@@ -195,7 +196,7 @@ ALTER FUNCTION name ( [ [argmode] [argname] argtype [, ...] ] )
    SET SCHEMA new_schema
 ```
 
-更多信息请参考[ALTER FUNCTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_FUNCTION.html)。
+更多信息，请参见[ALTER FUNCTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_FUNCTION.html)。
 
 ## ALTER GROUP
 
@@ -207,7 +208,7 @@ ALTER GROUP groupname DROP USER username [, ... ]
 ALTER GROUP groupname RENAME TO newname
 ```
 
-更多信息请参考[ALTER GROUP](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_GROUP.html)。
+更多信息，请参见[ALTER GROUP](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_GROUP.html)。
 
 ## ALTER INDEX
 
@@ -220,7 +221,7 @@ ALTER INDEX name SET ( FILLFACTOR = value )
 ALTER INDEX name RESET ( FILLFACTOR )
 ```
 
-更多信息请参考[ALTER INDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_INDEX.html)。
+更多信息，请参见[ALTER INDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_INDEX.html)。
 
 ## ALTER OPERATOR
 
@@ -231,7 +232,7 @@ ALTER OPERATOR name ( {lefttype | NONE} , {righttype | NONE} )
    OWNER TO newowner
 ```
 
-更多信息请参考[ALTER OPERATOR](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_OPERATOR.html)。
+更多信息，请参见[ALTER OPERATOR](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_OPERATOR.html)。
 
 ## ALTER RESOURCE QUEUE
 
@@ -241,7 +242,7 @@ ALTER OPERATOR name ( {lefttype | NONE} , {righttype | NONE} )
 ALTER RESOURCE QUEUE name WITH ( queue_attribute=value [, ... ] )
 ```
 
-更多信息请参考[ALTER RESOURCE QUEUE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_RESOURCE_QUEUE.html)。
+更多信息，请参见[ALTER RESOURCE QUEUE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_RESOURCE_QUEUE.html)。
 
 ## ALTER ROLE
 
@@ -257,7 +258,7 @@ ALTER ROLE name RESOURCE QUEUE {queue_name | NONE}
 ALTER ROLE name [ [WITH] option [ ... ] ]
 ```
 
-更多信息请参考[ALTER ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_ROLE.html)。
+更多信息，请参见[ALTER ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_ROLE.html)。
 
 ## ALTER SCHEMA
 
@@ -269,7 +270,7 @@ ALTER SCHEMA name RENAME TO newname
 ALTER SCHEMA name OWNER TO newowner
 ```
 
-更多信息请参考[ALTER SCHEMA](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_SCHEMA.html)。
+更多信息，请参见[ALTER SCHEMA](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_SCHEMA.html)。
 
 ## ALTER SEQUENCE
 
@@ -285,7 +286,7 @@ ALTER SEQUENCE name [INCREMENT [ BY ] increment]
 ALTER SEQUENCE name SET SCHEMA new_schema
 ```
 
-更多信息请参考[ALTER SEQUENCE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_SEQUENCE.html)。
+更多信息，请参见[ALTER SEQUENCE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_SEQUENCE.html)。
 
 ## ALTER TABLE
 
@@ -311,7 +312,7 @@ ALTER TABLE name
    partition_action
 ```
 
-更多信息请参考[ALTER TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_TABLE.html)。
+更多信息，请参见[ALTER TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_TABLE.html)。
 
 ## ALTER TYPE
 
@@ -322,7 +323,7 @@ ALTER TYPE name
    OWNER TO new_owner | SET SCHEMA new_schema
 ```
 
-更多信息请参考[ALTER TYPE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_TYPE.html)。
+更多信息，请参见[ALTER TYPE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_TYPE.html)。
 
 ## ALTER USER
 
@@ -338,7 +339,7 @@ ALTER USER name RESET config_parameter
 ALTER USER name [ [WITH] option [ ... ] ]
 ```
 
-更多信息请参考[ALTER USER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_USER.html)。
+更多信息，请参见[ALTER USER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ALTER_USER.html)。
 
 ## ANALYZE
 
@@ -349,7 +350,7 @@ ANALYZE [VERBOSE] [ROOTPARTITION [ALL] ]
    [table [ (column [, ...] ) ]]
 ```
 
-更多信息请参考 [ANALYZE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ANALYZE.html)。
+更多信息，请参见 [ANALYZE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ANALYZE.html)。
 
 ## BEGIN
 
@@ -360,7 +361,7 @@ BEGIN [WORK | TRANSACTION] [transaction_mode]
       [READ ONLY | READ WRITE]
 ```
 
-更多信息请参考[BEGIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/BEGIN.html) 。
+更多信息，请参见[BEGIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/BEGIN.html) 。
 
 ## CHECKPOINT
 
@@ -370,7 +371,7 @@ BEGIN [WORK | TRANSACTION] [transaction_mode]
 CHECKPOINT
 ```
 
-更多信息请参考[CHECKPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CHECKPOINT.html)。
+更多信息，请参见[CHECKPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CHECKPOINT.html)。
 
 ## CLOSE
 
@@ -380,7 +381,7 @@ CHECKPOINT
 CLOSE cursor_name
 ```
 
-更多信息请参考[CLOSE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CLOSE.html) 。
+更多信息，请参见[CLOSE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CLOSE.html) 。
 
 ## CLUSTER
 
@@ -394,7 +395,7 @@ CLUSTER tablename
 CLUSTER
 ```
 
-更多信息请参考[CLUSTER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CLUSTER.html)。
+更多信息，请参见[CLUSTER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CLUSTER.html)。
 
 ## COMMENT
 
@@ -429,7 +430,7 @@ COMMENT ON
 IS 'text'
 ```
 
-更多信息请参考[COMMENT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/COMMENT.html)。
+更多信息，请参见[COMMENT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/COMMENT.html)。
 
 ## COMMIT
 
@@ -439,7 +440,7 @@ IS 'text'
 COMMIT [WORK | TRANSACTION]
 ```
 
-更多信息请参考[COMMIT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/COMMIT.html)。
+更多信息，请参见[COMMIT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/COMMIT.html)。
 
 ## COPY
 
@@ -475,7 +476,7 @@ COPY {table [(column [, ...])] | (query)} TO {'file' | STDOUT}
       [IGNORE EXTERNAL PARTITIONS ]
 ```
 
-更多信息请参考[COPY](http://docs.greenplum.org/6-4/ref_guide/sql_commands/COPY.html) 。
+更多信息，请参见[COPY](http://docs.greenplum.org/6-4/ref_guide/sql_commands/COPY.html) 。
 
 ## CREATE AGGREGATE
 
@@ -491,7 +492,7 @@ CREATE [ORDERED] AGGREGATE name (input_data_type [ , ... ])
         [, SORTOP = sort_operator] )
 ```
 
-更多信息请参考[CREATE AGGREGATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_AGGREGATE.html)。
+更多信息，请参见[CREATE AGGREGATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_AGGREGATE.html)。
 
 ## CREATE CAST
 
@@ -506,7 +507,7 @@ CREATE CAST (sourcetype AS targettype) WITHOUT FUNCTION
        [AS ASSIGNMENT | AS IMPLICIT]
 ```
 
-更多信息请参考[CREATE CAST](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_CAST.html)。
+更多信息，请参见[CREATE CAST](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_CAST.html)。
 
 ## CREATE CONVERSION
 
@@ -517,7 +518,7 @@ CREATE [DEFAULT] CONVERSION name FOR source_encoding TO
      dest_encoding FROM funcname
 ```
 
-更多信息请参考[CREATE CONVERSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_CONVERSION.html)。
+更多信息，请参见[CREATE CONVERSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_CONVERSION.html)。
 
 ## CREATE DATABASE
 
@@ -530,7 +531,7 @@ CREATE DATABASE name [ [WITH] [OWNER [=] dbowner]
                      [CONNECTION LIMIT [=] connlimit ] ]
 ```
 
-更多信息请参考[CREATE DATABASE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_DATABASE.html)。
+更多信息，请参见[CREATE DATABASE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_DATABASE.html)。
 
 ## CREATE DOMAIN
 
@@ -543,7 +544,7 @@ CREATE DOMAIN name [AS] data_type [DEFAULT expression]
        | CHECK (expression) [...]]
 ```
 
-更多信息请参考[CREATE DOMAIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_DOMAIN.html)。
+更多信息，请参见[CREATE DOMAIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_DOMAIN.html)。
 
 ## CREATE EXTENSION
 
@@ -557,7 +558,7 @@ CREATE EXTENSION [ IF NOT EXISTS ] extension_name
            [ CASCADE ]
 ```
 
-更多信息请参考[CREATE EXTENSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_EXTENSION.html)。
+更多信息，请参见[CREATE EXTENSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_EXTENSION.html)。
 
 ## CREATE EXTERNAL TABLE
 
@@ -612,7 +613,7 @@ ossprotocol:
 id=userossid key=userosskey bucket=ossbucket compressiontype=[none|gzip] async=[true|false]
 ```
 
-更多信息请参考[CREATE EXTERNAL TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_EXTERNAL_TABLE.html)。
+更多信息，请参见[CREATE EXTERNAL TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_EXTERNAL_TABLE.html)。
 
 ## CREATE FUNCTION
 
@@ -637,7 +638,7 @@ CREATE [OR REPLACE] FUNCTION name
            } [, ...] ) ]
 ```
 
-更多信息请参考[CREATE FUNCTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_FUNCTION.html)。
+更多信息，请参见[CREATE FUNCTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_FUNCTION.html)。
 
 ## CREATE GROUP
 
@@ -647,7 +648,7 @@ CREATE [OR REPLACE] FUNCTION name
 CREATE GROUP name [ [WITH] option [ ... ] ]
 ```
 
-更多信息请参考[CREATE GROUP](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_GROUP.html)。
+更多信息，请参见[CREATE GROUP](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_GROUP.html)。
 
 ## CREATE INDEX
 
@@ -662,7 +663,7 @@ CREATE [UNIQUE] INDEX name ON table
        [WHERE predicate]
 ```
 
-更多信息请参考[CREATE INDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_INDEX.html)。
+更多信息，请参见[CREATE INDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_INDEX.html)。
 
 ## CREATE LIBRARY
 
@@ -673,7 +674,7 @@ CREATE LIBRARY library_name LANGUAGE [JAVA] FROM oss_location OWNER ownername
 CREATE LIBRARY library_name LANGUAGE [JAVA] VALUES file_content_hex OWNER ownername
 ```
 
-更多信息请参考[CREATE LIBRARY](https://help.aliyun.com/document_detail/126635.html)。
+更多信息，请参见[CREATE LIBRARY](/cn.zh-CN/开发进阶/PL/Java 使用/使用 Create Library 命令.md)。
 
 ## CREATE OPERATOR
 
@@ -690,7 +691,7 @@ CREATE OPERATOR name (
        [, LTCMP = less_than_op] [, GTCMP = greater_than_op] )
 ```
 
-更多信息请参考[CREATE OPERATOR](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_OPERATOR.html)。
+更多信息，请参见[CREATE OPERATOR](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_OPERATOR.html)。
 
 ## CREATE RESOURCE QUEUE
 
@@ -700,7 +701,7 @@ CREATE OPERATOR name (
 CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 ```
 
-更多信息请参考[CREATE RESOURCE QUEUE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_RESOURCE_QUEUE.html)。
+更多信息，请参见[CREATE RESOURCE QUEUE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_RESOURCE_QUEUE.html)。
 
 ## CREATE ROLE
 
@@ -710,7 +711,7 @@ CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 CREATE ROLE name [[WITH] option [ ... ]]
 ```
 
-更多信息请参考[CREATE ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_ROLE.html)。
+更多信息，请参见[CREATE ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_ROLE.html)。
 
 ## CREATE RULE
 
@@ -723,7 +724,7 @@ CREATE [OR REPLACE] RULE name AS ON event
   ...) }
 ```
 
-更多信息请参考[CREATE RULE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_RULE.html)。
+更多信息，请参见[CREATE RULE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_RULE.html)。
 
 ## CREATE SCHEMA
 
@@ -736,7 +737,7 @@ CREATE SCHEMA schema_name [AUTHORIZATION username]
 CREATE SCHEMA AUTHORIZATION rolename [schema_element [ ... ]]
 ```
 
-更多信息请参考[CREATE SCHEMA](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_SCHEMA.html)。
+更多信息，请参见[CREATE SCHEMA](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_SCHEMA.html)。
 
 ## CREATE SEQUENCE
 
@@ -753,7 +754,7 @@ CREATE [TEMPORARY | TEMP] SEQUENCE name
        [OWNED BY { table.column | NONE }]
 ```
 
-更多信息请参考[CREATE SEQUENCE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_SEQUENCE.html)。
+更多信息，请参见[CREATE SEQUENCE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_SEQUENCE.html)。
 
 ## CREATE TABLE
 
@@ -788,7 +789,7 @@ CREATE [[GLOBAL | LOCAL] {TEMPORARY | TEMP}] TABLE table_name (
     )
 ```
 
-更多信息请参考[CREATE TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_TABLE.html)。
+更多信息，请参见[CREATE TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_TABLE.html)。
 
 ## CREATE TABLE AS
 
@@ -804,7 +805,7 @@ CREATE [ [GLOBAL | LOCAL] {TEMPORARY | TEMP} ] TABLE table_name
    [DISTRIBUTED BY (column, [ ... ] ) | DISTRIBUTED RANDOMLY]
 ```
 
-更多信息请参考[CREATE TABLE AS](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_TABLE_AS.html)。
+更多信息，请参见[CREATE TABLE AS](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_TABLE_AS.html)。
 
 ## CREATE TYPE
 
@@ -833,7 +834,7 @@ CREATE TYPE name (
 CREATE TYPE name
 ```
 
-更多信息请参考[CREATE TYPE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_TYPE.html)。
+更多信息，请参见[CREATE TYPE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_TYPE.html)。
 
 ## CREATE USER
 
@@ -843,7 +844,7 @@ CREATE TYPE name
 CREATE USER name [ [WITH] option [ ... ] ]
 ```
 
-更多信息请参考[CREATE USER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_USER.html)。
+更多信息，请参见[CREATE USER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_USER.html)。
 
 ## CREATE VIEW
 
@@ -855,7 +856,7 @@ CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
        AS query
 ```
 
-更多信息请参考[CREATE VIEW](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_VIEW.html)。
+更多信息，请参见[CREATE VIEW](http://docs.greenplum.org/6-4/ref_guide/sql_commands/CREATE_VIEW.html)。
 
 ## DEALLOCATE
 
@@ -865,7 +866,7 @@ CREATE [OR REPLACE] [TEMP | TEMPORARY] VIEW name
 DEALLOCATE [PREPARE] name
 ```
 
-更多信息请参考[DEALLOCATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DEALLOCATE.html)。
+更多信息，请参见[DEALLOCATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DEALLOCATE.html)。
 
 ## DECLARE
 
@@ -877,7 +878,7 @@ DECLARE name [BINARY] [INSENSITIVE] [NO SCROLL] CURSOR
      FOR query [FOR READ ONLY]
 ```
 
-更多信息请参考[DECLARE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DECLARE.html)。
+更多信息，请参见[DECLARE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DECLARE.html)。
 
 ## DELETE
 
@@ -889,7 +890,7 @@ DELETE FROM [ONLY] table [[AS] alias]
       [WHERE condition | WHERE CURRENT OF cursor_name ]
 ```
 
-更多信息请参考[DELETE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DELETE.html)。
+更多信息，请参见[DELETE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DELETE.html)。
 
 ## DROP AGGREGATE
 
@@ -899,7 +900,7 @@ DELETE FROM [ONLY] table [[AS] alias]
 DROP AGGREGATE [IF EXISTS] name ( type [, ...] ) [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP AGGREGATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_AGGREGATE.html)。
+更多信息，请参见[DROP AGGREGATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_AGGREGATE.html)。
 
 ## DROP CAST
 
@@ -909,7 +910,7 @@ DROP AGGREGATE [IF EXISTS] name ( type [, ...] ) [CASCADE | RESTRICT]
 DROP CAST [IF EXISTS] (sourcetype AS targettype) [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP CAST](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_CAST.html)。
+更多信息，请参见[DROP CAST](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_CAST.html)。
 
 ## DROP CONVERSION
 
@@ -919,7 +920,7 @@ DROP CAST [IF EXISTS] (sourcetype AS targettype) [CASCADE | RESTRICT]
 DROP CONVERSION [IF EXISTS] name [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP CONVERSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_CONVERSION.html)。
+更多信息，请参见[DROP CONVERSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_CONVERSION.html)。
 
 ## DROP DATABASE
 
@@ -929,7 +930,7 @@ DROP CONVERSION [IF EXISTS] name [CASCADE | RESTRICT]
 DROP DATABASE [IF EXISTS] name
 ```
 
-更多信息请参考[DROP DATABASE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_DATABASE.html)。
+更多信息，请参见[DROP DATABASE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_DATABASE.html)。
 
 ## DROP DOMAIN
 
@@ -939,7 +940,7 @@ DROP DATABASE [IF EXISTS] name
 DROP DOMAIN [IF EXISTS] name [, ...]  [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP DOMAIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_DOMAIN.html)。
+更多信息，请参见[DROP DOMAIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_DOMAIN.html)。
 
 ## DROP EXTENSION
 
@@ -949,7 +950,7 @@ DROP DOMAIN [IF EXISTS] name [, ...]  [CASCADE | RESTRICT]
 DROP EXTENSION [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
 ```
 
-更多信息请参考[DROP EXTENSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_EXTENSION.html)。
+更多信息，请参见[DROP EXTENSION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_EXTENSION.html)。
 
 ## DROP EXTERNAL TABLE
 
@@ -959,7 +960,7 @@ DROP EXTENSION [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
 DROP EXTERNAL [WEB] TABLE [IF EXISTS] name [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP EXTERNAL TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_EXTERNAL_TABLE.html)。
+更多信息，请参见[DROP EXTERNAL TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_EXTERNAL_TABLE.html)。
 
 ## DROP FUNCTION
 
@@ -970,7 +971,7 @@ DROP FUNCTION [IF EXISTS] name ( [ [argmode] [argname] argtype
     [, ...] ] ) [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP FUNCTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_FUNCTION.html)。
+更多信息，请参见[DROP FUNCTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_FUNCTION.html)。
 
 ## DROP GROUP
 
@@ -980,7 +981,7 @@ DROP FUNCTION [IF EXISTS] name ( [ [argmode] [argname] argtype
 DROP GROUP [IF EXISTS] name [, ...]
 ```
 
-更多信息请参考[DROP GROUP](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_GROUP.html)。
+更多信息，请参见[DROP GROUP](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_GROUP.html)。
 
 ## DROP INDEX
 
@@ -990,7 +991,7 @@ DROP GROUP [IF EXISTS] name [, ...]
 DROP INDEX [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP INDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_INDEX.html)。
+更多信息，请参见[DROP INDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_INDEX.html)。
 
 ## DROP LIBRARY
 
@@ -1000,7 +1001,7 @@ DROP INDEX [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP LIBRARY library_name
 ```
 
-更多信息请参考[DROP LIBRARY](https://help.aliyun.com/document_detail/126635.html)。
+更多信息，请参见[DROP LIBRARY](/cn.zh-CN/开发进阶/PL/Java 使用/使用 Create Library 命令.md)。
 
 ## DROP OPERATOR
 
@@ -1011,7 +1012,7 @@ DROP OPERATOR [IF EXISTS] name ( {lefttype | NONE} ,
     {righttype | NONE} ) [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP OPERATOR](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_OPERATOR.html)。
+更多信息，请参见[DROP OPERATOR](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_OPERATOR.html)。
 
 ## DROP OWNED
 
@@ -1021,7 +1022,7 @@ DROP OPERATOR [IF EXISTS] name ( {lefttype | NONE} ,
 DROP OWNED BY name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP OWNED](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_OWNED.html)。
+更多信息，请参见[DROP OWNED](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_OWNED.html)。
 
 ## DROP RESOURCE QUEUE
 
@@ -1031,7 +1032,7 @@ DROP OWNED BY name [, ...] [CASCADE | RESTRICT]
 DROP RESOURCE QUEUE queue_name
 ```
 
-更多信息请参考[DROP RESOURCE QUEUE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_RESOURCE_QUEUE.html)。
+更多信息，请参见[DROP RESOURCE QUEUE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_RESOURCE_QUEUE.html)。
 
 ## DROP ROLE
 
@@ -1041,7 +1042,7 @@ DROP RESOURCE QUEUE queue_name
 DROP ROLE [IF EXISTS] name [, ...]
 ```
 
-更多信息请参考[DROP ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_ROLE.html)。
+更多信息，请参见[DROP ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_ROLE.html)。
 
 ## DROP RULE
 
@@ -1051,7 +1052,7 @@ DROP ROLE [IF EXISTS] name [, ...]
 DROP RULE [IF EXISTS] name ON relation [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP RULE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_RULE.html)。
+更多信息，请参见[DROP RULE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_RULE.html)。
 
 ## DROP SCHEMA
 
@@ -1061,7 +1062,7 @@ DROP RULE [IF EXISTS] name ON relation [CASCADE | RESTRICT]
 DROP SCHEMA [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP SCHEMA](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_SCHEMA.html)。
+更多信息，请参见[DROP SCHEMA](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_SCHEMA.html)。
 
 ## DROP SEQUENCE
 
@@ -1071,7 +1072,7 @@ DROP SCHEMA [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP SEQUENCE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP SEQUENCE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_SEQUENCE.html)。
+更多信息，请参见[DROP SEQUENCE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_SEQUENCE.html)。
 
 ## DROP TABLE
 
@@ -1081,7 +1082,7 @@ DROP SEQUENCE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP TABLE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_TABLE.html)。
+更多信息，请参见[DROP TABLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_TABLE.html)。
 
 ## DROP TYPE
 
@@ -1091,7 +1092,7 @@ DROP TABLE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP TYPE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP TYPE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_TYPE.html)。
+更多信息，请参见[DROP TYPE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_TYPE.html)。
 
 ## DROP USER
 
@@ -1101,7 +1102,7 @@ DROP TYPE [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP USER [IF EXISTS] name [, ...]
 ```
 
-更多信息请参考[DROP USER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_USER.html)。
+更多信息，请参见[DROP USER](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_USER.html)。
 
 ## DROP VIEW
 
@@ -1111,7 +1112,7 @@ DROP USER [IF EXISTS] name [, ...]
 DROP VIEW [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[DROP VIEW](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_VIEW.html)。
+更多信息，请参见[DROP VIEW](http://docs.greenplum.org/6-4/ref_guide/sql_commands/DROP_VIEW.html)。
 
 ## END
 
@@ -1121,7 +1122,7 @@ DROP VIEW [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 END [WORK | TRANSACTION]
 ```
 
-更多信息请参考[END](http://docs.greenplum.org/6-4/ref_guide/sql_commands/END.html)。
+更多信息，请参见[END](http://docs.greenplum.org/6-4/ref_guide/sql_commands/END.html)。
 
 ## EXECUTE
 
@@ -1131,7 +1132,7 @@ END [WORK | TRANSACTION]
 EXECUTE name [ (parameter [, ...] ) ]
 ```
 
-更多信息请参考[EXECUTE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/EXECUTE.html)。
+更多信息，请参见[EXECUTE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/EXECUTE.html)。
 
 ## EXPLAIN
 
@@ -1141,7 +1142,7 @@ EXECUTE name [ (parameter [, ...] ) ]
 EXPLAIN [ANALYZE] [VERBOSE] statement
 ```
 
-更多信息请参考[EXPLAIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/EXPLAIN.html)。
+更多信息，请参见[EXPLAIN](http://docs.greenplum.org/6-4/ref_guide/sql_commands/EXPLAIN.html)。
 
 ## FETCH
 
@@ -1151,7 +1152,7 @@ EXPLAIN [ANALYZE] [VERBOSE] statement
 FETCH [ forward_direction { FROM | IN } ] cursorname
 ```
 
-更多信息请参考[FETCH](http://docs.greenplum.org/6-4/ref_guide/sql_commands/FETCH.html) 。
+更多信息，请参见[FETCH](http://docs.greenplum.org/6-4/ref_guide/sql_commands/FETCH.html) 。
 
 ## GRANT
 
@@ -1197,7 +1198,7 @@ GRANT { SELECT | INSERT | ALL [PRIVILEGES] }
     TO username
 ```
 
-更多信息请参考[GRANT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/GRANT.html)。
+更多信息，请参见[GRANT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/GRANT.html)。
 
 ## INSERT
 
@@ -1209,7 +1210,7 @@ INSERT INTO table [( column [, ...] )]
    [, ...] | query}
 ```
 
-更多信息请参考[INSERT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/INSERT.html)。
+更多信息，请参见[INSERT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/INSERT.html)。
 
 ## LOAD
 
@@ -1219,7 +1220,7 @@ INSERT INTO table [( column [, ...] )]
 LOAD 'filename'
 ```
 
-更多信息请参考 [LOAD](http://docs.greenplum.org/6-4/ref_guide/sql_commands/LOAD.html)。
+更多信息，请参见 [LOAD](http://docs.greenplum.org/6-4/ref_guide/sql_commands/LOAD.html)。
 
 ## LOCK
 
@@ -1229,7 +1230,7 @@ LOAD 'filename'
 LOCK [TABLE] name [, ...] [IN lockmode MODE] [NOWAIT]
 ```
 
-更多信息请参考[LOCK](http://docs.greenplum.org/6-4/ref_guide/sql_commands/LOCK.html)。
+更多信息，请参见[LOCK](http://docs.greenplum.org/6-4/ref_guide/sql_commands/LOCK.html)。
 
 ## MOVE
 
@@ -1239,7 +1240,7 @@ LOCK [TABLE] name [, ...] [IN lockmode MODE] [NOWAIT]
 MOVE [ forward_direction {FROM | IN} ] cursorname
 ```
 
-更多信息请参考[MOVE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/MOVE.html)。
+更多信息，请参见[MOVE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/MOVE.html)。
 
 ## PREPARE
 
@@ -1249,7 +1250,7 @@ MOVE [ forward_direction {FROM | IN} ] cursorname
 PREPARE name [ (datatype [, ...] ) ] AS statement
 ```
 
-更多信息请参考[PREPARE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/PREPARE.html)。
+更多信息，请参见[PREPARE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/PREPARE.html)。
 
 ## REASSIGN OWNED
 
@@ -1259,7 +1260,7 @@ PREPARE name [ (datatype [, ...] ) ] AS statement
 REASSIGN OWNED BY old_role [, ...] TO new_role
 ```
 
-更多信息请参考[REASSIGN OWNED](http://docs.greenplum.org/6-4/ref_guide/sql_commands/REASSIGN_OWNED.html)。
+更多信息，请参见[REASSIGN OWNED](http://docs.greenplum.org/6-4/ref_guide/sql_commands/REASSIGN_OWNED.html)。
 
 ## REINDEX
 
@@ -1269,7 +1270,7 @@ REASSIGN OWNED BY old_role [, ...] TO new_role
 REINDEX {INDEX | TABLE | DATABASE | SYSTEM} name
 ```
 
-更多信息请参考[REINDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/REINDEX.html)。
+更多信息，请参见[REINDEX](http://docs.greenplum.org/6-4/ref_guide/sql_commands/REINDEX.html)。
 
 ## RELEASE SAVEPOINT
 
@@ -1279,7 +1280,7 @@ REINDEX {INDEX | TABLE | DATABASE | SYSTEM} name
 RELEASE [SAVEPOINT] savepoint_name
 ```
 
-更多信息请参考[RELEASE SAVEPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/RELEASE_SAVEPOINT.html)。
+更多信息，请参见[RELEASE SAVEPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/RELEASE_SAVEPOINT.html)。
 
 ## RESET
 
@@ -1291,7 +1292,7 @@ RESET configuration_parameter
 RESET ALL
 ```
 
-更多信息请参考[RESET](http://docs.greenplum.org/6-4/ref_guide/sql_commands/RESET.html)。
+更多信息，请参见[RESET](http://docs.greenplum.org/6-4/ref_guide/sql_commands/RESET.html)。
 
 ## REVOKE
 
@@ -1343,7 +1344,7 @@ REVOKE [ADMIN OPTION FOR] parent_role [, ...]
        [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[REVOKE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/REVOKE.html)。
+更多信息，请参见[REVOKE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/REVOKE.html)。
 
 ## ROLLBACK
 
@@ -1353,7 +1354,7 @@ REVOKE [ADMIN OPTION FOR] parent_role [, ...]
 ROLLBACK [WORK | TRANSACTION]
 ```
 
-更多信息请参考[ROLLBACK](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ROLLBACK.html)。
+更多信息，请参见[ROLLBACK](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ROLLBACK.html)。
 
 ## ROLLBACK TO SAVEPOINT
 
@@ -1363,7 +1364,7 @@ ROLLBACK [WORK | TRANSACTION]
 ROLLBACK [WORK | TRANSACTION] TO [SAVEPOINT] savepoint_name
 ```
 
-更多信息请参考[ROLLBACK TO SAVEPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ROLLBACK_TO_SAVEPOINT.html)。
+更多信息，请参见[ROLLBACK TO SAVEPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/ROLLBACK_TO_SAVEPOINT.html)。
 
 ## SAVEPOINT
 
@@ -1373,7 +1374,7 @@ ROLLBACK [WORK | TRANSACTION] TO [SAVEPOINT] savepoint_name
 SAVEPOINT savepoint_name
 ```
 
-更多信息请参考[SAVEPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SAVEPOINT.html)。
+更多信息，请参见[SAVEPOINT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SAVEPOINT.html)。
 
 ## SELECT
 
@@ -1395,7 +1396,7 @@ SELECT [ALL | DISTINCT [ON (expression [, ...])]]
   [FOR {UPDATE | SHARE} [OF table_name [, ...]] [NOWAIT] [...]]
 ```
 
-更多信息请参考[SELECT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SELECT.html)。
+更多信息，请参见[SELECT](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SELECT.html)。
 
 ## SELECT INTO
 
@@ -1418,7 +1419,7 @@ SELECT [ALL | DISTINCT [ON ( expression [, ...] )]]
     [...]]
 ```
 
-更多信息请参考[SELECT INTO](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SELECT_INTO.html)。
+更多信息，请参见[SELECT INTO](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SELECT_INTO.html)。
 
 ## SET
 
@@ -1431,7 +1432,7 @@ SET [SESSION | LOCAL] configuration_parameter {TO | =} value |
 SET [SESSION | LOCAL] TIME ZONE {timezone | LOCAL | DEFAULT}
 ```
 
-更多信息请参考[SET](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET.html)。
+更多信息，请参见[SET](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET.html)。
 
 ## SET ROLE
 
@@ -1445,7 +1446,7 @@ SET [SESSION | LOCAL] ROLE NONE
 RESET ROLE
 ```
 
-更多信息请参考[SET ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET_ROLE.html)。
+更多信息，请参见[SET ROLE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET_ROLE.html)。
 
 ## SET SESSION AUTHORIZATION
 
@@ -1459,7 +1460,7 @@ SET [SESSION | LOCAL] SESSION AUTHORIZATION DEFAULT
 RESET SESSION AUTHORIZATION
 ```
 
-更多信息请参考[SET SESSION AUTHORIZATION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET_SESSION_AUTHORIZATION.html)。
+更多信息，请参见[SET SESSION AUTHORIZATION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET_SESSION_AUTHORIZATION.html)。
 
 ## SET TRANSACTION
 
@@ -1472,7 +1473,7 @@ SET SESSION CHARACTERISTICS AS TRANSACTION transaction_mode
      [READ ONLY | READ WRITE]
 ```
 
-更多信息请参考[SET TRANSACTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET_TRANSACTION.html)。
+更多信息，请参见[SET TRANSACTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SET_TRANSACTION.html)。
 
 ## SHOW
 
@@ -1484,7 +1485,7 @@ SHOW configuration_parameter
 SHOW ALL
 ```
 
-更多信息请参考[SHOW](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SHOW.html)。
+更多信息，请参见[SHOW](http://docs.greenplum.org/6-4/ref_guide/sql_commands/SHOW.html)。
 
 ## START TRANSACTION
 
@@ -1495,7 +1496,7 @@ START TRANSACTION [SERIALIZABLE | READ COMMITTED | READ UNCOMMITTED]
                   [READ WRITE | READ ONLY]
 ```
 
-更多信息请参考[START TRANSACTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/START_TRANSACTION.html)。
+更多信息，请参见[START TRANSACTION](http://docs.greenplum.org/6-4/ref_guide/sql_commands/START_TRANSACTION.html)。
 
 ## TRUNCATE
 
@@ -1505,7 +1506,7 @@ START TRANSACTION [SERIALIZABLE | READ COMMITTED | READ UNCOMMITTED]
 TRUNCATE [TABLE] name [, ...] [CASCADE | RESTRICT]
 ```
 
-更多信息请参考[TRUNCATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/TRUNCATE.html)。
+更多信息，请参见[TRUNCATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/TRUNCATE.html)。
 
 ## UPDATE
 
@@ -1519,7 +1520,7 @@ UPDATE [ONLY] table [[AS] alias]
    [WHERE condition | WHERE CURRENT OF cursor_name ]
 ```
 
-更多信息请参考[UPDATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/UPDATE.html)。
+更多信息，请参见[UPDATE](http://docs.greenplum.org/6-4/ref_guide/sql_commands/UPDATE.html)。
 
 ## VACUUM
 
@@ -1532,7 +1533,7 @@ VACUUM [FULL] [FREEZE] [VERBOSE] ANALYZE
               [table [(column [, ...] )]]
 ```
 
-更多信息请参考[VACUUM](http://docs.greenplum.org/6-4/ref_guide/sql_commands/VACUUM.html)。
+更多信息，请参见[VACUUM](http://docs.greenplum.org/6-4/ref_guide/sql_commands/VACUUM.html)。
 
 ## VALUES
 
@@ -1544,5 +1545,5 @@ VALUES ( expression [, ...] ) [, ...]
    [LIMIT {count | ALL}] [OFFSET start]
 ```
 
-更多信息请参考[VALUES](http://docs.greenplum.org/6-4/ref_guide/sql_commands/VALUES.html)。
+更多信息，请参见[VALUES](http://docs.greenplum.org/6-4/ref_guide/sql_commands/VALUES.html)。
 
