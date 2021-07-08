@@ -246,6 +246,8 @@ ALTER RESOURCE QUEUE name WITH ( queue_attribute=value [, ... ] )
 
 ## ALTER ROLE
 
+修改一个数据库角色（用户或组）。
+
 ```
 ALTER ROLE name RENAME TO newname
 
