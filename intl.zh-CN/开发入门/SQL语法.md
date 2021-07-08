@@ -674,7 +674,7 @@ CREATE LIBRARY library_name LANGUAGE [JAVA] FROM oss_location OWNER ownername
 CREATE LIBRARY library_name LANGUAGE [JAVA] VALUES file_content_hex OWNER ownername
 ```
 
-更多信息，请参见[CREATE LIBRARY](https://www.alibabacloud.com/help/zh/doc-detail/126635.html)。
+更多信息，请参见[CREATE LIBRARY](/intl.zh-CN/开发进阶/PL/Java 使用/使用 Create Library 命令.md)。
 
 ## CREATE OPERATOR
 
@@ -809,7 +809,7 @@ CREATE [ [GLOBAL | LOCAL] {TEMPORARY | TEMP} ] TABLE table_name
 
 ## CREATE TRIGGER
 
-新的定义一个触发器。
+定义一个新的触发器。
 
 ```
 CREATE TRIGGER name {BEFORE | AFTER} {event [OR ...]}
@@ -1013,7 +1013,7 @@ DROP INDEX [IF EXISTS] name [, ...] [CASCADE | RESTRICT]
 DROP LIBRARY library_name
 ```
 
-更多信息，请参见[DROP LIBRARY](https://www.alibabacloud.com/help/zh/doc-detail/126635.html)。
+更多信息，请参见[DROP LIBRARY](/intl.zh-CN/开发进阶/PL/Java 使用/使用 Create Library 命令.md)。
 
 ## DROP OPERATOR
 
