@@ -46,7 +46,6 @@
 -   [CREATE SEQUENCE](#section_xqc_x3h_thb)
 -   [CREATE TABLE](#section_hjr_cjh_thb)
 -   [CREATE TABLE AS](#section_isp_fjh_thb)
--   [CREATE TRIGGER](#section_slz_cs9_0bv)
 -   [CREATE TYPE](#section_oxj_hjh_thb)
 -   [CREATE USER](#section_rgd_kjh_thb)
 -   [CREATE VIEW](#section_ff4_mjh_thb)
