@@ -41,7 +41,7 @@
     |--|--|
     |path-to-data|外表访问的目录，文件名，表名 例如 //data/pxf\_examples/pxf\_hdfs\_simple.txt|
     |PROFILE \[&<custom-option\>=<value\>\[...\]\]|PXF访问外部数据的配置。支持格式包括：Jdbc \| hdfs:text \| hdfs:text:multi \| hdfs:avro \| hdfs:json \| hdfs:parquet \| hdfs:AvroSequenceFile \| hdfs:SequenceFile \| HiveText \| HiveRC \| HiveORC \| HiveVectorizedORC \| HBase |
-    |FORMAT '\[TEXT\|CSV\|CUSTOM\]'|读取数据的格式。取值范围：|
+    |FORMAT '\[TEXT\|CSV\|CUSTOM\]'|读取数据的格式。取值范围：TEXT、CSV、CUSTOM。|
     |formatting-properties|与特定文件数据对应的格式化选项： formatter 或者 delimiter（分割符）    -   与CUSTOM搭配
         -   formatter='pxfwritable\_import'
         -   formatter='pxfwritable\_export'
@@ -49,7 +49,7 @@
 
         -   delimiter=E'\\t'
         -   delimiter ':'
-**说明：** escape 时需要加上 E |
+**说明：** escape 时需要加上 E。 |
     |SERVER|配置服务端文件的位置，该部分由后台技术人员操作后反馈给用户。    -   postgresql
     -   hdp3 |
 
