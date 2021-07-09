@@ -29,7 +29,7 @@ Instances that have a single coordinator node support the following features:
 -   50,000 TPS are supported for INSERT operations in TPC-B.
 -   20,000 TPS are supported for UPDATE operations in TPC-B.
 
-For instances that have multiple coordinator nodes, the number of connections and the I/O capabilities can linearly increase with the number of coordinator nodes if no bottlenecks occur on compute nodes. For more information, see [TPC benchmarks for instances that have multiple coordinator nodes](/intl.en-US/Performance index/TPC benchmarks for instances that have multiple coordinator nodes.md).
+For instances that have multiple coordinator nodes, the number of connections and the I/O capabilities can linearly increase with the number of coordinator nodes if no bottlenecks occur on compute nodes. For more information.
 
 ## OLAP
 
