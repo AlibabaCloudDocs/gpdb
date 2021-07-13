@@ -35,7 +35,7 @@ AnalyticDB PostgreSQL版Client SDK通过 API 形式旨在为用户提供高性�
 |setUser\(String username\)|需要连接的AnalyticDB PostgreSQL版使用的用户名。|
 |setPassword\(String pwd\)|设置连接的AnalyticDB PostgreSQL版使用的密码。|
 |addTable\(List<String\> table, String schema\)|需要写入的表名List，请按照表所属schema分别添加。该方法可调用多次，但在使用DatabaseConfig构造Adb4PGClient对象之后再调用不再生效。|
-|setColumns\(List<String\> columns, String tableName, String schemaName\)|需要插入表的字段名（若是全字段插入，columnList.add\("\*"\)即可, table列表中的所有表都需要设置字段名，不然检查不会通过|
+|setColumns\(List<String\> columns, String tableName, String schemaName\)|需要插入表的字段名（若是全字段插入，`columnList.add("*")`即可, table列表中的所有表都需要设置字段名，不然检查不会通过|
 |setInsertIgnore\(boolean insertIgnore\)|设置是否忽略发生主键冲突错误的数据行，要根据业务的使用场景进行判断，针对配置的所有表，默认为true|
 |setEmptyAsNull\(boolean emptyAsNull\)|设置empty数据设置为null，默认false，针对配置的所有表|
 |setParallelNumber\(int parallelNumber\)|设置写入ADB PG版时的并发线程数，默认4，针对配置的所有表，一般情况不建议修改|
@@ -52,7 +52,7 @@ AnalyticDB PostgreSQL版Client SDK通过 API 形式旨在为用户提供高性�
 
 |接口名称|描述|
 |----|--|
-|addRow\(Row row, String tableName, String schemaName\) / addRows\(List<Row\> rows, String tableName, String schemaName\)|插入对应表的Row格式化的数据，即一条记录，数据会存储在sdk的缓冲区中，等待commit。如果数据量超过commitSize会在addRow/addRows的时候做一次自动commit，然后将最新的数据add进来；如果在自动commit失败的时候失败，调用方需要处理此异常，并且会在异常中得到失败的数据list|
+|addRow\(Row row, String tableName, String schemaName\) / addRows\(List<Row\> rows, String tableName, String schemaName\)|插入对应表的Row格式化的数据，即一条记录，数据会存储在SDK的缓冲区中，等待commit。如果数据量超过commitSize会在addRow/addRows的时候做一次自动commit，然后将最新的数据add进来；如果在自动commit失败的时候失败，调用方需要处理此异常，并且会在异常中得到失败的数据list|
 |addMap\(Map<String, String\> dataMap,String tableName, String schemaName\) / addMaps\(List<Map<String, String\>\> dataMaps, String tableName, String schemaName\)|对应于addRow，支持map格式数据的写入，如果数据量满了会在addMap/addMaps的时候做一次自动commit，然后将最新的数据add进来；如果在自动commit失败的时候失败，调用方需要处理此异常，并且会在异常中得到失败的数据list|
 |commit\(\)|将缓存的数据进行提交，写入ADB PG版中，若commit失败，会把执行错误的语句放在异常中抛出，调用方需要对此异常进行处理|
 |TableInfo getTableInfo\(String tableName, String schemaName\)|获取对应table的结构信息|
@@ -67,7 +67,7 @@ AnalyticDB PostgreSQL版Client SDK通过 API 形式旨在为用户提供高性�
 
 |错误码名|错误码值|描述|
 |----|----|--|
-|COMMIT\_ERROR\_DATA\_LIST|101|commit中某些数据出现异常，会返回异常的数据。 **说明：** 通过e.getErrData\(\)即可获得异常数据List<String\>，此错误码在addMap\(s\)、addRow\(s\)和commit操作的时候都可能会发生，因此在这些操作的时候需要单独处理此错误码的异常 |
+|COMMIT\_ERROR\_DATA\_LIST|101|commit中某些数据出现异常，会返回异常的数据。 **说明：** 通过e.getErrData\(\)即可获得异常数据List<String\>，此错误码在addMap\(s\)、addRow\(s\)、commit操作的时候都可能会发生，因此在这些操作的时候需要单独处理此错误码的异常 |
 |COMMIT\_ERROR\_OTHER|102|commit中的其他异常|
 |ADD\_DATA\_ERROR|103|add数据过程中出现的异常|
 |CREATE\_CONNECTION\_ERROR|104|创建连接出现异常|
