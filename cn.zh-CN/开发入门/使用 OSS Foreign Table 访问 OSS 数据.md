@@ -24,7 +24,7 @@ OSS Foreign Table是基于 PostgreSQL Foreign Data Wrapper（简称PG FDW）框�
 
 目前OSS Foreign Table 支持orc，parquet，json，jsonline，csv（支持 gzip、标准 snappy 压缩）文件格式，同时支持按一个或多个字段进行分区，查询特定分区时起到过滤效果。
 
-OSS 上的数据，可以来自业务应用 APP 的写入，阿里云 SLS 的日志归档，阿里云 DLA 的 ETL 输出等。
+OSS 上的数据，可以来自业务应用 App 的写入，阿里云 SLS 的日志归档，阿里云 DLA 的 ETL 输出等。
 
 开始使用 OSS Foreign Table 
 -------------------------------------------
@@ -157,10 +157,10 @@ OSS 上的数据，可以来自业务应用 APP 的写入，阿里云 SLS 的日
 2.3 参数选项
 
 
-| 选项  | 是否必选 | 默认值 |     备注     |
-|-----|------|-----|------------|
-| id  | 必选   |     | OSS 账号 ID  |
-| key | 必选   |     | OSS 账号 KEY |
+|  选项   | 是否必选 | 默认值 |     备注     |
+|-------|------|-----|------------|
+| `id`  | 必选   |     | OSS 账号 ID  |
+| `key` | 必选   |     | OSS 账号 KEY |
 
 
 
@@ -245,7 +245,7 @@ OSS 上的数据，可以来自业务应用 APP 的写入，阿里云 SLS 的日
 | prefix   | 字符串 |    | 必选，三选一。 **说明** 均为相对于bucket的路径。 |     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | dir      | 字符串 |    | 必选，三选一。 **说明** 均为相对于bucket的路径。 |     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | bucket   | 字符串 |    | 可选                                             |     | Oss Server 和 Oss Table 必须有一个设置该选项且 Oss Table 的优先级高，会覆盖Oss Server 的值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| format   | 字符串 |    | 必选                                             |     | 指定文件格式，有效值如下： * csv   * text   * orc   * parquet   * json，参考[JSON 规范](https://www.json.org/json-en.html)了解当前支持的 json 规范。   * jsonline，参考[jsonline](http://jsonlines.org/)了解 jsonline 规范，简单来说就是以换行符分隔的 json。这里所有能被 jsonline 读取的数据一定可以用 json 读取，但反之则不一定。在可行的情况，更推荐使用 jsonline。    |
+| format   | 字符串 |    | 必选                                             |     | 指定文件格式，有效值如下： * csv   * text   * orc   * parquet   * json，参考[JSON 规范](https://www.json.org/json-en.html)了解当前支持的 JSON 规范。   * jsonline，参考[jsonline](http://jsonlines.org/)了解 jsonline 规范，简单来说就是以换行符分隔的 json。这里所有能被 jsonline 读取的数据一定可以用 json 读取，但反之则不一定。在可行的情况，更推荐使用 jsonline。    |
 
 
 
@@ -375,7 +375,7 @@ OSS 上的数据，可以来自业务应用 APP 的写入，阿里云 SLS 的日
    **说明**
 
    
-   * AnalyticDB for PostgreSQL的每个数据分区（Segment）将按轮询方式并行对 OSS 上的数据文件进行读取。
+   * AnalyticDB PostgreSQL的每个数据分区（Segment）将按轮询方式并行对 OSS 上的数据文件进行读取。
 
      
    
@@ -387,7 +387,7 @@ OSS 上的数据，可以来自业务应用 APP 的写入，阿里云 SLS 的日
 
      
    
-   * 文件的数目建议为 数据节点数（Segment 个数 × 单个Segment 核数）的整数倍，从而提升读取效率。
+   * 文件的数目建议为数据节点数（Segment 个数 × 单个Segment 核数）的整数倍，从而提升读取效率。
 
      
    
@@ -399,7 +399,7 @@ OSS 上的数据，可以来自业务应用 APP 的写入，阿里云 SLS 的日
    
    
 
-2. 在 AnalyticDB for PostgreSQL 中，创建 OSS Foreign 外表。
+2. 在 AnalyticDB PostgreSQL 中，创建 OSS Foreign 外表。
 
    
 
@@ -563,7 +563,7 @@ ADB PG OSS FDW 分区语法与定义普通分区表时采用的语法完全一�
 
 5.2.3 分区外表结构调整
 
-用户可通过 ALTER TABLE 命令完成一个已有外表分区的结构调整工作。当前支持：增加分区，删除原有分区。请参见[文档](https://gpdb.docs.pivotal.io/6-3/ref_guide/sql_commands/ALTER_TABLE.html)了解详细的语法定义，如下会通过例子来演示如何删除/新增分区：
+用户可通过 ALTER TABLE 命令完成一个已有外表分区的结构调整工作。当前支持：增加分区，删除原有分区。请参见[ALTER TABLE文档](https://gpdb.docs.pivotal.io/6-3/ref_guide/sql_commands/ALTER_TABLE.html)了解详细的语法定义，如下会通过例子来演示如何删除/新增分区：
 
 
 
@@ -1074,7 +1074,7 @@ OSS 外表实际数据存储在OSS上，默认不进行数据的统计信息收�
 OSS 外表文件数与集群 Segment 节点数对应关系 
 -------------------------------------------------
 
-* AnalyticDB for PostgreSQL的每个数据分区（Segment）将按轮询方式并行对 OSS 上的数据文件进行读取。
+* AnalyticDB PostgreSQL的每个数据分区（Segment）将按轮询方式并行对 OSS 上的数据文件进行读取。
 
   
 
@@ -1287,7 +1287,7 @@ Oss Foreign 外表扫描过程中，当出现形如：
 
 
 
-请参见[OSS错误响应](/cn.zh-CN/开发指南/错误处理/错误响应.md)中的文档了解和处理各类错误。
+请参见[OSS错误响应](/cn.zh-CN/错误码/错误响应.md)中的文档了解和处理各类错误。
 
 与 OSS External Table 区别 
 --------------------------------------------
@@ -1322,7 +1322,7 @@ Oss Foreign 外表扫描过程中，当出现形如：
 
   
 
-* [OSS错误响应](/cn.zh-CN/开发指南/错误处理/错误响应.md)
+* [OSS错误响应](/cn.zh-CN/错误码/错误响应.md)
 
   
 
