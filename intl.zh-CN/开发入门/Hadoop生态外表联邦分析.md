@@ -39,7 +39,7 @@
 
     |参数|说明|
     |--|--|
-    |path-to-data|外表访问的目录，文件名，表名 例如 //data/pxf\_examples/pxf\_hdfs\_simple.txt|
+    |path-to-data|外表访问的目录，文件名，表名例如 //data/pxf\_examples/pxf\_hdfs\_simple.txt|
     |PROFILE \[&<custom-option\>=<value\>\[...\]\]|PXF访问外部数据的配置。支持格式包括：Jdbc \| hdfs:text \| hdfs:text:multi \| hdfs:avro \| hdfs:json \| hdfs:parquet \| hdfs:AvroSequenceFile \| hdfs:SequenceFile \| HiveText \| HiveRC \| HiveORC \| HiveVectorizedORC \| HBase |
     |FORMAT '\[TEXT\|CSV\|CUSTOM\]'|读取数据的格式。取值范围：TEXT、CSV、CUSTOM。|
     |formatting-properties|与特定文件数据对应的格式化选项： formatter 或者 delimiter（分割符）    -   与CUSTOM搭配
@@ -116,7 +116,7 @@
     详细字段说明请参见[基本语法](#section_prh_36f_6cz)。
 
 
--   **示例 向HDFS写入\(TEXT,CSV\)**
+-   **示例：向HDFS写入`(TEXT,CSV)`**
 
     前提条件：在HDFS上构建数据目录/data/pxf\_examples/pxfwritable\_hdfs\_textsimple1。
 
