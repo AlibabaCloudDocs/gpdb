@@ -1,6 +1,6 @@
 # Database外表联邦分析
 
-云原生数据仓库 AnalyticDB PostgreSQL （简称 ADB PG）支持通过JDBC的方式访问Oracle、PostgreSQL、MySQL外部数据源。
+云原生数据仓库AnalyticDB PostgreSQL（简称ADB PG）支持通过JDBC的方式访问Oracle、PostgreSQL、MySQL外部数据源。
 
 **说明：**
 
@@ -13,7 +13,7 @@
 
 |连接对象|提交工单内容|
 |----|------|
-|SQL Database\(PostgreSQL, Mysql, Oracle\)|JDBC的连接串、目标访问外部数据源的用户名和密码|
+|SQL Database\(PostgreSQL, Mysql, Oracle\)|JDBC的连接串、目标访问外部数据源的用户名和密码。|
 
 ## 使用Database外表联邦分析
 
@@ -33,25 +33,25 @@
     FORMAT '[TEXT|CSV|CUSTOM]' (<formatting-properties>);
     ```
 
-    创建 EXTERNAL TABLE 语法请参见[CREATE EXTERNAL TABLE](/intl.zh-CN/开发入门/SQL语法.md)。
+    创建EXTERNAL TABLE语法请参见[CREATE EXTERNAL TABLE](/intl.zh-CN/开发入门/SQL语法.md)。
 
     |参数|说明|
     |--|--|
-    |path-to-data|外表访问表名，例如 public.test\_a|
+    |path-to-data|外表访问表名，例如 public.test\_a。|
     |PROFILE \[&<custom-option\>=<value\>\[...\]\]|访问外部数据的配置。使用JDBC方式访问外部数据库时使用PROFILE=Jdbc |
     |FORMAT '\[TEXT\|CSV\|CUSTOM\]'|读取文件的格式。|
-    |formatting-properties|与特定文件数据对应的格式化选项： formatter 或者 delimiter（分割符）    -   与CUSTOM搭配
+    |formatting-properties|与特定文件数据对应的格式化选项：formatter或者delimiter（分割符）    -   与CUSTOM搭配
         -   formatter='pxfwritable\_import'
         -   formatter='pxfwritable\_export'
     -   与TEXT\|CSV搭配
 
         -   delimiter=E'\\t'
         -   delimiter ':'
-**说明：** escape 时需要加上 E |
+**说明：** escape时需要加上E。 |
     |SERVER|配置服务端文件的位置，该部分由后台技术人员操作后反馈给用户。|
 
 
-## 示例 访问 postgresql 数据库
+## 示例：访问postgresql数据库
 
 ADB PG后台技术人员配置完成后，您可以在ADB PG数据库中采用以下SQL语句创建外表并查询。
 
@@ -76,11 +76,11 @@ postgres=# select * from pxf_ext_pg;
 
 LOCATION各字段含义说明：
 
--   pxf:// ：pxf 协议，固定值
--   public.t：代表数据库public下的表名为 t 的表。
--   PROFILE=Jdbc: 代表使用Jdbc访问外部数据源
+-   pxf:// ：pxf 协议，固定值。
+-   public.t：代表数据库public下的表名为t的表。
+-   PROFILE=Jdbc: 代表使用JDBC访问外部数据源
 -   SERVER=postgresql：ADB PG的后台技术人员将提供该选项。后台人员会根据您提交的工单要求进行相对应配置。此例中SERVER=postgresql 代表使用PXF\_SERVER/postgresql/下的配置文件来支持连接。
--   FORMAT 'CUSTOM' \(FORMATTER='pxfwritable\_import'\) ：外部数据源格式配置项。 查询外部数据源 table 时使用 CUSTOM ，并与 FORMATTER='pxfwritable\_import' 搭配。
+-   FORMAT 'CUSTOM' \(FORMATTER='pxfwritable\_import'\)：外部数据源格式配置项。查询外部数据源table时使用CUSTOM，并与FORMATTER='pxfwritable\_import'搭配。
 
 ```
 CREATE EXTERNAL TABLE pxf_ext_test_a( id int,name varchar)
