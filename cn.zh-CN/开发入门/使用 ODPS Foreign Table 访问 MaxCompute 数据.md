@@ -1,9 +1,13 @@
 使用 ODPS Foreign Table 访问 MaxCompute 数据 
 ===========================================================
 
-ODPS FDW 是 AnalyticDB PostgreSQL 版（简称 ADB PG）基于 PostgreSQL Foreign Data Wrapper（简称 PG FDW）框架开发的用于访问大数据计算服务MaxCompute（原名 ODPS）的外部数据访问方案。整理概览如下图：
+ODPS FDW 是 AnalyticDB PostgreSQL 版（简称 ADB PG）基于 PostgreSQL Foreign Data Wrapper是（简称 PG FDW）框架开发的用于访问大数据计算服务MaxCompute（原名 ODPS）的外部数据访问方案。
+
+概览如下图：
 
 ![ODPS概览](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6923588951/p141763.png)
+
+
 
 ODPS FDW 模块的加入，填补了当前 ADB PG 与 MaxCompute 的数据同步链路的缺失。用户通过 ODPS FDW 可以创建三种类型的 ODPS 外表。
 
@@ -106,7 +110,7 @@ ODPS FDW 模块的加入，填补了当前 ADB PG 与 MaxCompute 的数据同步
 
 
 
-关于 ODPS Endpoint，请参见[配置Endpoint](/cn.zh-CN/准备工作/配置Endpoint.md)。
+关于 ODPS Endpoint，请参见[配置Endpoint](/cn.zh-CN/准备工作/Endpoint.md)。
 
 2. 创建 ODPS User Mapping 
 --------------------------------------------
@@ -145,10 +149,10 @@ ODPS FDW 模块的加入，填补了当前 ADB PG 与 MaxCompute 的数据同步
 在 ADB PG 中定义访问 ODPS Server 的账户，需要指定账户类型 TYPE，ID 和 KEY。
 
 
-| 选项  | 是否必选 |   备注    |
-|-----|------|---------|
-| id  | 必选   | 指定账户ID  |
-| key | 必选   | 指定账户KEY |
+|  选项   | 是否必选 |   备注    |
+|-------|------|---------|
+| `id`  | 必选   | 指定账户ID  |
+| `key` | 必选   | 指定账户KEY |
 
 
 
@@ -175,11 +179,11 @@ ODPS FDW 模块的加入，填补了当前 ADB PG 与 MaxCompute 的数据同步
 定义了 ODPS Server 和 ODPS User Mapping 后，就可以创建 ODPS Foreign Table。参数选项包括：
 
 
-|    选项     | 是否必选 |                                                                                                   备注                                                                                                   |
-|-----------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| project   | 必选   | 即项目/项目空间。项目空间（Project）是 MaxCompute 的基本组织单元，它类似于传统数据库的 Database 或 Schema 的概念，是进行多用户隔离和访问控制的主要边界。详情请参见[项目](/cn.zh-CN/产品简介/基本概念/项目.md)。                                                   |
-| table     | 必选   | 即 ODPS 表。表是 MaxCompute 的数据存储单元，详情请参见[表](/cn.zh-CN/产品简介/基本概念/表.md)。                                                                                                                     |
-| partition | 可选   | 即用于定义 MaxCompute 的末级分区表。分区 partition 是指一张表下，根据分区字段（一个或多个字段的组合）对数据存储进行划分。也就是说，如果表没有分区，数据是直接放在表所在的目录下。如果表有分区，每个分区对应表下的一个目录，数据是分别存储在不同的分区目录下。关于分区的更多介绍请参见[分区](/cn.zh-CN/产品简介/基本概念/分区.md)。 |
+|     选项      | 是否必选 |                                                                                                   备注                                                                                                   |
+|-------------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `project`   | 必选   | 即项目/项目空间。项目空间（Project）是 MaxCompute 的基本组织单元，它类似于传统数据库的 Database 或 Schema 的概念，是进行多用户隔离和访问控制的主要边界。详情请参见[项目](/cn.zh-CN/产品简介/基本概念/项目.md)。                                                   |
+| `table`     | 必选   | 即 ODPS 表。表是 MaxCompute 的数据存储单元，详情请参见[表](/cn.zh-CN/产品简介/基本概念/表.md)。                                                                                                                     |
+| `partition` | 可选   | 即用于定义 MaxCompute 的末级分区表。分区 partition 是指一张表下，根据分区字段（一个或多个字段的组合）对数据存储进行划分。也就是说，如果表没有分区，数据是直接放在表所在的目录下。如果表有分区，每个分区对应表下的一个目录，数据是分别存储在不同的分区目录下。关于分区的更多介绍请参见[分区](/cn.zh-CN/产品简介/基本概念/分区.md)。 |
 
 
 
