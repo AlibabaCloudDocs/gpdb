@@ -185,6 +185,6 @@ GPTRANSFER也支持指定单库单表迁移，详细可执行`python gptransfer 
 您可也以使用阿里云DataWorks工具来迁移数据。
 
 -   DataWorks简介，请参见[DataWorks官网](https://www.aliyun.com/product/bigdata/ide)。
--   DataWorks集成指导，请参见[Dataworks数据集成](/cn.zh-CN/数据接入/Dataworks数据集成.md)。
--   DataWorks调度配置，请参见[Dataworks作业调度](/cn.zh-CN/数仓开发/Dataworks作业调度.md)。
+-   DataWorks集成指导，请参见[DataWorks数据集成](/cn.zh-CN/数据接入/Dataworks数据集成.md)。
+-   DataWorks调度配置，请参见[DataWorks作业调度](/cn.zh-CN/数仓开发/Dataworks作业调度.md)。
 
