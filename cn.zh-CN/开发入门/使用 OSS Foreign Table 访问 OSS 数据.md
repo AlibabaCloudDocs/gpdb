@@ -245,7 +245,7 @@ OSS 上的数据，可以来自业务应用 App 的写入，阿里云 SLS 的日
 | prefix   | 字符串 |    | 必选，三选一。 **说明** 均为相对于bucket的路径。 |     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | dir      | 字符串 |    | 必选，三选一。 **说明** 均为相对于bucket的路径。 |     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | bucket   | 字符串 |    | 可选                                             |     | Oss Server 和 Oss Table 必须有一个设置该选项且 Oss Table 的优先级高，会覆盖Oss Server 的值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| format   | 字符串 |    | 必选                                             |     | 指定文件格式，有效值如下： * csv   * text   * orc   * parquet   * json，参考[JSON 规范](https://www.json.org/json-en.html)了解当前支持的 JSON 规范。   * jsonline，参考[jsonline](http://jsonlines.org/)了解 jsonline 规范，简单来说就是以换行符分隔的 json。这里所有能被 jsonline 读取的数据一定可以用 json 读取，但反之则不一定。在可行的情况，更推荐使用 jsonline。    |
+| format   | 字符串 |    | 必选                                             |     | 指定文件格式，有效值如下： * csv   * text   * orc   * parquet   * json，参考[JSON 规范](https://www.json.org/json-en.html)了解当前支持的 JSON 规范。   * jsonline，参考[jsonline](http://jsonlines.org/)了解 jsonline 规范，简单来说就是以换行符分隔的 json。这里所有能被 jsonline 读取的数据一定可以用 JSON 读取，但反之则不一定。在可行的情况，更推荐使用 jsonline。    |
 
 
 
@@ -664,7 +664,7 @@ ADB PG OSS FDW 分区语法与定义普通分区表时采用的语法完全一�
 
 5.3 使用场景
 
-外表分区表的一个典型场景是[OSS FDW 访问 SLS 投递数据](#section-juz-qpj-6yo)。业务APP写入数据到OSS时也可以使用类似目录组织，然后在定义外表时使用分区表。
+外表分区表的一个典型场景是[OSS FDW 访问 SLS 投递数据](#section-juz-qpj-6yo)。业务App写入数据到OSS时也可以使用类似目录组织，然后在定义外表时使用分区表。
 
 6.使用 OSS Foreign Table 导出数据 
 ------------------------------------------------
@@ -1139,6 +1139,8 @@ ORC - ADB for PG 数据类型对照如下：
 | int8\[\]   | LIST(LONG)   |
 | float4\[\] | LIST(FLOAT)  |
 | float8\[\] | LIST(DOUBLE) |
+
+
 
 
 
