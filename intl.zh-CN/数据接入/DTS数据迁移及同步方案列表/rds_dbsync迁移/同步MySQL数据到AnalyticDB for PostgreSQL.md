@@ -1,8 +1,6 @@
 # rds\_dbsync迁移/同步MySQL数据到AnalyticDB for PostgreSQL
 
-## rds\_dbsync
-
-rds\_dbsync 为开源的数据同步/迁移工具 ，其 mysql2pgsql 功能支持不落地的把MySQL中的表迁移到AnalyticDB for PostgreSQL/Greenplum Database/PostgreSQL/PPAS。此工具的原理是，同时连接源端MySQL数据库和目的端数据库，从MySQL库中通过查询得到要导出的数据，然后通过 COPY命令导入到目的端。此工具支持多线程导入（每个工作线程负责导入一部分数据库表）。
+rds\_dbsync为开源的数据同步迁移工具 ，其mysql2pgsql功能支持不落地的把MySQL中的表迁移到AnalyticDB PostgreSQL/Greenplum Database/PostgreSQL/PPAS。此工具的原理是，同时连接源端MySQL数据库和目的端数据库，从MySQL库中通过查询得到要导出的数据，然后通过 COPY命令导入到目的端。此工具支持多线程导入（每个工作线程负责导入一部分数据库表）。
 
 ## 参数配置
 
@@ -23,7 +21,7 @@ rds\_dbsync 为开源的数据同步/迁移工具 ，其 mysql2pgsql 功能支�
     encoding = "utf8"
     ```
 
--   目的库pgsql（包括Postgresql、PPAS和AnalyticDB for PostgreSQL）的连接信息如下：
+-   目的库pgsql（包括Postgresql、PPAS和AnalyticDB PostgreSQL）的连接信息如下：
 
     **说明：** 目的库pgsql的连接信息，用户需要对目标表有写的权限。
 
@@ -54,13 +52,9 @@ mysql2pgsql的用法如下所示：
     ```
 
 -   -d：可选参数，表示只生成目的表的建表DDL语句，不实际进行数据同步。
-
 -   -n：可选参数，需要与-d一起使用，指定在DDL语句中不包含表分区定义。
-
 -   -j：可选参数，指定使用多少线程进行数据同步；如果不指定此参数，会使用5个线程并发。
-
 -   -s：可选参数，指定目标表的schema，目前仅支持设定为public。
-
 
 ## 典型用法
 
@@ -86,7 +80,7 @@ mysql2pgsql的用法如下所示：
 
 **部分表迁移**
 
-1.  编辑一个新文件 tab\_list.txt，放入如下内容：
+1.  编辑一个新文件tab\_list.txt，放入如下内容：
 
     ```
     t1
@@ -102,8 +96,8 @@ mysql2pgsql的用法如下所示：
 
 ## 下载与说明
 
--   下载mysql2pgsql二进制安装包下载，请单击[这里](https://github.com/aliyun/rds_dbsync/releases)。
+-   下载[mysql2pgsql](https://github.com/aliyun/rds_dbsync/releases)二进制安装包。
 
--   查看mysql2pgsql源码编译说明，请单击[这里](https://github.com/aliyun/rds_dbsync/blob/master/README.md)。
+-   查看[mysql2pgsql](https://github.com/aliyun/rds_dbsync/blob/master/README.md)源码编译说明。
 
 
