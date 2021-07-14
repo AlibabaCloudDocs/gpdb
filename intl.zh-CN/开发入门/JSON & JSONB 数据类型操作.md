@@ -1,6 +1,8 @@
 # JSON & JSONB 数据类型操作
 
-JSON 类型几乎已成为互联网及物联网（IoT）的基础数据类型，具体协议请参见 [JSON 官网](http://www.json.org/)。AnalyticDB for PostgreSQL数据库对JSON数据类型做了完善的支持。并且AnalyticDB for PostgreSQL 6.0版本支持JSONB类型。这部分介绍对JSON & JSONB数据类型的操作，包括：
+JSON 类型几乎已成为互联网及物联网（IoT）的基础数据类型，AnalyticDB PostgreSQL数据库对JSON数据类型做了完善的支持。并且AnalyticDB PostgreSQL 6.0版支持JSONB类型。
+
+这部分介绍对JSON & JSONB数据类型的操作，包括：
 
 -   [JSON & JSONB的异同](#section_kfx_uem_o8c)
 -   [JSON输入输出语法](#section_g2k_mpc_s3b)
@@ -10,15 +12,17 @@ JSON 类型几乎已成为互联网及物联网（IoT）的基础数据类型，
 -   [JSON处理函数](#section_o8w_ie1_pj8)
 -   [JSONB创建索引](#section_nap_r06_41p)
 
+具体协议请参见 [JSON 官网](http://www.json.org/)。
+
 ## JSON & JSONB的异同
 
-JSON和JSONB类型在使用上几乎完全一致，两者的区别主要在存储上，json数据类型直接存储输入文本的完全的拷贝，JSONB数据类型以二进制格式进行存储。同时JSONB相较于JSON更高效，处理速度提升非常大，且支持索引，一般情况下，AnalyticDB for PostgreSQL 6.0版本都建议使用JSONB类型替代JSON类型
+JSON和JSONB类型在使用上几乎完全一致，两者的区别主要在存储上，json数据类型直接存储输入文本的完全的拷贝，JSONB数据类型以二进制格式进行存储。同时JSONB相较于JSON更高效，处理速度提升非常大，且支持索引，一般情况下，AnalyticDB PostgreSQL 6.0版都建议使用JSONB类型替代JSON类型
 
 ## JSON输入输出语法
 
-AnalyticDB for PostgreSQL支持的JSON数据类型的输入和输出语法详见[RFC 7159](https://tools.ietf.org/html/rfc7159#page-4)。
+AnalyticDB PostgreSQL支持的JSON数据类型的输入和输出语法详见[RFC 7159](https://tools.ietf.org/html/rfc7159#page-4)。
 
-一个JSON数值可以是一个简单值（数字、字符串、true/null/false），数组，对象。下列都是合法的json表达式：
+一个JSON数值可以是一个简单值（数字、字符串、true/null/false），数组，对象。下列都是合法的JSON表达式：
 
 ```
 -- 简单标量/简单值
@@ -143,7 +147,7 @@ CREATE INDEX idx_name ON table_name USING gin (idx_col);
 CREATE INDEX idx_name ON table_name USING gin (idx_col jsonb_path_ops);
 ```
 
-**说明：** 在JSONB上创建GIN索引的方式有两种：使用默认的jsonb\_ops操作符创建和使用jsonb\_path\_ops操作符创建。两者的区别是:在jsonb\_ops的GIN索引中，JSONB数据中的每个key和value都是作为一个单独的索引项的，而jsonb\_path\_ops则只为每个value创建一个索引项。
+**说明：** 在JSONB上创建GIN索引的方式有两种：使用默认的jsonb\_ops操作符创建和使用jsonb\_path\_ops操作符创建。两者的区别在jsonb\_ops的GIN索引中，JSONB数据中的每个key和value都是作为一个单独的索引项的，而jsonb\_path\_ops则只为每个value创建一个索引项。
 
 ## JSON操作举例
 
@@ -170,7 +174,7 @@ INSERT 0 1
 
 **说明：** JSON 类型不能支持作为分布键来使用；也不支持 JSON 聚合函数。
 
-多表 JOIN
+多表JOIN
 
 ```
 create table tj2(id serial, ary int[], obj json, num integer);
@@ -308,10 +312,10 @@ EXPLAIN ANALYZE SELECT * FROM jtest3 where jdoc @> '{"name":"N9WP5txmVu"}';
  Execution time: 1.291 ms
 (11 rows)
 
-			
+            
 ```
 
-下面是 Python 访问的一个例子：
+下面是Python访问的一个例子：
 
 ```
 #! /bin/env python
