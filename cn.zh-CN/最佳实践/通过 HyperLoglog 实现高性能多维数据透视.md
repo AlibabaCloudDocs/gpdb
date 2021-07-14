@@ -1,6 +1,6 @@
 # 通过 HyperLoglog 实现高性能多维数据透视
 
-本文通过电商类数据透视示例，介绍了使用AnalyticDB for PostgreSQL通过HLL预计算，实现毫秒级多维数据透视的方法。关于HyperLogLog的用法，请参考[使用HLL](/cn.zh-CN/开发进阶/高级扩展插件使用/HyperLogLog 的使用.md)。
+本文通过电商类数据透视示例，介绍了使用AnalyticDB PostgreSQL通过HLL预计算，实现毫秒级多维数据透视的方法。关于HyperLogLog的用法，请参考[使用HLL](/cn.zh-CN/开发进阶/高级扩展插件使用/HyperLogLog 的使用.md)。
 
 ## 实践总结
 
@@ -338,5 +338,5 @@ group by
 
 ## 流式调度
 
-如果业务方有实时统计的需求，那么可以使用流式计算的方法，实时进行以上聚合统计。如果数据量非常庞大，可以根据分区键，对数据进行分流，不同的数据落到不同的流计算节点，最后汇总流计算的结果到AnalyticDB for PostgreSQL\(base on GPDB\)中。
+如果业务方有实时统计的需求，那么可以使用流式计算的方法，实时进行以上聚合统计。如果数据量非常庞大，可以根据分区键，对数据进行分流，不同的数据落到不同的流计算节点，最后汇总流计算的结果到AnalyticDB PostgreSQL（base on GPDB）中。
 
