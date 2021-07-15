@@ -1,6 +1,6 @@
 # OSS外表高速导入或导出OSS数据
 
-OSS为阿里云对象存储服务，云原生数据仓库AnalyticDB PostgreSQL版支持通过OSS外部表（即gpossext功能），将数据并行从OSS云存储 导入或导出到OSS云存储，并支持通过gzip进行OSS外部表文件压缩，大量节省存储空间及成本。
+OSS为阿里云对象存储服务，云原生数据仓库AnalyticDB PostgreSQL版支持通过OSS外部表（即gpossext功能），将数据并行从OSS云存储导入或导出到OSS云存储，并支持通过gzip进行OSS外部表文件压缩，大量节省存储空间及成本。
 
 目前的gpossext支持读写text/csv格式的文件或者gzip 压缩格式的text/csv文件。
 
