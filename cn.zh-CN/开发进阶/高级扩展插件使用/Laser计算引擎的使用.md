@@ -47,14 +47,14 @@ Laser计算引擎可以通过GUC参数**laser.enable**开启或关闭，on表示
 -   关闭库级别Laser，示例如下：
 
     ```
-    onalter database ${DBNAME} set laser.enable = off;
+    alter database ${DBNAME} set laser.enable = off;
     ```
 
 
 **说明：**
 
 -   目前不支持修改集群级别的Laser，建议您使用库级别或Session级别的设置。如果需要修改集群级别Laser，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)联系技术支持进行修改。
--   内核版本为6.3.4.0以前版本，Laser计算引擎状态默认为关闭；6.3.4.0及以后版本，Laser计算引擎状态默认为开启。如何查看和升级内核小版本，请参见[查看内核小版本]()和[版本升级](/cn.zh-CN/实例管理/版本管理/版本升级.md)。
+-   内核版本为6.3.4.0以前版本，Laser计算引擎状态默认为关闭；6.3.4.0及以后版本，Laser计算引擎状态默认为开启。如何查看和升级内核小版本，请参见[查看内核小版本](/cn.zh-CN/实例管理/版本管理/查看内核小版本.md)和[版本升级](/cn.zh-CN/实例管理/版本管理/版本升级.md)。
 
 ## 支持的数据类型和操作
 
