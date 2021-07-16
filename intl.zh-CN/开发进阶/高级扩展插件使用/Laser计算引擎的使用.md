@@ -1,42 +1,72 @@
 # Laser计算引擎的使用
 
-Laser计算引擎是阿里巴巴自研的ADBPG计算引擎，对客户透明，可以提升复杂计算的性能，经实测，1GB、100GB、1TB、10TB数据规模下，TPCH 22条SQL的测试性能是原生引擎的2倍以上。
+Laser计算引擎是阿里巴巴自研的AnalyticDB PostgreSQL计算引擎，对客户透明，可以提升复杂计算的性能，经实测，1 GB、100 GB、1 TB、10 TB数据规模下，TPCH 22条SQL的测试性能是原生引擎的2倍以上。
 
-## 打开/关闭Laser
+## 功能限制
 
-Laser 计算引擎通过GUC参数laser.enable打开或者关闭，on 表示使用Laser计算引擎，select查询会通过Laser返回结果，off表示计算通过原生引擎返回结果。默认状态为关闭状态。该参数可以设置为session级别、库级别和集群级别，session结束恢复到默认状态，库级别设置以后立即生效，集群级别重启后生效。可以通过下面SQL查看、修改：
+-   建议使用ORCA优化器。
+-   仅如下支持 AnalyticDB PostgreSQL 6.0版及以上版本。
 
-```
---- 查看Laser是否开启
-show laser.enable;
---- session级别关闭Laser
-set laser.enable = off;
---- session级别开启Laser
-set laser.enable = on;
---- 库级别关闭Laser
-alter database ${DBNAME} set laser.enable = off;
---- 库级别开启Laser
-alter database ${DBNAME} set laser.enable = on;
-```
+## 开启或关闭Laser
 
-**说明：** : 集群级别的设置请联系阿里云管理员，建议使用库级别或者session级别的设置。
+Laser计算引擎可以通过GUC参数**laser.enable**开启或关闭，on表示开启；off表示关闭。该参数可以设置Session级别、库级别和集群级别，Session结束后恢复到默认状态，库级别设置后立即生效，集群级别设置后重启生效，以下内容将为您介绍如何查看或修改Laser计算引擎状态：
+
+-   查看Laser计算引擎的状态，示例如下：
+
+    ```
+    show laser.enable;
+    ```
+
+    返回示例如下：
+
+    ```
+     laser.enable
+    --------------
+     on
+    (1 row)
+    ```
+
+-   开启Session级别Laser，示例如下：
+
+    ```
+    set laser.enable = on;
+    ```
+
+-   关闭Session级别Laser，示例如下：
+
+    ```
+    set laser.enable = off;
+    ```
+
+-   开启库级别Laser，示例如下：
+
+    ```
+    alter database ${DBNAME} set laser.enable = on;
+    ```
+
+-   关闭库级别Laser，示例如下：
+
+    ```
+    onalter database ${DBNAME} set laser.enable = off;
+    ```
+
+
+**说明：**
+
+-   目前不支持修改集群级别的Laser，建议您使用库级别或Session级别的设置。如果需要修改集群级别Laser，请[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)联系技术支持进行修改。
+-   内核版本为6.3.4.0以前版本，Laser计算引擎状态默认为关闭；6.3.4.0及以后版本，Laser计算引擎状态默认为开启。如何查看和升级内核小版本，请参见[查看内核小版本]()和[版本升级](/intl.zh-CN/实例管理/版本管理/版本升级.md)。
 
 ## 支持的数据类型和操作
 
-Laser支持如下数据类型：
+Laser支持的数据类型如下：
 
--   INT2/INT4/INT8
--   FLOAT4/FLOAT8/NUMERIC
--   DATE/TIME/TIMETZ/TIMESTAMP/TIMESTAMPTZ
--   VARCHAR/TEXT/BPCHAR
+-   INT2、INT4、INT8
+-   FLOAT4、FLOAT8、NUMERIC
+-   DATE、TIME、TIMETZ、TIMESTAMP、TIMESTAMPTZ
+-   VARCHAR、TEXT、BPCHAR
 
-Laser支持如下操作符：
+Laser支持的操作符如下：
 
 -   =、<、<=、\>、\>=、<\> or !=、BETWEEN、 IS NOT NULL、 IS NULL、LIKE
--   逻辑运算符：and、or、not
-
-## Laser的限制
-
--   推荐使用ORCA优化器
--   只支持ADBPG 6.0 及以上版本
+-   逻辑运算符：AND、OR、NOT
 
