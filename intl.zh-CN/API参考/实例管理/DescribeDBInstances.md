@@ -10,8 +10,10 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeDBInstances|系统规定参数。取值：DescribeDBInstances。 |
-|RegionId|String|是|cn-hangzhou|地域ID。 |
+|Action|String|是|DescribeDBInstances|系统规定参数。取值：**DescribeDBInstances**。 |
+|RegionId|String|是|cn-hangzhou|地域ID。
+
+ **说明：** 您可以通过[DescribeRegions](~~86912~~)接口查看可用的地域ID。 |
 |DBInstanceDescription|String|否|gp-xxxxxxxx|实例描述。 |
 |InstanceNetworkType|String|否|VPC|实例网络类型，取值范围如下：
 
@@ -67,7 +69,7 @@
 -   LockByDiskQuota：实例空间满自动锁定 |
 |EngineVersion|String|4.3|数据库版本。 |
 |RegionId|String|cn-hangzhou|地域ID。 |
-|VSwitchId|String|vsw-xxxxxxxxx|VSwitch ID。 |
+|VSwitchId|String|vsw-xxxxxxxxx|vSwitch ID。 |
 |InstanceNetworkType|String|VPC|实例网络类型。
 
  -   VPC：专有网络类型
