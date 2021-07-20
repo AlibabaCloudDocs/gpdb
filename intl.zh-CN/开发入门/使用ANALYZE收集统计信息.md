@@ -34,5 +34,5 @@ SELECT partitiontablename from pg_partitions WHERE tablename='parent_table';
 -   CREATE INDEX之后。
 -   在做大量的INSERT、UPDATE以及DELETE操作之后。
 
-ANALYZE会在表上要求一个读锁，因此它可以与其他数据库活动并行运行，但不要在执行导入、INSERT、UPDATE、DELETE以及CREATE INDEX操作期间会运行ANALYZE。
+ANALYZE会在表上要求一个读锁，因此它可以与其他数据库活动并行运行，但不要在执行导入、INSERT、UPDATE、DELETE以及CREATE INDEX操作期间运行ANALYZE。
 
